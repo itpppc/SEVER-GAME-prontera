@@ -54,6 +54,7 @@ cd SEVER-GAME-prontera
 # 2) ตั้งค่า: แก้ทุกค่าที่ขึ้นต้นด้วย CHANGE_ME (สคริปต์จะไม่ยอมรันถ้ายังไม่แก้)
 cp .env.example .env
 nano .env
+grep -c "=CHANGE_ME" .env   # ต้องได้ 0 (ถ้ายังไม่ใช่ 0 แปลว่ายังแก้ไม่ครบ)
 
 # 3) ติดตั้งแพ็กเกจ + clone rAthena ไว้ที่ ./rathena + คอมไพล์ (ใช้เวลาหลายนาที)
 scripts/install.sh
