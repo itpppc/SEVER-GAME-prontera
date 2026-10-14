@@ -1,2 +1,2 @@
 # Windows batch files must keep CRLF line endings.
-client/*.bat -text
+installer/*.bat -text
