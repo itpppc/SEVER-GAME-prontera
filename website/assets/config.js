@@ -5,7 +5,7 @@
  */
 window.SITE_CONFIG = Object.freeze({
   serverName: "Prontera Realm", // TODO: final brand name
-  // TODO: public address from the rAthena setup (login-server, default port 6900)
+  // TODO: public address = PUBLIC_IP in the server .env (no VPS yet); login-server port 6900
   serverAddress: "play.example.com",
   serverPort: 6900,
   // "online" | "offline" | "soon" — static for now, no live status check yet
@@ -15,7 +15,7 @@ window.SITE_CONFIG = Object.freeze({
   links: {
     register: "#contact", // TODO: account registration page
     clientDownload: "#", // TODO: patched client download (your own build, not official files)
-    setupGuide: "#", // TODO: link to the setup guide from the server repo
+    setupGuide: "https://github.com/itpppc/SEVER-GAME-prontera/blob/main/docs/SETUP.md",
     discord: "#", // TODO
     line: "#", // TODO
     facebook: "#", // TODO
