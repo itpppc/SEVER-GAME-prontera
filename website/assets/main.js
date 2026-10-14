@@ -113,4 +113,121 @@
   });
 
   document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
+
+  // Players online: static config value until a live API exists
+  const online = Number.isFinite(cfg.onlinePlayers) ? cfg.onlinePlayers.toLocaleString("th-TH") : "—";
+  document.querySelectorAll("[data-online]").forEach((el) => (el.textContent = online));
+
+  // Thai-time clock (game events are announced in Thai time)
+  const clockEls = document.querySelectorAll("[data-clock]");
+  if (clockEls.length) {
+    const fmt = new Intl.DateTimeFormat("th-TH", {
+      timeZone: "Asia/Bangkok", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false,
+    });
+    const tick = () => {
+      const now = new Date();
+      clockEls.forEach((el) => {
+        el.textContent = fmt.format(now);
+        el.dateTime = now.toISOString();
+      });
+    };
+    tick();
+    window.setInterval(tick, 1000);
+  }
+
+  // News cards from config, filterable by category
+  const CATEGORY_LABELS = { event: "อีเวนต์", update: "อัปเดต", promo: "โปรโมชัน" };
+  const ART = new Set(["hanuman", "yak", "suphanmatcha"]);
+  const newsList = document.querySelector("[data-news]");
+  const newsItems = Array.isArray(cfg.news) ? cfg.news.filter((n) => CATEGORY_LABELS[n.category] && n.title) : [];
+  const el = (tag, cls, text) => {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text !== undefined) node.textContent = text;
+    return node;
+  };
+  const renderNews = (filter) => {
+    if (!newsList) return;
+    newsList.replaceChildren();
+    const shown = newsItems.filter((n) => filter === "all" || n.category === filter);
+    if (!shown.length) {
+      newsList.appendChild(el("li", "muted", "ยังไม่มีข่าวในหมวดนี้"));
+      return;
+    }
+    shown.forEach((n) => {
+      const li = el("li");
+      const card = el("article", "news-card");
+      const thumb = el("div", "news-thumb");
+      thumb.dataset.cat = n.category;
+      const img = el("img");
+      img.src = `assets/img/mascot-${ART.has(n.art) ? n.art : "hanuman"}.svg`;
+      img.alt = "";
+      img.width = 120;
+      img.height = 120;
+      thumb.appendChild(img);
+      const body = el("div", "news-body");
+      const meta = el("p", "news-meta");
+      const tag = el("span", "tag", CATEGORY_LABELS[n.category]);
+      tag.dataset.cat = n.category;
+      meta.append(tag, el("span", "", n.date || ""));
+      body.append(meta, el("h3", "", n.title), el("p", "", n.summary || ""));
+      if (n.link) {
+        const a = el("a", "link", "อ่านต่อ");
+        a.href = n.link;
+        a.setAttribute("aria-label", `อ่านต่อ: ${n.title}`);
+        body.appendChild(a);
+      }
+      card.append(thumb, body);
+      li.appendChild(card);
+      newsList.appendChild(li);
+    });
+  };
+  renderNews("all");
+  const filterGroup = document.querySelector("[data-news-filters]");
+  filterGroup?.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-filter]");
+    if (!btn) return;
+    filterGroup.querySelectorAll("[data-filter]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+    renderNews(btn.dataset.filter);
+  });
+
+  // Weekly schedule
+  const scheduleBody = document.querySelector("[data-schedule]");
+  if (scheduleBody && Array.isArray(cfg.schedule) && cfg.schedule.length) {
+    scheduleBody.replaceChildren(
+      ...cfg.schedule.map((row) => {
+        const tr = el("tr");
+        const th = el("th", "", row.name || "");
+        th.scope = "row";
+        tr.append(th, el("td", "", row.day || "รอประกาศ"), el("td", "", row.time || "รอประกาศ"));
+        return tr;
+      })
+    );
+  }
+
+  // Accessible tabs (WAI-ARIA tabs pattern, manual activation by click or arrows)
+  document.querySelectorAll("[data-tabs]").forEach((root) => {
+    const tabs = [...root.querySelectorAll('[role="tab"]')];
+    const select = (tab, focus) => {
+      tabs.forEach((t) => {
+        const on = t === tab;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+      });
+      if (focus) tab.focus();
+    };
+    root.addEventListener("click", (e) => {
+      const tab = e.target.closest('[role="tab"]');
+      if (tab) select(tab, false);
+    });
+    root.addEventListener("keydown", (e) => {
+      const i = tabs.indexOf(document.activeElement);
+      if (i < 0) return;
+      const next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+      if (next === undefined) return;
+      e.preventDefault();
+      select(tabs[(next + tabs.length) % tabs.length], true);
+    });
+  });
 })();
