@@ -25,6 +25,7 @@ cd website && python3 -m http.server 8080
 ## Before going live
 
 1. `assets/config.js`: set `serverAddress` (from the rAthena setup), `serverStatus`, `openingDate` and every link.
+   News cards (`news`), the weekly schedule (`schedule`) and the online count (`onlinePlayers`) are also edited there; only publish what is true.
    Links left as `#` (or an `@example.com` email) show a "coming soon" toast when clicked, so nothing points to a dead page.
 2. `index.html`: confirm the rates table matches `conf/battle/exp.conf` and `drops.conf`, and that every feature card describes something the server actually does.
 3. Replace the placeholder brand name and favicon with your own artwork.
@@ -32,6 +33,7 @@ cd website && python3 -m http.server 8080
 ## Deliberately not included (needs owner decision first)
 
 - Online payment, real prices, account registration and any customer data storage.
+- Live data (online count, rankings, login): needs a read-only API on the game server. Until then the page shows "—" and empty ranking states.
 - Official game client files, publisher artwork, logos or trademarks. The page uses neutral branding and a footer disclaimer.
 
 ## Deploy
