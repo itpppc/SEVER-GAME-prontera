@@ -8,7 +8,7 @@ Repo นี้เก็บเฉพาะ **คอนฟิก สคริป�
 
 ```bash
 cp .env.example .env && nano .env   # แก้ทุกค่า CHANGE_ME
-scripts/install-ubuntu.sh           # แพ็กเกจ + clone + compile
+scripts/install.sh           # แพ็กเกจ + clone + compile
 scripts/setup-db.sh                 # DB + import SQL + บัญชี inter-server
 scripts/apply-config.sh             # วางคอนฟิกลง rathena/conf/import
 cd rathena && ./athena-start start --enlog

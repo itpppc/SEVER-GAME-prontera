@@ -32,7 +32,8 @@ login-server  ◄──►  char-server  ◄──►  map-server   (+ web-serve
 |---|---|
 | `.env.example` | ค่าตั้งต้นทั้งหมด (คัดลอกเป็น `.env` แล้วแก้) |
 | `config/import/*` | คอนฟิกเฉพาะเซิร์ฟนี้ จะถูกคัดลอกไป `rathena/conf/import/` (rAthena โหลดไฟล์ในนี้ทับค่าเริ่มต้น จึงไม่ต้องแก้ไฟล์ต้นฉบับ) |
-| `scripts/install-ubuntu.sh` | ติดตั้งแพ็กเกจ, clone rAthena, คอมไพล์ |
+| `scripts/install.sh` | ติดตั้งแพ็กเกจ (apt หรือ dnf), clone rAthena, คอมไพล์ |
+| `scripts/add-swap.sh` | เพิ่ม swap สำหรับเครื่อง RAM น้อย |
 | `scripts/setup-db.sh` | สร้าง DB + user, import SQL, เปลี่ยนรหัส inter-server |
 | `scripts/apply-config.sh` | เติมค่าจาก `.env` ลง `config/import/*` แล้ววางใน rAthena |
 | `scripts/make-gm.sh` | ตั้ง group ให้ไอดี (เช่น GM 99) |
@@ -40,7 +41,10 @@ login-server  ◄──►  char-server  ◄──►  map-server   (+ web-serve
 
 ---
 
-## ทางที่ 1: Ubuntu 22.04 / 24.04 (แนะนำ)
+## ทางที่ 1: Linux server: Ubuntu 22.04/24.04 หรือ Amazon Linux 2023 (AWS)
+
+> **เครื่อง RAM 1 GB (เช่น AWS t2/t3.micro):** รัน `scripts/add-swap.sh` ก่อน (เพิ่ม swap 2 GB) ไม่งั้นคอมไพล์จะถูกระบบตัดกลางคัน
+> **Amazon Linux:** ต้องติดตั้ง git ก่อน clone ด้วย `sudo dnf install -y git` และ user ปกติคือ `ec2-user` (Ubuntu คือ `ubuntu`)
 
 ```bash
 # 1) โหลด repo นี้
@@ -52,7 +56,7 @@ cp .env.example .env
 nano .env
 
 # 3) ติดตั้งแพ็กเกจ + clone rAthena ไว้ที่ ./rathena + คอมไพล์ (ใช้เวลาหลายนาที)
-scripts/install-ubuntu.sh
+scripts/install.sh
 
 # 4) สร้างฐานข้อมูลและ import SQL (รันซ้ำได้ ไม่ลบข้อมูลเดิม)
 scripts/setup-db.sh
@@ -79,7 +83,7 @@ cd rathena
 ถ้า root ของ MariaDB ใช้รหัสผ่าน (ไม่ใช่ socket auth แบบค่าเริ่มต้นของ Ubuntu) ให้รันแบบ
 `MYSQL_ADMIN="mysql -uroot -p" scripts/setup-db.sh`
 
-เปลี่ยน `PACKETVER` ภายหลัง: แก้ `.env` แล้วรัน `scripts/install-ubuntu.sh --skip-apt` ใหม่
+เปลี่ยน `PACKETVER` ภายหลัง: แก้ `.env` แล้วรัน `scripts/install.sh --skip-packages` ใหม่
 
 ---
 
