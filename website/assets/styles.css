@@ -342,6 +342,22 @@ code {
 .empty img { width: 96px; height: 96px; opacity: .95; }
 .empty p { margin: 0; }
 .empty strong { color: var(--text); font-size: 1.1rem; }
+.empty[hidden] { display: none; }
+
+/* Live ranking tables (filled by main.js from the stats API) */
+.rank-live .table-wrap { max-width: none; }
+.rank-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.rank-table th, .rank-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+.rank-table thead th { background: var(--bg); color: var(--muted); font-size: .9rem; font-weight: 500; white-space: nowrap; }
+.rank-table tbody th { font-weight: 600; overflow-wrap: anywhere; }
+.rank-table tbody tr:last-child > * { border-bottom: 0; }
+.rank-table.is-ranked tbody tr:nth-child(-n+3) td:first-child { color: var(--accent); font-weight: 700; }
+.rank-table.is-ranked td:last-child { white-space: nowrap; }
+.rank-note { margin: 12px 0 0; color: var(--muted); font-size: .875rem; text-align: right; }
+@media (max-width: 560px) {
+  .tab-panel { padding: 20px 12px; }
+  .rank-table th, .rank-table td { padding: 10px 8px; font-size: .9rem; }
+}
 
 /* Footer */
 .footer-nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; list-style: none; padding: 0; margin: 0 0 16px; }

@@ -33,7 +33,7 @@ cd website && python3 -m http.server 8080
 ## Deliberately not included (needs owner decision first)
 
 - Online payment, real prices, account registration and any customer data storage.
-- Live data (online count, rankings, login): needs a read-only API on the game server. Until then the page shows "—" and empty ranking states.
+- Live data: `statsApi` in config.js points at the Vercel function `api/status.js`, which reads the game server's read-only stats service (`webapi/`, see its README). It fills the online count and the level, MVP and castle rankings. If the game server does not answer, the page shows "—" and the empty ranking states. PvP rankings and registration are not built.
 - Official game client files, publisher artwork, logos or trademarks. The page uses neutral branding and a footer disclaimer.
 
 ## Deploy

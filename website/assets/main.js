@@ -71,12 +71,15 @@
   const emailText = isPlaceholder(cfg.links.email) ? "เร็ว ๆ นี้" : cfg.links.email;
   document.querySelectorAll("[data-email]").forEach((el) => (el.textContent = emailText));
 
-  // Server status badge
-  const status = STATUS_LABELS[cfg.serverStatus] ? cfg.serverStatus : "soon";
-  document.querySelectorAll("[data-status]").forEach((el) => {
-    el.dataset.state = status;
-    el.querySelector("[data-status-text]").textContent = STATUS_LABELS[status];
-  });
+  // Server status badge (the live stats below may override it once the server is open)
+  const configStatus = STATUS_LABELS[cfg.serverStatus] ? cfg.serverStatus : "soon";
+  const setStatus = (state) => {
+    document.querySelectorAll("[data-status]").forEach((el) => {
+      el.dataset.state = state;
+      el.querySelector("[data-status-text]").textContent = STATUS_LABELS[state];
+    });
+  };
+  setStatus(configStatus);
 
   // Copy server address
   const address = `${cfg.serverAddress}:${cfg.serverPort}`;
@@ -114,9 +117,12 @@
 
   document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 
-  // Players online: static config value until a live API exists
-  const online = Number.isFinite(cfg.onlinePlayers) ? cfg.onlinePlayers.toLocaleString("th-TH") : "—";
-  document.querySelectorAll("[data-online]").forEach((el) => (el.textContent = online));
+  // Players online: config fallback, replaced by the live count when the stats API answers
+  const setOnline = (n) => {
+    const text = Number.isFinite(n) ? n.toLocaleString("th-TH") : "—";
+    document.querySelectorAll("[data-online]").forEach((el) => (el.textContent = text));
+  };
+  setOnline(cfg.onlinePlayers);
 
   // Thai-time clock (game events are announced in Thai time)
   const clockEls = document.querySelectorAll("[data-clock]");
@@ -203,6 +209,94 @@
         return tr;
       })
     );
+  }
+
+  // Live stats: online count and rankings from the game server (read-only, public data only)
+  const RANKINGS = {
+    level: {
+      panel: "panel-level", ranked: true, caption: "10 อันดับเลเวลสูงสุด",
+      head: ["อันดับ", "ชื่อตัวละคร", "อาชีพ", "เลเวล"],
+      row: (r, i) => [i + 1, r.name, r.job, `${r.baseLevel} / ${r.jobLevel}`],
+    },
+    mvp: {
+      panel: "panel-mvp", ranked: true, caption: "10 อันดับนักล่า MVP",
+      head: ["อันดับ", "ชื่อตัวละคร", "MVP ที่ล่าได้"],
+      row: (r, i) => [i + 1, r.name, r.kills.toLocaleString("th-TH")],
+    },
+    guildCastles: {
+      panel: "panel-guild", caption: "กิลด์ที่ครองปราสาท",
+      head: ["ปราสาท", "กิลด์", "หัวหน้ากิลด์"],
+      row: (r) => [r.castle, r.guild, r.master],
+    },
+  };
+  const timeFmt = new Intl.DateTimeFormat("th-TH", {
+    timeZone: "Asia/Bangkok", dateStyle: "medium", timeStyle: "short",
+  });
+  const renderRanking = (key, rows, updatedAt) => {
+    const spec = RANKINGS[key];
+    const panel = document.getElementById(spec.panel);
+    if (!panel) return;
+    // Keep the friendly empty state until there is real data to show.
+    let live = panel.querySelector(".rank-live");
+    const empty = panel.querySelector(".empty");
+    if (!Array.isArray(rows) || !rows.length) {
+      live?.remove();
+      if (empty) empty.hidden = false;
+      return;
+    }
+    if (!live) {
+      live = el("div", "rank-live");
+      panel.appendChild(live);
+    }
+    const table = el("table", spec.ranked ? "rank-table is-ranked" : "rank-table");
+    table.appendChild(el("caption", "sr-only", spec.caption));
+    const headRow = el("tr");
+    spec.head.forEach((h) => {
+      const th = el("th", "", h);
+      th.scope = "col";
+      headRow.appendChild(th);
+    });
+    table.appendChild(el("thead")).appendChild(headRow);
+    const tbody = el("tbody");
+    rows.forEach((r, i) => {
+      const tr = el("tr");
+      spec.row(r, i).forEach((v, c) => {
+        const cell = el(c === 1 ? "th" : "td", "", String(v));
+        if (c === 1) cell.scope = "row";
+        tr.appendChild(cell);
+      });
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    const when = Date.parse(updatedAt);
+    const note = el("p", "rank-note", Number.isNaN(when) ? "" : `อัปเดตล่าสุด ${timeFmt.format(when)} น.`);
+    const wrap = el("div", "table-wrap");
+    wrap.setAttribute("role", "region");
+    wrap.setAttribute("aria-label", spec.caption);
+    wrap.tabIndex = 0; // scrollable on small screens, so keyboard users can reach it
+    wrap.appendChild(table);
+    live.replaceChildren(wrap, note);
+    if (empty) empty.hidden = true;
+  };
+
+  const loadStats = async () => {
+    try {
+      const res = await fetch(cfg.statsApi, { headers: { Accept: "application/json" } });
+      const data = res.ok ? await res.json() : null;
+      if (!data || data.ok !== true) throw new Error("stats unavailable");
+      setOnline(data.online);
+      // Before launch ("soon") the badge stays as configured; afterwards it follows the real servers.
+      if (configStatus !== "soon") setStatus(data.serversUp ? "online" : "offline");
+      Object.keys(RANKINGS).forEach((key) => renderRanking(key, data.rankings?.[key], data.updatedAt));
+    } catch {
+      setOnline(cfg.onlinePlayers); // keep the config fallback; never show stale or made-up numbers
+    }
+  };
+  if (cfg.statsApi) {
+    loadStats();
+    window.setInterval(() => {
+      if (document.visibilityState === "visible") loadStats();
+    }, 60000);
   }
 
   // Accessible tabs (WAI-ARIA tabs pattern, manual activation by click or arrows)
