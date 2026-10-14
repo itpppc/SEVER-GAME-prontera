@@ -27,4 +27,24 @@ for f in "$SRC"/*; do
   render "$f" "$DST/$name"
   info "Wrote conf/import/$name"
 done
+# Custom NPC scripts: custom/npc/*.txt -> rathena/npc/custom/sever/, loaded via npc: lines in map_conf.txt
+NPC_SRC="$REPO_ROOT/custom/npc"
+NPC_DST="$RATHENA_PATH/npc/custom/sever"
+rm -rf "$NPC_DST"
+shopt -s nullglob
+npc_files=("$NPC_SRC"/*.txt)
+shopt -u nullglob
+if (( ${#npc_files[@]} )); then
+  mkdir -p "$NPC_DST"
+  {
+    echo ""
+    echo "// Custom NPCs from custom/npc/ (added by scripts/apply-config.sh)"
+    for f in "${npc_files[@]}"; do
+      cp "$f" "$NPC_DST/"
+      echo "npc: npc/custom/sever/$(basename "$f")"
+    done
+  } >> "$DST/map_conf.txt"
+  info "Loaded ${#npc_files[@]} custom NPC script(s) from custom/npc/"
+fi
+
 info "Config applied. Start the server: cd $RATHENA_PATH && ./athena-start start --enlog"
