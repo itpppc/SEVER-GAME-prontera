@@ -22,6 +22,7 @@ login-server  ◄──►  char-server  ◄──►  map-server   (+ web-serve
 | 6900 | login | ✅ |
 | 6121 | char | ✅ |
 | 5121 | map | ✅ |
+| 8888 | web (คีย์ลัด/ตั้งค่า UI/ตรากิลด์ ของ client 2020+) | แนะนำ |
 | 3306 | MariaDB | ❌ ห้ามเปิดออกอินเทอร์เน็ต |
 
 สเปกขั้นต่ำ: CPU 1 core, RAM 1 GB (แนะนำ 2 GB), ดิสก์ 500 MB
@@ -38,6 +39,7 @@ login-server  ◄──►  char-server  ◄──►  map-server   (+ web-serve
 | `scripts/apply-config.sh` | เติมค่าจาก `.env` ลง `config/import/*` แล้ววางใน rAthena |
 | `scripts/make-gm.sh` | ตั้ง group ให้ไอดี (เช่น GM 99) |
 | `docs/COMMANDS.md` | รายการคำสั่ง @/# ที่ตรวจแล้ว |
+| `docs/CLIENT.md` | ติดตั้งและแพตช์ตัวเกมบน Windows ทีละขั้น |
 
 ---
 
@@ -159,37 +161,25 @@ WHERE account_id = 1 AND sex = 'S';
 
 ## 3. เตรียม Client
 
-1. ใช้ kRO Clean Client (มี `data.grf`) + **Ragexe วันที่ตรงกับ `PACKETVER`** (ค่าเริ่มต้น 2021-11-03)
-2. แพตช์ exe ด้วย **WARP** (ตัวใหม่) หรือ **NEMO** ให้มีอย่างน้อย
-   - โหลด `clientinfo.xml` / sclientinfo ที่เรากำหนด (ไม่ใช้ IP ของ kRO)
-   - Read Data Folder First
-   - ปิดการเข้ารหัสรหัสผ่านฝั่ง client (ถ้าจะสมัครไอดีแบบ `_M`/`_F`)
-   - **อย่าติ๊ก Disable Packet Encryption** — rAthena เปิด `PACKET_OBFUSCATION` และมีคีย์ของ client 2021-11-03 อยู่แล้ว ถ้าปิดฝั่งเดียวจะเข้าไม่ได้
-3. `data/clientinfo.xml`
-```xml
-<?xml version="1.0" encoding="euc-kr" ?>
-<clientinfo>
-  <servicetype>korea</servicetype>
-  <servertype>primary</servertype>
-  <connection>
-    <display>Prontera</display>
-    <address>127.0.0.1</address>  <!-- = PUBLIC_IP ของเซิร์ฟ -->
-    <port>6900</port>
-    <version>1</version>          <!-- rAthena ไม่ได้ตรวจค่านี้ -->
-    <langtype>1</langtype>
-  </connection>
-</clientinfo>
-```
-> คู่มือเดิมบอกว่า `<version>` ต้องตรงกับ `src/config/packets.h` — ไม่จริง ไฟล์จริงคือ `src/config/packets.hpp` และสิ่งที่ต้องตรงคือ **วันที่ของ exe กับ `PACKETVER`** ไม่ใช่เลข version
+ทำตาม **[CLIENT.md](CLIENT.md)** (ทีละขั้นสำหรับ Windows) สรุปสั้นๆ:
+
+1. ติดตั้ง kRO จากตัวติดตั้งทางการ `RAG_SETUP_220120.exe` **ห้ามรันตัวอัปเดต kRO / RSU** (GRF รุ่นใหม่ใช้กับ exe 2021 ไม่ได้)
+2. exe ต้องเป็น **`2021-11-03_Ragexe_1635926200`** (รุ่น RE ที่ตรงกับ `PACKETVER 20211103`)
+3. ไฟล์ภาษาอังกฤษจาก ROenglishRE แล้วแพตช์ exe ด้วย **WARP** (session `2019-06_Translation.yml` + Select Recommended + `Read data folder first`)
+4. **อย่าติ๊กแพตช์หมวด Disable Encryption** และไม่ต้องใช้แพตช์ปิดการเข้ารหัสรหัสผ่าน (`Use Old Login Packet` ใน session จัดการให้แล้ว)
+5. `data/clientinfo.xml` และ `data/sclientinfo.xml`: `<address>` = `PUBLIC_IP`, `<port>6900</port>`, `<langtype>0</langtype>` และ**ห้ามมี** `<passwordencrypt />` (ไม่งั้นสมัคร `_M`/`_F` ไม่ได้)
+
+> `<version>` ใน clientinfo ไม่มีผล rAthena ไม่ตรวจ สิ่งที่ต้องตรงคือ **วันที่ของ exe กับ `PACKETVER`**
 
 ## 4. ล็อกอินครั้งแรก + ตั้ง GM
 
-1. หน้าล็อกอินพิมพ์ `admin_M` (ชาย) หรือ `admin_F` (หญิง) + รหัสผ่านใหม่ (≥ 4–6 ตัวตาม client) ระบบจะสร้างไอดี `admin` ให้ (ต้อง `NEW_ACCOUNT=yes`)
-2. ล็อกอินอีกครั้งด้วย `admin` (ไม่มี `_M`)
+1. หน้าล็อกอินพิมพ์ชื่อตามด้วย `_M` (ชาย) หรือ `_F` (หญิง) เช่น `tonadmin_M` ระบบจะสร้างไอดี `tonadmin` ให้ (ต้อง `NEW_ACCOUNT=yes`)
+   - client รุ่นนี้ (≥ 2018-11-14) ต้องใช้ชื่อ **6 ตัวขึ้นไป** (ไม่นับ `_M`) และรหัสผ่าน **6 ตัวขึ้นไป** `admin` (5 ตัว) จึงใช้ไม่ได้
+2. ล็อกอินอีกครั้งด้วย `tonadmin` (ไม่มี `_M`)
 3. ครั้งแรกจะถูกให้ตั้ง **PIN** (rAthena เปิด `pincode_enabled` ไว้) ถ้าไม่ต้องการ เพิ่ม `pincode_enabled: no` ใน `config/import/char_conf.txt`
 4. ตั้งเป็น Admin
-   - Ubuntu: `scripts/make-gm.sh admin 99`
-   - Windows: `UPDATE ragnarok.login SET group_id = 99 WHERE userid = 'admin';`
+   - Linux: `scripts/make-gm.sh tonadmin 99`
+   - Windows: `UPDATE ragnarok.login SET group_id = 99 WHERE userid = 'tonadmin';`
 5. ออกแล้วเข้าใหม่ ทดสอบ `@go 0`, `@item 501 10`
 6. เปิดให้คนอื่นเข้าแล้ว แนะนำตั้ง `NEW_ACCOUNT=no` และทำหน้าสมัครแยก
 
@@ -230,6 +220,7 @@ WHERE account_id = 1 AND sex = 'S';
 | `src/config/packets.h` | `src/config/packets.hpp` (ค่าเริ่มต้น `PACKETVER 20211103`) |
 | `<version>55</version>` ต้องตรง server | rAthena ไม่ตรวจ ให้ตรงที่วันที่ exe |
 | ติ๊ก Disable Packet Encryption | ไม่ควร (ดูหัวข้อ 3) |
-| `_M`/`_F` ใช้ได้ทันที | ค่าเริ่มต้น `new_account: no` ต้องเปิดก่อน |
+| `_M`/`_F` ใช้ได้ทันที | ค่าเริ่มต้น `new_account: no` ต้องเปิดก่อน และชื่อ/รหัสต้อง ≥ 6 ตัว |
+| ใส่ `<passwordencrypt />` ใน clientinfo | ห้ามใส่ ไม่งั้นสมัคร `_M`/`_F` ไม่ได้ |
 | ไม่ได้พูดถึง `s1`/`p1` | ต้องเปลี่ยน ไม่งั้นเป็นช่องโหว่ |
 | ได้ exe 3 ตัว | 4 ตัว (มี `web-server.exe`) |

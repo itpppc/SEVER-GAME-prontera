@@ -20,7 +20,7 @@
 | 10 | Law Enforcement | + `@kick`, `@ban`, `@block`, `@jail`, `@mute`, `@recall`, `@warp`, `@hide` |
 | 99 | Admin | ทุกคำสั่ง (`all_commands`) |
 
-ตั้ง GM: `scripts/make-gm.sh <userid> 99` หรือ SQL `UPDATE login SET group_id = 99 WHERE userid = 'admin';` แล้วล็อกอินใหม่
+ตั้ง GM: `scripts/make-gm.sh <userid> 99` หรือ SQL `UPDATE login SET group_id = 99 WHERE userid = 'tonadmin';` แล้วล็อกอินใหม่
 
 ## 1. คำสั่งผู้เล่น (group 0 ของเซิร์ฟนี้)
 

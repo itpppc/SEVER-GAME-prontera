@@ -4,7 +4,7 @@
 
 Repo นี้เก็บเฉพาะ **คอนฟิก สคริปต์ติดตั้ง และเอกสาร** ของเซิร์ฟเรา ตัว rAthena จะถูก clone มาไว้ที่ `./rathena` ตอนติดตั้ง (ไม่ commit) และ **ไม่มีไฟล์ client**
 
-## เริ่มเร็ว (Ubuntu)
+## เริ่มเร็ว (Linux: Ubuntu / Amazon Linux)
 
 ```bash
 cp .env.example .env && nano .env   # แก้ทุกค่า CHANGE_ME
@@ -18,3 +18,4 @@ cd rathena && ./athena-start start --enlog
 
 - [docs/SETUP.md](docs/SETUP.md) — คู่มือติดตั้งละเอียด Ubuntu + Windows, client, GM, แก้ปัญหา
 - [docs/COMMANDS.md](docs/COMMANDS.md) — คำสั่ง @/# ที่ตรวจกับ rAthena แล้ว พร้อมระดับสิทธิ์
+- [docs/CLIENT.md](docs/CLIENT.md) — ติดตั้งและแพตช์ตัวเกม (client 2021-11-03) บน Windows ทีละขั้น
