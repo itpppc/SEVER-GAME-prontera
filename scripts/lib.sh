@@ -47,7 +47,7 @@ load_env() {
 
 require_rathena() {
   [[ -f "$RATHENA_PATH/sql-files/main.sql" ]] \
-    || die "rAthena not found at $RATHENA_PATH. Run scripts/install-ubuntu.sh first."
+    || die "rAthena not found at $RATHENA_PATH. Run scripts/install.sh first."
 }
 
 # Admin access to MariaDB. Default: socket auth as root (Ubuntu default).
