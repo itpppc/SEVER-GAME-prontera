@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" role="img" aria-labelledby="t">
+  <title id="t">เมืองปราสาทยามค่ำ กับนักผจญภัยสองคนและสไลม์น่ารัก</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d2350"/>
+      <stop offset=".6" stop-color="#3b2f6b"/>
+      <stop offset="1" stop-color="#8a4f6e"/>
+    </linearGradient>
+    <linearGradient id="hill1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a3a6a"/><stop offset="1" stop-color="#1b2448"/>
+    </linearGradient>
+    <linearGradient id="hill2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a7a5a"/><stop offset="1" stop-color="#245040"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9e2d4"/><stop offset="1" stop-color="#b9b0a2"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ffe7a3" stop-opacity=".9"/><stop offset="1" stop-color="#ffe7a3" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="frame"><rect width="600" height="480" rx="28"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="600" height="480" fill="url(#sky)"/>
+    <!-- moon & stars -->
+    <circle cx="470" cy="90" r="60" fill="url(#glow)"/>
+    <circle cx="470" cy="90" r="30" fill="#fff4cf"/>
+    <circle cx="482" cy="82" r="6" fill="#efe0a8"/><circle cx="462" cy="100" r="4" fill="#efe0a8"/>
+    <g fill="#fff">
+      <circle cx="60" cy="50" r="2"/><circle cx="140" cy="90" r="1.5"/><circle cx="220" cy="40" r="2"/>
+      <circle cx="300" cy="80" r="1.5"/><circle cx="380" cy="30" r="2"/><circle cx="560" cy="160" r="1.5"/>
+      <circle cx="100" cy="150" r="1.2"/><circle cx="540" cy="40" r="1.5"/>
+    </g>
+    <path d="M250 60l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#ffe7a3"/>
+    <path d="M110 110l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffe7a3"/>
+    <!-- clouds -->
+    <g fill="#5a4a86" opacity=".7">
+      <ellipse cx="120" cy="200" rx="70" ry="16"/><ellipse cx="160" cy="190" rx="40" ry="16"/>
+      <ellipse cx="520" cy="230" rx="60" ry="14"/>
+    </g>
+    <!-- far hills -->
+    <path d="M0 300 Q120 230 240 280 T480 260 T600 270 V480 H0z" fill="url(#hill1)"/>
+    <!-- castle -->
+    <g>
+      <rect x="230" y="170" width="140" height="130" fill="url(#wall)"/>
+      <rect x="205" y="140" width="40" height="160" fill="url(#wall)"/>
+      <rect x="355" y="140" width="40" height="160" fill="url(#wall)"/>
+      <rect x="282" y="110" width="36" height="80" fill="url(#wall)"/>
+      <path d="M200 142 L225 95 L250 142z" fill="#c0504d"/>
+      <path d="M350 142 L375 95 L400 142z" fill="#c0504d"/>
+      <path d="M277 112 L300 60 L323 112z" fill="#c0504d"/>
+      <path d="M300 60 V40" stroke="#5b4636" stroke-width="2"/>
+      <path d="M300 40 h20 l-6 6 6 6 h-20z" fill="#e8b64c"/>
+      <path d="M225 95 V82" stroke="#5b4636" stroke-width="2"/><path d="M225 82 h12 l-4 4 4 4 h-12z" fill="#e8b64c"/>
+      <path d="M375 95 V82" stroke="#5b4636" stroke-width="2"/><path d="M375 82 h12 l-4 4 4 4 h-12z" fill="#e8b64c"/>
+      <g fill="#b9b0a2">
+        <rect x="230" y="160" width="14" height="12"/><rect x="254" y="160" width="14" height="12"/>
+        <rect x="278" y="160" width="14" height="12"/><rect x="308" y="160" width="14" height="12"/>
+        <rect x="332" y="160" width="14" height="12"/><rect x="356" y="160" width="14" height="12"/>
+      </g>
+      <g fill="#ffd36b">
+        <rect x="218" y="170" width="12" height="18" rx="6"/><rect x="368" y="170" width="12" height="18" rx="6"/>
+        <rect x="294" y="130" width="12" height="18" rx="6"/>
+        <rect x="250" y="200" width="12" height="16" rx="6"/><rect x="338" y="200" width="12" height="16" rx="6"/>
+      </g>
+      <path d="M280 300 V255 a20 20 0 0 1 40 0 V300z" fill="#4a3426"/>
+      <path d="M300 235 V300" stroke="#3a281c" stroke-width="2"/>
+    </g>
+    <!-- town houses -->
+    <g>
+      <rect x="70" y="260" width="70" height="60" fill="#f1e6cf"/><path d="M60 262 L105 222 L150 262z" fill="#3f6fb0"/>
+      <rect x="92" y="280" width="14" height="14" fill="#ffd36b"/><rect x="114" y="280" width="14" height="14" fill="#ffd36b"/>
+      <rect x="150" y="275" width="56" height="50" fill="#e9dcc0"/><path d="M142 277 L178 245 L214 277z" fill="#c0504d"/>
+      <rect x="170" y="292" width="14" height="14" fill="#ffd36b"/>
+      <rect x="410" y="270" width="64" height="55" fill="#f1e6cf"/><path d="M402 272 L442 236 L482 272z" fill="#3f6fb0"/>
+      <rect x="428" y="288" width="14" height="14" fill="#ffd36b"/><rect x="450" y="288" width="12" height="20" fill="#5b4636"/>
+      <rect x="482" y="262" width="60" height="60" fill="#e9dcc0"/><path d="M474 264 L512 228 L550 264z" fill="#7a5aa6"/>
+      <rect x="504" y="282" width="14" height="14" fill="#ffd36b"/>
+    </g>
+    <!-- near hill / path -->
+    <path d="M0 340 Q150 300 300 330 T600 320 V480 H0z" fill="url(#hill2)"/>
+    <path d="M300 330 C280 380 330 420 290 480 H350 C380 420 330 380 320 330z" fill="#d9c49a" opacity=".9"/>
+    <g fill="#2f6b4c">
+      <circle cx="40" cy="350" r="26"/><circle cx="70" cy="360" r="20"/>
+      <circle cx="560" cy="345" r="28"/><circle cx="530" cy="360" r="18"/>
+    </g>
+    <g fill="#ff8fb1"><circle cx="120" cy="400" r="4"/><circle cx="470" cy="410" r="4"/><circle cx="200" cy="440" r="3"/></g>
+    <g fill="#ffe27a"><circle cx="140" cy="420" r="3"/><circle cx="440" cy="440" r="3"/></g>
+
+    <!-- swordsman (chibi) -->
+    <g transform="translate(170 330)">
+      <ellipse cx="40" cy="118" rx="34" ry="7" fill="#000" opacity=".25"/>
+      <path d="M14 60 Q2 100 10 112 L40 104z" fill="#c0504d"/>
+      <rect x="22" y="62" width="36" height="40" rx="10" fill="#3f6fb0"/>
+      <rect x="22" y="80" width="36" height="6" fill="#e8b64c"/>
+      <rect x="26" y="100" width="10" height="16" rx="4" fill="#4a3426"/><rect x="44" y="100" width="10" height="16" rx="4" fill="#4a3426"/>
+      <circle cx="40" cy="38" r="28" fill="#ffd9b8"/>
+      <path d="M12 36 Q14 6 42 8 Q70 10 68 36 Q60 22 46 22 Q30 24 26 34z" fill="#7a4a2a"/>
+      <circle cx="31" cy="42" r="4" fill="#2a1d14"/><circle cx="51" cy="42" r="4" fill="#2a1d14"/>
+      <circle cx="32" cy="40.5" r="1.4" fill="#fff"/><circle cx="52" cy="40.5" r="1.4" fill="#fff"/>
+      <ellipse cx="25" cy="50" rx="4" ry="2.5" fill="#ff9aa2" opacity=".7"/><ellipse cx="57" cy="50" rx="4" ry="2.5" fill="#ff9aa2" opacity=".7"/>
+      <path d="M36 52 Q41 56 46 52" stroke="#2a1d14" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- sword raised -->
+      <g transform="rotate(-35 64 74)">
+        <rect x="61" y="10" width="7" height="58" rx="2" fill="#dfe6f2"/>
+        <path d="M61 10 L64.5 0 L68 10z" fill="#dfe6f2"/>
+        <rect x="54" y="66" width="21" height="5" rx="2" fill="#e8b64c"/>
+        <rect x="62" y="70" width="5" height="12" rx="2" fill="#5b4636"/>
+      </g>
+      <circle cx="62" cy="80" r="6" fill="#ffd9b8"/>
+    </g>
+
+    <!-- mage (chibi) -->
+    <g transform="translate(360 325)">
+      <ellipse cx="40" cy="123" rx="32" ry="7" fill="#000" opacity=".25"/>
+      <path d="M20 66 L60 66 L66 118 L14 118z" fill="#6b4fb0"/>
+      <path d="M20 96 L64 96" stroke="#e8b64c" stroke-width="4"/>
+      <circle cx="40" cy="44" r="27" fill="#ffd9b8"/>
+      <path d="M14 46 Q12 20 40 20 Q68 20 66 46 Q66 60 60 66 L58 44 Q40 34 22 44 L20 66 Q14 60 14 46z" fill="#ff9fc4"/>
+      <circle cx="31" cy="48" r="4" fill="#2a1d14"/><circle cx="50" cy="48" r="4" fill="#2a1d14"/>
+      <circle cx="32" cy="46.5" r="1.4" fill="#fff"/><circle cx="51" cy="46.5" r="1.4" fill="#fff"/>
+      <ellipse cx="25" cy="56" rx="4" ry="2.5" fill="#ff9aa2" opacity=".7"/><ellipse cx="56" cy="56" rx="4" ry="2.5" fill="#ff9aa2" opacity=".7"/>
+      <path d="M36 58 Q40 61 44 58" stroke="#2a1d14" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- hat -->
+      <path d="M6 28 Q40 16 74 28 Q40 36 6 28z" fill="#3b2a72"/>
+      <path d="M20 26 Q34 -18 64 -10 Q48 0 58 24z" fill="#4b3592"/>
+      <rect x="22" y="20" width="36" height="6" rx="3" fill="#e8b64c"/>
+      <!-- staff -->
+      <rect x="-6" y="30" width="5" height="90" rx="2" fill="#7a4a2a"/>
+      <circle cx="-3.5" cy="26" r="9" fill="#7fe3ff"/>
+      <circle cx="-3.5" cy="26" r="16" fill="#7fe3ff" opacity=".25"/>
+      <circle cx="2" cy="80" r="6" fill="#ffd9b8"/>
+      <g fill="#7fe3ff"><circle cx="-20" cy="10" r="2"/><circle cx="12" cy="6" r="1.5"/><circle cx="-16" cy="44" r="1.5"/></g>
+    </g>
+
+    <!-- slime -->
+    <g transform="translate(280 400)">
+      <ellipse cx="30" cy="54" rx="28" ry="5" fill="#000" opacity=".25"/>
+      <path d="M2 50 Q0 18 30 6 Q60 18 58 50 Q30 58 2 50z" fill="#7ad38a"/>
+      <path d="M12 26 Q18 16 28 14" stroke="#c9f5cf" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <circle cx="21" cy="34" r="4" fill="#1d3a24"/><circle cx="39" cy="34" r="4" fill="#1d3a24"/>
+      <circle cx="22" cy="32.5" r="1.4" fill="#fff"/><circle cx="40" cy="32.5" r="1.4" fill="#fff"/>
+      <path d="M26 41 Q30 45 34 41" stroke="#1d3a24" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="15" cy="41" rx="3.5" ry="2" fill="#ff9aa2" opacity=".7"/><ellipse cx="45" cy="41" rx="3.5" ry="2" fill="#ff9aa2" opacity=".7"/>
+    </g>
+  </g>
+</svg>

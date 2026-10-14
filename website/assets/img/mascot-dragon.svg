@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t"><title id="t">มังกรน้อยสีทองสวมมงกุฎ</title>
+<ellipse cx="60" cy="110" rx="36" ry="6" fill="#000" opacity=".25"/>
+<path d="M22 56 Q2 40 8 22 Q20 34 34 40z" fill="#c98a2b"/><path d="M98 56 Q118 40 112 22 Q100 34 86 40z" fill="#c98a2b"/>
+<path d="M86 94 Q112 96 108 78" stroke="#e8b64c" stroke-width="9" fill="none" stroke-linecap="round"/>
+<ellipse cx="60" cy="84" rx="28" ry="24" fill="#e8b64c"/>
+<ellipse cx="60" cy="90" rx="16" ry="14" fill="#fff1c9"/>
+<circle cx="60" cy="52" r="30" fill="#f0c25c"/>
+<path d="M40 28 L44 14 L52 24z" fill="#fff1c9"/><path d="M80 28 L76 14 L68 24z" fill="#fff1c9"/>
+<path d="M44 26 L48 12 L56 22 L60 8 L64 22 L72 12 L76 26z" fill="#ffd84a" stroke="#c98a2b" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="60" cy="20" r="2.5" fill="#e2524f"/>
+<circle cx="48" cy="54" r="5.5" fill="#3a2a20"/><circle cx="72" cy="54" r="5.5" fill="#3a2a20"/>
+<circle cx="49.5" cy="52" r="2" fill="#fff"/><circle cx="73.5" cy="52" r="2" fill="#fff"/>
+<path d="M54 66 Q60 71 66 66" stroke="#3a2a20" stroke-width="3" fill="none" stroke-linecap="round"/>
+<ellipse cx="40" cy="64" rx="4.5" ry="2.6" fill="#ff9aa2" opacity=".8"/><ellipse cx="80" cy="64" rx="4.5" ry="2.6" fill="#ff9aa2" opacity=".8"/>
+<rect x="42" y="100" width="12" height="10" rx="5" fill="#c98a2b"/><rect x="66" y="100" width="12" height="10" rx="5" fill="#c98a2b"/>
+</svg>

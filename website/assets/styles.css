@@ -232,3 +232,26 @@ code {
   transition: translate .25s ease, opacity .25s ease;
 }
 .toast[data-show="true"] { translate: -50% 0; opacity: 1; }
+
+/* Illustrations (original artwork, no third-party game assets) */
+.hero-grid { display: grid; gap: 40px; align-items: center; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+.hero-art { margin: 0; }
+.hero-art img {
+  width: 100%; height: auto; border-radius: 28px;
+  box-shadow: 0 24px 60px rgb(0 0 0 / 0.45), 0 0 0 1px var(--border);
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float { 50% { transform: translateY(-8px); } }
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-art { max-width: 520px; }
+}
+.plan-mascot { width: 72px; height: 72px; margin: -4px 0 8px; }
+.plan-featured .plan-mascot { margin-top: 6px; }
+.mascot-row { display: flex; justify-content: center; align-items: flex-end; gap: 12px; margin-bottom: 16px; }
+.mascot-row img { width: 88px; height: 88px; }
+.mascot-row img:nth-child(2) { width: 104px; height: 104px; }
+@media (hover: hover) {
+  .mascot-row img { transition: transform .2s ease; }
+  .mascot-row img:hover { transform: translateY(-6px) rotate(-4deg); }
+}
