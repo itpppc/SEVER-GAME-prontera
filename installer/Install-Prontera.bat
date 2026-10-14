@@ -1,0 +1,483 @@
+<# :
+@echo off
+rem SEVER GAME Prontera - one-click game installer. Double-click this file.
+rem The lines below start PowerShell on this same file; the installer itself is the PowerShell part.
+setlocal
+title Prontera game installer
+set "PRONTERA_SELF=%~f0"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ([IO.File]::ReadAllText($env:PRONTERA_SELF))"
+echo.
+pause
+exit /b
+#>
+
+# ---------------------------------------------------------------------------
+# SEVER GAME Prontera: one-click game client installer for Windows 10/11.
+#
+# Everything is downloaded from its original source (Gravity's official kRO
+# installer, nemo.herc.ws, python.org, Microsoft, GitHub) and the game exe is
+# patched on this PC, so nothing from Gravity is re-hosted by us.
+# Safe to run again: finished steps are skipped and downloads resume.
+# Docs: docs/CLIENT.md
+# ---------------------------------------------------------------------------
+
+# ===== Settings =====
+$ServerIP   = '54.206.105.93'   # game server public IP (PUBLIC_IP in the server .env)
+$ServerName = 'Prontera'        # server list name, window title, exe and shortcut name
+$GameDir    = 'C:\RO'
+$ToolsDir   = 'C:\RO-tools'
+# ====================
+if ($env:PRONTERA_GAME_DIR)  { $GameDir  = $env:PRONTERA_GAME_DIR }
+if ($env:PRONTERA_TOOLS_DIR) { $ToolsDir = $env:PRONTERA_TOOLS_DIR }
+
+$Urls = @{
+    KRO       = 'http://rofull.gnjoy.com/RAG_SETUP_220120.exe'
+    VcRedist  = 'https://aka.ms/vs/17/release/vc_redist.x86.exe'
+    Python    = 'https://www.python.org/ftp/python/2.7.15/python-2.7.15.msi'
+    Get4      = 'http://nemo.herc.ws/get4.py'
+    RoEnglish = 'https://github.com/llchrisll/ROenglishRE/archive/refs/heads/master.zip'
+    Warp      = 'https://github.com/Neo-Mind/WARP/archive/refs/heads/rock_win32.zip'
+}
+# The exe rAthena PACKETVER 20211103 targets (rAthena PR #6431). Other builds of the same day do not work.
+$ExeName = '2021-11-03_Ragexe_1635926200'
+$ExeHash = '7d6d0f5400b5cfc8fe6aa366fa293f310f54e3580f0baef5dae617f7b7b575cf'
+# ROenglishRE ClientGenerator.bat, mode 1 (Renewal) + date 9 (2021-10-28), copies these in this order.
+$RoEnglishDates = @('2017-06-14', '2017-12-13', '2018-06-20', '2019-06-05', '2020-09-02', '2021-10-28')
+# WARP patches added on top of ROenglishRE's 2019-06 session. Never add encryption patches:
+# rAthena keeps packet obfuscation on for this client.
+$ExtraPatches = @('DataFolderFirst', 'NoHShield', 'NoCDefender', 'NoAdminNeeded', 'HideLicense', 'CustomWinTitle')
+
+$ErrorActionPreference = 'Stop'
+$ProgressPreference = 'SilentlyContinue'
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+function Step([string]$Text) { Write-Host ''; Write-Host "==> $Text" -ForegroundColor Cyan }
+function Info([string]$Text) { Write-Host "    $Text" }
+function Warn([string]$Text) { Write-Host "    ! $Text" -ForegroundColor Yellow }
+
+function Get-RemoteSize([string]$Url) {
+    $ErrorActionPreference = 'Continue'
+    if (-not (Get-Command curl.exe -ErrorAction SilentlyContinue)) { return $null }
+    $headers = & curl.exe -sIL --max-time 30 $Url
+    # Trust only the final response after redirects, and only if it is a 200.
+    $status = 0; $len = $null
+    foreach ($h in $headers) {
+        if ($h -match '^HTTP/\S+\s+(\d{3})') { $status = [int]$Matches[1]; $len = $null }
+        elseif ($h -match '^Content-Length:\s*(\d+)') { $len = [int64]$Matches[1] }
+    }
+    if ($status -eq 200 -and $len -gt 0) { return $len }
+    return $null
+}
+
+function Get-File([string]$Url, [string]$Dest) {
+    $ErrorActionPreference = 'Continue'
+    $name = Split-Path $Dest -Leaf
+    $part = "$Dest.part"
+    $remote = Get-RemoteSize $Url
+    if (Test-Path -LiteralPath $Dest) {
+        $local = (Get-Item -LiteralPath $Dest).Length
+        if (-not $remote -or $local -eq $remote) { Info "Already downloaded: $name"; return }
+        if ($local -lt $remote) { Move-Item -LiteralPath $Dest -Destination $part -Force -ErrorAction Stop }   # resume it
+        else { Remove-Item -LiteralPath $Dest -Force -ErrorAction Stop }
+    }
+    New-Item -ItemType Directory -Force -Path (Split-Path $Dest -Parent) -ErrorAction Stop | Out-Null
+    Info "Downloading $name ..."
+    if (-not (Get-Command curl.exe -ErrorAction SilentlyContinue)) {
+        Invoke-WebRequest -Uri $Url -OutFile $part -UseBasicParsing -ErrorAction Stop
+    } else {
+        $code = 1
+        for ($try = 1; $try -le 3; $try++) {
+            & curl.exe -L --fail --retry 3 --retry-delay 5 -C - -o $part $Url
+            $code = $LASTEXITCODE
+            if ($code -eq 0) { break }
+            # 33/36: the server cannot resume, so start this file again from zero.
+            if ($code -eq 33 -or $code -eq 36) { Remove-Item -LiteralPath $part -Force -ErrorAction SilentlyContinue }
+            Warn "Download stopped (curl error $code), trying again ($try/3) ..."
+            Start-Sleep -Seconds 5
+        }
+        if ($code -ne 0) { throw "Could not download $Url (curl error $code). Check the internet connection and run the installer again; it continues where it stopped." }
+    }
+    if ($remote -and (Get-Item -LiteralPath $part).Length -ne $remote) {
+        throw "$name is incomplete. Run the installer again; it continues where it stopped."
+    }
+    Move-Item -LiteralPath $part -Destination $Dest -Force -ErrorAction Stop
+}
+
+function Expand-Zip([string]$Zip, [string]$Dest, [string]$Marker) {
+    $ErrorActionPreference = 'Continue'
+    Info "Unpacking $(Split-Path $Zip -Leaf) ..."
+    New-Item -ItemType Directory -Force -Path $Dest -ErrorAction Stop | Out-Null
+    if (Get-Command tar.exe -ErrorAction SilentlyContinue) { & tar.exe -xf $Zip -C $Dest }
+    if (-not (Test-Path -LiteralPath $Marker)) { Expand-Archive -LiteralPath $Zip -DestinationPath $Dest -Force -ErrorAction Stop }
+    if (-not (Test-Path -LiteralPath $Marker)) { throw "Unpacking $Zip failed. Delete it and run the installer again." }
+}
+
+# Merge-copies a folder tree, overwriting files (like xcopy /E /Y).
+function Copy-Tree([string]$From, [string]$To) {
+    $ErrorActionPreference = 'Continue'
+    & robocopy.exe $From.TrimEnd('\') $To.TrimEnd('\') /E /IS /IT /R:2 /W:2 /NFL /NDL /NJH /NJS /NP | Out-Null
+    if ($LASTEXITCODE -ge 8) { throw "Copying $From to $To failed (robocopy $LASTEXITCODE)." }
+}
+
+function Test-GameDir([string]$Dir) {
+    return ($Dir -and (Test-Path -LiteralPath (Join-Path $Dir 'data.grf')))
+}
+
+function Find-GameDir {
+    $candidates = @($GameDir)
+    foreach ($root in @('C:\Gravity', "${env:ProgramFiles(x86)}\Gravity", "$env:ProgramFiles\Gravity")) {
+        foreach ($leaf in @('Ragnarok', 'RagnarokOnline', 'Ragnarok Online')) { $candidates += (Join-Path $root $leaf) }
+    }
+    $uninstall = @('HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*',
+                   'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*',
+                   'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*')
+    foreach ($key in $uninstall) {
+        Get-ItemProperty -Path $key -ErrorAction SilentlyContinue |
+            Where-Object { ($_.DisplayName -match 'Ragnarok' -or $_.Publisher -match 'Gravity') -and $_.InstallLocation } |
+            ForEach-Object { $candidates += $_.InstallLocation.TrimEnd('\') }
+    }
+    foreach ($dir in $candidates) { if (Test-GameDir $dir) { return $dir } }
+    return $null
+}
+
+# The 2021 exe reads GRF 0x200 only. kRO's updater converts data.grf to a newer format it cannot read.
+function Assert-OldGrf([string]$Grf) {
+    $buf = New-Object byte[] 46
+    $fs = [IO.File]::OpenRead($Grf)
+    try { $read = $fs.Read($buf, 0, 46) } finally { $fs.Dispose() }
+    $sig = [Text.Encoding]::ASCII.GetString($buf, 0, 15)
+    $ver = if ($read -eq 46) { [BitConverter]::ToUInt32($buf, 42) } else { 0 }
+    if ($sig -ne 'Master of Magic' -or $ver -gt 0x200) {
+        throw ("$Grf is in a newer format (0x{0:X}) that the 2021 game exe cannot read. It happens when the kRO updater runs. " +
+               "Uninstall the game, delete its folder, run this installer again, and never open Ragnarok.exe.") -f $ver
+    }
+}
+
+function Test-InnoSetup([string]$Exe) {
+    $fs = [IO.File]::OpenRead($Exe)
+    try {
+        $n = [int][Math]::Min($fs.Length, 4MB)
+        $buf = New-Object byte[] $n
+        $read = $fs.Read($buf, 0, $n)
+    } finally { $fs.Dispose() }
+    return ([Text.Encoding]::ASCII.GetString($buf, 0, $read) -match 'Inno Setup')
+}
+
+function Test-VcRedistX86 {
+    foreach ($key in @('HKLM:\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\14.0\VC\Runtimes\X86',
+                       'HKLM:\SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\X86')) {
+        $p = Get-ItemProperty -Path $key -ErrorAction SilentlyContinue
+        if ($p -and $p.Installed -eq 1) { return $true }
+    }
+    return $false
+}
+
+# Builds what ROenglishRE's Tools\ClientGenerator.bat builds for mode 1 + date 9, without its prompts.
+function Build-EnglishFiles([string]$RoDir, [string]$Stage) {
+    $tr = Join-Path $RoDir 'Translation'
+    if (Test-Path -LiteralPath $Stage) { Remove-Item -LiteralPath $Stage -Recurse -Force }
+    New-Item -ItemType Directory -Force -Path $Stage | Out-Null
+    Copy-Tree (Join-Path $tr 'Renewal') $Stage
+    foreach ($date in $RoEnglishDates) {
+        $src = Join-Path (Join-Path $tr 'Compatibility') $date
+        if (Test-Path -LiteralPath (Join-Path $src 'Renewal')) { $src = Join-Path $src 'Renewal' }
+        if (Test-Path -LiteralPath $src) { Copy-Tree $src $Stage }
+    }
+}
+
+# GRF read order, highest priority first: our own server.grf (optional), then kRO's own list.
+function Write-DataIni([string]$Dir, [string]$OriginalIni) {
+    $order = @('server.grf')
+    if ($OriginalIni -and (Test-Path -LiteralPath $OriginalIni)) {
+        foreach ($line in Get-Content -LiteralPath $OriginalIni) {
+            if ($line -match '^\s*\d+\s*=\s*(\S.*?)\s*$' -and $order -notcontains $Matches[1]) { $order += $Matches[1] }
+        }
+    }
+    foreach ($grf in @('rdata.grf', 'data.grf')) {
+        if ($order -notcontains $grf -and (Test-Path -LiteralPath (Join-Path $Dir $grf))) { $order += $grf }
+    }
+    $lines = @('[Data]')
+    for ($i = 0; $i -lt $order.Count; $i++) { $lines += "$i=$($order[$i])" }
+    Set-Content -LiteralPath (Join-Path $Dir 'DATA.INI') -Value $lines -Encoding ASCII
+}
+
+# No <passwordencrypt />: it blocks _M/_F account sign-up on rAthena.
+function Write-ClientInfo([string]$Path, [string]$ServerType) {
+    $images = (0..6 | ForEach-Object { "            <image>loading0$_.jpg</image>" }) -join "`r`n"
+    $xml = @"
+<?xml version="1.0" encoding="euc-kr" ?>
+<clientinfo>
+    <desc>Ragnarok Client Information</desc>
+    <servicetype>korea</servicetype>
+    <servertype>$ServerType</servertype>
+    <connection>
+        <display>$ServerName</display>
+        <address>$ServerIP</address>
+        <port>6900</port>
+        <version>55</version>
+        <langtype>0</langtype>
+        <registrationweb>www.ragnarok.com</registrationweb>
+        <loading>
+$images
+        </loading>
+        <aid>
+            <admin>2000000</admin>
+        </aid>
+    </connection>
+</clientinfo>
+"@
+    New-Item -ItemType Directory -Force -Path (Split-Path $Path -Parent) | Out-Null
+    Set-Content -LiteralPath $Path -Value $xml -Encoding ASCII
+}
+
+# Points the client's web service (hotkeys, UI settings, guild emblems) at rAthena's web-server on port 8888.
+function Set-AssistAddr([string]$Dir) {
+    $latin1 = [Text.Encoding]::GetEncoding(28591)
+    $svc = Join-Path $Dir 'data\luafiles514\lua files\service_korea'
+    foreach ($file in @('ExternalSettings_kr.lub', 'ExternalSettings_kr_sak.lub')) {
+        $path = Join-Path $svc $file
+        if (-not (Test-Path -LiteralPath $path)) { continue }
+        $text = [IO.File]::ReadAllText($path, $latin1)
+        if ($text.StartsWith([string][char]27 + 'Lua')) { Warn "$file is compiled Lua; AssistAddr left unchanged."; continue }
+        $new = [regex]::Replace($text, 'AssistAddr\s*=\s*"[^"]*"', "AssistAddr = `"$($ServerIP):8888`"")
+        if ($new -ne $text) { [IO.File]::WriteAllText($path, $new, $latin1) }
+    }
+}
+
+function ConvertTo-YamlQuoted([string]$Text) { return "'" + $Text.Replace("'", "''") + "'" }
+
+# ROenglishRE's WARP session plus our extra patches, window title and source/target exe.
+function Write-WarpSession([string]$BaseSession, [string]$OutFile, [string]$FromExe, [string]$ToExe) {
+    $titleHex = (($ServerName.ToCharArray() | ForEach-Object { '{0:x2}' -f [int]$_ }) -join '') + '00'
+    $existing = @(Get-Content -LiteralPath $BaseSession | ForEach-Object { if ($_ -match '^\s*-\s*(\S+)\s*$') { $Matches[1] } })
+    $out = @("from: $(ConvertTo-YamlQuoted $FromExe)", "to: $(ConvertTo-YamlQuoted $ToExe)", '')
+    foreach ($line in Get-Content -LiteralPath $BaseSession) {
+        if ($line -match '^\s*(from|to)\s*:') { continue }
+        $out += $line
+        if ($line -match '^inputs:\s*$') {
+            $out += '    $customWindowTitle:'
+            $out += "        data: '$titleHex'"
+            $out += "        display: `"$ServerName`""
+            $out += '        type: 10'
+            $out += '    '
+        }
+        if ($line -match '^patches:\s*$') {
+            foreach ($p in $ExtraPatches) { if ($existing -notcontains $p) { $out += "    - $p" } }
+        }
+    }
+    Set-Content -LiteralPath $OutFile -Value $out -Encoding ASCII
+}
+
+function New-Shortcut([string]$LinkPath, [string]$Target, [string]$WorkDir) {
+    $shell = New-Object -ComObject WScript.Shell
+    $lnk = $shell.CreateShortcut($LinkPath)
+    $lnk.TargetPath = $Target
+    $lnk.WorkingDirectory = $WorkDir
+    $lnk.IconLocation = "$Target,0"
+    $lnk.Description = "$ServerName - Ragnarok Online"
+    $lnk.Save()
+}
+
+function Install-Game {
+    Step "1/7  Ragnarok base game (official kRO installer from Gravity)"
+    $found = Find-GameDir
+    if ($found) {
+        $script:GameDir = $found
+        Info "Found the game in $GameDir"
+    } else {
+        $drive = Split-Path -Qualifier $GameDir
+        $free = (Get-PSDrive -Name $drive.TrimEnd(':')).Free
+        if ($free -lt 12GB) {
+            Warn ("Only {0:N1} GB free on {1}. The game needs about 12 GB." -f ($free / 1GB), $drive)
+            Read-Host '    Free some space and press Enter to continue (or close this window)' | Out-Null
+        }
+        $setup = Join-Path $ToolsDir 'RAG_SETUP_220120.exe'
+        $earlier = Join-Path $env:USERPROFILE 'Downloads\RAG_SETUP_220120.exe'
+        if (-not (Test-Path -LiteralPath $setup) -and (Test-Path -LiteralPath $earlier)) { $setup = $earlier }
+        Info 'This file is several GB. If the download stops, run the installer again and it continues.'
+        Get-File $Urls.KRO $setup
+        New-Item -ItemType Directory -Force -Path $GameDir | Out-Null
+        if (Test-InnoSetup $setup) {
+            Info "Installing to $GameDir (click Yes if Windows asks) ..."
+            Start-Process -FilePath $setup -ArgumentList @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-', "/DIR=`"$GameDir`"") -Wait
+        } else {
+            Write-Host ''
+            Write-Host '    The official installer is in Korean. Click Yes if Windows asks, then:' -ForegroundColor Green
+            Write-Host '      - click the right-hand button at the bottom of each page (Next / I agree)'
+            Write-Host "      - when it shows the install folder, change it to  $GameDir"
+            Write-Host '      - on the last page, untick anything that starts the game, then finish'
+            Write-Host '    Never start the game from the kRO icon: its updater breaks the files for our server.' -ForegroundColor Yellow
+            Start-Process -FilePath $setup -Wait
+        }
+        for ($i = 0; $i -lt 3 -and -not (Find-GameDir); $i++) {
+            Read-Host '    Press Enter when the Korean installer has completely finished' | Out-Null
+        }
+        $found = Find-GameDir
+        if (-not $found) {
+            Warn "If the Korean installer showed an error, its download is broken: delete $setup and run this installer again."
+        }
+        while (-not $found) {
+            $answer = Read-Host '    Could not find data.grf. Type the folder you installed the game to (for example C:\Gravity\Ragnarok)'
+            if (Test-GameDir $answer.Trim('"', ' ')) { $found = $answer.Trim('"', ' ') }
+        }
+        $script:GameDir = $found
+        Info "Game installed in $GameDir"
+    }
+    Get-Process -Name 'Ragnarok' -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+    Assert-OldGrf (Join-Path $GameDir 'data.grf')
+    $updater = Join-Path $GameDir 'Ragnarok.exe'
+    if (Test-Path -LiteralPath $updater) {
+        Move-Item -LiteralPath $updater -Destination "$updater.off" -Force
+        Info 'Turned off the kRO updater (Ragnarok.exe -> Ragnarok.exe.off) so it cannot break the game files.'
+    }
+}
+
+function Install-Runtime {
+    Step '2/7  Microsoft Visual C++ runtime (x86)'
+    if (Test-VcRedistX86) { Info 'Already installed.'; return }
+    $vc = Join-Path $ToolsDir 'vc_redist.x86.exe'
+    Get-File $Urls.VcRedist $vc
+    Info 'Installing (click Yes if Windows asks) ...'
+    $p = Start-Process -FilePath $vc -ArgumentList @('/install', '/passive', '/norestart') -Wait -PassThru
+    if (@(0, 1638, 3010) -notcontains $p.ExitCode) { Warn "The runtime installer returned $($p.ExitCode); continuing." }
+}
+
+function Get-GameExe {
+    Step "3/7  Game exe $ExeName (downloaded with nemo's get4.py)"
+    $exeDir = Join-Path $ToolsDir 'exe'
+    $rawExe = Join-Path $exeDir "$ExeName.exe"
+    if (Test-Path -LiteralPath $rawExe) { Info 'Already downloaded.'; return $rawExe }
+    $py = 'C:\Python27\python.exe'
+    if (-not (Test-Path -LiteralPath $py)) {
+        $msi = Join-Path $ToolsDir 'python-2.7.15.msi'
+        Get-File $Urls.Python $msi
+        Info 'Installing Python 2.7, needed once for get4.py (click Yes if Windows asks) ...'
+        $p = Start-Process -FilePath 'msiexec.exe' -ArgumentList @('/i', "`"$msi`"", '/passive', '/norestart', 'ALLUSERS=1', 'TARGETDIR=C:\Python27') -Wait -PassThru
+        if (-not (Test-Path -LiteralPath $py)) { throw "Python 2.7 did not install (msiexec exit code $($p.ExitCode))." }
+    }
+    $get4 = Join-Path $exeDir 'get4.py'
+    Get-File $Urls.Get4 $get4
+    Push-Location $exeDir
+    try {
+        $ErrorActionPreference = 'Continue'
+        & $py $get4 $ExeName $ExeHash
+    } finally {
+        $ErrorActionPreference = 'Stop'
+        Pop-Location
+    }
+    if (-not (Test-Path -LiteralPath $rawExe)) {
+        $alt = Get-ChildItem -LiteralPath $exeDir -Recurse -Filter "$ExeName*.exe" | Select-Object -First 1
+        if (-not $alt) { throw "get4.py did not produce $ExeName.exe. If antivirus removed it, allow that one file and run the installer again." }
+        Copy-Item -LiteralPath $alt.FullName -Destination $rawExe
+    }
+    return $rawExe
+}
+
+function Install-English {
+    Step '4/7  English menus and item names (ROenglishRE)'
+    $roDir = Join-Path $ToolsDir 'ROenglishRE-master'
+    $marker = Join-Path $roDir 'Translation\Renewal\DATA.ini'
+    if (-not (Test-Path -LiteralPath $marker)) {
+        $zip = Join-Path $ToolsDir 'ROenglishRE.zip'
+        Get-File $Urls.RoEnglish $zip
+        Expand-Zip $zip $ToolsDir $marker
+    }
+    $backup = Join-Path $ToolsDir 'backup'
+    New-Item -ItemType Directory -Force -Path $backup | Out-Null
+    foreach ($f in @('DATA.INI', 'cps.dll', 'CDClient.dll')) {
+        $src = Join-Path $GameDir $f
+        $dst = Join-Path $backup $f
+        if ((Test-Path -LiteralPath $src) -and -not (Test-Path -LiteralPath $dst)) { Copy-Item -LiteralPath $src -Destination $dst }
+    }
+    $stage = Join-Path $ToolsDir 'client-files'
+    Build-EnglishFiles $roDir $stage
+    Copy-Tree $stage $GameDir
+    Write-DataIni $GameDir (Join-Path $backup 'DATA.INI')
+    Info 'Copied the English files and wrote DATA.INI.'
+    return $roDir
+}
+
+function Set-ServerAddress {
+    Step "5/7  Point the game at $ServerName ($ServerIP)"
+    Write-ClientInfo (Join-Path $GameDir 'data\clientinfo.xml') 'primary'
+    Write-ClientInfo (Join-Path $GameDir 'data\sclientinfo.xml') 'sakray'
+    Set-AssistAddr $GameDir
+    Info 'Wrote clientinfo.xml and sclientinfo.xml.'
+}
+
+function Invoke-Warp([string]$RawExe, [string]$RoDir) {
+    Step '6/7  Patch the game exe for our server (WARP)'
+    $warpDir = Join-Path $ToolsDir 'WARP-rock_win32'
+    $console = Join-Path $warpDir 'win32\WARP_console.exe'
+    if (-not (Test-Path -LiteralPath $console)) {
+        $zip = Join-Path $ToolsDir 'WARP.zip'
+        Get-File $Urls.Warp $zip
+        Expand-Zip $zip $ToolsDir $console
+    }
+    $target = Join-Path $GameDir "$ServerName.exe"
+    $session = Join-Path $ToolsDir 'prontera-warp.yml'
+    Write-WarpSession (Join-Path $RoDir 'Addons\WARP Sessions\2019-06_Translation.yml') $session $RawExe $target
+    if (Test-Path -LiteralPath $target) { Remove-Item -LiteralPath $target -Force }
+    Info 'If WARP asks "Do you want the CDClient DLL copied as well?", type y and press Enter.'
+    Push-Location $warpDir
+    try {
+        $ErrorActionPreference = 'Continue'
+        & $console -using $session -from $RawExe -to $target
+    } finally {
+        $ErrorActionPreference = 'Stop'
+        Pop-Location
+    }
+    if (-not (Test-Path -LiteralPath $target)) {
+        Warn 'Automatic patching did not finish. WARP opens now; please do these 4 clicks:'
+        Info "  1) Source: choose $RawExe and click Load Source"
+        Info "  2) Left menu: Session > Load Session file: choose $session"
+        Info '  3) Click Apply Patches (answer Yes if it asks to copy CDClient)'
+        Info '  4) Close WARP'
+        Start-Process -FilePath (Join-Path $warpDir 'win32\WARP.exe') -WorkingDirectory $warpDir -Wait
+        if (-not (Test-Path -LiteralPath $target)) {
+            $patched = Get-ChildItem -LiteralPath (Split-Path $RawExe -Parent) -Filter '*_patched.exe' |
+                Sort-Object LastWriteTime -Descending | Select-Object -First 1
+            if (-not $patched) { throw 'The patched exe was not created. Run the installer again.' }
+            Copy-Item -LiteralPath $patched.FullName -Destination $target -Force
+        }
+    }
+    # Stub CDClient.dll from WARP replaces kRO's Cheat Defender, which rAthena does not speak.
+    Copy-Item -LiteralPath (Join-Path $warpDir 'Inputs\CDClient.dll') -Destination (Join-Path $GameDir 'CDClient.dll') -Force
+    Info "Created $target"
+    return $target
+}
+
+function Invoke-Main {
+    New-Item -ItemType Directory -Force -Path $ToolsDir | Out-Null
+    $log = Join-Path $ToolsDir 'install-log.txt'
+    try { Start-Transcript -Path $log -Append | Out-Null } catch { }
+    try {
+        Write-Host "SEVER GAME $ServerName - game installer" -ForegroundColor Green
+        Write-Host "Game folder: $GameDir   Tools and downloads: $ToolsDir"
+        if (-not (Get-Command curl.exe -ErrorAction SilentlyContinue)) { Warn 'curl.exe not found; downloads will be slower.' }
+        Install-Game
+        Install-Runtime
+        $rawExe = Get-GameExe
+        $roDir = Install-English
+        Set-ServerAddress
+        $exe = Invoke-Warp $rawExe $roDir
+
+        Step '7/7  Desktop and Start menu shortcuts'
+        New-Shortcut (Join-Path ([Environment]::GetFolderPath('Desktop')) "$ServerName.lnk") $exe $GameDir
+        New-Shortcut (Join-Path ([Environment]::GetFolderPath('Programs')) "$ServerName.lnk") $exe $GameDir
+        Info "Added the $ServerName icon."
+
+        Write-Host ''
+        Write-Host "Done! Double-click $ServerName on your desktop to play." -ForegroundColor Green
+        Write-Host '  New account: type your ID with _M (male) or _F (female) at the end, e.g. myname_M,'
+        Write-Host '  with a password of 6+ characters. Then log in again without the _M / _F.'
+    } catch {
+        Write-Host ''
+        Write-Host "Install stopped: $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host "Run the installer again to retry. If it keeps failing, send the file $log"
+    } finally {
+        try { Stop-Transcript | Out-Null } catch { }
+    }
+}
+
+if (-not $env:PRONTERA_NO_MAIN) { Invoke-Main }

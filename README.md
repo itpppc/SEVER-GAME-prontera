@@ -19,3 +19,4 @@ cd rathena && ./athena-start start --enlog
 - [docs/SETUP.md](docs/SETUP.md) — คู่มือติดตั้งละเอียด Ubuntu + Windows, client, GM, แก้ปัญหา
 - [docs/COMMANDS.md](docs/COMMANDS.md) — คำสั่ง @/# ที่ตรวจกับ rAthena แล้ว พร้อมระดับสิทธิ์
 - [docs/CLIENT.md](docs/CLIENT.md) — ติดตั้งและแพตช์ตัวเกม (client 2021-11-03) บน Windows ทีละขั้น
+- [installer/Install-Prontera.bat](installer/Install-Prontera.bat) — ตัวติดตั้งตัวเกมคลิกเดียวบน Windows (โหลดจากต้นทาง แพตช์ และสร้างไอคอนให้เอง) แจกให้ผู้เล่นได้

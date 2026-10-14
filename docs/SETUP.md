@@ -40,6 +40,7 @@ login-server  ◄──►  char-server  ◄──►  map-server   (+ web-serve
 | `scripts/make-gm.sh` | ตั้ง group ให้ไอดี (เช่น GM 99) |
 | `docs/COMMANDS.md` | รายการคำสั่ง @/# ที่ตรวจแล้ว |
 | `docs/CLIENT.md` | ติดตั้งและแพตช์ตัวเกมบน Windows ทีละขั้น |
+| `installer/Install-Prontera.bat` | ตัวติดตั้งตัวเกมคลิกเดียวบน Windows (แจกให้ผู้เล่นได้) |
 
 ---
 
@@ -161,12 +162,14 @@ WHERE account_id = 1 AND sex = 'S';
 
 ## 3. เตรียม Client
 
-ทำตาม **[CLIENT.md](CLIENT.md)** (ทีละขั้นสำหรับ Windows) สรุปสั้นๆ:
+**ง่ายที่สุด:** ดับเบิลคลิก [`installer/Install-Prontera.bat`](../installer/Install-Prontera.bat) บน Windows มันทำทุกข้อด้านล่างให้เอง แล้วสร้างไอคอน Prontera บนเดสก์ท็อป (ตั้ง IP เซิร์ฟที่บรรทัด `$ServerIP` บนสุดของไฟล์)
+
+ถ้าจะทำเอง ทำตาม **[CLIENT.md](CLIENT.md)** (ทีละขั้นสำหรับ Windows) สรุปสั้นๆ:
 
 1. ติดตั้ง kRO จากตัวติดตั้งทางการ `RAG_SETUP_220120.exe` **ห้ามรันตัวอัปเดต kRO / RSU** (GRF รุ่นใหม่ใช้กับ exe 2021 ไม่ได้)
 2. exe ต้องเป็น **`2021-11-03_Ragexe_1635926200`** (รุ่น RE ที่ตรงกับ `PACKETVER 20211103`)
 3. ไฟล์ภาษาอังกฤษจาก ROenglishRE แล้วแพตช์ exe ด้วย **WARP** (session `2019-06_Translation.yml` + Select Recommended + `Read data folder first`)
-4. **อย่าติ๊กแพตช์หมวด Disable Encryption** และไม่ต้องใช้แพตช์ปิดการเข้ารหัสรหัสผ่าน (`Use Old Login Packet` ใน session จัดการให้แล้ว)
+4. **อย่าติ๊กเพิ่มในหมวด Disable Encryption / Encryption Key Customization** (ปล่อยตามที่ Select Recommended เลือก) `Use Old Login Packet` ใน session จัดการเรื่องล็อกอินให้แล้ว
 5. `data/clientinfo.xml` และ `data/sclientinfo.xml`: `<address>` = `PUBLIC_IP`, `<port>6900</port>`, `<langtype>0</langtype>` และ**ห้ามมี** `<passwordencrypt />` (ไม่งั้นสมัคร `_M`/`_F` ไม่ได้)
 
 > `<version>` ใน clientinfo ไม่มีผล rAthena ไม่ตรวจ สิ่งที่ต้องตรงคือ **วันที่ของ exe กับ `PACKETVER`**

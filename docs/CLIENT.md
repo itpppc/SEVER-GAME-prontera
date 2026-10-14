@@ -1,8 +1,32 @@
 # ติดตั้งตัวเกม (Client) บน Windows — SEVER GAME Prontera
 
-ใช้กับเซิร์ฟที่ตั้งด้วย repo นี้ (rAthena Renewal, `PACKETVER 20211103`) ทำตามลำดับ ห้ามข้ามขั้น
+ใช้กับเซิร์ฟที่ตั้งด้วย repo นี้ (rAthena Renewal, `PACKETVER 20211103`)
 
 > ⚠️ ตัวเกมเป็นลิขสิทธิ์ของ Gravity **ห้าม commit ไฟล์ client เข้า repo**
+
+## วิธีง่ายที่สุด: ตัวติดตั้งคลิกเดียว (แนะนำ)
+
+ไฟล์เดียว [`installer/Install-Prontera.bat`](../installer/Install-Prontera.bat) ทำขั้น 1–5 และ 7 ด้านล่างให้อัตโนมัติ แล้วสร้างไอคอน **Prontera** บนเดสก์ท็อปและ Start menu
+
+1. เอาไฟล์ `Install-Prontera.bat` มาไว้ในเครื่อง แล้ว**ดับเบิลคลิก**
+   ถ้าขึ้น "Windows protected your PC" ให้กด **More info → Run anyway**
+2. Windows จะถามสิทธิ์ (กด **Yes**) ตอนติดตั้ง ตัวเกม kRO, Visual C++ และ Python 2.7
+3. ตัวติดตั้ง kRO เป็น**ภาษาเกาหลี**: กดปุ่มขวาล่างไปเรื่อยๆ ตอนเลือกโฟลเดอร์ให้เปลี่ยนเป็น `C:\RO` และหน้าสุดท้าย**เอาติ๊กที่จะเปิดเกมออก**
+4. ถ้า WARP ถาม `Do you want the CDClient DLL copied as well?` พิมพ์ `y` แล้ว Enter
+5. ขึ้น `Done!` แล้วดับเบิลคลิกไอคอน **Prontera** แล้วไปขั้น 7 (สมัครไอดี)
+
+- ไฟล์ทุกอย่างโหลดจาก**ต้นทางจริง** (Gravity, nemo.herc.ws, python.org, Microsoft, GitHub) และแพตช์ exe **บนเครื่องผู้เล่นเอง** เราไม่ได้แจกไฟล์ของ Gravity
+- รันซ้ำได้ ขั้นที่เสร็จแล้วจะข้าม ถ้าเน็ตหลุดให้รันใหม่ ไฟล์จะโหลดต่อจากเดิม
+- ถ้าเคยโหลด `RAG_SETUP_220120.exe` ไว้ใน `Downloads` แล้ว ตัวติดตั้งจะใช้ไฟล์นั้นต่อ
+- log อยู่ที่ `C:\RO-tools\install-log.txt` (ส่งไฟล์นี้มาถ้าติดปัญหา)
+- เปลี่ยน IP เซิร์ฟ: แก้บรรทัด `$ServerIP = '...'` บนสุดของไฟล์ด้วย Notepad
+- ถ้า WARP แบบอัตโนมัติไม่สำเร็จ ตัวติดตั้งจะเปิดหน้าต่าง WARP ให้กด 4 ครั้งตามที่บอกบนจอ (session ทำไว้ให้แล้วที่ `C:\RO-tools\prontera-warp.yml`)
+
+---
+
+## วิธีทำเอง (ถ้าตัวติดตั้งมีปัญหา)
+
+ทำตามลำดับ ห้ามข้ามขั้น
 
 | ต้องใช้ | ใช้ทำอะไร | ที่มา |
 |---|---|---|
@@ -50,13 +74,16 @@ C:\Python27\python.exe get4.py 2021-11-03_Ragexe_1635926200 7d6d0f5400b5cfc8fe6a
 3. ผลลัพธ์อยู่ที่ `Tools\Client\`
 4. **สำรองก่อน:** คัดลอก `C:\RO\DATA.INI` และ `C:\RO\cps.dll` ไปไว้ที่ `C:\RO-tools\backup`
 5. คัดลอก**ทุกอย่าง**ใน `Tools\Client\` ไปวางใน `C:\RO` ถ้าถามให้เลือก **Replace**
-6. เปิด `C:\RO\DATA.INI` ด้วย Notepad ให้มีชื่อไฟล์ `.grf` ทุกไฟล์ที่อยู่ใน `C:\RO` เช่น ถ้ามีทั้ง `data.grf` และ `rdata.grf`
+6. เปิด `C:\RO\DATA.INI` ด้วย Notepad แก้ให้เป็นแบบนี้ (เลขน้อยถูกอ่านก่อน ถ้าไม่มี `rdata.grf` ใน `C:\RO` ให้ลบบรรทัดนั้นแล้วเลื่อนเลข)
 
 ```ini
 [Data]
-0=data.grf
+0=server.grf
 1=rdata.grf
+2=data.grf
 ```
+
+> `server.grf` คือไฟล์เสริมของเซิร์ฟเราในอนาคต (เช่น รูปไอเทมใหม่) ยังไม่มีก็ไม่เป็นไร ห้ามเอา `data.grf` ไว้ก่อน `rdata.grf`
 
 ## ขั้น 4: ใส่ IP เซิร์ฟ (clientinfo)
 
@@ -106,8 +133,8 @@ C:\Python27\python.exe get4.py 2021-11-03_Ragexe_1635926200 7d6d0f5400b5cfc8fe6a
    - `Customize Window title` ใส่ `Prontera`
    - `Always hide License Screen`
    - `Remove admin privilege requirement`
-6. **ห้ามติ๊ก**
-   - อะไรก็ตามในหมวด **DISABLE ENCRYPTION** และ **ENCRYPTION KEY CUSTOMIZATION**
+6. **ห้ามติ๊กเพิ่ม** (ปล่อยตามที่ Select Recommended เลือก)
+   - หมวด **DISABLE ENCRYPTION** และ **ENCRYPTION KEY CUSTOMIZATION**
    - `Use SSO Login Packet` (session เลือก `Use Old Login Packet` ไว้แล้ว ซึ่งถูกต้อง)
 7. กด **Apply Patches** จะได้ไฟล์ `..._patched.exe` อยู่ข้างไฟล์ต้นฉบับ
 8. คัดลอก `..._patched.exe` และ `CDClient.dll` (ถ้า WARP สร้างให้) ไปไว้ใน `C:\RO`
@@ -136,8 +163,9 @@ client ปี 2020 ขึ้นไปใช้ web-server ของ rAthena เ�
 
 ## แจกตัวเกมให้ผู้เล่น
 
-แจกโฟลเดอร์ `C:\RO` ทั้งโฟลเดอร์ (ที่แพตช์และแก้ IP แล้ว) ผู้เล่นไม่ต้องทำขั้น 2–5 เอง
-ถ้า IP เซิร์ฟเปลี่ยน ต้องแก้ `clientinfo.xml` ทุกเครื่อง จึงควรใช้ IP ถาวร (AWS: Elastic IP)
+แจกแค่ไฟล์ `installer/Install-Prontera.bat` (ไฟล์เล็ก ไม่มีไฟล์ของ Gravity อยู่ข้างใน) ผู้เล่นดับเบิลคลิกแล้วได้ตัวเกมจากต้นทางเองเหมือนเรา
+ไม่แนะนำให้แจกโฟลเดอร์ `C:\RO` ทั้งก้อน เพราะเท่ากับเราเอาไฟล์ลิขสิทธิ์ของ Gravity ไปแจกเอง
+ถ้า IP เซิร์ฟเปลี่ยน ผู้เล่นทุกคนต้องรันตัวติดตั้งตัวใหม่ จึงควรใช้ IP ถาวร (AWS: Elastic IP)
 
 ---
 
@@ -152,6 +180,9 @@ client ปี 2020 ขึ้นไปใช้ web-server ของ rAthena เ�
 | สมัคร `_M` แล้ว "Rejected from server" | ชื่อหรือรหัสสั้นกว่า 6 ตัว, มี `passwordencrypt` ใน clientinfo, `NEW_ACCOUNT=no`, หรือสมัครถี่เกิน |
 | เลือกเซิร์ฟแล้วค้าง / หลุด | `PUBLIC_IP` ใน `.env` ผิด หรือยังไม่เปิดพอร์ต 6121 / 5121 |
 | ล็อกอินแล้วหลุดทันที | ใช้ exe ผิดรุ่น (ต้องเป็น `2021-11-03_Ragexe_1635926200`) หรือติ๊กแพตช์ในหมวด encryption |
+| ตัวติดตั้งขึ้น `newer format` ของ `data.grf` | ตัวอัปเดต kRO (`Ragnarok.exe`) ถูกเปิดไปแล้ว ถอนเกม ลบโฟลเดอร์ แล้วรัน `Install-Prontera.bat` ใหม่ |
+| Windows Defender ลบไฟล์ exe ระหว่างติดตั้ง | กด Allow **เฉพาะไฟล์นั้น** แล้วรันตัวติดตั้งซ้ำ |
+| ปุ่ม/รูปบางอันยังเป็นภาษาเกาหลี | ไม่กระทบการเล่น เมนูและไอเทมเป็นอังกฤษแล้ว รูปบางรูปอยู่ในโฟลเดอร์ชื่อเกาหลี ซึ่ง Windows ที่ตั้งภาษาโปรแกรม non-Unicode เป็นไทยอาจหาไม่เจอ |
 
 ## แหล่งอ้างอิง
 
