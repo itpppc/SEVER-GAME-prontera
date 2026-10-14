@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t"><title id="t">มอนสเตอร์เห็ดหมวกแดงน่ารัก</title>
+<ellipse cx="60" cy="108" rx="34" ry="6" fill="#000" opacity=".25"/>
+<path d="M36 62 Q34 104 60 106 Q86 104 84 62z" fill="#f6ead2"/>
+<path d="M10 64 Q14 18 60 14 Q106 18 110 64 Q60 76 10 64z" fill="#e2524f"/>
+<circle cx="38" cy="38" r="8" fill="#fff"/><circle cx="72" cy="30" r="6" fill="#fff"/><circle cx="90" cy="50" r="7" fill="#fff"/><circle cx="56" cy="54" r="5" fill="#fff"/>
+<circle cx="50" cy="82" r="5" fill="#3a2a20"/><circle cx="70" cy="82" r="5" fill="#3a2a20"/>
+<circle cx="51.5" cy="80.5" r="1.8" fill="#fff"/><circle cx="71.5" cy="80.5" r="1.8" fill="#fff"/>
+<path d="M55 92 Q60 97 65 92" stroke="#3a2a20" stroke-width="3" fill="none" stroke-linecap="round"/>
+<ellipse cx="42" cy="92" rx="4.5" ry="2.6" fill="#ff9aa2" opacity=".8"/><ellipse cx="78" cy="92" rx="4.5" ry="2.6" fill="#ff9aa2" opacity=".8"/>
+</svg>

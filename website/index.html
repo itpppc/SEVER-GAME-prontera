@@ -45,7 +45,8 @@
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="container hero-inner">
+      <div class="container hero-grid">
+      <div class="hero-inner">
         <p class="status" data-status data-state="soon" role="status">
           <span class="status-dot" aria-hidden="true"></span>
           <span data-status-text>เปิดให้บริการเร็ว ๆ นี้</span>
@@ -61,6 +62,11 @@
           <div><dt>ตอน</dt><dd>Renewal</dd></div>
           <div><dt>ภาษา</dt><dd>ไทย</dd></div>
         </dl>
+      </div>
+      <figure class="hero-art">
+        <img src="assets/img/hero-scene.svg" width="600" height="480" fetchpriority="high"
+             alt="ภาพการ์ตูนเมืองปราสาทยามค่ำคืน มีนักดาบและนักเวทตัวน้อยยืนข้างสไลม์สีเขียว">
+      </figure>
       </div>
     </section>
 
@@ -173,6 +179,7 @@
         </header>
         <ul class="grid grid-3 plans" role="list">
           <li class="plan">
+            <img class="plan-mascot" src="assets/img/mascot-slime.svg" width="72" height="72" alt="">
             <h3>Adventurer</h3>
             <p class="price"><span class="sr-only">ราคา:</span>฿ <span>รอประกาศ</span></p>
             <ul class="plan-list">
@@ -184,6 +191,7 @@
           </li>
           <li class="plan plan-featured">
             <p class="plan-badge">แนะนำ</p>
+            <img class="plan-mascot" src="assets/img/mascot-mushroom.svg" width="72" height="72" alt="">
             <h3>Hero</h3>
             <p class="price"><span class="sr-only">ราคา:</span>฿ <span>รอประกาศ</span></p>
             <ul class="plan-list">
@@ -194,6 +202,7 @@
             <a class="btn btn-primary btn-block" href="#contact">สอบถามทีมงาน</a>
           </li>
           <li class="plan">
+            <img class="plan-mascot" src="assets/img/mascot-dragon.svg" width="72" height="72" alt="">
             <h3>Legend</h3>
             <p class="price"><span class="sr-only">ราคา:</span>฿ <span>รอประกาศ</span></p>
             <ul class="plan-list">
@@ -237,6 +246,11 @@
 
     <section class="section section-alt" id="contact" aria-labelledby="contact-title">
       <div class="container narrow center">
+        <div class="mascot-row" role="img" aria-label="มอนสเตอร์น่ารักสามตัว: สไลม์ เห็ด และมังกรน้อย กำลังรอต้อนรับนักผจญภัย">
+          <img src="assets/img/mascot-slime.svg" width="88" height="88" alt="">
+          <img src="assets/img/mascot-mushroom.svg" width="88" height="88" alt="">
+          <img src="assets/img/mascot-dragon.svg" width="88" height="88" alt="">
+        </div>
         <h2 id="contact-title">ติดต่อทีมงาน</h2>
         <p class="muted">สอบถามแพ็กเกจ แจ้งปัญหา หรือขอสมัครทดสอบก่อนใคร</p>
         <ul class="contact-list" role="list">

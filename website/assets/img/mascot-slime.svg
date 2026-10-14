@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t"><title id="t">สไลม์สีเขียวน่ารัก</title>
+<ellipse cx="60" cy="106" rx="40" ry="7" fill="#000" opacity=".25"/>
+<path d="M18 100 Q14 44 60 22 Q106 44 102 100 Q60 112 18 100z" fill="#7ad38a"/>
+<path d="M34 56 Q42 40 56 36" stroke="#c9f5cf" stroke-width="7" fill="none" stroke-linecap="round"/>
+<circle cx="46" cy="68" r="6" fill="#1d3a24"/><circle cx="74" cy="68" r="6" fill="#1d3a24"/>
+<circle cx="48" cy="66" r="2" fill="#fff"/><circle cx="76" cy="66" r="2" fill="#fff"/>
+<path d="M53 80 Q60 87 67 80" stroke="#1d3a24" stroke-width="3" fill="none" stroke-linecap="round"/>
+<ellipse cx="36" cy="80" rx="5" ry="3" fill="#ff9aa2" opacity=".7"/><ellipse cx="84" cy="80" rx="5" ry="3" fill="#ff9aa2" opacity=".7"/>
+</svg>
