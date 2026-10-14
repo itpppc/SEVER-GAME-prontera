@@ -15,7 +15,8 @@ window.SITE_CONFIG = Object.freeze({
   links: {
     register: "#contact", // TODO: account registration page
     clientDownload: "#", // TODO: patched client download (your own build, not official files)
-    setupGuide: "https://github.com/itpppc/SEVER-GAME-prontera/blob/main/docs/SETUP.md",
+    // TODO: host the player guide on this site; the repo is private so a GitHub link would 404 for players
+    setupGuide: "#",
     discord: "#", // TODO
     line: "#", // TODO
     facebook: "#", // TODO
