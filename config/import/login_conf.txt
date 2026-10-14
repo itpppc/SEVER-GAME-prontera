@@ -1,0 +1,6 @@
+// SEVER GAME Prontera: login-server overrides.
+// Rendered by scripts/apply-config.sh into rathena/conf/import/login_conf.txt.
+
+// Register at the login screen with userid_M / userid_F (yes|no).
+// Turn this off once you have a proper registration page.
+new_account: {{NEW_ACCOUNT}}

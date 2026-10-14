@@ -1,0 +1,11 @@
+# Local secrets
+.env
+
+# rAthena checkout and build output (cloned by scripts/install-ubuntu.sh)
+/rathena/
+
+# Game client files must never be committed
+/client/
+*.grf
+*.gpf
+*.exe

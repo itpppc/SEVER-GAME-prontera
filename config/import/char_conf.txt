@@ -1,0 +1,17 @@
+// SEVER GAME Prontera: char-server overrides.
+// Rendered by scripts/apply-config.sh into rathena/conf/import/char_conf.txt.
+
+// Inter-server account. Must match account_id 1 in the `login` table (scripts/setup-db.sh sets it).
+userid: {{INTER_USER}}
+passwd: {{INTER_PASS}}
+
+// Name shown in the server list (max 20 characters)
+server_name: {{SERVER_NAME}}
+
+// Where char-server reaches login-server, and the IP announced to clients
+login_ip: 127.0.0.1
+char_ip: {{PUBLIC_IP}}
+
+// New characters start in Prontera (map,x,y) instead of the training ground
+start_point: prontera,156,191
+start_point_pre: prontera,156,191
