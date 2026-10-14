@@ -11,8 +11,10 @@ window.SITE_CONFIG = Object.freeze({
   // "online" | "offline" | "soon" — static for now, no live status check yet
   serverStatus: "soon",
   openingDate: "เร็ว ๆ นี้", // TODO: e.g. "1 ธ.ค. 2569"
-  // Players online: a number, or null to show "—" (live count needs a server API, not built yet)
+  // Players online fallback: a number, or null to show "—". Replaced by the live count from statsApi.
   onlinePlayers: null,
+  // Live online count + rankings (Vercel function api/status.js -> game server webapi/). "" turns it off.
+  statsApi: "/api/status",
 
   links: {
     register: "#contact", // TODO: account registration page
