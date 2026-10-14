@@ -10,7 +10,28 @@
     soon: "เปิดให้บริการเร็ว ๆ นี้",
   };
 
-  const isPlaceholder = (href) => !href || href === "#";
+  const PLACEHOLDER_EMAIL = /@example\.(com|org|net)$/i;
+  const isPlaceholder = (href) => !href || href === "#" || PLACEHOLDER_EMAIL.test(href);
+
+  // Toast: one shared live region so screen readers announce feedback too.
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.setAttribute("role", "status");
+  toast.setAttribute("aria-live", "polite");
+  document.body.appendChild(toast);
+  let toastTimer;
+  const showToast = (msg) => {
+    toast.textContent = msg;
+    toast.dataset.show = "true";
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(() => (toast.dataset.show = "false"), 3500);
+  };
+  const PENDING_MSG = {
+    clientDownload: "ตัวเกมจะเปิดให้ดาวน์โหลดเมื่อเซิร์ฟเวอร์พร้อม ติดตามประกาศได้เร็ว ๆ นี้",
+    setupGuide: "คู่มือการติดตั้งจะเผยแพร่พร้อมไฟล์ตัวเกม",
+    register: "ระบบสมัครไอดีจะเปิดเมื่อเซิร์ฟเวอร์พร้อม",
+  };
+  const DEFAULT_PENDING = "ช่องทางนี้จะเปิดเร็ว ๆ นี้";
 
   // Text bindings: <span data-config="serverName">
   document.querySelectorAll("[data-config]").forEach((el) => {
@@ -22,10 +43,22 @@
   document.querySelectorAll("[data-link]").forEach((el) => {
     const key = el.dataset.link;
     const href = key === "email" ? `mailto:${cfg.links.email}` : cfg.links[key];
-    if (isPlaceholder(href)) {
-      el.setAttribute("aria-disabled", "true");
-      el.setAttribute("title", "ลิงก์จะเปิดเมื่อเซิร์ฟเวอร์พร้อม");
-      el.addEventListener("click", (e) => e.preventDefault());
+    const raw = key === "email" ? cfg.links.email : cfg.links[key];
+    if (isPlaceholder(raw)) {
+      // Keep the element focusable and give feedback instead of a silent dead click.
+      el.dataset.pending = "true";
+      el.removeAttribute("href");
+      el.setAttribute("role", "button");
+      el.setAttribute("tabindex", "0");
+      const msg = PENDING_MSG[key] || DEFAULT_PENDING;
+      const notify = (e) => {
+        e.preventDefault();
+        showToast(msg);
+      };
+      el.addEventListener("click", notify);
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") notify(e);
+      });
       return;
     }
     el.href = href;
@@ -35,9 +68,8 @@
     }
   });
 
-  if (cfg.links.email) {
-    document.querySelectorAll("[data-email]").forEach((el) => (el.textContent = cfg.links.email));
-  }
+  const emailText = isPlaceholder(cfg.links.email) ? "เร็ว ๆ นี้" : cfg.links.email;
+  document.querySelectorAll("[data-email]").forEach((el) => (el.textContent = emailText));
 
   // Server status badge
   const status = STATUS_LABELS[cfg.serverStatus] ? cfg.serverStatus : "soon";

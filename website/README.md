@@ -24,7 +24,7 @@ cd website && python3 -m http.server 8080
 ## Before going live
 
 1. `assets/config.js`: set `serverAddress` (from the rAthena setup), `serverStatus`, `openingDate` and every link.
-   Links left as `#` render as disabled ("ลิงก์จะเปิดเมื่อเซิร์ฟเวอร์พร้อม"), so nothing points to a dead page.
+   Links left as `#` (or an `@example.com` email) show a "coming soon" toast when clicked, so nothing points to a dead page.
 2. `index.html`: confirm the rates table matches `conf/battle/exp.conf` and `drops.conf`, and that every feature card describes something the server actually does.
 3. Replace the placeholder brand name and favicon with your own artwork.
 
@@ -35,4 +35,6 @@ cd website && python3 -m http.server 8080
 
 ## Deploy
 
-Any static host works (GitHub Pages, Cloudflare Pages, Vercel, Nginx). Serve the `website/` folder as the site root over HTTPS.
+Vercel: the repo-root `vercel.json` serves `website/` with no build step, so the project works with the default Root Directory. (If Root Directory is set to `website`, that also works; Vercel then ignores the root `vercel.json`.)
+
+Any other static host works too (GitHub Pages, Cloudflare Pages, Nginx). Serve the `website/` folder as the site root over HTTPS.
