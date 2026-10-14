@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -24 140 140" role="img" aria-labelledby="t"><title id="t">นางสุพรรณมัจฉาน้อย นางเงือกหางทองสวมชฎา</title>
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0b0"/><stop offset=".5" stop-color="#f2c14e"/><stop offset="1" stop-color="#b9781e"/></linearGradient>
+<linearGradient id="tail" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset="1" stop-color="#e09a2a"/></linearGradient>
+</defs>
+<ellipse cx="60" cy="112" rx="40" ry="6" fill="#000" opacity=".25"/>
+<path d="M14 104 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0" fill="none" stroke="#5ac8e8" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+<g stroke="#2b1b33" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+<path d="M42 78 Q40 100 62 104 Q84 106 96 94 Q104 88 112 92 Q108 80 98 82 Q104 72 112 70 Q100 64 92 76 Q82 90 70 86 Q74 80 74 78z" fill="url(#tail)"/>
+<g fill="none" stroke="#b9781e" stroke-width="1.6"><path d="M50 88 q4 4 8 0 q4 4 8 0"/><path d="M54 96 q4 4 8 0 q4 4 8 0"/></g>
+<path d="M40 64 Q57 56 74 64 L76 82 H38z" fill="#ffd9b8"/>
+<path d="M38 70 L76 62 L76 74 L38 84z" fill="#3fbcd0"/>
+<path d="M38 70 L76 62" stroke="#ffd36b" stroke-width="3"/>
+<circle cx="57" cy="40" r="26" fill="#ffd9b8"/>
+<path d="M31 44 Q29 18 57 18 Q85 18 83 44 Q84 62 90 74 Q80 70 77 58 L74 40 Q57 32 40 40 L37 58 Q34 70 24 74 Q30 62 31 44z" fill="#1e1424"/>
+<path d="M32 28 Q57 16 82 28 L80 34 Q57 24 34 34z" fill="url(#g)"/>
+<path d="M38 26 L42 8 H72 L76 26z" fill="url(#g)"/>
+<path d="M44 8 L48 -6 H66 L70 8z" fill="url(#g)"/>
+<path d="M52 -6 L57 -20 L62 -6z" fill="url(#g)"/>
+<circle cx="57" cy="18" r="3.4" fill="#3fbcd0" stroke-width="1.4"/>
+<path d="M44 40 Q48 37 52 39 M62 39 Q66 37 70 40" fill="none" stroke-width="2"/>
+<ellipse cx="49" cy="47" rx="4" ry="5" fill="#2a1d2e" stroke="none"/><ellipse cx="65" cy="47" rx="4" ry="5" fill="#2a1d2e" stroke="none"/>
+<circle cx="50.4" cy="45" r="1.6" fill="#fff" stroke="none"/><circle cx="66.4" cy="45" r="1.6" fill="#fff" stroke="none"/>
+<path d="M53 55 Q57 58 61 55" fill="none" stroke-width="2.2"/>
+</g>
+<g fill="#ff8e9e" opacity=".7"><ellipse cx="42" cy="54" rx="4.5" ry="2.6"/><ellipse cx="72" cy="54" rx="4.5" ry="2.6"/></g>
+<g fill="#fff"><circle cx="100" cy="56" r="3" opacity=".8"/><circle cx="106" cy="46" r="2" opacity=".7"/><circle cx="16" cy="84" r="2.4" opacity=".7"/></g>
+</svg>

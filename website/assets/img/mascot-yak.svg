@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t"><title id="t">ยักษ์น้อยสีแดงเขี้ยวโง้งสวมมงกุฎ</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0b0"/><stop offset=".5" stop-color="#f2c14e"/><stop offset="1" stop-color="#b9781e"/></linearGradient></defs>
+<ellipse cx="60" cy="110" rx="38" ry="6" fill="#000" opacity=".25"/>
+<g stroke="#3a1420" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+<rect x="38" y="90" width="16" height="18" rx="6" fill="#e0584c"/><rect x="66" y="90" width="16" height="18" rx="6" fill="#e0584c"/>
+<path d="M20 66 Q8 74 14 88" fill="none" stroke-width="11"/><path d="M20 66 Q8 74 14 88" fill="none" stroke="#e0584c" stroke-width="6.5"/>
+<path d="M100 66 Q112 74 106 88" fill="none" stroke-width="11"/><path d="M100 66 Q112 74 106 88" fill="none" stroke="#e0584c" stroke-width="6.5"/>
+<ellipse cx="60" cy="66" rx="40" ry="36" fill="#e0584c"/>
+<ellipse cx="60" cy="76" rx="22" ry="16" fill="#f59a8a" stroke="none"/>
+<rect x="22" y="86" width="76" height="8" rx="4" fill="url(#g)" stroke-width="2"/>
+<circle cx="60" cy="90" r="4" fill="#3fd0a0" stroke-width="1.6"/>
+<path d="M32 36 Q60 20 88 36 L86 42 Q60 28 34 42z" fill="url(#g)" stroke-width="2"/>
+<path d="M42 32 L60 2 L78 32z" fill="url(#g)" stroke-width="2"/>
+<circle cx="60" cy="22" r="3.2" fill="#e8463a" stroke-width="1.4"/>
+<path d="M28 46 Q37 37 50 46 M70 46 Q83 37 92 46" fill="none" stroke="#1d2a24" stroke-width="4"/>
+<circle cx="42" cy="56" r="10" fill="#fff" stroke-width="2.2"/><circle cx="78" cy="56" r="10" fill="#fff" stroke-width="2.2"/>
+<circle cx="43" cy="57" r="5" fill="#1d1424" stroke="none"/><circle cx="77" cy="57" r="5" fill="#1d1424" stroke="none"/>
+<circle cx="44.6" cy="55" r="1.8" fill="#fff" stroke="none"/><circle cx="78.6" cy="55" r="1.8" fill="#fff" stroke="none"/>
+<path d="M40 70 Q60 92 80 70z" fill="#8e2430" stroke-width="2.4"/>
+<path d="M44 73 L40 58 L50 71z M76 73 L80 58 L70 71z" fill="#fffaf0" stroke-width="2"/>
+</g>
+<g fill="#ffb3a6" opacity=".8"><ellipse cx="26" cy="70" rx="5" ry="3"/><ellipse cx="94" cy="70" rx="5" ry="3"/></g>
+</svg>
