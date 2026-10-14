@@ -47,4 +47,18 @@ if (( ${#npc_files[@]} )); then
   info "Loaded ${#npc_files[@]} custom NPC script(s) from custom/npc/"
 fi
 
+# Custom databases: custom/db/* -> rathena/db/import/ (rAthena loads these on top of its own db)
+DB_SRC="$REPO_ROOT/custom/db"
+DB_DST="$RATHENA_PATH/db/import"
+shopt -s nullglob
+db_files=("$DB_SRC"/*.yml "$DB_SRC"/*.txt)
+shopt -u nullglob
+if (( ${#db_files[@]} )); then
+  mkdir -p "$DB_DST"
+  for f in "${db_files[@]}"; do
+    cp "$f" "$DB_DST/"
+    info "Wrote db/import/$(basename "$f")"
+  done
+fi
+
 info "Config applied. Start the server: cd $RATHENA_PATH && ./athena-start start --enlog"

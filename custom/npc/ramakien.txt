@@ -1,0 +1,111 @@
+//===== SEVER GAME Prontera ===================================
+//= Ramakien content, phase 1
+//===== Description: ===========================================
+//= Sage of Ayodhya in Prontera: story, the "A Ring for Sita" quest,
+//= a shop for Ramakien supplies and a warp to the Lanka gate.
+//= Lanka Gate Yakshas, Kumbhakarn and the Thotsakan MVP spawn in prt_maze02.
+//= Items and monsters: custom/db/. Text is English until the client can show Thai.
+//==============================================================
+
+prontera,147,189,4	script	Sage of Ayodhya::RK_Sage	4_M_SAGE_A,{
+	mes "[Sage of Ayodhya]";
+	mes "Welcome, traveller.";
+	mes "The demon king Thotsakan has";
+	mes "opened a gate from Lanka into";
+	mes "the Labyrinth Forest.";
+	next;
+	switch (select("Hear the tale:Quest - A Ring for Sita:Buy sacred supplies:Go to the Lanka gate:Leave")) {
+	case 1:
+		mes "[Sage of Ayodhya]";
+		mes "Lady Sita is held in Lanka.";
+		mes "Prince Rama sent Hanuman with";
+		mes "his ring as a sign of hope.";
+		next;
+		mes "[Sage of Ayodhya]";
+		mes "Now yakshas guard the gate.";
+		mes "Beyond them wait Kumbhakarn";
+		mes "and Thotsakan himself.";
+		close;
+
+	case 2:
+		if (RK_RING == 2) {
+			mes "[Sage of Ayodhya]";
+			mes "You already carry the Ring";
+			mes "of Rama. Lanka fears you.";
+			close;
+		}
+		if (RK_RING == 0) {
+			mes "[Sage of Ayodhya]";
+			mes "Defeat ^0000FF10 Lanka Gate Yakshas^000000";
+			mes "in the Labyrinth Forest and";
+			mes "I will trust you with the";
+			mes "Ring of Rama.";
+			next;
+			if (select("I accept:Not now") == 2)
+				close;
+			RK_RING = 1;
+			RK_KILLS = 0;
+			mes "[Sage of Ayodhya]";
+			mes "Go with the blessing of";
+			mes "Ayodhya. Return when done.";
+			close;
+		}
+		if (RK_KILLS < 10) {
+			mes "[Sage of Ayodhya]";
+			mes "Yakshas defeated: ^0000FF" + RK_KILLS + "/10^000000.";
+			mes "The gate still stands.";
+			close;
+		}
+		if (!checkweight(990007, 1, 990000, 5)) {
+			mes "[Sage of Ayodhya]";
+			mes "You carry too much. Make";
+			mes "room and come back.";
+			close;
+		}
+		RK_RING = 2;
+		getitem 990007, 1;
+		getitem 990000, 5;
+		mes "[Sage of Ayodhya]";
+		mes "Well done. Take the Ring of";
+		mes "Rama and this holy water.";
+		close;
+
+	case 3:
+		mes "[Sage of Ayodhya]";
+		mes "Holy water, ancient herbs and";
+		mes "the Sangkarani elixir.";
+		close2;
+		callshop "RK_Supplies", 1;
+		end;
+
+	case 4:
+		if (BaseLevel < 60) {
+			mes "[Sage of Ayodhya]";
+			mes "The yakshas would crush you.";
+			mes "Come back at ^FF0000Base Level 60^000000.";
+			close;
+		}
+		mes "[Sage of Ayodhya]";
+		mes "May the gods guard you.";
+		close2;
+		warp "prt_maze02", 0, 0;
+		end;
+
+	case 5:
+		close;
+	}
+	end;
+
+OnYakshaKill:
+	if (RK_RING == 1 && RK_KILLS < 10) {
+		RK_KILLS++;
+		dispbottom "A Ring for Sita: Lanka Gate Yakshas " + RK_KILLS + "/10";
+	}
+	end;
+}
+
+-	shop	RK_Supplies	-1,990000:1200,990001:2400,990002:20000
+
+prt_maze02,0,0,0,0	monster	Lanka Gate Yaksha	31901,20,5000,0,RK_Sage::OnYakshaKill
+prt_maze02,0,0,0,0	boss_monster	Kumbhakarn	31902,1,3600000,600000
+prt_maze02,0,0,0,0	boss_monster	Thotsakan	31903,1,7200000,600000
