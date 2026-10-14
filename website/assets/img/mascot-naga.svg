@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t"><title id="t">พญานาคน้อยสีทองหงอนลายกนก</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset="1" stop-color="#d49a2a"/></linearGradient></defs>
+<ellipse cx="60" cy="110" rx="40" ry="6" fill="#000" opacity=".25"/>
+<path d="M98 96 Q114 90 108 74 Q104 84 94 86" fill="#2f8a6a"/>
+<ellipse cx="60" cy="94" rx="40" ry="14" fill="#2f8a6a"/>
+<ellipse cx="60" cy="92" rx="30" ry="9" fill="#3aa57e"/>
+<path d="M44 88 Q42 66 60 60 Q78 66 76 88z" fill="#2f8a6a"/>
+<path d="M52 88 Q52 70 60 66 Q68 70 68 88z" fill="#ffe7a3"/>
+<g stroke="#e8b64c" stroke-width="2" fill="none"><path d="M54 74 H66"/><path d="M53 80 H67"/><path d="M53 86 H67"/></g>
+<path d="M36 34 C30 16 42 2 52 10 C46 14 46 22 50 26z" fill="url(#g)"/>
+<path d="M84 34 C90 16 78 2 68 10 C74 14 74 22 70 26z" fill="url(#g)"/>
+<path d="M50 26 C48 8 56 -2 60 4 C64 -2 72 8 70 26z" fill="url(#g)"/>
+<circle cx="60" cy="14" r="3" fill="#d4473f"/>
+<ellipse cx="60" cy="44" rx="28" ry="24" fill="#3aa57e"/>
+<path d="M32 40 Q60 26 88 40 L86 34 Q60 20 34 34z" fill="#e8b64c"/>
+<ellipse cx="60" cy="56" rx="16" ry="10" fill="#7fd1ad"/>
+<circle cx="47" cy="44" r="5.5" fill="#1d2a24"/><circle cx="73" cy="44" r="5.5" fill="#1d2a24"/>
+<circle cx="48.5" cy="42" r="2" fill="#fff"/><circle cx="74.5" cy="42" r="2" fill="#fff"/>
+<circle cx="55" cy="54" r="1.6" fill="#1d2a24"/><circle cx="65" cy="54" r="1.6" fill="#1d2a24"/>
+<path d="M54 60 Q60 64 66 60" stroke="#1d2a24" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<ellipse cx="38" cy="52" rx="4.5" ry="2.6" fill="#ff9aa2" opacity=".8"/><ellipse cx="82" cy="52" rx="4.5" ry="2.6" fill="#ff9aa2" opacity=".8"/>
+<g fill="#e8b64c"><circle cx="30" cy="94" r="2.5"/><circle cx="44" cy="100" r="2.5"/><circle cx="76" cy="100" r="2.5"/><circle cx="90" cy="94" r="2.5"/></g>
+</svg>

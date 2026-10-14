@@ -12,7 +12,7 @@ website/
     ├── config.js       # Server name, address, status, links  ← edit this first
     ├── main.js         # Applies config, copy-address, mobile menu
     ├── styles.css      # Theme tokens at the top (:root)
-    └── img/            # Original SVG illustrations (hero scene, mascots), ~1-10 KB each
+    └── img/            # Original Thai-style SVG illustrations (hero scene, mascots), ~1-10 KB each
 ```
 
 ## Preview locally
