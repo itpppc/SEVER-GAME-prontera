@@ -758,6 +758,28 @@ function Invoke-Warp([string]$RawExe, [string]$RoDir) {
     return $target
 }
 
+# A fresh kRO install has no screen settings yet, and the game then stops with "Cannot init d3d OR grf file has
+# problem". kRO's Setup.exe writes them (to HKLM, so Windows asks for admin), so open it once while they are missing.
+function Test-GraphicsSettings {
+    foreach ($key in @('HKLM:\SOFTWARE\WOW6432Node\Gravity Soft\Ragnarok', 'HKLM:\SOFTWARE\Gravity Soft\Ragnarok')) {
+        $p = Get-ItemProperty -LiteralPath $key -ErrorAction SilentlyContinue
+        if ($p -and $p.WIDTH -and $p.HEIGHT) { return $true }
+    }
+    return $false
+}
+
+function Set-Graphics {
+    if (Test-GraphicsSettings) { Info 'Graphics settings found.'; return }
+    $setup = Join-Path $GameDir 'Setup.exe'
+    if (-not (Test-Path -LiteralPath $setup)) { Warn "Graphics are not set and $setup is missing. Run the installer again."; return }
+    Warn 'Graphics are not set yet, so the Gravity setup window opens now. Click Yes if Windows asks, then choose'
+    Info '  your graphics card (not a projector), 1024x768, window mode, and click OK.'
+    try { Start-Process -FilePath $setup -WorkingDirectory $GameDir -Wait }
+    catch { Warn "Setup.exe did not run: $($_.Exception.Message)" }
+    if (Test-GraphicsSettings) { Info 'Graphics settings saved.' }
+    else { Warn "Graphics are still not set. Before playing, double-click $setup, click Yes and save your settings." }
+}
+
 function Invoke-Main {
     New-Item -ItemType Directory -Force -Path $ToolsDir | Out-Null
     $log = Join-Path $ToolsDir 'install-log.txt'
@@ -773,11 +795,12 @@ function Invoke-Main {
         Set-ServerAddress
         $exe = Invoke-Warp $rawExe $roDir
 
-        Step '7/7  Desktop and Start menu shortcuts'
+        Step '7/7  Desktop and Start menu shortcuts, graphics settings'
         Remove-KroShortcuts
         New-Shortcut (Join-Path ([Environment]::GetFolderPath('Desktop')) "$ServerName.lnk") $exe $GameDir
         New-Shortcut (Join-Path ([Environment]::GetFolderPath('Programs')) "$ServerName.lnk") $exe $GameDir
         Info "Added the $ServerName icon. It starts $exe"
+        Set-Graphics
 
         Write-Host ''
         Write-Host "Done! Double-click $ServerName on your desktop to play." -ForegroundColor Green
