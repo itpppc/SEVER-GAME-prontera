@@ -107,7 +107,7 @@ function Expand-Zip([string]$Zip, [string]$Dest, [string]$Marker) {
     $ErrorActionPreference = 'Continue'
     Info "Unpacking $(Split-Path $Zip -Leaf) ..."
     New-Item -ItemType Directory -Force -Path $Dest -ErrorAction Stop | Out-Null
-    if (Get-Command tar.exe -ErrorAction SilentlyContinue) { & tar.exe -xf $Zip -C $Dest }
+    if (Get-Command tar.exe -ErrorAction SilentlyContinue) { & tar.exe -xf $Zip -C $Dest | Out-Host }
     if (-not (Test-Path -LiteralPath $Marker)) { Expand-Archive -LiteralPath $Zip -DestinationPath $Dest -Force -ErrorAction Stop }
     if (-not (Test-Path -LiteralPath $Marker)) { throw "Unpacking $Zip failed. Delete it and run the installer again." }
 }
@@ -140,16 +140,101 @@ function Find-GameDir {
     return $null
 }
 
-# The 2021 exe reads GRF 0x200 only. kRO's updater converts data.grf to a newer format it cannot read.
-function Assert-OldGrf([string]$Grf) {
-    $buf = New-Object byte[] 46
-    $fs = [IO.File]::OpenRead($Grf)
-    try { $read = $fs.Read($buf, 0, 46) } finally { $fs.Dispose() }
-    $sig = [Text.Encoding]::ASCII.GetString($buf, 0, 15)
-    $ver = if ($read -eq 46) { [BitConverter]::ToUInt32($buf, 42) } else { 0 }
-    if ($sig -ne 'Master of Magic' -or $ver -gt 0x200) {
-        throw ("$Grf is in a newer format (0x{0:X}) that the 2021 game exe cannot read. It happens when the kRO updater runs. " +
-               "Uninstall the game, delete its folder, run this installer again, and never open Ragnarok.exe.") -f $ver
+# The 2021 exe reads GRF 0x200 only. kRO's updater rewrites the GRFs: into a newer format it cannot read,
+# or half-written if the updater is stopped. Returns $null when the file looks fine, otherwise the reason.
+function Get-GrfProblem([string]$Grf) {
+    try { $fs = [IO.File]::Open($Grf, 'Open', 'Read', 'Read') }
+    catch { throw "$Grf is in use. Close the game and the Korean updater (press Ctrl+Shift+Esc, right-click Ragnarok, End task), then run the installer again." }
+    try {
+        $head = New-Object byte[] 46
+        if ($fs.Read($head, 0, 46) -ne 46) { return 'the file is cut off' }
+        if ([Text.Encoding]::ASCII.GetString($head, 0, 15) -ne 'Master of Magic') { return 'it is not a GRF file' }
+        $ver = [BitConverter]::ToUInt32($head, 42)
+        if ($ver -gt 0x200) { return ('it is in a newer format (0x{0:X})' -f $ver) }
+        if ($ver -lt 0x200) { return $null }
+        # 0x200 layout: the zlib-packed file list sits at 46 + offset, after its packed and real sizes.
+        $table = [int64][BitConverter]::ToUInt32($head, 30) + 46
+        if ($table + 8 -gt $fs.Length) { return 'its file list is missing' }
+        $fs.Position = $table
+        $sizes = New-Object byte[] 8
+        [void]$fs.Read($sizes, 0, 8)
+        $packed = [BitConverter]::ToUInt32($sizes, 0)
+        $real = [BitConverter]::ToUInt32($sizes, 4)
+        if ($packed -lt 3 -or $table + 8 + $packed -gt $fs.Length) { return 'its file list is cut off' }
+        $fs.Position = $table + 10   # skip the 2-byte zlib header
+        $z = New-Object IO.Compression.DeflateStream($fs, [IO.Compression.CompressionMode]::Decompress, $true)
+        $buf = New-Object byte[] 1MB
+        $total = [int64]0
+        try {
+            while (($n = $z.Read($buf, 0, $buf.Length)) -gt 0) { $total += $n }
+        } catch { return 'its file list is damaged' } finally { $z.Dispose() }
+        if ($total -ne $real) { return 'its file list is damaged' }
+        return $null
+    } finally { $fs.Dispose() }
+}
+
+function Get-GameFilesProblem {
+    foreach ($name in @('data.grf', 'rdata.grf')) {
+        $grf = Join-Path $GameDir $name
+        if (-not (Test-Path -LiteralPath $grf)) { continue }
+        Info "Checking $name ..."
+        $why = Get-GrfProblem $grf
+        if ($why) { return "$name cannot be used: $why." }
+    }
+    return $null
+}
+
+# The kRO updater (Ragnarok.exe, the window with the START button) and anything else started from the game folder.
+function Stop-GameProcesses {
+    $prefix = $GameDir.TrimEnd('\', '/') + [IO.Path]::DirectorySeparatorChar
+    $procs = @(Get-Process -ErrorAction SilentlyContinue | Where-Object {
+        $_.ProcessName -eq 'Ragnarok' -or ($_.Path -and $_.Path.StartsWith($prefix, [StringComparison]::OrdinalIgnoreCase)) })
+    if (-not $procs.Count) { return }
+    foreach ($p in $procs) {
+        Info "Closing $($p.ProcessName) so the game files can be checked ..."
+        Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue
+    }
+    Start-Sleep -Seconds 2
+    $left = @($procs | Where-Object { Get-Process -Id $_.Id -ErrorAction SilentlyContinue })
+    if ($left.Count) {
+        throw ("Could not close {0}. Press Ctrl+Shift+Esc, right-click it, choose End task, then run the installer again." -f (($left | ForEach-Object { $_.ProcessName }) -join ', '))
+    }
+}
+
+function Remove-GameDir([string]$Dir) {
+    $full = [IO.Path]::GetFullPath($Dir).TrimEnd('\')
+    if (-not (Split-Path $full -Parent) -or -not (Test-Path -LiteralPath (Join-Path $full 'data.grf'))) {
+        throw "Refusing to delete $full because it does not look like a game folder. Delete it yourself and run the installer again."
+    }
+    Info "Deleting $full ..."
+    try { Remove-Item -LiteralPath $full -Recurse -Force -ErrorAction Stop }
+    catch { throw "Could not delete $full ($($_.Exception.Message)). Close the game, delete the folder yourself and run the installer again." }
+}
+
+# kRO's own icons start its updater, which breaks the game files for our server, so only our icon stays.
+function Remove-KroShortcuts {
+    $prefix = $GameDir.TrimEnd('\') + '\'
+    $shell = New-Object -ComObject WScript.Shell
+    $places = @(
+        @{ Dir = [Environment]::GetFolderPath('Desktop');                Deep = $false },
+        @{ Dir = [Environment]::GetFolderPath('CommonDesktopDirectory'); Deep = $false },
+        @{ Dir = [Environment]::GetFolderPath('Programs');               Deep = $true },
+        @{ Dir = [Environment]::GetFolderPath('CommonPrograms');         Deep = $true })
+    foreach ($place in $places) {
+        if (-not $place.Dir -or -not (Test-Path -LiteralPath $place.Dir)) { continue }
+        foreach ($link in @(Get-ChildItem -LiteralPath $place.Dir -Filter '*.lnk' -Recurse:$place.Deep -ErrorAction SilentlyContinue)) {
+            if ($link.BaseName -eq $ServerName) { continue }
+            $target = ''
+            try { $target = $shell.CreateShortcut($link.FullName).TargetPath } catch { }
+            if (-not $target -or -not $target.StartsWith($prefix, [StringComparison]::OrdinalIgnoreCase)) { continue }
+            if ((Split-Path $target -Leaf) -match '^(unins|setup)') { continue }   # uninstaller and graphics settings are harmless
+            try {
+                Remove-Item -LiteralPath $link.FullName -Force -ErrorAction Stop
+                Info "Removed the kRO icon $($link.Name) (it starts the Korean updater)."
+            } catch {
+                Warn "Could not remove the kRO icon $($link.FullName). Never use it; use $ServerName."
+            }
+        }
     }
 }
 
@@ -269,6 +354,9 @@ function Write-WarpSession([string]$BaseSession, [string]$OutFile, [string]$From
 }
 
 function New-Shortcut([string]$LinkPath, [string]$Target, [string]$WorkDir) {
+    if (-not (Test-Path -LiteralPath $Target -PathType Leaf)) { throw "Cannot make the $ServerName icon: $Target does not exist." }
+    if (Test-Path -LiteralPath $LinkPath) { Remove-Item -LiteralPath $LinkPath -Force }
+    New-Item -ItemType Directory -Force -Path (Split-Path $LinkPath -Parent) | Out-Null
     $shell = New-Object -ComObject WScript.Shell
     $lnk = $shell.CreateShortcut($LinkPath)
     $lnk.TargetPath = $Target
@@ -276,6 +364,10 @@ function New-Shortcut([string]$LinkPath, [string]$Target, [string]$WorkDir) {
     $lnk.IconLocation = "$Target,0"
     $lnk.Description = "$ServerName - Ragnarok Online"
     $lnk.Save()
+    $saved = $shell.CreateShortcut($LinkPath).TargetPath
+    if (-not $saved -or [IO.Path]::GetFullPath($saved) -ne [IO.Path]::GetFullPath($Target)) {
+        throw "The $ServerName icon was not saved correctly: $LinkPath"
+    }
 }
 
 function Install-Game {
@@ -284,7 +376,18 @@ function Install-Game {
     if ($found) {
         $script:GameDir = $found
         Info "Found the game in $GameDir"
-    } else {
+        Stop-GameProcesses
+        $problem = Get-GameFilesProblem
+        if ($problem) {
+            Warn $problem
+            Warn 'This happens when the Korean updater (the window with the START button) runs. Our game exe cannot use these files.'
+            $answer = Read-Host "    Type Y and press Enter to delete $GameDir and install the game again (the big download is kept)"
+            if ($answer -notmatch '^\s*[Yy]') { throw "Stopped without changes. Delete $GameDir and run the installer again." }
+            Remove-GameDir $GameDir
+            $found = $null
+        }
+    }
+    if (-not $found) {
         $drive = Split-Path -Qualifier $GameDir
         $free = (Get-PSDrive -Name $drive.TrimEnd(':')).Free
         if ($free -lt 12GB) {
@@ -322,9 +425,11 @@ function Install-Game {
         }
         $script:GameDir = $found
         Info "Game installed in $GameDir"
+        Stop-GameProcesses
+        $problem = Get-GameFilesProblem
+        if ($problem) { throw "$problem The download may be broken: delete $setup, uninstall the game and run the installer again." }
     }
-    Get-Process -Name 'Ragnarok' -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
-    Assert-OldGrf (Join-Path $GameDir 'data.grf')
+    Stop-GameProcesses
     $updater = Join-Path $GameDir 'Ragnarok.exe'
     if (Test-Path -LiteralPath $updater) {
         Move-Item -LiteralPath $updater -Destination "$updater.off" -Force
@@ -360,7 +465,7 @@ function Get-GameExe {
     Push-Location $exeDir
     try {
         $ErrorActionPreference = 'Continue'
-        & $py $get4 $ExeName $ExeHash
+        & $py -u $get4 $ExeName $ExeHash | Out-Host
     } finally {
         $ErrorActionPreference = 'Stop'
         Pop-Location
@@ -414,19 +519,15 @@ function Invoke-Warp([string]$RawExe, [string]$RoDir) {
         Get-File $Urls.Warp $zip
         Expand-Zip $zip $ToolsDir $console
     }
+    if (-not (Test-Path -LiteralPath $RawExe -PathType Leaf)) { throw "The game exe $RawExe is missing. Run the installer again." }
     $target = Join-Path $GameDir "$ServerName.exe"
     $session = Join-Path $ToolsDir 'prontera-warp.yml'
     Write-WarpSession (Join-Path $RoDir 'Addons\WARP Sessions\2019-06_Translation.yml') $session $RawExe $target
+    Stop-GameProcesses
     if (Test-Path -LiteralPath $target) { Remove-Item -LiteralPath $target -Force }
     Info 'If WARP asks "Do you want the CDClient DLL copied as well?", type y and press Enter.'
-    Push-Location $warpDir
-    try {
-        $ErrorActionPreference = 'Continue'
-        & $console -using $session -from $RawExe -to $target
-    } finally {
-        $ErrorActionPreference = 'Stop'
-        Pop-Location
-    }
+    $warpArgs = @('-using', "`"$session`"", '-from', "`"$RawExe`"", '-to', "`"$target`"")
+    Start-Process -FilePath $console -ArgumentList $warpArgs -WorkingDirectory $warpDir -NoNewWindow -Wait
     if (-not (Test-Path -LiteralPath $target)) {
         Warn 'Automatic patching did not finish. WARP opens now; please do these 4 clicks:'
         Info "  1) Source: choose $RawExe and click Load Source"
@@ -463,9 +564,10 @@ function Invoke-Main {
         $exe = Invoke-Warp $rawExe $roDir
 
         Step '7/7  Desktop and Start menu shortcuts'
+        Remove-KroShortcuts
         New-Shortcut (Join-Path ([Environment]::GetFolderPath('Desktop')) "$ServerName.lnk") $exe $GameDir
         New-Shortcut (Join-Path ([Environment]::GetFolderPath('Programs')) "$ServerName.lnk") $exe $GameDir
-        Info "Added the $ServerName icon."
+        Info "Added the $ServerName icon. It starts $exe"
 
         Write-Host ''
         Write-Host "Done! Double-click $ServerName on your desktop to play." -ForegroundColor Green
