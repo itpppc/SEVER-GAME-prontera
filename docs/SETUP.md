@@ -38,6 +38,7 @@ login-server  ◄──►  char-server  ◄──►  map-server   (+ web-serve
 | `scripts/setup-db.sh` | สร้าง DB + user, import SQL, เปลี่ยนรหัส inter-server |
 | `scripts/apply-config.sh` | เติมค่าจาก `.env` ลง `config/import/*` แล้ววางใน rAthena |
 | `scripts/make-gm.sh` | ตั้ง group ให้ไอดี (เช่น GM 99) |
+| `scripts/install-service.sh` | ทำให้เซิร์ฟเป็น systemd service `rathena` เปิดเองหลังรีบูต |
 | `docs/COMMANDS.md` | รายการคำสั่ง @/# ที่ตรวจแล้ว |
 | `docs/CLIENT.md` | ติดตั้งและแพตช์ตัวเกมบน Windows ทีละขั้น |
 | `installer/Install-Prontera.bat` | ตัวติดตั้งตัวเกมคลิกเดียวบน Windows (แจกให้ผู้เล่นได้) |
@@ -71,6 +72,19 @@ scripts/apply-config.sh
 # 6) เปิดเซิร์ฟ
 cd rathena
 ./athena-start start --enlog   # log อยู่ที่ rathena/log/ · หยุด: ./athena-start stop · สถานะ: ./athena-start status
+
+# 7) (แนะนำ) ให้เซิร์ฟเปิดเองทุกครั้งที่เครื่องรีบูต: รันเป็น user ปกติ ห้ามใส่ sudo นำหน้า
+cd .. && scripts/install-service.sh
+```
+
+หลังขั้น 7 เซิร์ฟจะรันเป็น service ชื่อ `rathena` ให้สั่งผ่าน systemctl แทน `./athena-start`
+(สั่งเองด้วย `./athena-start` จะทำให้ systemd จำสถานะผิด)
+
+```bash
+sudo systemctl restart rathena   # รีสตาร์ท (เช่น หลังรัน scripts/apply-config.sh)
+sudo systemctl stop rathena      # ปิด
+sudo systemctl start rathena     # เปิด
+cd ~/SEVER-GAME-prontera/rathena && ./athena-start status   # ดูว่า login/char/map/web รันอยู่ไหม
 ```
 
 ค่าใน `.env` ที่ควรรู้
@@ -209,6 +223,8 @@ WHERE account_id = 1 AND sex = 'S';
 | เข้าเกมได้แต่ค้างหลังเลือกเซิร์ฟ | `PUBLIC_IP` ผิด หรือไม่ได้เปิดพอร์ต 6121/5121 |
 | ล็อกอินแล้ว disconnect ทันที | วันที่ client exe ≠ `PACKETVER` หรือแพตช์ปิด packet encryption |
 | พิมพ์ `_M` แล้ว "Rejected from server" | `new_account` เป็น `no` หรือ client ยังเข้ารหัสรหัสผ่านอยู่ |
+| `install-service.sh` ขึ้น `Run this as the normal user` | รันโดยไม่ใส่ `sudo` นำหน้า สคริปต์จะเรียก sudo เอง |
+| รีบูตแล้วเซิร์ฟไม่ขึ้น | ยังไม่ได้รัน `scripts/install-service.sh` หรือดูสาเหตุด้วย `sudo systemctl status rathena` และ `rathena/log/*.log` |
 
 ดูข้อความ error ในหน้าต่าง console ของแต่ละเซิร์ฟ (Ubuntu: เปิดด้วย `--enlog` แล้วดู `rathena/log/*.log`)
 

@@ -12,6 +12,7 @@ scripts/install.sh           # แพ็กเกจ + clone + compile
 scripts/setup-db.sh                 # DB + import SQL + บัญชี inter-server
 scripts/apply-config.sh             # วางคอนฟิกลง rathena/conf/import
 cd rathena && ./athena-start start --enlog
+cd .. && scripts/install-service.sh  # (แนะนำ) เปิดเองหลังรีบูต แล้วใช้ sudo systemctl restart rathena
 ```
 
 ## เอกสาร
