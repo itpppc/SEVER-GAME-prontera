@@ -43,9 +43,10 @@ $ExeName = '2021-11-03_Ragexe_1635926200'
 $ExeHash = '7d6d0f5400b5cfc8fe6aa366fa293f310f54e3580f0baef5dae617f7b7b575cf'
 # ROenglishRE ClientGenerator.bat, mode 1 (Renewal) + date 9 (2021-10-28), copies these in this order.
 $RoEnglishDates = @('2017-06-14', '2017-12-13', '2018-06-20', '2019-06-05', '2020-09-02', '2021-10-28')
-# WARP patches added on top of ROenglishRE's 2019-06 session. Never add encryption patches:
+# WARP patches added on top of ROenglishRE's 2019-06 session (NoGNJoyLaunch: the game must not open Gravity's
+# website ro.gnjoy.com when it closes). Never add encryption patches:
 # rAthena keeps packet obfuscation on for this client.
-$ExtraPatches = @('DataFolderFirst', 'NoHShield', 'NoCDefender', 'NoAdminNeeded', 'HideLicense', 'CustomWinTitle')
+$ExtraPatches = @('DataFolderFirst', 'NoHShield', 'NoCDefender', 'NoAdminNeeded', 'HideLicense', 'CustomWinTitle', 'NoGNJoyLaunch')
 
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
