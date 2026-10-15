@@ -269,8 +269,156 @@ function Test-VcRedistX86 {
     return $false
 }
 
+# ROenglishRE's lua tables as of 2022-01-25 ("Default Client Date Update to 2021-11-03"): the set made for this exe
+# and kRO's data of that month. Master's copies follow kRO of today and use pet, status-icon and map names this exe and
+# data.grf do not have (Lua errors "PetInfo table index is nil", "StateIconInfo", "queryNavi_MapInfo").
+# Each line is the git blob id and the path under data\luafiles514\lua files.
+$RoEnglishLuaCommit = 'db598f1d0f120f8027f9ab4652042eafb6257e73'
+$RoEnglishLuaFiles = @'
+10c3c6a209d8f025c59fb83108c4ff162704cdca Enchant/EnchantList.lub
+fdb71e97e1c21d0162f9e99f5b4eb94dd6789c67 ItemDBNameTbl.lub
+a9f67691887343de9cf6db11aa8bb93b594cab28 ItemReform/ItemReformSystem.lub
+3047b4faa0d02c0bec6c5d6badd0e2919e87349e admin/pcidentity.lub
+c5fc985c8e8b81c56ef7987968a6b436f8ee166c admin/pcjobname.lub
+e569a801a8d0c7e578ac85b452d4bb05bf8c89a1 admin/pcjobnamegender.lub
+1b0000427101630caca5942838ecc4b94403f796 agit/agitconfig.lub
+a8df12d446c442dd4deb3de5411811492abbeee6 battlefield/battlefieldinfo.lub
+6435ae8bf74cfd75f9ed4a83813c26d5901672ed datainfo/DrawItemOnAura.lub
+317583248b539425b323d0eadf6dadc3c6f4194a datainfo/LapineUpgradeBox.lub
+94c84a50ec3510b71da8ed25405311a4ed7b98a2 datainfo/TB_Layer_Priority.lub
+92c121ecef67c62bcc76d215cfdbb4e7bde5d1ca datainfo/accessoryid.lub
+380eabf1f859e928db0ee769183b55f3a7df20a3 datainfo/accname.lub
+0c812120d23e3b8470e2487142260a805800351f datainfo/accname_eng.lub
+07f61daf9bf70a425ed2e6861eeab3a256df1f78 datainfo/accname_f.lub
+07f7bdfa4b3cc6b28d0ca8131969c542236e7694 datainfo/addrandomoption_f.lub
+08dc09da6082d519d091c21d53495d3bb7946667 datainfo/addrandomoptionnametable.lub
+baf9e47d68ba39b42c67bb791c99299a6205dd7f datainfo/changedirectorylist.lub
+bd8543ad656b39717012657be7efe10ad97db511 datainfo/enumvar.lub
+4b61178240de56ba3ef2eb0739045dcf7b1b424d datainfo/exceptionitemproducer.lub
+4abdd86b53bf179916699fd66eabe6c896c5d47f datainfo/helpmsgstr.lub
+a34786defc8c79ec36159c2f1dbe366981fef420 datainfo/jobidentity.lub
+1c664024b3c02460b51fd5610ea67e8e141e05e3 datainfo/jobname.lub
+add33d16bd2e12cd860c6e5ecd37bab72e9ce1f2 datainfo/jobname_f.lub
+87f981b74cdd8f5cc2feeb7c9e6dafe20414192d datainfo/kaframovemapservicelist.lub
+6e5079e5c4943b224c0e736a7a3984a3aeefb34d datainfo/kaframovemapservicelist_f.lub
+24fd674832f313d9c64894a309f3e782ba94b54b datainfo/lapineddukddakbox.lub
+5788a41d2a3edd1ebc04bf56d3927f92dfa6e733 datainfo/npcidentity.lub
+61e1347c063e1cc26a27be0a1f0f3ac2601914cb datainfo/npclocationradius.lub
+1e5042a748648b0f09aacbf43194c95ad88585b2 datainfo/npclocationradius_f.lub
+f3dd5b041ff087786979d118806cf31fc85f220e datainfo/pcjobnamegender.lub
+d1fc262a604f4c3d5f9d7b8ade0b84ada8242dd2 datainfo/pcjobnamegender_f.lub
+7cb34fec8bf0e699cab17afcf61e5096f8fcc67c datainfo/petinfo.lub
+0564d5727a2b2af0ab1883fd68569d310f9e415a datainfo/questinfo_f.lub
+3f77c717c488be2ff7c2c6c49dbe7b14d4974515 datainfo/shadowtable.lub
+adefb969fe53bc6b7980fd446614e9e6d00e7159 datainfo/shadowtable_f.lub
+5818d2c8d978a362b0f5dad574f57ec12740cbdd datainfo/spriterobeid.lub
+42732cf6bed23479bc526ffb54e9e4bd0937dc43 datainfo/spriterobename.lub
+6868b167429cb33a0d2d06e2f42bbe4b387ab3aa datainfo/spriterobename_f.lub
+eca7909b85bb24fad28f66df2749665054243ab6 datainfo/tb_cashshop_banner.lub
+272e054d7f97ee52a52b447cecd1b07d24154e59 datainfo/titletable.lub
+53d5ee76036a08d88ef159f1ad7d6bb31bf10220 datainfo/weapontable.lub
+611fd9db39938e14c085456f5b0d83a7a36fdf2b datainfo/weapontable_f.lub
+2cf4937c3f61be2d7921239e69d61b88c912628a dressroom/dress_f.lub
+40e0c48963be637240f6c1e266ae6b6f6fb53d34 dressroom/jobdresslist.lub
+5cc8f080fd1c4dc60684f452214b88bde5b9764e effecttool/forcerendereffect.lub
+d1de49eeb9505305a8f5a1a0b6b7e1dff178dc1e entryqueue/entryqueuelist.lub
+42887f30acbe4e98ad6caf4ac79a4d0ec4705020 hateffectinfo/hateffectinfo.lub
+8860ba8e6b9212293908fc9c2f78990336df84ba msgstring_kr.lub
+df3e1d3e9334863fed540207ffb6c2f822b69832 msgstring_kr_s.lub
+78ccf6977de75f21e4b9fdc23880c5fa281ee5be navigation/navi_f_krpri.lub
+78ccf6977de75f21e4b9fdc23880c5fa281ee5be navigation/navi_f_krsak.lub
+9a2361175c8eb061ec6ce8ec84bbfa72812f67b0 navigation/navi_link_krpri.lub
+9a2361175c8eb061ec6ce8ec84bbfa72812f67b0 navigation/navi_link_krsak.lub
+a8c9640521a3c78c5ac39e15ee51800a2da429f6 navigation/navi_linkdistance_krpri.lub
+35caa4ca6a69c2676d9241ee87611f63697d7563 navigation/navi_linkdistance_krsak.lub
+3d5a2d563452d09b70bffe6f679f78e4c949bb8e navigation/navi_map_krpri.lub
+3d5a2d563452d09b70bffe6f679f78e4c949bb8e navigation/navi_map_krsak.lub
+b432dc2b99bad6d65e0e4ea2d020ad1a8f40ef72 navigation/navi_mob_krpri.lub
+9ff9552f1f3a5537ba34e0cc250d99648e1702d1 navigation/navi_mob_krsak.lub
+b060f41ecf93b8d9c8cbe943cea709a344832a26 navigation/navi_npc_krpri.lub
+98c053054767363b09db9cb9e4e4a00328695453 navigation/navi_npc_krsak.lub
+d8cd22270d3b1815e0bede4de2b04cfc3d67e29a navigation/navi_npcdistance_krpri.lub
+255aebe132c7d472e555701234dff9702060e113 navigation/navi_npcdistance_krsak.lub
+e4365ace8e67c30e6c48df7d315a7bf911cefa09 navigation/navi_picknpc_krpri.lub
+a00d0380a1879e67a6d2d5a740587ec5dc328ddd navigation/navi_picknpc_krsak.lub
+a1aa08245d2c443f6eb223c2d327bad945bfb3fc navigation/navi_scroll_krpri.lub
+a1aa08245d2c443f6eb223c2d327bad945bfb3fc navigation/navi_scroll_krsak.lub
+90220e6957fb5f479f75d6f7f772a50f43530307 optioninfo/cmdinfo.lub
+6fc75ee86364a13a961cb4166f26bdceff7c8f5d optioninfo/optioninfo.lub
+74267775535cc1ec90a90b5a926a5baf551967dd optioninfo/optioninfo_f.lub
+f708470747c5b3303b75ddd80f4954dde1765a05 service_korea/ExternalSettings_kr.lub
+2a27821661b7a4b98cfd5b0cd5fd8295c4859d0b service_korea/ExternalSettings_kr_qm.lub
+f708470747c5b3303b75ddd80f4954dde1765a05 service_korea/ExternalSettings_kr_sak.lub
+2a27821661b7a4b98cfd5b0cd5fd8295c4859d0b service_korea/ExternalSettings_kr_sak_qm.lub
+d2fbc044fd0d1be94a8a1523b7c9c48c59a76781 signboardlist.lub
+576e28870162bd53c67717e0e791f267bb6f2075 skilleffectinfo/actorstate.lub
+70636a8721722de2be488b2d9a9a5220eb0c094d skilleffectinfo/effectid.lub
+a2cd368ea8fac29d02c0cc2b3a7abecf9ea37a29 skilleffectinfo/skilleffectinfo_f.lub
+915395f82d92d040090f3ef714da6158bf7bc2c8 skilleffectinfo/skilleffectinfolist.lub
+ce2cc59d3868fe4c749af3e89b9bcbf20e5e041f skillinfoz/jobinheritlist.lub
+11e83ca1e09b250be142f8613e617a99cbc981e1 skillinfoz/skilldescript.lub
+2a1fd34c0025c32ec1436449cbad82360871768d skillinfoz/skillid.lub
+6a84ed73f4f5807805a361eae29dafe7197b2669 skillinfoz/skillinfo_f.lub
+eaf47e40f97f8c12af18bd0c12c13606836eb375 skillinfoz/skillinfolist.lub
+306c54d220ff0480ed6d78f8289ef8a59b24d19e skillinfoz/skilltreeview.lub
+0054da14f229781c0288cf0191ba1aa2dc56f7b7 skillinfoz/skilltreeview_web.lub
+40cefc40465e7c1fbfe1311cfdceb5220909cd0d skillinfoz/test.lub
+00bc16cbdd72d8f1fccaf31c6c8e2a31685a4d98 stateicon/efstids.lub
+bf82d2e60330e50ec6cd159b076e5d0c0595755d stateicon/stateiconimginfo.lub
+7b3acbca5973dc9dcaa6101f60c2cecf6e56b55e stateicon/stateiconinfo.lub
+2829cb7480021735485c17dd1472a25d248b6246 stateicon/stateiconinfo_f.lub
+a73a155d9fe9702663ebbe2656c5a0fc18424213 transparentItem/transparentItem.lub
+6bc8b7875147084db8fb7baed2ea9e0c80189336 transparentItem/transparentItem_f.lub
+5781c374c36674d26161129e2f4abc2b0e592d9a worldviewdata/worldviewdata_f.lub
+94d43530655ace50e814b109975c3df3c4206cef worldviewdata/worldviewdata_info.lub
+90bf8280412135d01012c5574105cfe6f8018784 worldviewdata/worldviewdata_language.lub
+a06c6f8add31321ce27b2ca703f47e4071c6ff8a worldviewdata/worldviewdata_list.lub
+09ddd23cad74dafc9c99f3c7d7af2e74204e3352 worldviewdata/worldviewdata_table.lub
+'@
+
+function Get-GitBlobId([string]$Path) {
+    $bytes = [IO.File]::ReadAllBytes($Path)
+    $head = [Text.Encoding]::ASCII.GetBytes("blob $($bytes.Length)`0")
+    $sha = [Security.Cryptography.SHA1]::Create()
+    try {
+        [void]$sha.TransformBlock($head, 0, $head.Length, $null, 0)
+        [void]$sha.TransformFinalBlock($bytes, 0, $bytes.Length)
+        return -join ($sha.Hash | ForEach-Object { $_.ToString('x2') })
+    } finally { $sha.Dispose() }
+}
+
+# Downloads the 2022 lua set from GitHub once; files already downloaded with the right content are kept.
+function Get-EraLuaFiles {
+    $dir = Join-Path $ToolsDir "ROenglishRE-lua-$($RoEnglishLuaCommit.Substring(0, 7))"
+    $base = "https://raw.githubusercontent.com/llchrisll/ROenglishRE/$RoEnglishLuaCommit/Renewal/data/luafiles514/lua%20files/"
+    $web = New-Object Net.WebClient
+    $said = $false
+    try {
+        foreach ($line in ($RoEnglishLuaFiles -split "`r?`n")) {
+            if ($line -notmatch '^([0-9a-f]{40}) (\S+)$') { continue }
+            $id = $Matches[1]; $rel = $Matches[2]
+            $dest = Join-Path $dir ('data\luafiles514\lua files\' + $rel.Replace('/', '\'))
+            if ((Test-Path -LiteralPath $dest) -and (Get-GitBlobId $dest) -eq $id) { continue }
+            if (-not $said) { Info 'Downloading the English lua files made for this game version ...'; $said = $true }
+            New-Item -ItemType Directory -Force -Path (Split-Path $dest -Parent) | Out-Null
+            $url = $base + (($rel -split '/' | ForEach-Object { [Uri]::EscapeDataString($_) }) -join '/')
+            $ok = $false; $why = 'the file was different from the expected one'
+            for ($try = 1; $try -le 3 -and -not $ok; $try++) {
+                try { $web.DownloadFile($url, "$dest.part"); $ok = (Get-GitBlobId "$dest.part") -eq $id }
+                catch { $why = $_.Exception.Message }
+                if (-not $ok) { Start-Sleep -Seconds 2 }
+            }
+            if (-not $ok) { throw "Could not download $url ($why). Check the internet connection and run the installer again." }
+            Move-Item -LiteralPath "$dest.part" -Destination $dest -Force
+        }
+    } finally { $web.Dispose() }
+    return $dir
+}
+
 # Builds what ROenglishRE's Tools\ClientGenerator.bat builds for mode 1 + date 9, without its prompts.
-function Build-EnglishFiles([string]$RoDir, [string]$Stage) {
+# Its lua tables are then swapped for the 2022 set; master's lua files that set lacks are switched off in the game
+# folder (renamed to .off, only where the file there is the copy an earlier run of this installer put in).
+function Build-EnglishFiles([string]$RoDir, [string]$LuaDir, [string]$Stage) {
     $tr = Join-Path $RoDir 'Translation'
     if (Test-Path -LiteralPath $Stage) { Remove-Item -LiteralPath $Stage -Recurse -Force }
     New-Item -ItemType Directory -Force -Path $Stage | Out-Null
@@ -280,6 +428,21 @@ function Build-EnglishFiles([string]$RoDir, [string]$Stage) {
         if (Test-Path -LiteralPath (Join-Path $src 'Renewal')) { $src = Join-Path $src 'Renewal' }
         if (Test-Path -LiteralPath $src) { Copy-Tree $src $Stage }
     }
+    $lua = Join-Path $Stage 'data\luafiles514'
+    $eraLua = Join-Path $LuaDir 'data\luafiles514'
+    if (Test-Path -LiteralPath $lua) {
+        foreach ($file in (Get-ChildItem -LiteralPath $lua -Recurse -File)) {
+            $rel = $file.FullName.Substring($lua.Length).TrimStart('\')
+            if (Test-Path -LiteralPath (Join-Path $eraLua $rel)) { continue }
+            $old = Join-Path (Join-Path $GameDir 'data\luafiles514') $rel
+            if ((Test-Path -LiteralPath $old) -and (Get-GitBlobId $old) -eq (Get-GitBlobId $file.FullName)) {
+                Move-Item -LiteralPath $old -Destination "$old.off" -Force
+                Info "Switched off data\luafiles514\$rel (renamed to .off)"
+            }
+        }
+        Remove-Item -LiteralPath $lua -Recurse -Force
+    }
+    Copy-Tree $eraLua $lua
 }
 
 # kRO's install ships the System\*.lub files of its main exe (X_true.lub, X_True.lub, X_new.lub, X.lub), but a
@@ -539,8 +702,9 @@ function Install-English {
         $dst = Join-Path $backup $f
         if ((Test-Path -LiteralPath $src) -and -not (Test-Path -LiteralPath $dst)) { Copy-Item -LiteralPath $src -Destination $dst }
     }
+    $luaDir = Get-EraLuaFiles
     $stage = Join-Path $ToolsDir 'client-files'
-    Build-EnglishFiles $roDir $stage
+    Build-EnglishFiles $roDir $luaDir $stage
     Copy-Tree $stage $GameDir
     Add-SakrayLubs
     Write-DataIni $GameDir (Join-Path $backup 'DATA.INI')
