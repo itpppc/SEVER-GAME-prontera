@@ -76,6 +76,7 @@ C:\Python27\python.exe get4.py 2021-11-03_Ragexe_1635926200 7d6d0f5400b5cfc8fe6a
    - `Please select the Client Date:` → พิมพ์ `9` (2021-10-28 ซึ่งใกล้ 2021-11-03 ที่สุด)
    - `Proceed?(Y/N):` → พิมพ์ `Y`
 3. ผลลัพธ์อยู่ที่ `Tools\Client\`
+   แล้วเปลี่ยนไฟล์ lua เป็นชุดที่ทำมาสำหรับเกมรุ่นนี้ (ชุดล่าสุดใช้กับข้อมูลเกมปี 2022 ไม่ได้): โหลด https://github.com/llchrisll/ROenglishRE/archive/db598f1d0f120f8027f9ab4652042eafb6257e73.zip (25 ม.ค. 2022) ลบโฟลเดอร์ `Tools\Client\data\luafiles514` แล้วคัดลอก `Renewal\data\luafiles514` จาก zip นั้นมาไว้แทน
 4. **สำรองก่อน:** คัดลอก `C:\RO\DATA.INI` และ `C:\RO\cps.dll` ไปไว้ที่ `C:\RO-tools\backup`
 5. คัดลอก**ทุกอย่าง**ใน `Tools\Client\` ไปวางใน `C:\RO` ถ้าถามให้เลือก **Replace**
 6. เปิด `C:\RO\DATA.INI` ด้วย Notepad แก้ให้เป็นแบบนี้ (เลขน้อยถูกอ่านก่อน ถ้าไม่มี `rdata.grf` ใน `C:\RO` ให้ลบบรรทัดนั้นแล้วเลื่อนเลข)
@@ -186,6 +187,7 @@ client ปี 2020 ขึ้นไปใช้ web-server ของ rAthena เ�
 | ล็อกอินแล้วหลุดทันที | ใช้ exe ผิดรุ่น (ต้องเป็น `2021-11-03_Ragexe_1635926200`) หรือติ๊กแพตช์ในหมวด encryption |
 | กดไอคอนแล้วขึ้นหน้าต่างเกาหลีที่มีปุ่ม START หรือ `Repacking resource files` | นั่นคือตัวอัปเดต kRO ห้ามกด START ปิดด้วย Ctrl+Shift+Esc > คลิกขวา Ragnarok > End task แล้วรัน `Install-Prontera.bat` ใหม่ (รุ่นใหม่ซ่อมไอคอน ลบไอคอนเกาหลี และตรวจไฟล์เกมให้) |
 | ตัวติดตั้งขึ้น `data.grf cannot be used` (เช่น `it has grown to 4.0 GB`) หรือเกมเด้งออกทันทีที่เปิด | ตัวอัปเดต kRO แก้ไฟล์เกมไปแล้ว (data.grf ใหญ่เกิน 4 GB ซึ่งตัวเกมปี 2021 อ่านไม่ได้) พิมพ์ `Y` แล้ว Enter ตัวติดตั้งจะลงเกมชุดใหม่ไว้ที่ `C:\RO` (หรือ `C:\RO2`) โดยไม่ลบโฟลเดอร์เดิม และใช้ไฟล์ที่โหลดไว้แล้ว ไม่ต้องโหลดใหม่ ถ้าตัวติดตั้งเกาหลีเปิดเป็นหน้าจอให้กด ให้เปลี่ยนโฟลเดอร์ตามที่ตัวติดตั้งบอก |
+| Lua error ตอนเปิดเกม เช่น `PetInfo` `table index is nil`, `StateIconInfo`, `queryNavi_MapInfo`, `AddRandomOptionNameTable` | ไฟล์ lua ภาษาอังกฤษรุ่นปี 2025 อ้างถึงสัตว์เลี้ยง/ไอคอน/แผนที่ที่เกมปี 2022 ไม่มี รัน `Install-Prontera.bat` ซ้ำหนึ่งรอบ ตัวติดตั้งรุ่นใหม่ใช้ไฟล์ lua ชุดปี 2022 ทั้งชุด และเปลี่ยนชื่อไฟล์เก่าที่ไม่ใช้แล้วเป็น `.off` (ไม่ลบ) |
 | `cannot open System\...._sak.lub` หรือ `_Sakray.lub` (เช่น `CPetEvolutionMgr`, `CPrivateAirplaneMgr`) | exe รุ่น Renewal หาไฟล์ชื่อแบบ Sakray แต่ kRO ให้มาแค่ชื่อแบบ `_true` ตัวติดตั้งรุ่นใหม่สร้างให้ครบ รัน `Install-Prontera.bat` ซ้ำหนึ่งรอบ |
 | หน้าต่าง `You'll need a new app to open this ms-gamingoverlay link` | เป็นของ Windows (Xbox Game Bar) ไม่เกี่ยวกับเกม กด Esc ได้เลย |
 | Windows Defender ลบไฟล์ exe ระหว่างติดตั้ง | กด Allow **เฉพาะไฟล์นั้น** แล้วรันตัวติดตั้งซ้ำ |
