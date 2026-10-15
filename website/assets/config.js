@@ -4,7 +4,7 @@
  * Never put passwords, API keys or payment secrets here: this file is public.
  */
 window.SITE_CONFIG = Object.freeze({
-  serverName: "Prontera Realm", // TODO: final brand name
+  serverName: "Prontera รามเกียรติ์", // brand name chosen by the owner 2026-10-15
   // Public address = PUBLIC_IP in the server .env (login-server port 6900). The installer sets it for players.
   serverAddress: "54.206.105.93",
   serverPort: 6900,

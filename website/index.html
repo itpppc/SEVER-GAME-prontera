@@ -52,7 +52,7 @@
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="หน้าแรก">
         <img class="brand-mark" src="assets/img/logo-mark.svg" width="44" height="44" alt="">
-        <span class="brand-text"><span class="brand-name" data-config="serverName">Prontera Realm</span><span class="brand-tag">มหากาพย์รามเกียรติ์</span></span>
+        <span class="brand-text"><span class="brand-name">Prontera</span><span class="brand-tag brand-tag-th">รามเกียรติ์</span></span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
         <span class="sr-only">เปิดเมนู</span>
@@ -60,12 +60,12 @@
       </button>
       <nav id="site-nav" class="site-nav" aria-label="เมนูหลัก" data-open="false">
         <ul>
-          <li><a href="#news">ข่าวสาร</a></li>
           <li><a href="#characters">ตัวละคร</a></li>
-          <li><a href="#rates">ข้อมูลเซิร์ฟ</a></li>
-          <li><a href="#rankings">อันดับ</a></li>
           <li><a href="#join">วิธีเข้าเล่น</a></li>
           <li><a href="#free">เล่นฟรี</a></li>
+          <li><a href="#news">ข่าวสาร</a></li>
+          <li><a href="#rates">ข้อมูลเซิร์ฟ</a></li>
+          <li><a href="#rankings">อันดับ</a></li>
           <li><a class="btn btn-sm btn-ghost" href="guide.html#download" data-link="clientDownload">ดาวน์โหลดฟรี</a></li>
           <li><a class="btn btn-sm btn-primary" href="guide.html#register" data-link="register">สมัครไอดี</a></li>
         </ul>
@@ -78,7 +78,7 @@
       <div class="container hero-grid">
       <div class="hero-inner">
         <p class="free-badge"><strong>ฟรี 100%</strong> ไม่มีเก็บเงิน ไม่มีเติมเงิน</p>
-        <h1 id="hero-title">ผจญภัยในโลกแฟนตาซี<span class="nowrap">แบบคลาสสิก</span><br><span class="accent">เล่นสบาย เซิร์ฟเสถียร</span></h1>
+        <h1 id="hero-title"><span class="h1-brand">Prontera รามเกียรติ์</span>ผจญภัยในโลกแฟนตาซี<span class="nowrap">แบบคลาสสิก</span><br><span class="accent">เล่นฟรี เซิร์ฟเสถียร</span></h1>
         <p class="lead"><strong class="free-word">เล่นฟรี</strong> ไม่มีค่าใช้จ่ายใด ๆ เซิร์ฟเวอร์ MMORPG สำหรับคนไทย ระบบสมดุล ทีมงานดูแลจริงจัง และชุมชนที่เป็นมิตร เริ่มต้นได้ในไม่กี่ขั้นตอน</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="guide.html#download" data-link="clientDownload">ดาวน์โหลดฟรี</a>
@@ -127,26 +127,51 @@
       </ul>
     </nav>
 
-    <section class="section" id="news" aria-labelledby="news-title">
+    <section class="section battle-section" id="battle" aria-labelledby="battle-title">
       <div class="container">
-        <header class="section-head section-head-row">
-          <div>
-            <p class="eyebrow">อัปเดตล่าสุด</p>
-            <h2 id="news-title">ข่าวสารและกิจกรรม</h2>
-          </div>
-          <div class="filters" role="group" aria-label="กรองข่าวตามหมวด" data-news-filters>
-            <button type="button" class="chip" data-filter="all" aria-pressed="true">ทั้งหมด</button>
-            <button type="button" class="chip" data-filter="event" aria-pressed="false">อีเวนต์</button>
-            <button type="button" class="chip" data-filter="update" aria-pressed="false">อัปเดต</button>
-            <button type="button" class="chip" data-filter="promo" aria-pressed="false">โปรโมชัน</button>
-          </div>
+        <header class="section-head center">
+          <p class="eyebrow">มหาศึกกรุงลงกา</p>
+          <h2 id="battle-title">ฝ่ายพระราม ปะทะ ฝ่ายทศกัณฐ์</h2>
+          <p class="muted">แตะตัวละครให้กระโดด หรือกดเชียร์ฝ่ายที่ชอบแล้วดูท่าไม้ตาย</p>
         </header>
-        <ul class="grid news-grid" role="list" data-news aria-live="polite"></ul>
-        <noscript><p class="muted">เปิด JavaScript เพื่อดูข่าวสารล่าสุด หรือติดตามประกาศทาง Discord</p></noscript>
+        <div class="battle" data-battle data-lead="none">
+          <div class="battle-stage">
+            <div class="battle-team battle-left">
+              <button type="button" class="fighter f-back" style="--x:2%;--w:12%;--d:-.4s" data-fighter="lak"><img src="assets/img/chars/lak.svg" alt="" width="184" height="296"><span class="sr-only">พระลักษมณ์ กระโดด</span></button>
+              <button type="button" class="fighter" style="--x:11%;--w:13%;--d:0s" data-fighter="rama"><img src="assets/img/chars/rama.svg" alt="" width="184" height="296"><span class="sr-only">พระราม กระโดด</span></button>
+              <button type="button" class="fighter f-hero f-hide-sm" style="--x:20%;--w:12%;--d:-.8s" data-fighter="sukrip"><img src="assets/img/chars/sukrip.svg" alt="" width="184" height="296"><span class="sr-only">สุครีพ กระโดด</span></button>
+              <button type="button" class="fighter f-leap" style="--x:29%;--w:12%;--d:-1.2s" data-fighter="hanuman"><img src="assets/img/chars/hanuman.svg" alt="" width="184" height="296"><span class="sr-only">หนุมาน กระโดด</span></button>
+            </div>
+            <div class="battle-team battle-right">
+              <button type="button" class="fighter f-flip f-thrust" style="--x:58%;--w:12%;--d:-.6s" data-fighter="kumpakan"><img src="assets/img/chars/kumpakan.svg" alt="" width="184" height="296"><span class="sr-only">กุมภกรรณ กระโดด</span></button>
+              <button type="button" class="fighter f-flip f-hide-sm" style="--x:66%;--w:12%;--d:-1s" data-fighter="inthorachit"><img src="assets/img/chars/inthorachit.svg" alt="" width="184" height="296"><span class="sr-only">อินทรชิต กระโดด</span></button>
+              <button type="button" class="fighter f-flip f-boss" style="--x:74%;--w:15%;--d:-.2s" data-fighter="tossakan"><img src="assets/img/chars/tossakan.svg" alt="" width="184" height="296"><span class="sr-only">ทศกัณฐ์ กระโดด</span></button>
+              <button type="button" class="fighter f-flip f-back" style="--x:87%;--w:11%;--d:-1.4s" data-fighter="maiyarap"><img src="assets/img/chars/maiyarap.svg" alt="" width="184" height="296"><span class="sr-only">ไมยราพ กระโดด</span></button>
+            </div>
+            <div class="battle-fx" aria-hidden="true">
+              <svg class="fx fx-arrow" viewBox="0 0 120 20"><path d="M4 10 H100" stroke="#f2c14e" stroke-width="5" stroke-linecap="round"/><path d="M96 2 L118 10 L96 18z" fill="#fff3bf" stroke="#2b1b33" stroke-width="2"/><path d="M4 10 l-2 -8 M4 10 l-2 8 M12 10 l-2 -8 M12 10 l-2 8" stroke="#e8463a" stroke-width="3"/></svg>
+              <svg class="fx fx-naga" viewBox="0 0 120 30"><path d="M116 15 q-10 -10 -20 0 t-20 0 t-20 0 t-20 0 t-20 0" fill="none" stroke="#3fd08a" stroke-width="6" stroke-linecap="round"/><circle cx="10" cy="15" r="8" fill="#3fd08a" stroke="#2b1b33" stroke-width="2"/><circle cx="7" cy="12" r="2" fill="#fff"/></svg>
+              <div class="fx fx-burst fx-burst-r"><svg viewBox="0 0 100 100"><path d="M50 2 L60 36 L96 24 L70 50 L98 74 L62 66 L50 98 L40 66 L4 78 L30 50 L6 22 L40 36z" fill="#ffd23a" stroke="#2b1b33" stroke-width="3"/></svg><span>ปัง!</span></div>
+              <div class="fx fx-burst fx-burst-l"><svg viewBox="0 0 100 100"><path d="M50 2 L60 36 L96 24 L70 50 L98 74 L62 66 L50 98 L40 66 L4 78 L30 50 L6 22 L40 36z" fill="#7dffb0" stroke="#2b1b33" stroke-width="3"/></svg><span>ตูม!</span></div>
+              <div class="fx fx-clash"></div>
+              <div class="fx-volley fx-volley-l"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="fx-volley fx-volley-r"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <p class="battle-vs" aria-hidden="true">VS</p>
+          </div>
+          <div class="battle-cheer">
+            <button type="button" class="btn btn-primary cheer cheer-l" data-cheer="rama">เชียร์ฝ่ายพระราม</button>
+            <div class="tug" role="img" aria-label="แถบพลังเชียร์" data-tug>
+              <span class="tug-l"></span><span class="tug-r"></span>
+            </div>
+            <button type="button" class="btn btn-lanka cheer cheer-r" data-cheer="lanka">เชียร์ฝ่ายลงกา</button>
+          </div>
+          <p class="battle-score muted" aria-live="polite" data-battle-score>กดเชียร์เพื่อเพิ่มพลังให้ฝ่ายที่ชอบ</p>
+        </div>
       </div>
     </section>
 
-    <section class="section chars-section" id="characters" aria-labelledby="chars-title">
+    <section class="section section-alt chars-section" id="characters" aria-labelledby="chars-title">
       <div class="container">
         <header class="section-head section-head-row">
           <div>
@@ -177,6 +202,104 @@
           </div>
         </div>
       </dialog>
+    </section>
+
+    <section class="section" id="join" aria-labelledby="join-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">เริ่มต้นใน 4 ขั้นตอน</p>
+          <h2 id="join-title">วิธีเข้าเล่น</h2>
+        </header>
+        <ol class="steps" role="list">
+          <li class="step">
+            <h3>ดาวน์โหลดตัวติดตั้ง</h3>
+            <p>ไฟล์เล็กไฟล์เดียวสำหรับ Windows 10 / 11 โหลดตัวเกมและตั้งค่าให้อัตโนมัติ</p>
+            <a class="link" href="guide.html#download">ดาวน์โหลดตัวติดตั้ง</a>
+          </li>
+          <li class="step">
+            <h3>ติดตั้งตามคู่มือ</h3>
+            <p>ดับเบิลคลิกแล้วกดถัดไปตามคู่มือ เสร็จแล้วจะมีไอคอน Prontera บนเดสก์ท็อป</p>
+            <a class="link" href="guide.html#install">อ่านคู่มือการติดตั้ง</a>
+          </li>
+          <li class="step">
+            <h3>สมัครไอดีในเกม</h3>
+            <p>ที่หน้าล็อกอิน พิมพ์ชื่อตามด้วย _M หรือ _F แล้วตั้งรหัสผ่าน ไม่ต้องกรอกข้อมูลส่วนตัวบนเว็บ</p>
+            <a class="link" href="guide.html#register">วิธีสมัครไอดี</a>
+          </li>
+          <li class="step">
+            <h3>เข้าสู่เกม</h3>
+            <p>ล็อกอินด้วยชื่อที่สมัคร (ไม่ต้องมี _M/_F) เลือกเซิร์ฟ Prontera แล้วสร้างตัวละคร</p>
+            <a class="link" href="guide.html#play">ดูขั้นตอนเข้าเกม</a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="free" aria-labelledby="free-title">
+      <div class="container">
+        <header class="section-head center">
+          <p class="eyebrow">ไม่มีเก็บเงิน</p>
+          <h2 id="free-title"><span class="free-word">ฟรี</span> 100% ทุกคนเล่นเท่าเทียมกัน</h2>
+          <p class="muted">ตอนนี้เซิร์ฟเวอร์เปิดให้เล่นฟรีทั้งหมด ไม่มีร้านเติมเงิน ไม่มีแพ็กเกจขาย และไม่มีช่องทางชำระเงินใด ๆ</p>
+        </header>
+        <ul class="grid grid-3 plans" role="list">
+          <li class="plan">
+            <img class="plan-mascot" src="assets/img/mascot-hanuman.svg" width="72" height="72" alt="">
+            <h3>สมัครฟรี</h3>
+            <p class="price">฿0</p>
+            <ul class="plan-list">
+              <li>สมัครไอดีในหน้าล็อกอินของเกม</li>
+              <li>ไม่ต้องกรอกข้อมูลส่วนตัวบนเว็บ</li>
+              <li>ไม่มีค่าสมัครหรือค่าแรกเข้า</li>
+            </ul>
+          </li>
+          <li class="plan plan-featured">
+            <p class="plan-badge">ฟรีตลอด</p>
+            <img class="plan-mascot" src="assets/img/mascot-yak.svg" width="72" height="72" alt="">
+            <h3>เล่นฟรี</h3>
+            <p class="price">฿0</p>
+            <ul class="plan-list">
+              <li>ไม่มีค่ารายเดือน</li>
+              <li>ไม่มีไอเทมเงินจริง ไม่มี Pay-to-Win</li>
+              <li>ของทุกชิ้นได้จากการเล่นในเกม</li>
+            </ul>
+          </li>
+          <li class="plan">
+            <img class="plan-mascot" src="assets/img/mascot-suphanmatcha.svg" width="72" height="72" alt="">
+            <h3>ดาวน์โหลดฟรี</h3>
+            <p class="price">฿0</p>
+            <ul class="plan-list">
+              <li>ตัวติดตั้งคลิกเดียว ฟรี</li>
+              <li>สำหรับ Windows 10 / 11</li>
+              <li>อัปเดตเกมฟรีตลอด</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="cta-row center-row">
+          <a class="btn btn-primary" href="guide.html#download" data-link="clientDownload">ดาวน์โหลดฟรี</a>
+          <a class="btn btn-ghost" href="guide.html">อ่านคู่มือเริ่มเล่น</a>
+        </div>
+        <p class="note">ทีมงานจะไม่ขอเงินหรือรหัสผ่านจากคุณไม่ว่ากรณีใด หากมีคนอ้างชื่อเซิร์ฟเพื่อเรียกเก็บเงิน ขอให้ระวังมิจฉาชีพ</p>
+      </div>
+    </section>
+
+    <section class="section" id="news" aria-labelledby="news-title">
+      <div class="container">
+        <header class="section-head section-head-row">
+          <div>
+            <p class="eyebrow">อัปเดตล่าสุด</p>
+            <h2 id="news-title">ข่าวสารและกิจกรรม</h2>
+          </div>
+          <div class="filters" role="group" aria-label="กรองข่าวตามหมวด" data-news-filters>
+            <button type="button" class="chip" data-filter="all" aria-pressed="true">ทั้งหมด</button>
+            <button type="button" class="chip" data-filter="event" aria-pressed="false">อีเวนต์</button>
+            <button type="button" class="chip" data-filter="update" aria-pressed="false">อัปเดต</button>
+            <button type="button" class="chip" data-filter="promo" aria-pressed="false">โปรโมชัน</button>
+          </div>
+        </header>
+        <ul class="grid news-grid" role="list" data-news aria-live="polite"></ul>
+        <noscript><p class="muted">เปิด JavaScript เพื่อดูข่าวสารล่าสุด หรือติดตามประกาศทาง Discord</p></noscript>
+      </div>
     </section>
 
     <section class="section section-alt" id="features" aria-labelledby="features-title">
@@ -300,85 +423,6 @@
       </div>
     </section>
 
-    <section class="section" id="join" aria-labelledby="join-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="eyebrow">เริ่มต้นใน 4 ขั้นตอน</p>
-          <h2 id="join-title">วิธีเข้าเล่น</h2>
-        </header>
-        <ol class="steps" role="list">
-          <li class="step">
-            <h3>ดาวน์โหลดตัวติดตั้ง</h3>
-            <p>ไฟล์เล็กไฟล์เดียวสำหรับ Windows 10 / 11 โหลดตัวเกมและตั้งค่าให้อัตโนมัติ</p>
-            <a class="link" href="guide.html#download">ดาวน์โหลดตัวติดตั้ง</a>
-          </li>
-          <li class="step">
-            <h3>ติดตั้งตามคู่มือ</h3>
-            <p>ดับเบิลคลิกแล้วกดถัดไปตามคู่มือ เสร็จแล้วจะมีไอคอน Prontera บนเดสก์ท็อป</p>
-            <a class="link" href="guide.html#install">อ่านคู่มือการติดตั้ง</a>
-          </li>
-          <li class="step">
-            <h3>สมัครไอดีในเกม</h3>
-            <p>ที่หน้าล็อกอิน พิมพ์ชื่อตามด้วย _M หรือ _F แล้วตั้งรหัสผ่าน ไม่ต้องกรอกข้อมูลส่วนตัวบนเว็บ</p>
-            <a class="link" href="guide.html#register">วิธีสมัครไอดี</a>
-          </li>
-          <li class="step">
-            <h3>เข้าสู่เกม</h3>
-            <p>ล็อกอินด้วยชื่อที่สมัคร (ไม่ต้องมี _M/_F) เลือกเซิร์ฟ Prontera แล้วสร้างตัวละคร</p>
-            <a class="link" href="guide.html#play">ดูขั้นตอนเข้าเกม</a>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="free" aria-labelledby="free-title">
-      <div class="container">
-        <header class="section-head center">
-          <p class="eyebrow">ไม่มีเก็บเงิน</p>
-          <h2 id="free-title"><span class="free-word">ฟรี</span> 100% ทุกคนเล่นเท่าเทียมกัน</h2>
-          <p class="muted">ตอนนี้เซิร์ฟเวอร์เปิดให้เล่นฟรีทั้งหมด ไม่มีร้านเติมเงิน ไม่มีแพ็กเกจขาย และไม่มีช่องทางชำระเงินใด ๆ</p>
-        </header>
-        <ul class="grid grid-3 plans" role="list">
-          <li class="plan">
-            <img class="plan-mascot" src="assets/img/mascot-hanuman.svg" width="72" height="72" alt="">
-            <h3>สมัครฟรี</h3>
-            <p class="price">฿0</p>
-            <ul class="plan-list">
-              <li>สมัครไอดีในหน้าล็อกอินของเกม</li>
-              <li>ไม่ต้องกรอกข้อมูลส่วนตัวบนเว็บ</li>
-              <li>ไม่มีค่าสมัครหรือค่าแรกเข้า</li>
-            </ul>
-          </li>
-          <li class="plan plan-featured">
-            <p class="plan-badge">ฟรีตลอด</p>
-            <img class="plan-mascot" src="assets/img/mascot-yak.svg" width="72" height="72" alt="">
-            <h3>เล่นฟรี</h3>
-            <p class="price">฿0</p>
-            <ul class="plan-list">
-              <li>ไม่มีค่ารายเดือน</li>
-              <li>ไม่มีไอเทมเงินจริง ไม่มี Pay-to-Win</li>
-              <li>ของทุกชิ้นได้จากการเล่นในเกม</li>
-            </ul>
-          </li>
-          <li class="plan">
-            <img class="plan-mascot" src="assets/img/mascot-suphanmatcha.svg" width="72" height="72" alt="">
-            <h3>ดาวน์โหลดฟรี</h3>
-            <p class="price">฿0</p>
-            <ul class="plan-list">
-              <li>ตัวติดตั้งคลิกเดียว ฟรี</li>
-              <li>สำหรับ Windows 10 / 11</li>
-              <li>อัปเดตเกมฟรีตลอด</li>
-            </ul>
-          </li>
-        </ul>
-        <div class="cta-row center-row">
-          <a class="btn btn-primary" href="guide.html#download" data-link="clientDownload">ดาวน์โหลดฟรี</a>
-          <a class="btn btn-ghost" href="guide.html">อ่านคู่มือเริ่มเล่น</a>
-        </div>
-        <p class="note">ทีมงานจะไม่ขอเงินหรือรหัสผ่านจากคุณไม่ว่ากรณีใด หากมีคนอ้างชื่อเซิร์ฟเพื่อเรียกเก็บเงิน ขอให้ระวังมิจฉาชีพ</p>
-      </div>
-    </section>
-
     <section class="section" id="faq" aria-labelledby="faq-title">
       <div class="container narrow">
         <header class="section-head">
@@ -430,6 +474,8 @@
     <div class="container">
       <nav class="footer-nav" aria-label="ลิงก์ท้ายเว็บ">
         <ul role="list">
+          <li><a href="#battle">มหาศึกลงกา</a></li>
+          <li><a href="#characters">ตัวละคร</a></li>
           <li><a href="#news">ข่าวสาร</a></li>
           <li><a href="#rates">ข้อมูลเซิร์ฟ</a></li>
           <li><a href="#schedule">ตารางกิจกรรม</a></li>
@@ -440,7 +486,7 @@
           <li><a href="#contact">ติดต่อทีมงาน</a></li>
         </ul>
       </nav>
-      <p>&copy; <span data-year>2026</span> <span data-config="serverName">Prontera Realm</span>. เซิร์ฟเวอร์อิสระที่ดำเนินการโดยแฟนเกม ไม่มีส่วนเกี่ยวข้องกับผู้พัฒนาหรือผู้จัดจำหน่ายเกมต้นฉบับ</p>
+      <p>&copy; <span data-year>2026</span> <span data-config="serverName">Prontera รามเกียรติ์</span>. เซิร์ฟเวอร์อิสระที่ดำเนินการโดยแฟนเกม ไม่มีส่วนเกี่ยวข้องกับผู้พัฒนาหรือผู้จัดจำหน่ายเกมต้นฉบับ</p>
       <a class="to-top" href="#top">กลับขึ้นด้านบน ↑</a>
     </div>
   </footer>

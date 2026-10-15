@@ -144,3 +144,46 @@
     });
   }
 })();
+
+/* Battle scene: tap a fighter to jump, cheer buttons fire a special move and move the tug bar. */
+(function () {
+  "use strict";
+  const battle = document.querySelector("[data-battle]");
+  if (!battle) return;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const tug = battle.querySelector("[data-tug]");
+  const score = battle.querySelector("[data-battle-score]");
+  const LABEL = { rama: "ฝ่ายพระราม", lanka: "ฝ่ายลงกา" };
+  const pts = { rama: 0, lanka: 0 };
+  let timer = 0;
+
+  battle.querySelectorAll("[data-fighter]").forEach((f) => {
+    f.addEventListener("click", () => {
+      if (reduced) return;
+      f.classList.remove("is-jumping");
+      void f.offsetWidth; // restart the animation on repeated taps
+      f.classList.add("is-jumping");
+    });
+    f.addEventListener("animationend", (e) => { if (e.animationName === "f-jump") f.classList.remove("is-jumping"); });
+  });
+
+  battle.querySelectorAll("[data-cheer]").forEach((b) => {
+    b.addEventListener("click", () => {
+      const side = b.dataset.cheer;
+      pts[side] += 1;
+      const total = pts.rama + pts.lanka;
+      // Keep the bar between 10% and 90% so both sides stay visible.
+      const p = Math.min(90, Math.max(10, 50 + ((pts.rama - pts.lanka) / Math.max(total, 1)) * 40));
+      tug?.style.setProperty("--p", `${p}%`);
+      const diff = Math.abs(pts.rama - pts.lanka);
+      const lead = pts.rama === pts.lanka ? null : pts.rama > pts.lanka ? "rama" : "lanka";
+      if (score) score.textContent = lead ? `${LABEL[lead]}นำอยู่ ${diff} แต้ม (พระราม ${pts.rama} : ลงกา ${pts.lanka})` : `เสมอกัน ${pts.rama} : ${pts.lanka}`;
+      if (reduced) return;
+      battle.classList.remove("special-rama", "special-lanka");
+      void battle.offsetWidth;
+      battle.classList.add(`special-${side}`);
+      clearTimeout(timer);
+      timer = setTimeout(() => battle.classList.remove("special-rama", "special-lanka"), 1500);
+    });
+  });
+})();

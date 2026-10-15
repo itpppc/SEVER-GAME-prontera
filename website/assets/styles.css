@@ -90,7 +90,8 @@ code {
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .brand-tag { font-size: .72rem; font-weight: 500; color: var(--muted); letter-spacing: .08em; }
-@media (max-width: 420px) { .brand-mark { width: 38px; height: 38px; } .brand-name { font-size: 1.05rem; } }
+.brand-tag-th { font: 700 1rem var(--font-head); letter-spacing: .02em; color: var(--accent); margin-top: 1px; }
+@media (max-width: 420px) { .brand-mark { width: 38px; height: 38px; } .brand-name { font-size: 1.05rem; } .brand-tag-th { font-size: .9rem; } }
 @media (prefers-reduced-motion: reduce) { .brand-mark { transition: none; } }
 .site-nav ul { display: flex; align-items: center; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
 .site-nav a:not(.btn) { color: var(--muted); text-decoration: none; font-weight: 500; }
@@ -523,3 +524,104 @@ kbd {
   .char-fig { transform: none; }
   .reveal { opacity: 1; translate: none; }
 }
+
+/* Battle scene: Rama's side vs Lanka (8s looping choreography) */
+.battle-section { background: radial-gradient(80% 60% at 50% 0%, rgb(232 182 76 / .08), transparent 70%); }
+.battle-stage {
+  position: relative; aspect-ratio: 16 / 7; max-width: 100%; overflow: hidden; border-radius: 22px;
+  background: #1a1d48 url("img/battle-bg.svg") center bottom / cover no-repeat;
+  border: 1px solid rgb(232 182 76 / .6); box-shadow: inset 0 0 0 5px rgb(15 18 32 / .6), inset 0 0 0 6px rgb(232 182 76 / .35), 0 24px 60px rgb(0 0 0 / .45);
+}
+.fighter {
+  position: absolute; left: var(--x); bottom: 7%; width: var(--w); z-index: 2;
+  padding: 0; border: 0; background: none; cursor: pointer; border-radius: 12px;
+}
+.fighter img { display: block; width: 100%; height: auto; filter: drop-shadow(0 8px 6px rgb(0 0 0 / .45)); animation: f-bob 1.3s ease-in-out infinite; animation-delay: var(--d, 0s); transform-origin: 50% 100%; }
+.f-flip img { scale: -1 1; }
+.f-back { bottom: 15%; z-index: 1; }
+.f-back img { filter: brightness(.82) drop-shadow(0 6px 5px rgb(0 0 0 / .4)); }
+.fighter.is-jumping img { animation: f-jump .7s cubic-bezier(.3, .7, .4, 1); }
+.f-leap { animation: f-leap 8s ease-in-out infinite; }
+.f-thrust { animation: f-thrust 8s ease-in-out infinite; }
+.f-boss { animation: f-hit-r 8s ease-in-out infinite; }
+[data-fighter="rama"] { animation: f-hit-l 8s ease-in-out infinite; }
+@keyframes f-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -4%; } }
+@keyframes f-jump { 0%, 100% { translate: 0 0; rotate: 0deg; } 45% { translate: 0 -38%; rotate: -8deg; } 70% { translate: 0 -10%; rotate: 4deg; } }
+@keyframes f-leap { 0%, 78%, 100% { translate: 0 0; rotate: 0deg; } 84% { translate: 70% -55%; rotate: 18deg; } 88% { translate: 95% -8%; rotate: 8deg; } 92% { translate: 80% -30%; rotate: -10deg; } 97% { translate: 0 0; rotate: 0deg; } }
+@keyframes f-thrust { 0%, 56%, 70%, 100% { translate: 0 0; } 60% { translate: 8% 0; } 64% { translate: -26% 0; } 87% { translate: 0 0; } 89% { translate: 12% -6%; rotate: 10deg; } 93% { translate: 0 0; rotate: 0deg; } }
+@keyframes f-hit-r { 0%, 28%, 44%, 100% { translate: 0 0; rotate: 0deg; filter: none; } 30% { translate: 8% 0; rotate: 8deg; filter: brightness(1.8); } 34% { translate: 4% 0; rotate: -5deg; filter: none; } 38% { rotate: 3deg; } }
+@keyframes f-hit-l { 0%, 66%, 80%, 100% { translate: 0 0; rotate: 0deg; filter: none; } 68% { translate: -8% 0; rotate: -8deg; filter: brightness(1.8) hue-rotate(60deg); } 72% { translate: -4% 0; rotate: 5deg; filter: none; } 76% { rotate: -3deg; } }
+
+.battle-fx { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
+.fx { position: absolute; opacity: 0; }
+.fx-arrow { width: 9%; top: 47%; animation: fx-arrow 8s linear infinite; filter: drop-shadow(0 0 6px #ffd27a); }
+.fx-naga { width: 10%; top: 42%; animation: fx-naga 8s linear infinite; filter: drop-shadow(0 0 8px #3fd08a); }
+.fx-burst { width: 13%; aspect-ratio: 1; display: grid; place-items: center; }
+.fx-burst svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fx-burst span { position: relative; font: 900 clamp(.8rem, 2.2vw, 1.6rem) var(--font-head); color: #2b1b33; rotate: -10deg; }
+.fx-burst-r { left: 74%; top: 26%; animation: fx-burst-r 8s ease-out infinite; }
+.fx-burst-l { left: 12%; top: 22%; animation: fx-burst-l 8s ease-out infinite; }
+.fx-clash { left: 46%; top: 34%; width: 12%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff 0 12%, #ffe27a 30%, rgb(255 140 60 / .6) 52%, transparent 70%); animation: fx-clash 8s ease-out infinite; }
+@keyframes fx-arrow { 0%, 12% { opacity: 0; left: 24%; } 13% { opacity: 1; left: 24%; } 28% { opacity: 1; left: 70%; } 29%, 100% { opacity: 0; left: 70%; } }
+@keyframes fx-naga { 0%, 50% { opacity: 0; left: 66%; } 51% { opacity: 1; left: 66%; } 66% { opacity: 1; left: 22%; } 67%, 100% { opacity: 0; left: 22%; } }
+@keyframes fx-burst-r { 0%, 28% { opacity: 0; scale: .2; } 30% { opacity: 1; scale: 1.15; } 36% { opacity: 1; scale: 1; } 42%, 100% { opacity: 0; scale: .6; } }
+@keyframes fx-burst-l { 0%, 66% { opacity: 0; scale: .2; } 68% { opacity: 1; scale: 1.15; } 74% { opacity: 1; scale: 1; } 80%, 100% { opacity: 0; scale: .6; } }
+@keyframes fx-clash { 0%, 86% { opacity: 0; scale: .2; } 88% { opacity: 1; scale: 1.4; } 94%, 100% { opacity: 0; scale: 2; } }
+
+.battle-vs {
+  position: absolute; left: 50%; top: 6%; translate: -50% 0; margin: 0; z-index: 4;
+  width: clamp(48px, 8vw, 92px); aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%;
+  font: 900 clamp(1rem, 2.6vw, 2rem) var(--font-head); color: var(--on-accent);
+  background: radial-gradient(circle at 35% 30%, #fff3bf, #e8b64c 55%, #a8681a); border: 3px solid #2b1b33;
+  box-shadow: 0 0 0 4px rgb(232 182 76 / .35), 0 0 30px rgb(255 210 120 / .6); animation: vs-pulse 1.6s ease-in-out infinite;
+}
+@keyframes vs-pulse { 0%, 100% { scale: 1; } 50% { scale: 1.1; } }
+
+/* Special move volleys, triggered by the cheer buttons */
+.fx-volley { position: absolute; inset: 0; display: none; }
+.fx-volley i { position: absolute; width: 8%; height: 1.4%; border-radius: 4px; }
+.fx-volley-l i { left: 24%; background: linear-gradient(90deg, transparent, #ffd27a 40%, #fff); box-shadow: 0 0 10px #ffd27a; }
+.fx-volley-r i { left: 68%; background: linear-gradient(270deg, transparent, #3fd08a 40%, #d6ffe8); box-shadow: 0 0 10px #3fd08a; }
+.fx-volley i:nth-child(1) { top: 30%; animation-delay: 0s; } .fx-volley i:nth-child(2) { top: 40%; animation-delay: .12s; }
+.fx-volley i:nth-child(3) { top: 50%; animation-delay: .24s; } .fx-volley i:nth-child(4) { top: 36%; animation-delay: .36s; }
+.fx-volley i:nth-child(5) { top: 46%; animation-delay: .48s; }
+.battle.special-rama .fx-volley-l, .battle.special-lanka .fx-volley-r { display: block; }
+.battle.special-rama .fx-volley-l i { animation: volley-r .7s ease-in both; }
+.battle.special-lanka .fx-volley-r i { animation: volley-l .7s ease-in both; }
+.battle.special-rama .battle-left .fighter img, .battle.special-lanka .battle-right .fighter img { animation: f-jump .7s cubic-bezier(.3, .7, .4, 1) 2; }
+.battle.special-rama .battle-right .fighter, .battle.special-lanka .battle-left .fighter { filter: brightness(1.6); transition: filter .2s .5s; }
+@keyframes volley-r { from { opacity: 1; translate: 0 0; } to { opacity: 0; translate: 560% 0; } }
+@keyframes volley-l { from { opacity: 1; translate: 0 0; } to { opacity: 0; translate: -560% 0; } }
+
+.battle-cheer { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; margin-top: 18px; }
+.btn-lanka { background: #d2384a; color: #fff; }
+.btn-lanka:hover { background: #e24a5c; }
+.cheer:active { scale: .96; }
+.tug { --p: 50%; display: flex; height: 16px; border-radius: 999px; overflow: hidden; border: 2px solid #2b1b33; background: #2b1b33; box-shadow: 0 0 0 2px rgb(232 182 76 / .3); }
+.tug-l { width: var(--p); background: linear-gradient(90deg, #fff3bf, #e8b64c); transition: width .35s cubic-bezier(.2, .9, .3, 1.2); }
+.tug-r { flex: 1; background: linear-gradient(90deg, #d2384a, #7a1838); }
+.battle-score { text-align: center; margin: 10px 0 0; min-height: 1.6em; }
+
+@media (max-width: 720px) {
+  .battle-stage { aspect-ratio: 4 / 3; }
+  .f-hide-sm { display: none; }
+  .fighter { width: calc(var(--w) * 1.7); }
+  .f-boss { left: 64%; }
+  .f-thrust { left: 46%; }
+  .f-back[data-fighter="maiyarap"] { left: 82%; }
+  .fighter[data-fighter="hanuman"] { left: 27%; }
+  .fx-arrow, .fx-naga { width: 14%; }
+  .fx-burst { width: 20%; }
+  .fx-burst-r { left: 68%; }
+}
+@media (max-width: 480px) {
+  .battle-cheer { grid-template-columns: 1fr 1fr; }
+  .tug { grid-column: 1 / -1; grid-row: 1; }
+  .cheer { padding-inline: .6em; font-size: .9rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fighter, .fighter img, .battle-vs { animation: none !important; }
+  .battle-fx { display: none; }
+}
+
+.h1-brand { display: block; margin-bottom: .25em; font-size: .5em; letter-spacing: .04em; color: var(--accent); }
