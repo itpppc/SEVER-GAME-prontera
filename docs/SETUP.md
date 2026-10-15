@@ -195,7 +195,7 @@ WHERE account_id = 1 AND sex = 'S';
    - client รุ่นนี้ (≥ 2018-11-14) ต้องใช้ชื่อ **6 ตัวขึ้นไป** (ไม่นับ `_M`) และรหัสผ่าน **6 ตัวขึ้นไป** `admin` (5 ตัว) จึงใช้ไม่ได้
    - ถ้าสมัครในเกมไม่ได้ (เช่น `NEW_ACCOUNT=no`) ใช้ `scripts/make-account.sh tonadmin` สร้างไอดีบนเซิร์ฟ หรือรีเซ็ตรหัสผ่านที่ลืม
 2. ล็อกอินอีกครั้งด้วย `tonadmin` (ไม่มี `_M`)
-3. ครั้งแรกจะถูกให้ตั้ง **PIN** (rAthena เปิด `pincode_enabled` ไว้) ถ้าไม่ต้องการ เพิ่ม `pincode_enabled: no` ใน `config/import/char_conf.txt`
+3. เซิร์ฟนี้ปิดหน้า PIN ไว้แล้ว (`pincode_enabled: no` ใน `config/import/char_conf.txt` ปุ่มของหน้า PIN เป็นภาษาเกาหลี และกด Cancel แล้วเกมปิด) ถ้าอยากเปิดกลับให้เปลี่ยนเป็น `yes` แล้วรัน `scripts/apply-config.sh` กับ `sudo systemctl restart rathena`
 4. ตั้งเป็น Admin
    - Linux: `scripts/make-gm.sh tonadmin 99`
    - Windows: `UPDATE ragnarok.login SET group_id = 99 WHERE userid = 'tonadmin';`
