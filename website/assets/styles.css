@@ -435,3 +435,14 @@ kbd {
   .download-card { padding: 16px; }
   .download-card .btn { width: 100%; }
 }
+
+/* Free-to-play emphasis */
+.free-word { color: var(--accent); }
+.free-badge {
+  display: inline-flex; align-items: center; gap: .5em; margin: 0 0 16px; padding: .35em 1em;
+  border-radius: 999px; background: rgb(232 182 76 / 0.14); border: 1px solid var(--accent);
+  color: var(--text); font-weight: 600; font-size: .95rem;
+}
+.free-badge strong { color: var(--on-accent); background: var(--accent); border-radius: 999px; padding: .1em .7em; margin-left: -.6em; }
+.section-head.center { text-align: center; margin-inline: auto; }
+.center-row { justify-content: center; margin-top: 28px; }

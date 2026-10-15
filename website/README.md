@@ -1,6 +1,6 @@
 # Website (landing page)
 
-Static Thai landing page for the server: features, rates, how to join, support packages, FAQ and contact.
+Static Thai landing page for the server: features, rates, how to join, free-to-play info, FAQ and contact.
 No build step, no backend, no tracking. Kept separate from the game server files.
 
 ## Structure
