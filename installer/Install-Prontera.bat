@@ -123,8 +123,17 @@ function Test-GameDir([string]$Dir) {
     return ($Dir -and (Test-Path -LiteralPath (Join-Path $Dir 'data.grf')))
 }
 
+# Folders found broken in this run (patched by the kRO updater); a fresh copy goes elsewhere.
+$BrokenDirs = New-Object System.Collections.Generic.List[string]
+
+# Remembers the folder of the working copy, so later runs find it before a broken one.
+function Get-GameDirFile { return Join-Path $ToolsDir 'game-dir.txt' }
+
 function Find-GameDir {
-    $candidates = @($GameDir)
+    $candidates = @()
+    $remembered = Get-GameDirFile
+    if (Test-Path -LiteralPath $remembered) { $candidates += (Get-Content -LiteralPath $remembered -TotalCount 1) }
+    $candidates += $GameDir
     foreach ($root in @('C:\Gravity', "${env:ProgramFiles(x86)}\Gravity", "$env:ProgramFiles\Gravity")) {
         foreach ($leaf in @('Ragnarok', 'RagnarokOnline', 'Ragnarok Online')) { $candidates += (Join-Path $root $leaf) }
     }
@@ -136,7 +145,7 @@ function Find-GameDir {
             Where-Object { ($_.DisplayName -match 'Ragnarok' -or $_.Publisher -match 'Gravity') -and $_.InstallLocation } |
             ForEach-Object { $candidates += $_.InstallLocation.TrimEnd('\') }
     }
-    foreach ($dir in $candidates) { if (Test-GameDir $dir) { return $dir } }
+    foreach ($dir in $candidates) { if ((Test-GameDir $dir) -and $BrokenDirs -notcontains $dir.TrimEnd('\')) { return $dir } }
     return $null
 }
 
@@ -146,6 +155,9 @@ function Get-GrfProblem([string]$Grf) {
     try { $fs = [IO.File]::Open($Grf, 'Open', 'Read', 'Read') }
     catch { throw "$Grf is in use. Close the game and the Korean updater (press Ctrl+Shift+Esc, right-click Ragnarok, End task), then run the installer again." }
     try {
+        # GRF 0x200 offsets are 32-bit, so the 2021 exe crashes on a file over 4 GB. kRO's updater grows data.grf
+        # past that when it patches it with years of newer data, while the header stays 0x200.
+        if ($fs.Length -gt [uint32]::MaxValue) { return ('it has grown to {0:N1} GB, so the Korean updater has patched it with newer data' -f ($fs.Length / 1GB)) }
         $head = New-Object byte[] 46
         if ($fs.Read($head, 0, 46) -ne 46) { return 'the file is cut off' }
         if ([Text.Encoding]::ASCII.GetString($head, 0, 15) -ne 'Master of Magic') { return 'it is not a GRF file' }
@@ -201,14 +213,14 @@ function Stop-GameProcesses {
     }
 }
 
-function Remove-GameDir([string]$Dir) {
-    $full = [IO.Path]::GetFullPath($Dir).TrimEnd('\')
-    if (-not (Split-Path $full -Parent) -or -not (Test-Path -LiteralPath (Join-Path $full 'data.grf'))) {
-        throw "Refusing to delete $full because it does not look like a game folder. Delete it yourself and run the installer again."
+# A folder for a fresh copy of the game next to a broken one: C:\RO, else C:\RO2, C:\RO3, ...
+function Get-FreshGameDir([string]$Broken) {
+    $base = 'C:\RO'
+    for ($i = 1; $i -lt 10; $i++) {
+        $dir = if ($i -eq 1) { $base } else { "$base$i" }
+        if ($dir.TrimEnd('\') -ne $Broken.TrimEnd('\') -and -not (Test-Path -LiteralPath (Join-Path $dir 'data.grf'))) { return $dir }
     }
-    Info "Deleting $full ..."
-    try { Remove-Item -LiteralPath $full -Recurse -Force -ErrorAction Stop }
-    catch { throw "Could not delete $full ($($_.Exception.Message)). Close the game, delete the folder yourself and run the installer again." }
+    throw "No free folder for a fresh copy of the game. Delete $Broken and run the installer again."
 }
 
 # kRO's own icons start its updater, which breaks the game files for our server, so only our icon stays.
@@ -411,9 +423,11 @@ function Install-Game {
         if ($problem) {
             Warn $problem
             Warn 'This happens when the Korean updater (the window with the START button) runs. Our game exe cannot use these files.'
-            $answer = Read-Host "    Type Y and press Enter to delete $GameDir and install the game again (the big download is kept)"
-            if ($answer -notmatch '^\s*[Yy]') { throw "Stopped without changes. Delete $GameDir and run the installer again." }
-            Remove-GameDir $GameDir
+            $fresh = Get-FreshGameDir $GameDir
+            $answer = Read-Host "    Type Y and press Enter to install a fresh copy of the game to $fresh (the big download is reused; $GameDir is left as it is)"
+            if ($answer -notmatch '^\s*[Yy]') { throw "Stopped without changes. Run the installer again and type Y to install a fresh copy." }
+            $BrokenDirs.Add($GameDir.TrimEnd('\'))
+            $script:GameDir = $fresh
             $found = $null
         }
     }
@@ -460,6 +474,7 @@ function Install-Game {
         if ($problem) { throw "$problem The download may be broken: delete $setup, uninstall the game and run the installer again." }
     }
     Stop-GameProcesses
+    Set-Content -LiteralPath (Get-GameDirFile) -Value $GameDir -Encoding ASCII
     $updater = Join-Path $GameDir 'Ragnarok.exe'
     if (Test-Path -LiteralPath $updater) {
         Move-Item -LiteralPath $updater -Destination "$updater.off" -Force
