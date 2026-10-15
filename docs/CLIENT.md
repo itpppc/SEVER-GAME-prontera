@@ -18,6 +18,10 @@
 - ไฟล์ทุกอย่างโหลดจาก**ต้นทางจริง** (Gravity, nemo.herc.ws, python.org, Microsoft, GitHub) และแพตช์ exe **บนเครื่องผู้เล่นเอง** เราไม่ได้แจกไฟล์ของ Gravity
 - รันซ้ำได้ ขั้นที่เสร็จแล้วจะข้าม ถ้าเน็ตหลุดให้รันใหม่ ไฟล์จะโหลดต่อจากเดิม
 - ถ้าเคยโหลด `RAG_SETUP_220120.exe` ไว้ใน `Downloads` แล้ว ตัวติดตั้งจะใช้ไฟล์นั้นต่อ
+- โหลดไฟล์ `.bat` ไม่ได้ หรือไฟล์หายไปเอง (Windows Defender ลบ): เปิด **PowerShell** แล้ววางบรรทัดนี้แทน ตัวติดตั้งจะรันในหน้าต่างนั้นเลยโดยไม่ต้องมีไฟล์
+  ```
+  [Net.ServicePointManager]::SecurityProtocol='Tls12'; iex (iwr -UseBasicParsing https://raw.githubusercontent.com/itpppc/SEVER-GAME-prontera/main/installer/Install-Prontera.bat).Content
+  ```
 - log อยู่ที่ `C:\RO-tools\install-log.txt` (ส่งไฟล์นี้มาถ้าติดปัญหา)
 - เปลี่ยน IP เซิร์ฟ: แก้บรรทัด `$ServerIP = '...'` บนสุดของไฟล์ด้วย Notepad
 - ถ้า WARP แบบอัตโนมัติไม่สำเร็จ ตัวติดตั้งจะเปิดหน้าต่าง WARP ให้กด 4 ครั้งตามที่บอกบนจอ (session ทำไว้ให้แล้วที่ `C:\RO-tools\prontera-warp.yml`)
