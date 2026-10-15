@@ -804,8 +804,9 @@ function Invoke-Main {
 
         Write-Host ''
         Write-Host "Done! Double-click $ServerName on your desktop to play." -ForegroundColor Green
-        Write-Host '  New account: type your ID with _M (male) or _F (female) at the end, e.g. myname_M,'
-        Write-Host '  with a password of 6+ characters. Then log in again without the _M / _F.'
+        Write-Host '  New account: do NOT click Sign Up (it opens Gravity''s website, not ours). In the login box'
+        Write-Host '  type your ID with _M (male) or _F (female) at the end, e.g. myname_M, and a password of'
+        Write-Host '  6+ characters, then click Login. Next time log in without the _M / _F.'
     } catch {
         Write-Host ''
         Write-Host "Install stopped: $($_.Exception.Message)" -ForegroundColor Red
