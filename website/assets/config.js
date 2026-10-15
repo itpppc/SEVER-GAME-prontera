@@ -5,8 +5,8 @@
  */
 window.SITE_CONFIG = Object.freeze({
   serverName: "Prontera Realm", // TODO: final brand name
-  // TODO: public address = PUBLIC_IP in the server .env; login-server port 6900
-  serverAddress: "play.example.com",
+  // Public address = PUBLIC_IP in the server .env (login-server port 6900). The installer sets it for players.
+  serverAddress: "54.206.105.93",
   serverPort: 6900,
   // "online" | "offline" | "soon" — static for now, no live status check yet
   serverStatus: "soon",
@@ -17,14 +17,16 @@ window.SITE_CONFIG = Object.freeze({
   statsApi: "/api/status",
 
   links: {
-    register: "#contact", // TODO: account registration page
-    clientDownload: "#", // TODO: patched client download (your own build, not official files)
-    // TODO: host the player guide on this site; the repo is private so a GitHub link would 404 for players
-    setupGuide: "#",
-    discord: "#", // TODO
-    line: "#", // TODO
-    facebook: "#", // TODO
-    email: "contact@example.com", // TODO
+    // Accounts are created in the game's login screen (ID + _M/_F), so this points at the guide.
+    register: "guide.html#register",
+    // The one-click installer (website/downloads/Install-Prontera.bat) and how to use it.
+    clientDownload: "guide.html#download",
+    setupGuide: "guide.html",
+    // Contact channels: "#" hides the button until a real link is set.
+    discord: "#", // TODO: Discord invite link, e.g. https://discord.gg/xxxx
+    line: "#", // TODO: LINE OA link, e.g. https://lin.ee/xxxx
+    facebook: "#", // TODO: Facebook page URL
+    email: "contact@example.com", // TODO: real contact email (example.com hides it)
   },
 
   // News cards. category: "event" | "update" | "promo". Newest first. Only publish what is true.
