@@ -21,6 +21,8 @@
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/config.js" defer></script>
   <script src="assets/main.js" defer></script>
+  <script src="assets/characters.js" defer></script>
+  <script src="assets/fx.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">ข้ามไปยังเนื้อหาหลัก</a>
@@ -59,6 +61,7 @@
       <nav id="site-nav" class="site-nav" aria-label="เมนูหลัก" data-open="false">
         <ul>
           <li><a href="#news">ข่าวสาร</a></li>
+          <li><a href="#characters">ตัวละคร</a></li>
           <li><a href="#rates">ข้อมูลเซิร์ฟ</a></li>
           <li><a href="#rankings">อันดับ</a></li>
           <li><a href="#join">วิธีเข้าเล่น</a></li>
@@ -141,6 +144,39 @@
         <ul class="grid news-grid" role="list" data-news aria-live="polite"></ul>
         <noscript><p class="muted">เปิด JavaScript เพื่อดูข่าวสารล่าสุด หรือติดตามประกาศทาง Discord</p></noscript>
       </div>
+    </section>
+
+    <section class="section chars-section" id="characters" aria-labelledby="chars-title">
+      <div class="container">
+        <header class="section-head section-head-row">
+          <div>
+            <p class="eyebrow">ตัวละครจากรามเกียรติ์</p>
+            <h2 id="chars-title">ทำความรู้จักตัวละคร</h2>
+            <p class="muted">ลากเมาส์หรือนิ้วบนการ์ดเพื่อหมุนดู แตะการ์ดเพื่ออ่านเรื่องราวแบบฮา ๆ</p>
+          </div>
+          <div class="filters" role="group" aria-label="กรองตัวละครตามฝ่าย" data-char-filters>
+            <button type="button" class="chip" data-side="all" aria-pressed="true">ทั้งหมด</button>
+            <button type="button" class="chip" data-side="rama" aria-pressed="false">ฝ่ายพระราม</button>
+            <button type="button" class="chip" data-side="lanka" aria-pressed="false">ฝ่ายลงกา</button>
+          </div>
+        </header>
+        <ul class="char-grid" role="list" data-chars></ul>
+        <noscript><p class="muted">เปิด JavaScript เพื่อดูตัวละครทั้งหมด</p></noscript>
+      </div>
+      <dialog class="char-dialog" data-char-dialog aria-labelledby="char-dialog-name">
+        <div class="char-dialog-inner">
+          <button type="button" class="char-close" data-char-close aria-label="ปิด">×</button>
+          <div class="char-stage" data-tilt>
+            <img data-char-img src="" alt="" width="184" height="296">
+          </div>
+          <div class="char-info">
+            <p class="eyebrow" data-char-side></p>
+            <h3 id="char-dialog-name" data-char-name></h3>
+            <p class="char-role" data-char-role></p>
+            <p data-char-blurb></p>
+          </div>
+        </div>
+      </dialog>
     </section>
 
     <section class="section section-alt" id="features" aria-labelledby="features-title">
