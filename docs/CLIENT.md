@@ -154,6 +154,7 @@ C:\Python27\python.exe get4.py 2021-11-03_Ragexe_1635926200 7d6d0f5400b5cfc8fe6a
 2. **สมัครไอดี** ช่อง ID พิมพ์ชื่อตามด้วย `_M` (ชาย) หรือ `_F` (หญิง) เช่น `tonadmin_M`
    - ชื่อ (ไม่นับ `_M`) ต้อง **6 ตัวขึ้นไป** รหัสผ่านต้อง **6 ตัวขึ้นไป** (`admin` 5 ตัวจะสมัครไม่ได้)
    - สมัครได้ 1 ไอดีต่อ 10 วินาที
+   - ถ้าสมัครในเกมไม่ผ่าน สร้างบนเซิร์ฟแทนได้: `scripts/make-account.sh tonadmin` (ถามรหัสผ่านโดยไม่แสดงตัวอักษร)
 3. ล็อกอินอีกครั้งด้วยชื่อ**ไม่มี** `_M` เช่น `tonadmin`
 4. เลือกเซิร์ฟ **Prontera** → ตั้ง **PIN** 4 หลัก → สร้างตัวละคร → จะเกิดที่ Prontera
 5. ตั้งเป็น GM: บนเซิร์ฟรัน `scripts/make-gm.sh tonadmin 99` แล้วออกเกมเข้าใหม่ ทดสอบ `@go 0`, `@item 501 10`
@@ -182,6 +183,7 @@ client ปี 2020 ขึ้นไปใช้ web-server ของ rAthena เ�
 | error `MSVCP140.dll` / `VCRUNTIME140.dll` | ติดตั้ง Microsoft Visual C++ 2015–2022 Redistributable **x86** |
 | ภาษาเกาหลีเต็มจอ / Lua error / ไม่เห็นเซิร์ฟเรา | ไม่ได้ติ๊ก `Read data folder first` หรือ copy ไฟล์ขั้น 3 ไม่ครบ |
 | ต่อเซิร์ฟไม่ได้ตั้งแต่หน้าล็อกอิน | IP ใน clientinfo ผิด หรือเซิร์ฟปิดอยู่ เช็คด้วย PowerShell `Test-NetConnection IP_ของเซิร์ฟ -Port 6900` |
+| ล็อกอินแล้วขึ้น "Unregistered ID" | ยังไม่มีไอดีนี้ในเซิร์ฟ (ยังไม่เคยสมัคร `_M` สำเร็จ หรือ `NEW_ACCOUNT=no`) สร้างบนเซิร์ฟแทนได้เลย: `cd ~/SEVER-GAME-prontera && git pull && scripts/make-account.sh tonadmin` พิมพ์รหัสผ่านเอง (ไม่แสดงตัวอักษร) แล้วล็อกอินด้วย `tonadmin` ไม่มี `_M` |
 | สมัคร `_M` แล้ว "Rejected from server" | ชื่อหรือรหัสสั้นกว่า 6 ตัว, มี `passwordencrypt` ใน clientinfo, `NEW_ACCOUNT=no`, หรือสมัครถี่เกิน |
 | เลือกเซิร์ฟแล้วค้าง / หลุด | `PUBLIC_IP` ใน `.env` ผิด หรือยังไม่เปิดพอร์ต 6121 / 5121 |
 | ล็อกอินแล้วหลุดทันที | ใช้ exe ผิดรุ่น (ต้องเป็น `2021-11-03_Ragexe_1635926200`) หรือติ๊กแพตช์ในหมวด encryption |

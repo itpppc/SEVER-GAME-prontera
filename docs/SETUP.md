@@ -37,6 +37,7 @@ login-server  ◄──►  char-server  ◄──►  map-server   (+ web-serve
 | `scripts/add-swap.sh` | เพิ่ม swap สำหรับเครื่อง RAM น้อย |
 | `scripts/setup-db.sh` | สร้าง DB + user, import SQL, เปลี่ยนรหัส inter-server |
 | `scripts/apply-config.sh` | เติมค่าจาก `.env` ลง `config/import/*` แล้ววางใน rAthena |
+| `scripts/make-account.sh` | สร้างไอดีเกม หรือรีเซ็ตรหัสผ่าน (พิมพ์รหัสเองบนเซิร์ฟ ไม่ต้องผ่านแชท) |
 | `scripts/make-gm.sh` | ตั้ง group ให้ไอดี (เช่น GM 99) |
 | `scripts/install-service.sh` | ทำให้เซิร์ฟเป็น systemd service `rathena` เปิดเองหลังรีบูต |
 | `docs/COMMANDS.md` | รายการคำสั่ง @/# ที่ตรวจแล้ว |
@@ -192,6 +193,7 @@ WHERE account_id = 1 AND sex = 'S';
 
 1. หน้าล็อกอินพิมพ์ชื่อตามด้วย `_M` (ชาย) หรือ `_F` (หญิง) เช่น `tonadmin_M` ระบบจะสร้างไอดี `tonadmin` ให้ (ต้อง `NEW_ACCOUNT=yes`)
    - client รุ่นนี้ (≥ 2018-11-14) ต้องใช้ชื่อ **6 ตัวขึ้นไป** (ไม่นับ `_M`) และรหัสผ่าน **6 ตัวขึ้นไป** `admin` (5 ตัว) จึงใช้ไม่ได้
+   - ถ้าสมัครในเกมไม่ได้ (เช่น `NEW_ACCOUNT=no`) ใช้ `scripts/make-account.sh tonadmin` สร้างไอดีบนเซิร์ฟ หรือรีเซ็ตรหัสผ่านที่ลืม
 2. ล็อกอินอีกครั้งด้วย `tonadmin` (ไม่มี `_M`)
 3. ครั้งแรกจะถูกให้ตั้ง **PIN** (rAthena เปิด `pincode_enabled` ไว้) ถ้าไม่ต้องการ เพิ่ม `pincode_enabled: no` ใน `config/import/char_conf.txt`
 4. ตั้งเป็น Admin
