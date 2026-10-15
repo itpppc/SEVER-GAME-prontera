@@ -293,7 +293,12 @@ code {
 }
 .quick-tile:hover { border-color: var(--accent); transform: translateY(-3px); }
 @media (max-width: 900px) { .quick-grid { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 420px) { .quick-tile { min-height: 92px; font-size: .85rem; } .quick-tile svg { width: 36px; height: 36px; } }
+/* Narrow phones: 2 columns, icon beside label so Thai words never split mid-word */
+@media (max-width: 480px) {
+  .quick-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .quick-tile { flex-direction: row; justify-content: flex-start; gap: 8px; min-height: 60px; padding: 10px; text-align: left; font-size: .875rem; }
+  .quick-tile svg { flex: none; width: 36px; height: 36px; }
+}
 
 /* News */
 .section-head-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; max-width: none; }
@@ -338,6 +343,8 @@ code {
 .schedule td { color: var(--text); font-weight: 500; text-align: left; }
 .schedule td:last-child, .schedule thead th:last-child { text-align: right; }
 .schedule td:last-child { color: var(--accent); font-weight: 700; }
+.schedule td:not(:first-child) { white-space: nowrap; }
+@media (max-width: 560px) { .schedule th, .schedule td { padding-inline: 12px; } }
 
 /* Rankings tabs */
 .tab-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
@@ -371,7 +378,7 @@ code {
 
 /* Footer */
 .footer-nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; list-style: none; padding: 0; margin: 0 0 16px; }
-.footer-nav a { color: var(--muted); text-decoration: none; }
+.footer-nav a { display: inline-block; padding-block: 4px; color: var(--muted); text-decoration: none; }
 .footer-nav a:hover { color: var(--accent); }
 .to-top { display: inline-block; margin-top: 12px; font-weight: 600; text-decoration: none; }
 .hero { padding: clamp(40px, 7vw, 80px) 0 clamp(72px, 9vw, 104px); }
