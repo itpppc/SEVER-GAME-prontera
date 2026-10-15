@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>คู่มือเริ่มเล่น | Prontera Realm</title>
+  <meta name="description" content="ดาวน์โหลดตัวติดตั้ง ติดตั้งเกม สมัครไอดี และเข้าเล่นเซิร์ฟเวอร์ Prontera ทีละขั้นตอน พร้อมวิธีแก้ปัญหาที่พบบ่อย">
+  <meta name="theme-color" content="#0f1220">
+  <meta property="og:title" content="คู่มือเริ่มเล่น | Prontera Realm">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 29 9v14L16 30 3 23V9z' fill='%23e8b64c'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700&family=Prompt:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/config.js" defer></script>
+  <script src="assets/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหาหลัก</a>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <p class="topbar-item status" data-status data-state="soon">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span data-status-text>เปิดให้บริการเร็ว ๆ นี้</span>
+      </p>
+      <p class="topbar-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c1.9.7 3.1 2.5 3.5 5.2"/></svg>
+        ออนไลน์ <strong data-online>—</strong>
+      </p>
+      <p class="topbar-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        เวลาไทย <strong><time data-clock>--:--:--</time></strong>
+      </p>
+      <a class="topbar-item topbar-link" href="#" data-link="discord">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H8l-4 4z"/></svg>
+        Discord
+      </a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="หน้าแรก">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 29 9v14L16 30 3 23V9z"/></svg>
+        <span data-config="serverName">Prontera Realm</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="sr-only">เปิดเมนู</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="เมนูหลัก" data-open="false">
+        <ul>
+          <li><a href="./#news">ข่าวสาร</a></li>
+          <li><a href="./#rates">ข้อมูลเซิร์ฟ</a></li>
+          <li><a href="./#rankings">อันดับ</a></li>
+          <li><a href="guide.html" aria-current="page">วิธีเข้าเล่น</a></li>
+          <li><a href="./#packages">แพ็กเกจ</a></li>
+          <li><a class="btn btn-sm btn-ghost" href="#download">ดาวน์โหลด</a></li>
+          <li><a class="btn btn-sm btn-primary" href="#register">สมัครไอดี</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="guide">
+    <section class="guide-hero" id="top" aria-labelledby="guide-title">
+      <div class="container narrow">
+        <p class="eyebrow"><a href="./">หน้าแรก</a> / คู่มือเริ่มเล่น</p>
+        <h1 id="guide-title">คู่มือเริ่มเล่น</h1>
+        <p class="muted">ติดตั้งครั้งเดียวด้วยไฟล์เล็ก ๆ ไฟล์เดียว แล้วสมัครไอดีได้ในหน้าล็อกอินของเกม ไม่ต้องกรอกข้อมูลส่วนตัวบนเว็บ</p>
+        <nav class="toc" aria-label="สารบัญ">
+          <ol role="list">
+            <li><a href="#download">1. ดาวน์โหลด</a></li>
+            <li><a href="#install">2. ติดตั้ง</a></li>
+            <li><a href="#register">3. สมัครไอดี</a></li>
+            <li><a href="#play">4. เข้าเกม</a></li>
+            <li><a href="#help">แก้ปัญหา</a></li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <section class="guide-section" id="download" aria-labelledby="download-title">
+      <div class="container narrow">
+        <h2 id="download-title"><span class="guide-num" aria-hidden="true">1</span>ดาวน์โหลดตัวติดตั้ง</h2>
+        <div class="download-card">
+          <div>
+            <p class="download-name">Install-Prontera.bat</p>
+            <p class="muted">ตัวติดตั้งคลิกเดียวสำหรับ Windows 10 / 11 ขนาดประมาณ 34 KB</p>
+          </div>
+          <a class="btn btn-primary" href="downloads/Install-Prontera.bat" download>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
+            ดาวน์โหลดตัวติดตั้ง
+          </a>
+        </div>
+        <ul class="guide-list">
+          <li><strong>ต้องมี:</strong> Windows 10 หรือ 11, พื้นที่ว่างประมาณ 10 GB, อินเทอร์เน็ตที่โหลดไฟล์ใหญ่ได้</li>
+          <li>ไฟล์นี้ไม่มีตัวเกมอยู่ข้างใน มันจะโหลดตัวเกมจาก<strong>ผู้ให้บริการต้นทาง</strong>ลงเครื่องคุณเอง แล้วตั้งค่าให้ต่อเซิร์ฟเวอร์ของเรา</li>
+          <li>ถ้าเบราว์เซอร์ถามว่าจะเก็บไฟล์ไหม ให้กด <strong>เก็บไว้ (Keep)</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="guide-section" id="install" aria-labelledby="install-title">
+      <div class="container narrow">
+        <h2 id="install-title"><span class="guide-num" aria-hidden="true">2</span>ติดตั้ง</h2>
+        <ol class="guide-steps">
+          <li><strong>ดับเบิลคลิก</strong> <code>Install-Prontera.bat</code> ถ้าขึ้น "Windows protected your PC" ให้กด <strong>More info</strong> แล้ว <strong>Run anyway</strong></li>
+          <li>Windows จะขอสิทธิ์ติดตั้งโปรแกรมที่จำเป็น กด <strong>Yes</strong></li>
+          <li>ตัวติดตั้งตัวเกมเป็น<strong>ภาษาเกาหลี</strong> กดปุ่มขวาล่างไปเรื่อย ๆ ตอนเลือกโฟลเดอร์ให้ใช้ <code>C:\RO</code> และหน้าสุดท้าย<strong>เอาติ๊กที่จะเปิดเกมออก</strong></li>
+          <li>ถ้าหน้าต่างดำถาม <code>Do you want the CDClient DLL copied as well?</code> พิมพ์ <kbd>y</kbd> แล้วกด <kbd>Enter</kbd></li>
+          <li>เมื่อขึ้น <code>Done!</code> จะมีไอคอน <strong>Prontera</strong> บนเดสก์ท็อป</li>
+        </ol>
+        <div class="callout" role="note">
+          <p><strong>ห้ามเปิดตัวอัปเดตภาษาเกาหลี</strong> (หน้าต่างที่มีปุ่ม START) เพราะจะเปลี่ยนไฟล์เกมจนเข้าเซิร์ฟเราไม่ได้ ให้เปิดเกมจากไอคอน <strong>Prontera</strong> เท่านั้น</p>
+        </div>
+        <ul class="guide-list">
+          <li>เน็ตหลุดระหว่างโหลด: ดับเบิลคลิกตัวติดตั้งอีกครั้ง จะโหลดต่อจากเดิม ขั้นที่เสร็จแล้วจะข้ามให้</li>
+          <li>บันทึกการติดตั้งอยู่ที่ <code>C:\RO-tools\install-log.txt</code> ถ้าติดปัญหาส่งไฟล์นี้ให้ทีมงาน</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="guide-section" id="register" aria-labelledby="register-title">
+      <div class="container narrow">
+        <h2 id="register-title"><span class="guide-num" aria-hidden="true">3</span>สมัครไอดี (ในหน้าล็อกอินของเกม)</h2>
+        <p>เปิดเกมจากไอคอน <strong>Prontera</strong> แล้วสมัครที่หน้าล็อกอินได้เลย</p>
+        <ol class="guide-steps">
+          <li>ช่อง <strong>ID</strong> พิมพ์ชื่อที่ต้องการ ตามด้วย <code>_M</code> (ตัวละครชาย) หรือ <code>_F</code> (ตัวละครหญิง) เช่น <code>hanuman01_M</code></li>
+          <li>ช่อง <strong>Password</strong> ตั้งรหัสผ่านที่ต้องการ แล้วกดเข้าสู่ระบบ ระบบจะสร้างไอดีให้ทันที</li>
+        </ol>
+        <ul class="guide-list">
+          <li>ชื่อไอดี (ไม่นับ <code>_M</code>/<code>_F</code>) และรหัสผ่าน ต้องยาว <strong>6 ตัวขึ้นไป</strong> ใช้ตัวอักษรอังกฤษและตัวเลข</li>
+          <li>สมัครได้ 1 ไอดีต่อ 10 วินาที ถ้าขึ้น "Rejected from server" ให้รอสักครู่แล้วลองใหม่</li>
+          <li>ทีมงานจะ<strong>ไม่ขอรหัสผ่าน</strong>ของคุณไม่ว่ากรณีใด</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="guide-section" id="play" aria-labelledby="play-title">
+      <div class="container narrow">
+        <h2 id="play-title"><span class="guide-num" aria-hidden="true">4</span>เข้าเกม</h2>
+        <ol class="guide-steps">
+          <li>ล็อกอินอีกครั้งด้วยชื่อ<strong>ไม่ต้องมี</strong> <code>_M</code>/<code>_F</code> เช่น <code>hanuman01</code></li>
+          <li>เลือกเซิร์ฟเวอร์ <strong>Prontera</strong></li>
+          <li>ตั้งรหัส <strong>PIN</strong> 4 หลัก (จำไว้ ใช้ทุกครั้งที่เข้าเกม)</li>
+          <li>สร้างตัวละคร แล้วเริ่มผจญภัยที่เมืองพรอนเทรา</li>
+        </ol>
+        <p><a class="btn btn-ghost" href="./#rates">ดูเรทและตารางกิจกรรม</a></p>
+      </div>
+    </section>
+
+    <section class="guide-section" id="help" aria-labelledby="help-title">
+      <div class="container narrow">
+        <h2 id="help-title">แก้ปัญหาที่พบบ่อย</h2>
+        <div class="faq">
+          <details>
+            <summary>กดไอคอนแล้วขึ้นหน้าต่างเกาหลีที่มีปุ่ม START</summary>
+            <p>นั่นคือตัวอัปเดตของเกมต้นฉบับ ห้ามกด START ปิดหน้าต่างด้วย <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Esc</kbd> แล้วคลิกขวา Ragnarok เลือก End task จากนั้นดับเบิลคลิกตัวติดตั้งอีกครั้ง มันจะซ่อมไอคอนและไฟล์เกมให้</p>
+          </details>
+          <details>
+            <summary>ตัวติดตั้งขึ้น data.grf cannot be used หรือเกมเด้งออกทันที</summary>
+            <p>ไฟล์เกมถูกตัวอัปเดตแก้ไปแล้ว พิมพ์ <kbd>Y</kbd> แล้วกด <kbd>Enter</kbd> ตัวติดตั้งจะลงเกมชุดใหม่ให้โดยไม่ลบโฟลเดอร์เดิม และใช้ไฟล์ที่โหลดไว้แล้ว</p>
+          </details>
+          <details>
+            <summary>ขึ้น error MSVCP140.dll หรือ VCRUNTIME140.dll</summary>
+            <p>ติดตั้ง Microsoft Visual C++ 2015–2022 Redistributable รุ่น <strong>x86</strong> จากเว็บไซต์ Microsoft แล้วเปิดเกมใหม่</p>
+          </details>
+          <details>
+            <summary>Windows Defender ลบไฟล์ระหว่างติดตั้ง</summary>
+            <p>กด Allow <strong>เฉพาะไฟล์นั้น</strong> (อย่าปิดแอนติไวรัสทั้งเครื่อง) แล้วดับเบิลคลิกตัวติดตั้งอีกครั้ง</p>
+          </details>
+          <details>
+            <summary>ต่อเซิร์ฟไม่ได้ตั้งแต่หน้าล็อกอิน</summary>
+            <p>ดูสถานะเซิร์ฟเวอร์ที่แถบด้านบนของเว็บ ถ้าเซิร์ฟเปิดอยู่แต่ยังเข้าไม่ได้ ให้รันตัวติดตั้งตัวล่าสุดจากหน้านี้อีกครั้ง เพราะที่อยู่เซิร์ฟเวอร์อาจเปลี่ยน</p>
+          </details>
+          <details>
+            <summary>ปุ่มหรือรูปบางอันยังเป็นภาษาเกาหลี</summary>
+            <p>ไม่กระทบการเล่น เมนูและไอเทมเป็นภาษาอังกฤษแล้ว</p>
+          </details>
+        </div>
+        <p class="muted guide-more">ยังแก้ไม่ได้? <a href="./#contact">ติดต่อทีมงาน</a> พร้อมแนบภาพหน้าจอและไฟล์ <code>C:\RO-tools\install-log.txt</code></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="ลิงก์ท้ายเว็บ">
+        <ul role="list">
+          <li><a href="./#news">ข่าวสาร</a></li>
+          <li><a href="./#rates">ข้อมูลเซิร์ฟ</a></li>
+          <li><a href="./#schedule">ตารางกิจกรรม</a></li>
+          <li><a href="./#rankings">อันดับ</a></li>
+          <li><a href="guide.html">วิธีเข้าเล่น</a></li>
+          <li><a href="./#packages">แพ็กเกจ</a></li>
+          <li><a href="./#faq">คำถามพบบ่อย</a></li>
+          <li><a href="./#contact">ติดต่อทีมงาน</a></li>
+        </ul>
+      </nav>
+      <p>&copy; <span data-year>2026</span> <span data-config="serverName">Prontera Realm</span>. เซิร์ฟเวอร์อิสระที่ดำเนินการโดยแฟนเกม ไม่มีส่วนเกี่ยวข้องกับผู้พัฒนาหรือผู้จัดจำหน่ายเกมต้นฉบับ</p>
+      <a class="to-top" href="#top">กลับขึ้นด้านบน ↑</a>
+    </div>
+  </footer>
+</body>
+</html>

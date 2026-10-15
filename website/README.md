@@ -41,3 +41,10 @@ cd website && python3 -m http.server 8080
 Vercel: the repo-root `vercel.json` serves `website/` with no build step, so the project works with the default Root Directory. (If Root Directory is set to `website`, that also works; Vercel then ignores the root `vercel.json`.)
 
 Any other static host works too (GitHub Pages, Cloudflare Pages, Nginx). Serve the `website/` folder as the site root over HTTPS.
+
+## Player guide and installer
+
+- `guide.html`: player guide (download, install, create an account with `_M`/`_F` at the game's login screen, first login, troubleshooting). The menu links for download, guide and register point here.
+- `downloads/Install-Prontera.bat`: copy of the one-click installer from the server thread (`installer/Install-Prontera.bat` on branch `claude/project-thread-wzqygb`). Copy it again whenever the installer changes, and keep CRLF line endings (`downloads/.gitattributes`). It contains no game files; it downloads them from the original sources on the player's PC.
+- Contact buttons (Discord, LINE, Facebook, email) stay hidden until a real link is set in `config.js`.
+

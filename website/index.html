@@ -58,8 +58,8 @@
           <li><a href="#rankings">อันดับ</a></li>
           <li><a href="#join">วิธีเข้าเล่น</a></li>
           <li><a href="#packages">แพ็กเกจ</a></li>
-          <li><a class="btn btn-sm btn-ghost" href="#" data-link="clientDownload">ดาวน์โหลด</a></li>
-          <li><a class="btn btn-sm btn-primary" href="#contact" data-link="register">สมัครไอดี</a></li>
+          <li><a class="btn btn-sm btn-ghost" href="guide.html#download" data-link="clientDownload">ดาวน์โหลด</a></li>
+          <li><a class="btn btn-sm btn-primary" href="guide.html#register" data-link="register">สมัครไอดี</a></li>
         </ul>
       </nav>
     </div>
@@ -90,13 +90,13 @@
 
     <nav class="quick" aria-label="ทางลัด">
       <ul class="container quick-grid" role="list">
-        <li><a class="quick-tile" href="#contact" data-link="register">
+        <li><a class="quick-tile" href="guide.html#register" data-link="register">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M3 21c.9-4 3.7-6 7-6 1.6 0 3 .4 4.2 1.2M18 14v6M15 17h6"/></svg>
           <span>สมัครไอดี</span></a></li>
-        <li><a class="quick-tile" href="#" data-link="clientDownload">
+        <li><a class="quick-tile" href="guide.html#download" data-link="clientDownload">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
           <span>ดาวน์โหลดเกม</span></a></li>
-        <li><a class="quick-tile" href="#" data-link="setupGuide">
+        <li><a class="quick-tile" href="guide.html" data-link="setupGuide">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H20v15H5.5A1.5 1.5 0 0 0 4 19.5z"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H20M8 7h8M8 11h6"/></svg>
           <span>คู่มือเริ่มต้น</span></a></li>
         <li><a class="quick-tile" href="#rates">
@@ -265,28 +265,24 @@
         </header>
         <ol class="steps" role="list">
           <li class="step">
-            <h3>สมัครไอดี</h3>
-            <p>สมัครบัญชีผู้เล่นผ่านหน้าเว็บ ใช้อีเมลที่ติดต่อได้จริง</p>
-            <a class="link" href="#contact" data-link="register">ไปหน้าสมัคร</a>
-          </li>
-          <li class="step">
-            <h3>ดาวน์โหลดตัวเกม</h3>
-            <p>ดาวน์โหลดตัวเกมที่ตั้งค่าสำหรับเซิร์ฟเวอร์นี้แล้ว</p>
-            <a class="link" href="#" data-link="clientDownload">ดาวน์โหลดตัวเกม</a>
+            <h3>ดาวน์โหลดตัวติดตั้ง</h3>
+            <p>ไฟล์เล็กไฟล์เดียวสำหรับ Windows 10 / 11 โหลดตัวเกมและตั้งค่าให้อัตโนมัติ</p>
+            <a class="link" href="guide.html#download">ดาวน์โหลดตัวติดตั้ง</a>
           </li>
           <li class="step">
             <h3>ติดตั้งตามคู่มือ</h3>
-            <p>ทำตามคู่มือการติดตั้งทีละขั้น ใช้เวลาไม่กี่นาที</p>
-            <a class="link" href="#" data-link="setupGuide">อ่านคู่มือการติดตั้ง</a>
+            <p>ดับเบิลคลิกแล้วกดถัดไปตามคู่มือ เสร็จแล้วจะมีไอคอน Prontera บนเดสก์ท็อป</p>
+            <a class="link" href="guide.html#install">อ่านคู่มือการติดตั้ง</a>
+          </li>
+          <li class="step">
+            <h3>สมัครไอดีในเกม</h3>
+            <p>ที่หน้าล็อกอิน พิมพ์ชื่อตามด้วย _M หรือ _F แล้วตั้งรหัสผ่าน ไม่ต้องกรอกข้อมูลส่วนตัวบนเว็บ</p>
+            <a class="link" href="guide.html#register">วิธีสมัครไอดี</a>
           </li>
           <li class="step">
             <h3>เข้าสู่เกม</h3>
-            <p>เปิดเกมแล้วล็อกอินด้วยไอดีที่สมัครไว้ ที่อยู่เซิร์ฟเวอร์:</p>
-            <div class="address">
-              <code data-address>play.example.com:6900</code>
-              <button type="button" class="btn btn-sm btn-ghost" data-copy-address>คัดลอก</button>
-            </div>
-            <p class="copy-msg" data-copy-msg aria-live="polite"></p>
+            <p>ล็อกอินด้วยชื่อที่สมัคร (ไม่ต้องมี _M/_F) เลือกเซิร์ฟ Prontera แล้วสร้างตัวละคร</p>
+            <a class="link" href="guide.html#play">ดูขั้นตอนเข้าเกม</a>
           </li>
         </ol>
       </div>
@@ -352,11 +348,11 @@
           </details>
           <details>
             <summary>ต้องใช้สเปกคอมเท่าไร?</summary>
-            <p>Windows 10 ขึ้นไป แรม 4 GB และพื้นที่ว่างประมาณ 5 GB ก็เล่นได้สบาย</p>
+            <p>Windows 10 ขึ้นไป แรม 4 GB และพื้นที่ว่างประมาณ 10 GB สำหรับตัวเกม</p>
           </details>
           <details>
             <summary>เข้าเกมไม่ได้ ต้องทำอย่างไร?</summary>
-            <p>ตรวจสอบว่าใช้ตัวเกมของเซิร์ฟเวอร์นี้ และสถานะเซิร์ฟเวอร์ด้านบนเป็นออนไลน์ หากยังเข้าไม่ได้ ติดต่อทีมงานพร้อมแนบภาพหน้าจอ</p>
+            <p>ตรวจสอบว่าเปิดเกมจากไอคอน Prontera และดู<a href="guide.html#help">วิธีแก้ปัญหาที่พบบ่อย</a> หากยังเข้าไม่ได้ ติดต่อทีมงานพร้อมแนบภาพหน้าจอ</p>
           </details>
           <details>
             <summary>ข้อมูลตัวละครปลอดภัยไหม?</summary>
@@ -381,6 +377,7 @@
           <li><a class="btn btn-ghost" href="#" data-link="facebook">Facebook</a></li>
           <li><a class="btn btn-ghost" href="#" data-link="email">อีเมล: <span data-email>contact@example.com</span></a></li>
         </ul>
+        <p class="muted" data-contact-empty hidden>ช่องทางติดต่อจะประกาศเร็ว ๆ นี้ ระหว่างนี้ดู<a href="guide.html">คู่มือเริ่มเล่น</a>และ<a href="#faq">คำถามพบบ่อย</a>ได้เลย</p>
       </div>
     </section>
   </main>

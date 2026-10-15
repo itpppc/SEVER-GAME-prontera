@@ -39,11 +39,17 @@
     if (value !== undefined) el.textContent = String(value);
   });
 
-  // Link bindings: <a data-link="discord">. Unset links are marked as pending, not dead.
+  // Link bindings: <a data-link="discord">. Contact channels that are not set yet are hidden
+  // (no dead buttons); other unset links stay visible but explain themselves on click.
+  const CONTACT_KEYS = new Set(["discord", "line", "facebook", "email"]);
   document.querySelectorAll("[data-link]").forEach((el) => {
     const key = el.dataset.link;
     const href = key === "email" ? `mailto:${cfg.links.email}` : cfg.links[key];
     const raw = key === "email" ? cfg.links.email : cfg.links[key];
+    if (isPlaceholder(raw) && CONTACT_KEYS.has(key)) {
+      (el.closest(".contact-list > li") || el).hidden = true;
+      return;
+    }
     if (isPlaceholder(raw)) {
       // Keep the element focusable and give feedback instead of a silent dead click.
       el.dataset.pending = "true";
@@ -70,6 +76,14 @@
 
   const emailText = isPlaceholder(cfg.links.email) ? "เร็ว ๆ นี้" : cfg.links.email;
   document.querySelectorAll("[data-email]").forEach((el) => (el.textContent = emailText));
+
+  // If no contact channel is set yet, say so instead of showing an empty list.
+  document.querySelectorAll(".contact-list").forEach((list) => {
+    const anyShown = [...list.children].some((li) => !li.hidden);
+    list.hidden = !anyShown;
+    const empty = list.parentElement.querySelector("[data-contact-empty]");
+    if (empty) empty.hidden = anyShown;
+  });
 
   // Server status badge (the live stats below may override it once the server is open)
   const configStatus = STATUS_LABELS[cfg.serverStatus] ? cfg.serverStatus : "soon";
