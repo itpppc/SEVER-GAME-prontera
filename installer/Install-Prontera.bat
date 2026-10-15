@@ -270,6 +270,23 @@ function Build-EnglishFiles([string]$RoDir, [string]$Stage) {
     }
 }
 
+# The patched exe runs in Sakray mode and asks for System\*_sak.lub files that kRO's main install does not ship
+# (first seen: "CPetEvolutionMgr cannot open system\PetEvolutionCln_sak.lub"). Give each main lub a _sak twin.
+function Add-SakrayLubs([string]$RoDir) {
+    $sys = Join-Path $GameDir 'System'
+    New-Item -ItemType Directory -Force -Path $sys | Out-Null
+    $pet = Join-Path $sys 'PetEvolutionCln_sak.lub'
+    $petEn = Join-Path $RoDir 'Additions\SystemEN\PetEvolution.lub'   # ROenglishRE's English pet evolution list
+    if (-not (Test-Path -LiteralPath $pet) -and (Test-Path -LiteralPath $petEn)) { Copy-Item -LiteralPath $petEn -Destination $pet }
+    $added = 0
+    foreach ($lub in @(Get-ChildItem -LiteralPath $sys -Filter '*.lub' -File)) {
+        if ($lub.BaseName -match '_sak$') { continue }
+        $twin = Join-Path $sys ($lub.BaseName + '_sak.lub')
+        if (-not (Test-Path -LiteralPath $twin)) { Copy-Item -LiteralPath $lub.FullName -Destination $twin; $added++ }
+    }
+    Info "Added $added Sakray copies of System lub files."
+}
+
 # GRF read order, highest priority first: our own server.grf (optional), then kRO's own list.
 function Write-DataIni([string]$Dir, [string]$OriginalIni) {
     $order = @('server.grf')
@@ -497,6 +514,7 @@ function Install-English {
     $stage = Join-Path $ToolsDir 'client-files'
     Build-EnglishFiles $roDir $stage
     Copy-Tree $stage $GameDir
+    Add-SakrayLubs $roDir
     Write-DataIni $GameDir (Join-Path $backup 'DATA.INI')
     Info 'Copied the English files and wrote DATA.INI.'
     return $roDir
