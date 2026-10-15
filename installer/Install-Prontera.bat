@@ -272,27 +272,29 @@ function Build-EnglishFiles([string]$RoDir, [string]$Stage) {
 
 # kRO's install ships the System\*.lub files of its main exe (X_true.lub, X_True.lub, X_new.lub, X.lub), but a
 # Renewal exe like ours asks for the Sakray names (X_sak.lub, X_Sakray.lub, X_sak_new.lub; see WARP CustomPath.qjs).
-# Missing ones stop the game ("CPetEvolutionMgr file Init"), so give every main lub its Sakray twins, using
-# ROenglishRE's English copy where it has one.
-function Add-SakrayLubs([string]$RoDir) {
+# Missing ones stop the game ("CPetEvolutionMgr file Init"), so give every main lub its Sakray twins.
+# Only kRO's own files are used: they match this exe's era, while ROenglishRE's newer copies list pets and maps
+# the 2021 exe does not know (the game crashed with 0xC0000005 when those were used).
+function Add-SakrayLubs {
     $sys = Join-Path $GameDir 'System'
     New-Item -ItemType Directory -Force -Path $sys | Out-Null
-    $english = @{ 'PetEvolutionCln_sak.lub' = 'PetEvolution.lub'; 'PrivateAirplane_Sakray.lub' = 'PrivateAirplane.lub' }
-    foreach ($name in $english.Keys) {
-        $src = Join-Path (Join-Path $RoDir 'Additions\SystemEN') $english[$name]
-        $dst = Join-Path $sys $name
-        if (-not (Test-Path -LiteralPath $dst) -and (Test-Path -LiteralPath $src)) { Copy-Item -LiteralPath $src -Destination $dst }
-    }
+    $roEnglishHeader = '-- Original translation works of zackdreaver*'
+    # _true/_True files first: they are what kRO's own exe of this era reads, so they win over plain X.lub.
+    $lubs = @(Get-ChildItem -LiteralPath $sys -Filter '*.lub' -File | Where-Object { $_.BaseName -notmatch '_sak' } |
+        Sort-Object @{ Expression = { if ($_.BaseName -match '_true$') { 0 } elseif ($_.BaseName -match '_new$') { 1 } else { 2 } } }, Name)
     $added = 0
-    foreach ($lub in @(Get-ChildItem -LiteralPath $sys -Filter '*.lub' -File)) {
+    foreach ($lub in $lubs) {
         $base = $lub.BaseName
-        if ($base -match '_sak') { continue }
         if ($base -match '^(.+)_true$') { $names = @("$($Matches[1])_sak.lub", "$($Matches[1])_Sakray.lub") }
         elseif ($base -match '^(.+)_new$') { $names = @("$($Matches[1])_sak_new.lub") }
         else { $names = @("$($base)_sak.lub", "$($base)_Sakray.lub") }
         foreach ($name in $names) {
             $twin = Join-Path $sys $name
-            if (-not (Test-Path -LiteralPath $twin)) { Copy-Item -LiteralPath $lub.FullName -Destination $twin; $added++ }
+            # Keep an existing twin unless an earlier installer filled it with an ROenglishRE copy.
+            if ((Test-Path -LiteralPath $twin) -and
+                (Get-Content -LiteralPath $twin -TotalCount 1 -ErrorAction SilentlyContinue) -notlike $roEnglishHeader) { continue }
+            Copy-Item -LiteralPath $lub.FullName -Destination $twin -Force
+            $added++
         }
     }
     Info "Added $added Sakray copies of System lub files."
@@ -525,7 +527,7 @@ function Install-English {
     $stage = Join-Path $ToolsDir 'client-files'
     Build-EnglishFiles $roDir $stage
     Copy-Tree $stage $GameDir
-    Add-SakrayLubs $roDir
+    Add-SakrayLubs
     Write-DataIni $GameDir (Join-Path $backup 'DATA.INI')
     Info 'Copied the English files and wrote DATA.INI.'
     return $roDir
