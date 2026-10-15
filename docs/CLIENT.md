@@ -186,7 +186,7 @@ client ปี 2020 ขึ้นไปใช้ web-server ของ rAthena เ�
 | ล็อกอินแล้วหลุดทันที | ใช้ exe ผิดรุ่น (ต้องเป็น `2021-11-03_Ragexe_1635926200`) หรือติ๊กแพตช์ในหมวด encryption |
 | กดไอคอนแล้วขึ้นหน้าต่างเกาหลีที่มีปุ่ม START หรือ `Repacking resource files` | นั่นคือตัวอัปเดต kRO ห้ามกด START ปิดด้วย Ctrl+Shift+Esc > คลิกขวา Ragnarok > End task แล้วรัน `Install-Prontera.bat` ใหม่ (รุ่นใหม่ซ่อมไอคอน ลบไอคอนเกาหลี และตรวจไฟล์เกมให้) |
 | ตัวติดตั้งขึ้น `data.grf cannot be used` | ตัวอัปเดต kRO แก้ไฟล์เกมไปแล้ว พิมพ์ `Y` แล้ว Enter ตัวติดตั้งจะลบโฟลเดอร์เกมแล้วลงใหม่ให้ (ใช้ไฟล์ที่โหลดไว้แล้ว ไม่ต้องโหลดใหม่) |
-| `CPetEvolutionMgr cannot open system\PetEvolutionCln_sak.lub` | กด OK แล้วเล่นต่อได้ ตัวติดตั้งรุ่นใหม่ใส่ไฟล์ `_sak` ที่ขาดให้ รัน `Install-Prontera.bat` ซ้ำหนึ่งรอบ |
+| `cannot open System\...._sak.lub` หรือ `_Sakray.lub` (เช่น `CPetEvolutionMgr`, `CPrivateAirplaneMgr`) | exe รุ่น Renewal หาไฟล์ชื่อแบบ Sakray แต่ kRO ให้มาแค่ชื่อแบบ `_true` ตัวติดตั้งรุ่นใหม่สร้างให้ครบ รัน `Install-Prontera.bat` ซ้ำหนึ่งรอบ |
 | หน้าต่าง `You'll need a new app to open this ms-gamingoverlay link` | เป็นของ Windows (Xbox Game Bar) ไม่เกี่ยวกับเกม กด Esc ได้เลย |
 | Windows Defender ลบไฟล์ exe ระหว่างติดตั้ง | กด Allow **เฉพาะไฟล์นั้น** แล้วรันตัวติดตั้งซ้ำ |
 | ปุ่ม/รูปบางอันยังเป็นภาษาเกาหลี | ไม่กระทบการเล่น เมนูและไอเทมเป็นอังกฤษแล้ว รูปบางรูปอยู่ในโฟลเดอร์ชื่อเกาหลี ซึ่ง Windows ที่ตั้งภาษาโปรแกรม non-Unicode เป็นไทยอาจหาไม่เจอ |

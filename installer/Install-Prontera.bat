@@ -270,19 +270,30 @@ function Build-EnglishFiles([string]$RoDir, [string]$Stage) {
     }
 }
 
-# The patched exe runs in Sakray mode and asks for System\*_sak.lub files that kRO's main install does not ship
-# (first seen: "CPetEvolutionMgr cannot open system\PetEvolutionCln_sak.lub"). Give each main lub a _sak twin.
+# kRO's install ships the System\*.lub files of its main exe (X_true.lub, X_True.lub, X_new.lub, X.lub), but a
+# Renewal exe like ours asks for the Sakray names (X_sak.lub, X_Sakray.lub, X_sak_new.lub; see WARP CustomPath.qjs).
+# Missing ones stop the game ("CPetEvolutionMgr file Init"), so give every main lub its Sakray twins, using
+# ROenglishRE's English copy where it has one.
 function Add-SakrayLubs([string]$RoDir) {
     $sys = Join-Path $GameDir 'System'
     New-Item -ItemType Directory -Force -Path $sys | Out-Null
-    $pet = Join-Path $sys 'PetEvolutionCln_sak.lub'
-    $petEn = Join-Path $RoDir 'Additions\SystemEN\PetEvolution.lub'   # ROenglishRE's English pet evolution list
-    if (-not (Test-Path -LiteralPath $pet) -and (Test-Path -LiteralPath $petEn)) { Copy-Item -LiteralPath $petEn -Destination $pet }
+    $english = @{ 'PetEvolutionCln_sak.lub' = 'PetEvolution.lub'; 'PrivateAirplane_Sakray.lub' = 'PrivateAirplane.lub' }
+    foreach ($name in $english.Keys) {
+        $src = Join-Path (Join-Path $RoDir 'Additions\SystemEN') $english[$name]
+        $dst = Join-Path $sys $name
+        if (-not (Test-Path -LiteralPath $dst) -and (Test-Path -LiteralPath $src)) { Copy-Item -LiteralPath $src -Destination $dst }
+    }
     $added = 0
     foreach ($lub in @(Get-ChildItem -LiteralPath $sys -Filter '*.lub' -File)) {
-        if ($lub.BaseName -match '_sak$') { continue }
-        $twin = Join-Path $sys ($lub.BaseName + '_sak.lub')
-        if (-not (Test-Path -LiteralPath $twin)) { Copy-Item -LiteralPath $lub.FullName -Destination $twin; $added++ }
+        $base = $lub.BaseName
+        if ($base -match '_sak') { continue }
+        if ($base -match '^(.+)_true$') { $names = @("$($Matches[1])_sak.lub", "$($Matches[1])_Sakray.lub") }
+        elseif ($base -match '^(.+)_new$') { $names = @("$($Matches[1])_sak_new.lub") }
+        else { $names = @("$($base)_sak.lub", "$($base)_Sakray.lub") }
+        foreach ($name in $names) {
+            $twin = Join-Path $sys $name
+            if (-not (Test-Path -LiteralPath $twin)) { Copy-Item -LiteralPath $lub.FullName -Destination $twin; $added++ }
+        }
     }
     Info "Added $added Sakray copies of System lub files."
 }
