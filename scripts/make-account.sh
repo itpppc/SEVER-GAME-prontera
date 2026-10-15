@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Create a game account, or reset its password if it already exists. The password is typed here,
-# hidden, and never leaves this machine. Works even when NEW_ACCOUNT=no (no _M signup needed).
+# hidden, and never leaves this machine. Set MAKE_ACCOUNT_PASS to skip the prompt for a one-line run.
+# Works even when NEW_ACCOUNT=no (no _M signup needed).
 # Usage: scripts/make-account.sh <userid> [M|F]   (userid without _M/_F; sex only matters for a new account)
 # Passwords are stored in plain text unless use_MD5_passwords is turned on in login_athena.conf.
 # shellcheck source=scripts/lib.sh
@@ -13,8 +14,13 @@ SEX="${2:-M}"
 (( ${#USERID} >= 4 && ${#USERID} <= 23 )) || die "The userid needs 4 to 23 characters."
 [[ "$SEX" =~ ^[MF]$ ]] || die "Sex must be M or F"
 
-read -r -s -p "Password for $USERID (6-23 characters, typing is hidden): " PASS1; echo
-read -r -s -p "Type it again: " PASS2; echo
+# MAKE_ACCOUNT_PASS=... skips the prompt (the password then stays in this shell's history).
+if [[ -n "${MAKE_ACCOUNT_PASS:-}" ]]; then
+  PASS1="$MAKE_ACCOUNT_PASS"; PASS2="$MAKE_ACCOUNT_PASS"
+else
+  read -r -s -p "Password for $USERID (6-23 characters, typing is hidden): " PASS1; echo
+  read -r -s -p "Type it again: " PASS2; echo
+fi
 [[ "$PASS1" == "$PASS2" ]] || die "The two passwords are different. Nothing was changed."
 (( ${#PASS1} >= 6 && ${#PASS1} <= 23 )) || die "The password needs 6 to 23 characters. Nothing was changed."
 [[ "$PASS1" =~ ^[A-Za-z0-9._@#%+=-]+$ ]] \
