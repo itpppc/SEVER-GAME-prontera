@@ -183,6 +183,8 @@ client ปี 2020 ขึ้นไปใช้ web-server ของ rAthena เ�
 | error `MSVCP140.dll` / `VCRUNTIME140.dll` | ติดตั้ง Microsoft Visual C++ 2015–2022 Redistributable **x86** |
 | ภาษาเกาหลีเต็มจอ / Lua error / ไม่เห็นเซิร์ฟเรา | ไม่ได้ติ๊ก `Read data folder first` หรือ copy ไฟล์ขั้น 3 ไม่ครบ |
 | ต่อเซิร์ฟไม่ได้ตั้งแต่หน้าล็อกอิน | IP ใน clientinfo ผิด หรือเซิร์ฟปิดอยู่ เช็คด้วย PowerShell `Test-NetConnection IP_ของเซิร์ฟ -Port 6900` |
+| กด Login แล้วเกมปิดเองและเด้งไปเว็บ ro.gnjoy.com | เกมรุ่นนี้ปิดตัวเองเมื่อ**รหัสผ่านผิด** (ไม่ใช่เกมพัง) ใน `rathena/log/login-server.log` จะเห็น `Invalid password` ตั้งรหัสใหม่ตัวพิมพ์เล็กกับตัวเลขบนเซิร์ฟ: `cd ~/SEVER-GAME-prontera && scripts/make-account.sh <ไอดี>` แล้วล็อกอินด้วยแป้น ENG, Caps Lock ปิด พิมพ์ ID กด Tab พิมพ์รหัส แล้วกด Enter (ไม่ต้องคลิกปุ่มบนหน้าจอ) |
+| เปิดเกมแล้วจอขาว/ดำ หรือขึ้น "Cannot init d3d" | ถ้าต่อจอที่ 2 หรือโปรเจคเตอร์อยู่ เกมอาจไปเปิดบนจอนั้น กด Win+P เลือก "PC screen only" แล้วคลิกไอคอนเกม**ครั้งเดียว** (เปิดซ้อนสองตัวจะขึ้น d3d) ถ้ายังไม่ได้ ให้อัปเดตไดรเวอร์การ์ดจอผ่าน Windows Update |
 | ล็อกอินแล้วขึ้น "Unregistered ID" | ยังไม่มีไอดีนี้ในเซิร์ฟ (ยังไม่เคยสมัคร `_M` สำเร็จ หรือ `NEW_ACCOUNT=no`) สร้างบนเซิร์ฟแทนได้เลย: `cd ~/SEVER-GAME-prontera && git pull && scripts/make-account.sh tonadmin` พิมพ์รหัสผ่านเอง (ไม่แสดงตัวอักษร) แล้วล็อกอินด้วย `tonadmin` ไม่มี `_M` |
 | สมัคร `_M` แล้ว "Rejected from server" | ชื่อหรือรหัสสั้นกว่า 6 ตัว, มี `passwordencrypt` ใน clientinfo, `NEW_ACCOUNT=no`, หรือสมัครถี่เกิน |
 | เลือกเซิร์ฟแล้วค้าง / หลุด | `PUBLIC_IP` ใน `.env` ผิด หรือยังไม่เปิดพอร์ต 6121 / 5121 |
