@@ -476,6 +476,40 @@ function Add-SakrayLubs {
     Info "Added $added Sakray copies of System lub files."
 }
 
+# ROenglishRE's translated button images live in data\texture\<Korean folder>, written by the kRO/ROenglishRE copy
+# as cp949 bytes shown as Latin-1 (a folder name made of accented Latin letters). The exe opens files with the ANSI
+# APIs, so on a Windows whose "language for non-Unicode programs" is not Korean or Western it asks for the same bytes
+# read as that code page (Thai: cp874), finds nothing, and the buttons stay Korean. Make a twin copy under the name
+# the exe asks for. Originals are never touched or deleted; any problem only prints a warning.
+function Add-AnsiTextureTwin {
+    try {
+        $acp = [int](Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Nls\CodePage' -Name ACP).ACP
+        if ($acp -eq 949 -or $acp -eq 1252 -or $acp -eq 28591) { return }
+        $latin1 = [Text.Encoding]::GetEncoding(28591)
+        $ansi = [Text.Encoding]::GetEncoding($acp, [Text.EncoderFallback]::ExceptionFallback, [Text.DecoderFallback]::ExceptionFallback)
+        $odd = '[' + [char]0x80 + '-' + [char]0xFF + ']'
+        $rename = { param([string]$n) if ($n -match $odd) { $ansi.GetString($latin1.GetBytes($n)) } else { $n } }
+        $tex = Join-Path $GameDir 'data\texture'
+        if (-not (Test-Path -LiteralPath $tex)) { return }
+        $copied = 0
+        foreach ($dir in @(Get-ChildItem -LiteralPath $tex -Directory | Where-Object { $_.Name -match $odd })) {
+            $dst = Join-Path $tex (& $rename $dir.Name)
+            if ($dst -eq $dir.FullName) { continue }
+            foreach ($file in Get-ChildItem -LiteralPath $dir.FullName -Recurse -File) {
+                $rel = $file.FullName.Substring($dir.FullName.Length + 1)
+                $newRel = (($rel -split '\\') | ForEach-Object { & $rename $_ }) -join '\'
+                $target = Join-Path $dst $newRel
+                New-Item -ItemType Directory -Force -Path (Split-Path $target -Parent) | Out-Null
+                Copy-Item -LiteralPath $file.FullName -Destination $target -Force
+                $copied++
+            }
+        }
+        if ($copied -gt 0) { Info "Copied $copied English button images for Windows code page $acp." }
+    } catch {
+        Warn "Could not prepare English buttons for this Windows language ($($_.Exception.Message)). The game still works; a few buttons may stay Korean."
+    }
+}
+
 # GRF read order, highest priority first: our own server.grf (optional), then kRO's own list.
 function Write-DataIni([string]$Dir, [string]$OriginalIni) {
     $order = @('server.grf')
@@ -708,6 +742,7 @@ function Install-English {
     Build-EnglishFiles $roDir $luaDir $stage
     Copy-Tree $stage $GameDir
     Add-SakrayLubs
+    Add-AnsiTextureTwin
     Write-DataIni $GameDir (Join-Path $backup 'DATA.INI')
     Info 'Copied the English files and wrote DATA.INI.'
     return $roDir
