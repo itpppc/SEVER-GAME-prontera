@@ -104,6 +104,18 @@ OnYakshaKill:
 	end;
 }
 
+// Ruesi: first NPC drawn in our own Ramakien style (sprite id 126, data\sprite\npc\prt_ruesi.spr).
+// The client learns id 126 from installer/Install-Prontera.bat (Add-PronteraArt); art from tools/png2spr.py.
+prontera,150,189,4	script	Ruesi::RK_Ruesi	126,{
+	mes "[Ruesi]";
+	mes "Hmm? Oh! A visitor!";
+	mes "I meditated so long my beard grew into my sandals.";
+	next;
+	mes "[Ruesi]";
+	mes "Talk to the Sage beside me if you seek the road to Lanka.";
+	close;
+}
+
 -	shop	RK_Supplies	-1,990000:1200,990001:2400,990002:20000
 
 prt_maze02,0,0,0,0	monster	Lanka Gate Yaksha	31901,20,5000,0,RK_Sage::OnYakshaKill
