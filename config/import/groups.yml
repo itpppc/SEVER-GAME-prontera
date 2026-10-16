@@ -1,0 +1,30 @@
+# SEVER GAME Prontera: player group overrides.
+# Copied by scripts/apply-config.sh into rathena/conf/import/groups.yml.
+# Entries here are merged into conf/groups.yml by Id.
+#
+# rAthena's default group 0 (Player) can only use @changedress and @resurrect.
+# This gives every normal player the common quality-of-life commands.
+# Remove a line (or set it to false) to take a command away.
+
+Header:
+  Type: PLAYER_GROUP_DB
+  Version: 1
+
+Body:
+  - Id: 0
+    Commands:
+      commands: true
+      help: true
+      rates: true
+      mobinfo: true
+      iteminfo: true
+      whodrops: true
+      whereis: true
+      servertime: true
+      showexp: true
+      showzeny: true
+      refresh: true
+      autoloot: true
+      alootid: true
+      autotrade: true
+      noks: true

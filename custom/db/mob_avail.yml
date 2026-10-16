@@ -1,0 +1,14 @@
+# Show the Ramakien monsters with existing monster looks, so the current client needs no patch.
+# Copied to rathena/db/import/mob_avail.yml by scripts/apply-config.sh.
+
+Header:
+  Type: MOB_AVAIL_DB
+  Version: 1
+
+Body:
+  - Mob: RK_LANKA_YAKSHA
+    Sprite: ORK_WARRIOR
+  - Mob: RK_KUMBHAKARN
+    Sprite: MINOROUS
+  - Mob: RK_THOTSAKAN
+    Sprite: DARK_LORD

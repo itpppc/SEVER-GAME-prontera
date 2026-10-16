@@ -1,0 +1,10 @@
+// SEVER GAME Prontera: map-server overrides.
+// Rendered by scripts/apply-config.sh into rathena/conf/import/map_conf.txt.
+
+// Inter-server account (same as char_conf.txt)
+userid: {{INTER_USER}}
+passwd: {{INTER_PASS}}
+
+// Where map-server reaches char-server, and the IP announced to clients
+char_ip: 127.0.0.1
+map_ip: {{PUBLIC_IP}}
