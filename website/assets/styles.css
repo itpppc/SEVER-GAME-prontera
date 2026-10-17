@@ -683,3 +683,11 @@ kbd {
 @media (prefers-reduced-motion: reduce) {
   .slide, .slide.is-active { transition: none; }
 }
+
+/* Voluntary support box (owner request 2026-10-17): QR is a static image, nothing is collected on the site */
+.support { display: grid; gap: 40px; align-items: center; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
+.support-qr { margin: 0; justify-self: center; max-width: 320px; text-align: center; }
+.support-qr img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); background: #fff; }
+.support-qr figcaption { margin-top: 10px; font-size: .875rem; color: var(--text-muted, #aeb4d0); }
+.support-credit { margin-top: 16px; }
+@media (max-width: 800px) { .support { grid-template-columns: 1fr; gap: 28px; } }
