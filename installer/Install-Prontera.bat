@@ -27,6 +27,15 @@ $ServerName = 'Prontera'        # server list name, window title, exe and shortc
 $GameDir    = 'C:\RO'
 $ToolsDir   = 'C:\RO-tools'
 # ====================
+# Run as administrator: the kRO installer starts its updater (Ragnarok.exe) elevated, and only an elevated installer can close it.
+# If the player says No to the Windows prompt, the install still runs, just without that power.
+if (-not $env:PRONTERA_NO_MAIN -and $env:PRONTERA_SELF -and -not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+    try {
+        Write-Host 'Opening the installer as administrator. Click Yes in the Windows window, then use the NEW window.' -ForegroundColor Cyan
+        Start-Process -FilePath $env:PRONTERA_SELF -Verb RunAs -ErrorAction Stop
+        return
+    } catch { Write-Host 'Continuing without administrator rights.' -ForegroundColor Yellow }
+}
 if ($env:PRONTERA_GAME_DIR)  { $GameDir  = $env:PRONTERA_GAME_DIR }
 if ($env:PRONTERA_TOOLS_DIR) { $ToolsDir = $env:PRONTERA_TOOLS_DIR }
 
@@ -211,6 +220,13 @@ function Stop-GameProcesses {
     $left = @($procs | Where-Object { Get-Process -Id $_.Id -ErrorAction SilentlyContinue })
     if ($left.Count) {
         throw ("Could not close {0}. Press Ctrl+Shift+Esc, right-click it, choose End task, then run the installer again." -f (($left | ForEach-Object { $_.ProcessName }) -join ', '))
+    }
+}
+
+# Closes the kRO updater the moment it appears: it patches data.grf into a format our exe cannot read.
+function Stop-KroUpdater {
+    foreach ($p in @(Get-Process -Name 'Ragnarok' -ErrorAction SilentlyContinue)) {
+        try { Stop-Process -Id $p.Id -Force -ErrorAction Stop; Info 'Closed the Korean updater window (START button) so it cannot damage the game files.' } catch { }
     }
 }
 
@@ -652,7 +668,10 @@ function Install-Game {
             Write-Host "      - when it shows the install folder, change it to  $GameDir"
             Write-Host '      - on the last page, untick anything that starts the game, then finish'
             Write-Host '    Never start the game from the kRO icon: its updater breaks the files for our server.' -ForegroundColor Yellow
-            Start-Process -FilePath $setup -Wait
+            Write-Host '    If a window with a START button appears, do NOT press it; this installer closes it for you.' -ForegroundColor Yellow
+            $kro = Start-Process -FilePath $setup -PassThru
+            while (-not $kro.HasExited) { Stop-KroUpdater; Start-Sleep -Milliseconds 700 }
+            for ($i = 0; $i -lt 10; $i++) { Stop-KroUpdater; Start-Sleep -Milliseconds 500 }
         }
         for ($i = 0; $i -lt 3 -and -not (Find-GameDir); $i++) {
             Read-Host '    Press Enter when the Korean installer has completely finished' | Out-Null
