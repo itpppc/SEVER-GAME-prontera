@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ศึกลงกา เกมผลัดกันตี | Prontera รามเกียรติ์</title>
+  <meta name="description" content="ศึกลงกา เกมผลัดกันตีรามเกียรติ์ เล่นฟรีบนเว็บ ไม่ต้องลงโปรแกรม จัดทีมพระราม หนุมาน พิเภก บุกประตูเมืองลงกา สู้กุมภกรรณ">
+  <meta name="theme-color" content="#160f24">
+  <meta property="og:title" content="ศึกลงกา เกมผลัดกันตีรามเกียรติ์ เล่นฟรีบนเว็บ">
+  <meta property="og:description" content="จัดทีมพระราม หนุมาน พิเภก บุกประตูเมืองลงกา เล่นฟรีบนมือถือและคอม">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sever-game-prontera.vercel.app/rpg">
+  <meta property="og:image" content="https://sever-game-prontera.vercel.app/assets/img/og-banner.jpg">
+  <meta property="og:locale" content="th_TH">
+  <link rel="canonical" href="https://sever-game-prontera.vercel.app/rpg">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700&family=Prompt:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/rpg/game.css">
+  <script src="/rpg/engine.js" defer></script>
+  <script src="/rpg/game.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#actions">ข้ามไปที่ปุ่มต่อสู้</a>
+
+  <header class="bar">
+    <a class="bar-back" href="/">← หน้าแรก</a>
+    <div class="bar-title">
+      <strong>ศึกลงกา</strong>
+      <span id="stage-name">ด่าน 1 ประตูเมืองลงกา</span>
+    </div>
+    <div class="bar-tools">
+      <span class="pill" id="round" aria-live="off">ตา 1</span>
+      <button class="tool" id="btn-speed" type="button" aria-pressed="false" title="เร่งความเร็ว">x1</button>
+      <button class="tool" id="btn-auto" type="button" aria-pressed="false">ออโต้</button>
+    </div>
+  </header>
+
+  <main class="field" id="field">
+    <div class="order" id="order" aria-label="ลำดับคนที่จะได้ตีต่อไป"></div>
+    <section class="side side-enemy" id="enemies" aria-label="ฝ่ายลงกา"></section>
+    <div class="wave" id="wave" aria-hidden="true"></div>
+    <section class="side side-hero" id="heroes" aria-label="ทีมของเรา"></section>
+  </main>
+
+  <section class="panel" id="actions" aria-label="เลือกท่า">
+    <p class="prompt" id="prompt">กำลังเตรียมศึก...</p>
+    <div class="skills" id="skills"></div>
+    <p class="log" id="log" aria-live="polite"></p>
+  </section>
+
+  <div class="overlay" id="talk" hidden>
+    <div class="talk" role="dialog" aria-modal="true" aria-labelledby="talk-name">
+      <img class="talk-face" id="talk-face" alt="">
+      <div class="talk-body">
+        <strong id="talk-name"></strong>
+        <p id="talk-text"></p>
+        <div class="talk-btns">
+          <button class="btn ghost" id="talk-skip" type="button">ข้าม</button>
+          <button class="btn" id="talk-next" type="button">ต่อไป ▸</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="result" hidden>
+    <div class="result" role="dialog" aria-modal="true" aria-labelledby="result-title">
+      <h1 id="result-title"></h1>
+      <p class="stars" id="result-stars" aria-live="polite"></p>
+      <p id="result-text"></p>
+      <div class="result-btns">
+        <button class="btn" id="btn-retry" type="button">เล่นอีกครั้ง</button>
+        <a class="btn ghost" href="/">กลับหน้าแรก</a>
+      </div>
+      <p class="fine">เกมต้นแบบ เล่นฟรี ไม่มีเก็บเงิน ตัวละครวาดใหม่ทั้งหมดในสไตล์ของเรา</p>
+    </div>
+  </div>
+
+  <noscript><p class="noscript">เกมนี้ต้องเปิด JavaScript ในเบราว์เซอร์ก่อนจึงจะเล่นได้</p></noscript>
+</body>
+</html>
