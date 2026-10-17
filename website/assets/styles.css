@@ -527,13 +527,16 @@ kbd {
   .reveal { opacity: 1; translate: none; }
 }
 
-/* Battle scene: Rama's side vs Lanka (8s looping choreography) */
+/* Battle scene: Rama's side vs Lanka (8s looping choreography).
+   Positions use container units (cqw) so moves scale with the stage. */
 .battle-section { background: radial-gradient(80% 60% at 50% 0%, rgb(232 182 76 / .08), transparent 70%); }
 .battle-stage {
-  position: relative; aspect-ratio: 16 / 7; max-width: 100%; overflow: hidden; border-radius: 22px;
+  --charge: 18cqw; --rain-dx: 40cqw; --rain-dy: 22cqw;
+  position: relative; aspect-ratio: 2 / 1; max-width: 100%; overflow: hidden; border-radius: 22px; container-type: inline-size;
   background: #1a1d48 url("img/battle-bg.svg") center bottom / cover no-repeat;
   border: 1px solid rgb(232 182 76 / .6); box-shadow: inset 0 0 0 5px rgb(15 18 32 / .6), inset 0 0 0 6px rgb(232 182 76 / .35), 0 24px 60px rgb(0 0 0 / .45);
 }
+.battle-stage.is-paused, .battle-stage.is-paused * { animation-play-state: paused !important; }
 .fighter {
   position: absolute; left: var(--x); bottom: 7%; width: var(--w); z-index: 2;
   padding: 0; border: 0; background: none; cursor: pointer; border-radius: 12px;
@@ -545,35 +548,108 @@ kbd {
 .fighter.is-jumping img { animation: f-jump .7s cubic-bezier(.3, .7, .4, 1); }
 .f-leap { animation: f-leap 8s ease-in-out infinite; }
 .f-thrust { animation: f-thrust 8s ease-in-out infinite; }
-.f-boss { animation: f-hit-r 8s ease-in-out infinite; }
-[data-fighter="rama"] { animation: f-hit-l 8s ease-in-out infinite; }
 @keyframes f-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -4%; } }
 @keyframes f-jump { 0%, 100% { translate: 0 0; rotate: 0deg; } 45% { translate: 0 -38%; rotate: -8deg; } 70% { translate: 0 -10%; rotate: 4deg; } }
 @keyframes f-leap { 0%, 78%, 100% { translate: 0 0; rotate: 0deg; } 84% { translate: 70% -55%; rotate: 18deg; } 88% { translate: 95% -8%; rotate: 8deg; } 92% { translate: 80% -30%; rotate: -10deg; } 97% { translate: 0 0; rotate: 0deg; } }
 @keyframes f-thrust { 0%, 56%, 70%, 100% { translate: 0 0; } 60% { translate: 8% 0; } 64% { translate: -26% 0; } 87% { translate: 0 0; } 89% { translate: 12% -6%; rotate: 10deg; } 93% { translate: 0 0; rotate: 0deg; } }
-@keyframes f-hit-r { 0%, 28%, 44%, 100% { translate: 0 0; rotate: 0deg; filter: none; } 30% { translate: 8% 0; rotate: 8deg; filter: brightness(1.8); } 34% { translate: 4% 0; rotate: -5deg; filter: none; } 38% { rotate: 3deg; } }
-@keyframes f-hit-l { 0%, 66%, 80%, 100% { translate: 0 0; rotate: 0deg; filter: none; } 68% { translate: -8% 0; rotate: -8deg; filter: brightness(1.8) hue-rotate(60deg); } 72% { translate: -4% 0; rotate: 5deg; filter: none; } 76% { rotate: -3deg; } }
 
-.battle-fx { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
+/* Flying royal chariots (ราชรถ) with Rama and Tossakan riding */
+.chariot { position: absolute; top: 3%; width: 28%; z-index: 3; }
+.chariot-l { left: 1%; animation: ch-l 8s ease-in-out infinite; }
+.chariot-r { right: 1%; animation: ch-r 8s ease-in-out infinite; }
+.ch-body { position: relative; }
+.chariot-r .ch-body { scale: -1 1; }
+.ch-img { position: relative; z-index: 1; display: block; width: 100%; height: auto; filter: drop-shadow(0 10px 10px rgb(0 0 0 / .4)); }
+.chariot .fighter.rider { left: 17.5%; bottom: 37%; width: 17%; z-index: 2; }
+@keyframes ch-l {
+  0%, 20%, 60%, 100% { translate: 0 0; rotate: 0deg; filter: none; }
+  10%, 30%, 88% { translate: 0 -1cqw; }
+  36% { translate: -2cqw 0; rotate: 4deg; }
+  44% { translate: var(--charge) 0; rotate: -3deg; }
+  47% { translate: calc(var(--charge) - 2cqw) -1.5cqw; rotate: -8deg; }
+  54% { translate: 2cqw 0; rotate: 0deg; }
+  67% { translate: 0 0; filter: none; }
+  69% { translate: -2cqw 0; rotate: -8deg; filter: brightness(1.8); }
+  73% { translate: -1cqw 0; rotate: 4deg; filter: none; }
+  78% { translate: 0 0; rotate: 0deg; }
+}
+@keyframes ch-r {
+  0%, 20%, 60%, 100% { translate: 0 0; rotate: 0deg; filter: none; }
+  10%, 50%, 88% { translate: 0 -1cqw; }
+  27% { translate: 0 0; filter: none; }
+  29% { translate: 2cqw 0; rotate: 8deg; filter: brightness(1.8); }
+  33% { translate: 1cqw 0; rotate: -4deg; filter: none; }
+  36% { translate: 2cqw 0; rotate: -4deg; }
+  44% { translate: calc(var(--charge) * -1) 0; rotate: 3deg; }
+  47% { translate: calc(var(--charge) * -1 + 2cqw) -1.5cqw; rotate: 8deg; }
+  54% { translate: -2cqw 0; rotate: 0deg; }
+}
+
+.battle-fx { position: absolute; inset: 0; pointer-events: none; z-index: 4; }
 .fx { position: absolute; opacity: 0; }
-.fx-arrow { width: 9%; top: 47%; animation: fx-arrow 8s linear infinite; filter: drop-shadow(0 0 6px #ffd27a); }
-.fx-naga { width: 10%; top: 42%; animation: fx-naga 8s linear infinite; filter: drop-shadow(0 0 8px #3fd08a); }
+.fx-arrow { width: 9%; top: 18%; animation: fx-arrow 8s linear infinite; filter: drop-shadow(0 0 6px #ffd27a); }
+.fx-naga { width: 10%; top: 16%; animation: fx-naga 8s linear infinite; filter: drop-shadow(0 0 8px #3fd08a); }
 .fx-burst { width: 13%; aspect-ratio: 1; display: grid; place-items: center; }
 .fx-burst svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .fx-burst span { position: relative; font: 900 clamp(.8rem, 2.2vw, 1.6rem) var(--font-head); color: #2b1b33; rotate: -10deg; }
-.fx-burst-r { left: 74%; top: 26%; animation: fx-burst-r 8s ease-out infinite; }
-.fx-burst-l { left: 12%; top: 22%; animation: fx-burst-l 8s ease-out infinite; }
-.fx-clash { left: 46%; top: 34%; width: 12%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff 0 12%, #ffe27a 30%, rgb(255 140 60 / .6) 52%, transparent 70%); animation: fx-clash 8s ease-out infinite; }
-@keyframes fx-arrow { 0%, 12% { opacity: 0; left: 24%; } 13% { opacity: 1; left: 24%; } 28% { opacity: 1; left: 70%; } 29%, 100% { opacity: 0; left: 70%; } }
-@keyframes fx-naga { 0%, 50% { opacity: 0; left: 66%; } 51% { opacity: 1; left: 66%; } 66% { opacity: 1; left: 22%; } 67%, 100% { opacity: 0; left: 22%; } }
+.fx-burst-r { left: 78%; top: 4%; animation: fx-burst-r 8s ease-out infinite; }
+.fx-burst-l { left: 7%; top: 4%; animation: fx-burst-l 8s ease-out infinite; }
+.fx-crash { left: 40%; top: 10%; width: 20%; animation: fx-crash 8s ease-out infinite; }
+.fx-clash { left: 46%; top: 50%; width: 12%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff 0 12%, #ffe27a 30%, rgb(255 140 60 / .6) 52%, transparent 70%); animation: fx-clash 8s ease-out infinite; }
+@keyframes fx-arrow { 0%, 12% { opacity: 0; left: 24%; } 13% { opacity: 1; left: 24%; } 28% { opacity: 1; left: 72%; } 29%, 100% { opacity: 0; left: 72%; } }
+@keyframes fx-naga { 0%, 52% { opacity: 0; left: 68%; } 53% { opacity: 1; left: 68%; } 68% { opacity: 1; left: 20%; } 69%, 100% { opacity: 0; left: 20%; } }
 @keyframes fx-burst-r { 0%, 28% { opacity: 0; scale: .2; } 30% { opacity: 1; scale: 1.15; } 36% { opacity: 1; scale: 1; } 42%, 100% { opacity: 0; scale: .6; } }
-@keyframes fx-burst-l { 0%, 66% { opacity: 0; scale: .2; } 68% { opacity: 1; scale: 1.15; } 74% { opacity: 1; scale: 1; } 80%, 100% { opacity: 0; scale: .6; } }
+@keyframes fx-burst-l { 0%, 68% { opacity: 0; scale: .2; } 70% { opacity: 1; scale: 1.15; } 76% { opacity: 1; scale: 1; } 82%, 100% { opacity: 0; scale: .6; } }
+@keyframes fx-crash { 0%, 43% { opacity: 0; scale: .2; rotate: -20deg; } 45% { opacity: 1; scale: 1.25; rotate: 6deg; } 52% { opacity: 1; scale: 1; rotate: 0deg; } 58%, 100% { opacity: 0; scale: .7; } }
 @keyframes fx-clash { 0%, 86% { opacity: 0; scale: .2; } 88% { opacity: 1; scale: 1.4; } 94%, 100% { opacity: 0; scale: 2; } }
 
+/* Arrow rain: each <i> flies across (x) while its ::before arcs up and down (y).
+   The right-hand layer is the same rain mirrored. */
+.fx-rain { position: absolute; inset: 0; }
+.fx-rain-r { scale: -1 1; }
+.fx-rain i { position: absolute; left: 22%; top: 24%; width: 4.5%; height: 1%; animation: rain-x 1.6s linear infinite; animation-delay: var(--t); }
+.fx-rain i::before {
+  content: ""; position: absolute; inset: 0; border-radius: 2px;
+  background: linear-gradient(90deg, #e8463a 0 18%, #f2c14e 18% 82%, #fff3bf 82%);
+  clip-path: polygon(0 20%, 80% 20%, 80% 0, 100% 50%, 80% 100%, 80% 80%, 0 80%);
+  animation: rain-y 1.6s linear infinite; animation-delay: var(--t);
+}
+.fx-rain-r i::before { background: linear-gradient(90deg, #3fd08a 0 18%, #c9c3ff 18% 82%, #d6ffe8 82%); }
+.fx-rain i:nth-child(1) { --t: 0s; --k: 1; } .fx-rain i:nth-child(2) { --t: -.32s; --k: .82; top: 28%; }
+.fx-rain i:nth-child(3) { --t: -.64s; --k: 1.12; top: 20%; } .fx-rain i:nth-child(4) { --t: -.96s; --k: .9; top: 30%; }
+.fx-rain i:nth-child(5) { --t: -1.28s; --k: 1.05; top: 26%; }
+.fx-rain-r i { animation-delay: calc(var(--t) - .8s); } .fx-rain-r i::before { animation-delay: calc(var(--t) - .8s); }
+@keyframes rain-x { 0% { translate: 0 0; opacity: 0; } 8% { opacity: 1; } 90% { opacity: 1; } 100% { translate: calc(var(--rain-dx) * var(--k)) 0; opacity: 0; } }
+@keyframes rain-y {
+  0% { translate: 0 0; rotate: -28deg; animation-timing-function: ease-out; }
+  35% { translate: 0 -5cqw; rotate: 0deg; animation-timing-function: ease-in; }
+  100% { translate: 0 var(--rain-dy); rotate: 38deg; }
+}
+
+/* Cheeky speech bubbles (text rotates from assets/fx.js) */
+.bubble {
+  position: absolute; bottom: 100%; z-index: 5; width: max-content; max-width: 30cqw; margin-bottom: 4px;
+  padding: .35em .7em; border-radius: 14px; background: #fffaf0; color: #2b1b33; border: 2px solid #2b1b33;
+  font: 700 clamp(.72rem, 1.35vw, 1rem)/1.3 var(--font-head); text-align: center; white-space: normal;
+  box-shadow: 0 4px 0 rgb(43 27 51 / .35); pointer-events: none; transform-origin: 20% 100%;
+  animation: bubble-pop .35s cubic-bezier(.3, 1.6, .5, 1) both;
+}
+.bubble::after { content: ""; position: absolute; top: 100%; left: 18px; border: 8px solid transparent; border-top-color: #2b1b33; }
+.battle-right .bubble, .chariot-r .bubble { right: 0; transform-origin: 80% 100%; }
+.battle-right .bubble::after, .chariot-r .bubble::after { left: auto; right: 18px; }
+.battle-left .bubble { left: 0; }
+.chariot .bubble { bottom: auto; top: 2%; margin: 0; }
+.chariot-l .bubble { left: 46%; }
+.chariot-r .bubble { right: 46%; }
+.chariot .bubble::after { display: none; }
+.bubble.is-out { animation: bubble-out .25s ease-in both; }
+@keyframes bubble-pop { from { opacity: 0; scale: .3; } to { opacity: 1; scale: 1; } }
+@keyframes bubble-out { to { opacity: 0; scale: .6; } }
+
 .battle-vs {
-  position: absolute; left: 50%; top: 6%; translate: -50% 0; margin: 0; z-index: 4;
-  width: clamp(48px, 8vw, 92px); aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%;
-  font: 900 clamp(1rem, 2.6vw, 2rem) var(--font-head); color: var(--on-accent);
+  position: absolute; left: 50%; top: 6%; translate: -50% 0; margin: 0; z-index: 1;
+  width: clamp(44px, 7vw, 84px); aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%;
+  font: 900 clamp(1rem, 2.4vw, 1.8rem) var(--font-head); color: var(--on-accent);
   background: radial-gradient(circle at 35% 30%, #fff3bf, #e8b64c 55%, #a8681a); border: 3px solid #2b1b33;
   box-shadow: 0 0 0 4px rgb(232 182 76 / .35), 0 0 30px rgb(255 210 120 / .6); animation: vs-pulse 1.6s ease-in-out infinite;
 }
@@ -584,14 +660,16 @@ kbd {
 .fx-volley i { position: absolute; width: 8%; height: 1.4%; border-radius: 4px; }
 .fx-volley-l i { left: 24%; background: linear-gradient(90deg, transparent, #ffd27a 40%, #fff); box-shadow: 0 0 10px #ffd27a; }
 .fx-volley-r i { left: 68%; background: linear-gradient(270deg, transparent, #3fd08a 40%, #d6ffe8); box-shadow: 0 0 10px #3fd08a; }
-.fx-volley i:nth-child(1) { top: 30%; animation-delay: 0s; } .fx-volley i:nth-child(2) { top: 40%; animation-delay: .12s; }
-.fx-volley i:nth-child(3) { top: 50%; animation-delay: .24s; } .fx-volley i:nth-child(4) { top: 36%; animation-delay: .36s; }
-.fx-volley i:nth-child(5) { top: 46%; animation-delay: .48s; }
+.fx-volley i:nth-child(1) { top: 20%; animation-delay: 0s; } .fx-volley i:nth-child(2) { top: 34%; animation-delay: .12s; }
+.fx-volley i:nth-child(3) { top: 48%; animation-delay: .24s; } .fx-volley i:nth-child(4) { top: 28%; animation-delay: .36s; }
+.fx-volley i:nth-child(5) { top: 42%; animation-delay: .48s; }
 .battle.special-rama .fx-volley-l, .battle.special-lanka .fx-volley-r { display: block; }
 .battle.special-rama .fx-volley-l i { animation: volley-r .7s ease-in both; }
 .battle.special-lanka .fx-volley-r i { animation: volley-l .7s ease-in both; }
-.battle.special-rama .battle-left .fighter img, .battle.special-lanka .battle-right .fighter img { animation: f-jump .7s cubic-bezier(.3, .7, .4, 1) 2; }
-.battle.special-rama .battle-right .fighter, .battle.special-lanka .battle-left .fighter { filter: brightness(1.6); transition: filter .2s .5s; }
+.battle.special-rama .battle-left .fighter img, .battle.special-lanka .battle-right .fighter img,
+.battle.special-rama .chariot-l .fighter img, .battle.special-lanka .chariot-r .fighter img { animation: f-jump .7s cubic-bezier(.3, .7, .4, 1) 2; }
+.battle.special-rama .battle-right .fighter, .battle.special-lanka .battle-left .fighter,
+.battle.special-rama .chariot-r, .battle.special-lanka .chariot-l { filter: brightness(1.6); transition: filter .2s .5s; }
 @keyframes volley-r { from { opacity: 1; translate: 0 0; } to { opacity: 0; translate: 560% 0; } }
 @keyframes volley-l { from { opacity: 1; translate: 0 0; } to { opacity: 0; translate: -560% 0; } }
 
@@ -605,16 +683,22 @@ kbd {
 .battle-score { text-align: center; margin: 10px 0 0; min-height: 1.6em; }
 
 @media (max-width: 720px) {
-  .battle-stage { aspect-ratio: 4 / 3; }
+  .battle-stage { aspect-ratio: 4 / 3.4; --charge: 6cqw; --rain-dx: 34cqw; --rain-dy: 40cqw; }
+  .chariot { width: 42%; top: 2%; }
+  .chariot-l { left: 0; } .chariot-r { right: 0; }
+  .chariot .fighter.rider { left: 15%; bottom: 36%; width: 20%; }
   .f-hide-sm { display: none; }
-  .fighter { width: calc(var(--w) * 1.7); }
-  .f-boss { left: 64%; }
-  .f-thrust { left: 46%; }
-  .f-back[data-fighter="maiyarap"] { left: 82%; }
+  .fighter { width: calc(var(--w) * 1.75); }
+  .f-thrust { left: 50%; }
+  .f-back[data-fighter="maiyarap"] { left: 74%; }
   .fighter[data-fighter="hanuman"] { left: 27%; }
+  .fx-rain i { top: 20%; width: 6%; }
   .fx-arrow, .fx-naga { width: 14%; }
   .fx-burst { width: 20%; }
-  .fx-burst-r { left: 68%; }
+  .fx-burst-r { left: 74%; top: 2%; } .fx-burst-l { left: 4%; top: 2%; }
+  .fx-crash { left: 34%; top: 8%; width: 32%; }
+  .fx-clash { top: 56%; }
+  .bubble { max-width: 44cqw; }
 }
 @media (max-width: 480px) {
   .battle-cheer { grid-template-columns: 1fr 1fr; }
@@ -622,7 +706,7 @@ kbd {
   .cheer { padding-inline: .6em; font-size: .9rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .fighter, .fighter img, .battle-vs { animation: none !important; }
+  .fighter, .fighter img, .battle-vs, .chariot, .bubble { animation: none !important; }
   .battle-fx { display: none; }
 }
 

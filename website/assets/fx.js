@@ -186,4 +186,68 @@
       timer = setTimeout(() => battle.classList.remove("special-rama", "special-lanka"), 1500);
     });
   });
+  // Cheeky back-and-forth lines in speech bubbles; one pair at a time.
+  const stage = battle.querySelector(".battle-stage");
+  const TALK = [
+    [["tossakan", "สิบหน้าของข้า หล่อทุกหน้า!"], ["hanuman", "หล่อสิบเท่า ก็แพ้สิบเท่าจ้า~"]],
+    [["rama", "คืนนางสีดามาดี ๆ นะ"], ["tossakan", "ไม่คืน! ได้แล้วไม่คืน~"]],
+    [["kumpakan", "ใครปลุกข้า... ขออีกห้านาที zzz"], ["sukrip", "ตื่น ๆ ลุง! ศึกเริ่มแล้ว!"]],
+    [["hanuman", "หาวทีเดียว ดาวเดือนเต็มฟ้า!"], ["maiyarap", "งั้นข้าเป่ายานอนหลับให้ ฟู่~"]],
+    [["inthorachit", "ศรนาคบาศมาแล้ว หลบด้วยนะ!"], ["lak", "พี่ครับ ผมหลบไม่ทันอีกแล้ว!"]],
+    [["tossakan", "ราชรถข้าแรง เบรกไม่อยู่!"], ["rama", "งั้นชนเลย ไม่ต้องเบรก!"]],
+    [["lak", "ศรพุ่งเป็นฝนเลยพี่!"], ["kumpakan", "ฝนตกแบบนี้ น่านอนจัง..."]],
+  ];
+  // Speakers hidden at this screen size (display:none) have no offsetParent.
+  const speaker = (who) => {
+    const el = battle.querySelector(`[data-speaker="${who}"]`);
+    return el && el.offsetParent ? el : null;
+  };
+  const say = (who, text) => {
+    const el = speaker(who);
+    if (!el) return null;
+    const b = document.createElement("span");
+    b.className = "bubble";
+    b.setAttribute("aria-hidden", "true");
+    b.textContent = text;
+    el.append(b);
+    return b;
+  };
+  const clear = () => battle.querySelectorAll(".bubble").forEach((b) => b.remove());
+  const usable = () => TALK.filter((pair) => pair.every(([who]) => speaker(who)));
+
+  if (reduced) {
+    // No motion: show one exchange and leave it.
+    const [pair] = usable();
+    if (pair) pair.forEach(([who, text]) => say(who, text));
+    return;
+  }
+
+  let i = 0, step = 0, talkTimer = 0, running = false;
+  const tick = () => {
+    const list = usable();
+    if (!list.length) return;
+    const pair = list[i % list.length];
+    const prev = battle.querySelector(".bubble:not(.is-out)");
+    if (prev) { prev.classList.add("is-out"); setTimeout(() => prev.remove(), 260); }
+    if (step < pair.length) {
+      say(...pair[step]);
+      step += 1;
+      talkTimer = setTimeout(tick, 2600);
+    } else {
+      step = 0; i += 1;
+      talkTimer = setTimeout(tick, 700);
+    }
+  };
+  const start = () => { if (!running) { running = true; tick(); } };
+  const stop = () => { running = false; clearTimeout(talkTimer); clear(); step = 0; };
+
+  // Pause the whole scene while it is off screen to save battery on phones.
+  if ("IntersectionObserver" in window && stage) {
+    new IntersectionObserver(([e]) => {
+      stage.classList.toggle("is-paused", !e.isIntersecting);
+      if (e.isIntersecting) start(); else stop();
+    }, { threshold: 0.15 }).observe(stage);
+  } else {
+    start();
+  }
 })();
