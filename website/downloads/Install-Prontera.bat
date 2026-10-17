@@ -715,7 +715,11 @@ function Remove-DamagedSetup([string]$Path) {
 }
 
 function Assert-SetupChecksum([string]$Path, [string]$Url) {
-    if (-not $SetupSha256) { return }
+    if (-not $SetupSha256) {
+        # No known-good value yet: write the checksum into the install log so a bad copy can be compared with a good one.
+        try { Info ('Download checksum (SHA256): ' + (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash) } catch { }
+        return
+    }
     for ($try = 1; $try -le 2; $try++) {
         Info 'Checking that the download is not damaged ...'
         $hash = (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash
