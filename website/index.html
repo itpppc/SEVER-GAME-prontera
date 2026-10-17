@@ -213,28 +213,41 @@
         <header class="section-head center">
           <p class="eyebrow">มหาศึกกรุงลงกา</p>
           <h2 id="battle-title">ฝ่ายพระราม ปะทะ ฝ่ายทศกัณฐ์</h2>
-          <p class="muted">แตะตัวละครให้กระโดด หรือกดเชียร์ฝ่ายที่ชอบแล้วดูท่าไม้ตาย</p>
+          <p class="muted">ราชรถสองฝ่ายพุ่งชน ศรถล่มกันทั้งฟ้า แตะตัวละครให้กระโดด หรือกดเชียร์ฝ่ายที่ชอบแล้วดูท่าไม้ตาย</p>
         </header>
         <div class="battle" data-battle data-lead="none">
           <div class="battle-stage">
+            <div class="chariot chariot-l" data-speaker="rama">
+              <div class="ch-body">
+                <img class="ch-img" src="assets/img/chariot-rama.svg" alt="" width="420" height="250">
+                <button type="button" class="fighter rider" style="--d:0s" data-fighter="rama"><img src="assets/img/chars/rama.svg" alt="" width="184" height="296"><span class="sr-only">พระรามบนราชรถ กระโดด</span></button>
+              </div>
+            </div>
+            <div class="chariot chariot-r" data-speaker="tossakan">
+              <div class="ch-body">
+                <img class="ch-img" src="assets/img/chariot-lanka.svg" alt="" width="420" height="250">
+                <button type="button" class="fighter rider" style="--d:-.6s" data-fighter="tossakan"><img src="assets/img/chars/tossakan.svg" alt="" width="184" height="296"><span class="sr-only">ทศกัณฐ์บนราชรถ กระโดด</span></button>
+              </div>
+            </div>
             <div class="battle-team battle-left">
-              <button type="button" class="fighter f-back" style="--x:2%;--w:12%;--d:-.4s" data-fighter="lak"><img src="assets/img/chars/lak.svg" alt="" width="184" height="296"><span class="sr-only">พระลักษมณ์ กระโดด</span></button>
-              <button type="button" class="fighter" style="--x:11%;--w:13%;--d:0s" data-fighter="rama"><img src="assets/img/chars/rama.svg" alt="" width="184" height="296"><span class="sr-only">พระราม กระโดด</span></button>
-              <button type="button" class="fighter f-hero f-hide-sm" style="--x:20%;--w:12%;--d:-.8s" data-fighter="sukrip"><img src="assets/img/chars/sukrip.svg" alt="" width="184" height="296"><span class="sr-only">สุครีพ กระโดด</span></button>
-              <button type="button" class="fighter f-leap" style="--x:29%;--w:12%;--d:-1.2s" data-fighter="hanuman"><img src="assets/img/chars/hanuman.svg" alt="" width="184" height="296"><span class="sr-only">หนุมาน กระโดด</span></button>
+              <button type="button" class="fighter f-back" style="--x:3%;--w:13%;--d:-.4s" data-fighter="lak" data-speaker="lak"><img src="assets/img/chars/lak.svg" alt="" width="184" height="296"><span class="sr-only">พระลักษมณ์ กระโดด</span></button>
+              <button type="button" class="fighter f-hide-sm" style="--x:14%;--w:13%;--d:-.8s" data-fighter="sukrip" data-speaker="sukrip"><img src="assets/img/chars/sukrip.svg" alt="" width="184" height="296"><span class="sr-only">สุครีพ กระโดด</span></button>
+              <button type="button" class="fighter f-leap" style="--x:27%;--w:13%;--d:-1.2s" data-fighter="hanuman" data-speaker="hanuman"><img src="assets/img/chars/hanuman.svg" alt="" width="184" height="296"><span class="sr-only">หนุมาน กระโดด</span></button>
             </div>
             <div class="battle-team battle-right">
-              <button type="button" class="fighter f-flip f-thrust" style="--x:58%;--w:12%;--d:-.6s" data-fighter="kumpakan"><img src="assets/img/chars/kumpakan.svg" alt="" width="184" height="296"><span class="sr-only">กุมภกรรณ กระโดด</span></button>
-              <button type="button" class="fighter f-flip f-hide-sm" style="--x:66%;--w:12%;--d:-1s" data-fighter="inthorachit"><img src="assets/img/chars/inthorachit.svg" alt="" width="184" height="296"><span class="sr-only">อินทรชิต กระโดด</span></button>
-              <button type="button" class="fighter f-flip f-boss" style="--x:74%;--w:15%;--d:-.2s" data-fighter="tossakan"><img src="assets/img/chars/tossakan.svg" alt="" width="184" height="296"><span class="sr-only">ทศกัณฐ์ กระโดด</span></button>
-              <button type="button" class="fighter f-flip f-back" style="--x:87%;--w:11%;--d:-1.4s" data-fighter="maiyarap"><img src="assets/img/chars/maiyarap.svg" alt="" width="184" height="296"><span class="sr-only">ไมยราพ กระโดด</span></button>
+              <button type="button" class="fighter f-flip f-thrust" style="--x:58%;--w:13%;--d:-.6s" data-fighter="kumpakan" data-speaker="kumpakan"><img src="assets/img/chars/kumpakan.svg" alt="" width="184" height="296"><span class="sr-only">กุมภกรรณ กระโดด</span></button>
+              <button type="button" class="fighter f-flip f-hide-sm" style="--x:71%;--w:13%;--d:-1s" data-fighter="inthorachit" data-speaker="inthorachit"><img src="assets/img/chars/inthorachit.svg" alt="" width="184" height="296"><span class="sr-only">อินทรชิต กระโดด</span></button>
+              <button type="button" class="fighter f-flip f-back" style="--x:84%;--w:12%;--d:-1.4s" data-fighter="maiyarap" data-speaker="maiyarap"><img src="assets/img/chars/maiyarap.svg" alt="" width="184" height="296"><span class="sr-only">ไมยราพ กระโดด</span></button>
             </div>
             <div class="battle-fx" aria-hidden="true">
               <svg class="fx fx-arrow" viewBox="0 0 120 20"><path d="M4 10 H100" stroke="#f2c14e" stroke-width="5" stroke-linecap="round"/><path d="M96 2 L118 10 L96 18z" fill="#fff3bf" stroke="#2b1b33" stroke-width="2"/><path d="M4 10 l-2 -8 M4 10 l-2 8 M12 10 l-2 -8 M12 10 l-2 8" stroke="#e8463a" stroke-width="3"/></svg>
               <svg class="fx fx-naga" viewBox="0 0 120 30"><path d="M116 15 q-10 -10 -20 0 t-20 0 t-20 0 t-20 0 t-20 0" fill="none" stroke="#3fd08a" stroke-width="6" stroke-linecap="round"/><circle cx="10" cy="15" r="8" fill="#3fd08a" stroke="#2b1b33" stroke-width="2"/><circle cx="7" cy="12" r="2" fill="#fff"/></svg>
               <div class="fx fx-burst fx-burst-r"><svg viewBox="0 0 100 100"><path d="M50 2 L60 36 L96 24 L70 50 L98 74 L62 66 L50 98 L40 66 L4 78 L30 50 L6 22 L40 36z" fill="#ffd23a" stroke="#2b1b33" stroke-width="3"/></svg><span>ปัง!</span></div>
               <div class="fx fx-burst fx-burst-l"><svg viewBox="0 0 100 100"><path d="M50 2 L60 36 L96 24 L70 50 L98 74 L62 66 L50 98 L40 66 L4 78 L30 50 L6 22 L40 36z" fill="#7dffb0" stroke="#2b1b33" stroke-width="3"/></svg><span>ตูม!</span></div>
+              <div class="fx fx-burst fx-crash"><svg viewBox="0 0 100 100"><path d="M50 0 L58 30 L84 8 L72 38 L100 34 L76 54 L98 76 L66 68 L62 100 L48 72 L28 96 L32 64 L2 70 L24 50 L0 26 L32 32 L22 4z" fill="#ff8a3a" stroke="#2b1b33" stroke-width="3"/></svg><span>โครม!</span></div>
               <div class="fx fx-clash"></div>
+              <div class="fx-rain fx-rain-l"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="fx-rain fx-rain-r"><i></i><i></i><i></i><i></i><i></i></div>
               <div class="fx-volley fx-volley-l"><i></i><i></i><i></i><i></i><i></i></div>
               <div class="fx-volley fx-volley-r"><i></i><i></i><i></i><i></i><i></i></div>
             </div>
