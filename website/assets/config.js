@@ -25,7 +25,7 @@ window.SITE_CONFIG = Object.freeze({
     // Contact channels: "#" hides the button until a real link is set.
     discord: "#", // TODO: Discord invite link, e.g. https://discord.gg/xxxx
     line: "#", // TODO: LINE OA link, e.g. https://lin.ee/xxxx
-    facebook: "#", // TODO: Facebook page URL
+    facebook: "https://www.facebook.com/groups/954947630560727", // Facebook group (owner, 2026-10-17)
     email: "contact@example.com", // TODO: real contact email (example.com hides it)
   },
 

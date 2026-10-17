@@ -263,6 +263,7 @@ code {
 .topbar-item strong { color: var(--text); font-variant-numeric: tabular-nums; }
 .topbar-link { margin-left: auto; color: var(--text); text-decoration: none; }
 .topbar-link:hover { color: var(--accent); }
+.topbar-link-next { margin-left: 0; }
 @media (max-width: 560px) { .topbar-link { margin-left: 0; } }
 
 @media (max-width: 1040px) {
@@ -280,7 +281,7 @@ code {
 
 /* Quick links (overlap the hero bottom) */
 .quick { position: relative; z-index: 2; margin-top: -36px; }
-.quick-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; list-style: none; padding: 0; }
+.quick-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 12px; list-style: none; padding: 0; }
 .quick-tile {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
   min-height: 104px; padding: 14px 8px; border-radius: var(--radius); text-align: center;
@@ -293,12 +294,13 @@ code {
   fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
 }
 .quick-tile:hover { border-color: var(--accent); transform: translateY(-3px); }
-@media (max-width: 900px) { .quick-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 900px) { .quick-grid { grid-template-columns: repeat(3, 1fr); } }
 /* Narrow phones: 2 columns, icon beside label so Thai words never split mid-word */
 @media (max-width: 480px) {
   .quick-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .quick-tile { flex-direction: row; justify-content: flex-start; gap: 8px; min-height: 60px; padding: 10px; text-align: left; font-size: .875rem; }
   .quick-tile svg { flex: none; width: 36px; height: 36px; }
+  .quick-grid > li:last-child { grid-column: 1 / -1; }
 }
 
 /* News */
@@ -625,3 +627,12 @@ kbd {
 }
 
 .h1-brand { display: block; margin-bottom: .25em; font-size: .5em; letter-spacing: .04em; color: var(--accent); }
+
+/* Top banner (owner-supplied artwork, 2026-10-17) */
+.banner { padding: 16px 0 0; }
+.banner picture { display: block; }
+.banner img {
+  display: block; width: 100%; height: auto; aspect-ratio: 1200 / 447; object-fit: cover;
+  border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow);
+}
+@media (max-width: 560px) { .banner { padding-top: 10px; } }
