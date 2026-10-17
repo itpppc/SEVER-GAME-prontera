@@ -27,6 +27,15 @@ $ServerName = 'Prontera'        # server list name, window title, exe and shortc
 $GameDir    = 'C:\RO'
 $ToolsDir   = 'C:\RO-tools'
 # ====================
+# Run as administrator: the kRO installer starts its updater (Ragnarok.exe) elevated, and only an elevated installer can close it.
+# If the player says No to the Windows prompt, the install still runs, just without that power.
+if (-not $env:PRONTERA_NO_MAIN -and $env:PRONTERA_SELF -and -not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+    try {
+        Write-Host 'Opening the installer as administrator. Click Yes in the Windows window, then use the NEW window.' -ForegroundColor Cyan
+        Start-Process -FilePath $env:PRONTERA_SELF -Verb RunAs -ErrorAction Stop
+        return
+    } catch { Write-Host 'Continuing without administrator rights.' -ForegroundColor Yellow }
+}
 if ($env:PRONTERA_GAME_DIR)  { $GameDir  = $env:PRONTERA_GAME_DIR }
 if ($env:PRONTERA_TOOLS_DIR) { $ToolsDir = $env:PRONTERA_TOOLS_DIR }
 
@@ -211,6 +220,13 @@ function Stop-GameProcesses {
     $left = @($procs | Where-Object { Get-Process -Id $_.Id -ErrorAction SilentlyContinue })
     if ($left.Count) {
         throw ("Could not close {0}. Press Ctrl+Shift+Esc, right-click it, choose End task, then run the installer again." -f (($left | ForEach-Object { $_.ProcessName }) -join ', '))
+    }
+}
+
+# Closes the kRO updater the moment it appears: it patches data.grf into a format our exe cannot read.
+function Stop-KroUpdater {
+    foreach ($p in @(Get-Process -Name 'Ragnarok' -ErrorAction SilentlyContinue)) {
+        try { Stop-Process -Id $p.Id -Force -ErrorAction Stop; Info 'Closed the Korean updater window (START button) so it cannot damage the game files.' } catch { }
     }
 }
 
@@ -622,8 +638,8 @@ function Install-Game {
             Warn $problem
             Warn 'This happens when the Korean updater (the window with the START button) runs. Our game exe cannot use these files.'
             $fresh = Get-FreshGameDir $GameDir
-            $answer = Read-Host "    Type Y and press Enter to install a fresh copy of the game to $fresh (the big download is reused; $GameDir is left as it is)"
-            if ($answer -notmatch '^\s*[Yy]') { throw "Stopped without changes. Run the installer again and type Y to install a fresh copy." }
+            # No question: a fresh copy is the only fix and changes nothing in the old folder (players closed the window at a Y/N prompt).
+            Info "Installing a fresh copy of the game to $fresh instead (the big download is reused; $GameDir is left as it is)."
             $BrokenDirs.Add($GameDir.TrimEnd('\'))
             $script:GameDir = $fresh
             $found = $null
@@ -652,7 +668,10 @@ function Install-Game {
             Write-Host "      - when it shows the install folder, change it to  $GameDir"
             Write-Host '      - on the last page, untick anything that starts the game, then finish'
             Write-Host '    Never start the game from the kRO icon: its updater breaks the files for our server.' -ForegroundColor Yellow
-            Start-Process -FilePath $setup -Wait
+            Write-Host '    If a window with a START button appears, do NOT press it; this installer closes it for you.' -ForegroundColor Yellow
+            $kro = Start-Process -FilePath $setup -PassThru
+            while (-not $kro.HasExited) { Stop-KroUpdater; Start-Sleep -Milliseconds 700 }
+            for ($i = 0; $i -lt 10; $i++) { Stop-KroUpdater; Start-Sleep -Milliseconds 500 }
         }
         for ($i = 0; $i -lt 3 -and -not (Find-GameDir); $i++) {
             Read-Host '    Press Enter when the Korean installer has completely finished' | Out-Null
@@ -816,6 +835,25 @@ function Set-Graphics {
     else { Warn "Graphics are still not set. Before playing, double-click $setup, click Yes and save your settings." }
 }
 
+function Test-ServerReachable {
+    # Tells the player right away if this PC cannot reach our game server (ISP, router or school/office firewall)
+    # so the report is "port X blocked" and not just "cannot play". Warn only; never stops the install.
+    Step 'Checking that this PC can reach the game server'
+    $bad = @()
+    foreach ($port in 6900, 6121, 5121) {
+        $client = New-Object System.Net.Sockets.TcpClient
+        try {
+            $task = $client.ConnectAsync($ServerIP, $port)
+            if (-not $task.Wait(6000) -or -not $client.Connected) { $bad += $port }
+        } catch { $bad += $port } finally { $client.Close() }
+    }
+    if ($bad.Count -eq 0) { Info "OK: the game server $ServerIP answers on ports 6900, 6121 and 5121." }
+    else {
+        Warn ("Cannot reach $ServerIP on port(s) " + ($bad -join ', ') + '. The game will not log in until this is fixed.')
+        Warn 'Try another network (phone hotspot). If it works there, your router, ISP or antivirus firewall blocks it. If it fails everywhere, tell the server admin.'
+    }
+}
+
 function Invoke-Main {
     New-Item -ItemType Directory -Force -Path $ToolsDir | Out-Null
     $log = Join-Path $ToolsDir 'install-log.txt'
@@ -837,6 +875,7 @@ function Invoke-Main {
         New-Shortcut (Join-Path ([Environment]::GetFolderPath('Programs')) "$ServerName.lnk") $exe $GameDir
         Info "Added the $ServerName icon. It starts $exe"
         Set-Graphics
+        Test-ServerReachable
 
         Write-Host ''
         Write-Host "Done! Double-click $ServerName on your desktop to play." -ForegroundColor Green
