@@ -816,6 +816,25 @@ function Set-Graphics {
     else { Warn "Graphics are still not set. Before playing, double-click $setup, click Yes and save your settings." }
 }
 
+function Test-ServerReachable {
+    # Tells the player right away if this PC cannot reach our game server (ISP, router or school/office firewall)
+    # so the report is "port X blocked" and not just "cannot play". Warn only; never stops the install.
+    Step 'Checking that this PC can reach the game server'
+    $bad = @()
+    foreach ($port in 6900, 6121, 5121) {
+        $client = New-Object System.Net.Sockets.TcpClient
+        try {
+            $task = $client.ConnectAsync($ServerIP, $port)
+            if (-not $task.Wait(6000) -or -not $client.Connected) { $bad += $port }
+        } catch { $bad += $port } finally { $client.Close() }
+    }
+    if ($bad.Count -eq 0) { Info "OK: the game server $ServerIP answers on ports 6900, 6121 and 5121." }
+    else {
+        Warn ("Cannot reach $ServerIP on port(s) " + ($bad -join ', ') + '. The game will not log in until this is fixed.')
+        Warn 'Try another network (phone hotspot). If it works there, your router, ISP or antivirus firewall blocks it. If it fails everywhere, tell the server admin.'
+    }
+}
+
 function Invoke-Main {
     New-Item -ItemType Directory -Force -Path $ToolsDir | Out-Null
     $log = Join-Path $ToolsDir 'install-log.txt'
@@ -837,6 +856,7 @@ function Invoke-Main {
         New-Shortcut (Join-Path ([Environment]::GetFolderPath('Programs')) "$ServerName.lnk") $exe $GameDir
         Info "Added the $ServerName icon. It starts $exe"
         Set-Graphics
+        Test-ServerReachable
 
         Write-Host ''
         Write-Host "Done! Double-click $ServerName on your desktop to play." -ForegroundColor Green
