@@ -31,6 +31,7 @@
   <script src="assets/main.js" defer></script>
   <script src="assets/characters.js" defer></script>
   <script src="assets/fx.js" defer></script>
+  <script src="assets/slider.js" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -120,13 +121,34 @@
   </header>
 
   <main id="main">
-    <section class="banner" aria-label="แบนเนอร์ Prontera รามเกียรติ์">
+    <section class="banner" aria-roledescription="carousel" aria-label="ภาพแนะนำ Prontera รามเกียรติ์" data-slider>
       <div class="container">
-        <picture>
-          <source type="image/webp" srcset="assets/img/banner-640.webp 640w, assets/img/banner-1200.webp 1200w, assets/img/banner-2000.webp 2000w" sizes="(min-width: 1152px) 1120px, calc(100vw - 32px)">
-          <img src="assets/img/banner-1200.jpg" width="1200" height="447" fetchpriority="high" decoding="async"
-               alt="แบนเนอร์ Prontera รามเกียรติ์ พระรามพร้อมหนุมานและกองทัพวานรประจันหน้าทศกัณฐ์กับกองทัพยักษ์ในคืนลอยกระทง">
-        </picture>
+        <div class="slider">
+          <div class="slides" data-slides aria-live="off">
+            <figure class="slide is-active" role="group" aria-roledescription="slide" aria-label="ภาพที่ 1 จาก 2">
+              <picture>
+                <source type="image/webp" srcset="assets/img/banner-640.webp 640w, assets/img/banner-1200.webp 1200w, assets/img/banner-2000.webp 2000w" sizes="(min-width: 1152px) 1120px, calc(100vw - 32px)">
+                <img src="assets/img/banner-1200.jpg" width="1200" height="447" fetchpriority="high" decoding="async"
+                     alt="แบนเนอร์ Prontera รามเกียรติ์ พระรามพร้อมหนุมานและกองทัพวานรประจันหน้าทศกัณฐ์กับกองทัพยักษ์ในคืนลอยกระทง">
+              </picture>
+            </figure>
+            <figure class="slide" role="group" aria-roledescription="slide" aria-label="ภาพที่ 2 จาก 2" aria-hidden="true" inert>
+              <picture>
+                <source type="image/webp" data-srcset="assets/img/banner2-640.webp 640w, assets/img/banner2-1200.webp 1200w, assets/img/banner2-1672.webp 1672w" sizes="(min-width: 1152px) 1120px, calc(100vw - 32px)">
+                <img data-src="assets/img/banner2-1200.jpg" width="1200" height="675" decoding="async"
+                     alt="ภาพการ์ตูนกองทัพพระรามฝั่งซ้ายและกองทัพยักษ์ฝั่งขวายืนเผชิญหน้ากันริมแม่น้ำใต้พระจันทร์เต็มดวง กลางภาพเป็นโลโก้ Prontera รามเกียรติ์">
+              </picture>
+            </figure>
+          </div>
+          <div class="slider-controls" data-controls hidden>
+            <button type="button" class="slider-btn slider-prev" data-prev aria-label="ภาพก่อนหน้า"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
+            <button type="button" class="slider-btn slider-next" data-next aria-label="ภาพถัดไป"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+            <div class="slider-bar">
+              <button type="button" class="slider-btn slider-toggle" data-toggle aria-label="หยุดเลื่อนอัตโนมัติ"><svg class="ic-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg><svg class="ic-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+              <div class="slider-dots" data-dots></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
