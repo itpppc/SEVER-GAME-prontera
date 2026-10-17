@@ -127,7 +127,7 @@ $Urls = @{
 }
 # The exe rAthena PACKETVER 20211103 targets (rAthena PR #6431). Other builds of the same day do not work.
 # SHA256 of the official RAG_SETUP_220120.exe (3,577,653,728 bytes). Empty = only the size is checked.
-$SetupSha256 = ''
+$SetupSha256 = '328F5AD1DA6F5E42732F16D942DB2C697D44728F1C27CE9AD3C57898BD04909F'
 $ExeName = '2021-11-03_Ragexe_1635926200'
 $ExeHash = '7d6d0f5400b5cfc8fe6aa366fa293f310f54e3580f0baef5dae617f7b7b575cf'
 # ROenglishRE ClientGenerator.bat, mode 1 (Renewal) + date 9 (2021-10-28), copies these in this order.
@@ -720,16 +720,22 @@ function Assert-SetupChecksum([string]$Path, [string]$Url) {
         try { Info ('Download checksum (SHA256): ' + (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash) } catch { }
         return
     }
+    $previous = $null
     for ($try = 1; $try -le 2; $try++) {
         Info 'Checking that the download is not damaged ...'
         $hash = (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash
         if ($hash -eq $SetupSha256) { return }
+        # Two different downloads giving the same file means Gravity replaced it, not that the download broke: carry on.
+        if ($previous -and $hash -eq $previous) { Warn 'Two downloads are identical but differ from the expected checksum; the official file may have changed. Continuing.'; return }
+        if ($try -eq 2) { break }
+        $previous = $hash
         Warn 'The downloaded file is damaged (checksum differs). Downloading it again from the start ...'
         Remove-DamagedSetup $Path
-        if ($try -eq 2) { break }
-        Get-File $Url $Path
+        # Second try over https first (a plain-http download can be altered on the way), then plain http again.
+        try { Get-File ($Url -replace '^http:', 'https:') $Path } catch { Get-File $Url $Path }
     }
-    throw 'The download is damaged twice in a row. Check the internet connection and run the installer again.'
+    Remove-DamagedSetup $Path
+    throw 'The download is damaged twice in a row. Try another network (phone hotspot) and turn off antivirus and VPN, then run the installer again.'
 }
 
 function Install-Game {
