@@ -27,14 +27,88 @@ $ServerName = 'Prontera'        # server list name, window title, exe and shortc
 $GameDir    = 'C:\RO'
 $ToolsDir   = 'C:\RO-tools'
 # ====================
+# ===== Thai messages =====
+# On a Thai Windows PC (ANSI code page 874) the installer talks Thai; everywhere else it stays English.
+# Thai text is stored as \u escapes so this file stays plain ASCII. Rules: first matching regex wins, $1.. are kept.
+$IsThaiPc = $false
+try {
+    if ($env:PRONTERA_LANG) { $IsThaiPc = ($env:PRONTERA_LANG -eq 'th') }
+    else { $IsThaiPc = ([string](Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Nls\CodePage').ACP -eq '874') }
+    if ($IsThaiPc) { [Console]::OutputEncoding = [Text.Encoding]::GetEncoding(874) }
+} catch { }
+$ThRules = @(
+    @('^1/7  Ragnarok base game.*$', '1/7  \u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e40\u0e01\u0e21\u0e1e\u0e37\u0e49\u0e19\u0e10\u0e32\u0e19 Ragnarok (\u0e15\u0e31\u0e27\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e17\u0e32\u0e07\u0e01\u0e32\u0e23\u0e02\u0e2d\u0e07 Gravity)'),
+    @('^2/7  Microsoft.*$', '2/7  \u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e44\u0e1f\u0e25\u0e4c\u0e17\u0e35\u0e48\u0e40\u0e01\u0e21\u0e15\u0e49\u0e2d\u0e07\u0e43\u0e0a\u0e49 (Microsoft Visual C++)'),
+    @('^3/7  Game exe (\S+).*$', '3/7  \u0e14\u0e32\u0e27\u0e19\u0e4c\u0e42\u0e2b\u0e25\u0e14\u0e44\u0e1f\u0e25\u0e4c\u0e40\u0e01\u0e21\u0e2b\u0e25\u0e31\u0e01 $1'),
+    @('^4/7  .*$', '4/7  \u0e15\u0e31\u0e49\u0e07\u0e40\u0e21\u0e19\u0e39\u0e41\u0e25\u0e30\u0e0a\u0e37\u0e48\u0e2d\u0e44\u0e2d\u0e40\u0e17\u0e21\u0e40\u0e1b\u0e47\u0e19\u0e20\u0e32\u0e29\u0e32\u0e2d\u0e31\u0e07\u0e01\u0e24\u0e29'),
+    @('^5/7  Point the game at (.+)$', '5/7  \u0e15\u0e31\u0e49\u0e07\u0e40\u0e01\u0e21\u0e43\u0e2b\u0e49\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e40\u0e0b\u0e34\u0e23\u0e4c\u0e1f\u0e40\u0e27\u0e2d\u0e23\u0e4c $1'),
+    @('^6/7  .*$', '6/7  \u0e1b\u0e23\u0e31\u0e1a\u0e44\u0e1f\u0e25\u0e4c\u0e40\u0e01\u0e21\u0e43\u0e2b\u0e49\u0e43\u0e0a\u0e49\u0e01\u0e31\u0e1a\u0e40\u0e0b\u0e34\u0e23\u0e4c\u0e1f\u0e40\u0e27\u0e2d\u0e23\u0e4c\u0e02\u0e2d\u0e07\u0e40\u0e23\u0e32 (WARP)'),
+    @('^7/7  .*$', '7/7  \u0e2a\u0e23\u0e49\u0e32\u0e07\u0e44\u0e2d\u0e04\u0e2d\u0e19\u0e1a\u0e19\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\u0e41\u0e25\u0e30\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e01\u0e23\u0e32\u0e1f\u0e34\u0e01'),
+    @('^Checking that this PC can reach the game server$', '\u0e15\u0e23\u0e27\u0e08\u0e27\u0e48\u0e32\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e19\u0e35\u0e49\u0e15\u0e48\u0e2d\u0e40\u0e0b\u0e34\u0e23\u0e4c\u0e1f\u0e40\u0e27\u0e2d\u0e23\u0e4c\u0e40\u0e01\u0e21\u0e44\u0e14\u0e49\u0e2b\u0e23\u0e37\u0e2d\u0e44\u0e21\u0e48'),
+    @('^This file is several GB\..*$', '\u0e44\u0e1f\u0e25\u0e4c\u0e19\u0e35\u0e49\u0e43\u0e2b\u0e0d\u0e48\u0e2b\u0e25\u0e32\u0e22 GB \u0e16\u0e49\u0e32\u0e01\u0e32\u0e23\u0e14\u0e32\u0e27\u0e19\u0e4c\u0e42\u0e2b\u0e25\u0e14\u0e2b\u0e22\u0e38\u0e14 \u0e43\u0e2b\u0e49\u0e40\u0e1b\u0e34\u0e14\u0e15\u0e31\u0e27\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e2d\u0e35\u0e01\u0e04\u0e23\u0e31\u0e49\u0e07 \u0e21\u0e31\u0e19\u0e08\u0e30\u0e42\u0e2b\u0e25\u0e14\u0e15\u0e48\u0e2d\u0e08\u0e32\u0e01\u0e40\u0e14\u0e34\u0e21'),
+    @('^Downloading the English lua files.*$', '\u0e01\u0e33\u0e25\u0e31\u0e07\u0e14\u0e32\u0e27\u0e19\u0e4c\u0e42\u0e2b\u0e25\u0e14\u0e44\u0e1f\u0e25\u0e4c\u0e20\u0e32\u0e29\u0e32\u0e2d\u0e31\u0e07\u0e01\u0e24\u0e29\u0e02\u0e2d\u0e07\u0e40\u0e01\u0e21 ...'),
+    @('^Downloading (.+) \.\.\.$', '\u0e01\u0e33\u0e25\u0e31\u0e07\u0e14\u0e32\u0e27\u0e19\u0e4c\u0e42\u0e2b\u0e25\u0e14 $1 ...'),
+    @('^Already downloaded: (.+)$', '\u0e14\u0e32\u0e27\u0e19\u0e4c\u0e42\u0e2b\u0e25\u0e14\u0e44\u0e27\u0e49\u0e41\u0e25\u0e49\u0e27: $1'),
+    @('^Already downloaded\.$', '\u0e14\u0e32\u0e27\u0e19\u0e4c\u0e42\u0e2b\u0e25\u0e14\u0e44\u0e27\u0e49\u0e41\u0e25\u0e49\u0e27'),
+    @('^Already installed\.$', '\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e44\u0e27\u0e49\u0e41\u0e25\u0e49\u0e27'),
+    @('^Found the game in (.+)$', '\u0e1e\u0e1a\u0e40\u0e01\u0e21\u0e17\u0e35\u0e48 $1'),
+    @('^Game installed in (.+)$', '\u0e40\u0e01\u0e21\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e2d\u0e22\u0e39\u0e48\u0e17\u0e35\u0e48 $1'),
+    @('^Installing to (.+) \(click Yes if Windows asks\) \.\.\.$', '\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e44\u0e1b\u0e17\u0e35\u0e48 $1 (\u0e16\u0e49\u0e32 Windows \u0e16\u0e32\u0e21 \u0e43\u0e2b\u0e49\u0e01\u0e14 Yes) ...'),
+    @('^Installing \(click Yes if Windows asks\) \.\.\.$', '\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07 (\u0e16\u0e49\u0e32 Windows \u0e16\u0e32\u0e21 \u0e43\u0e2b\u0e49\u0e01\u0e14 Yes) ...'),
+    @('^Installing Python 2\.7.*$', '\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07 Python 2.7 \u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e43\u0e0a\u0e49\u0e04\u0e23\u0e31\u0e49\u0e07\u0e40\u0e14\u0e35\u0e22\u0e27 (\u0e16\u0e49\u0e32 Windows \u0e16\u0e32\u0e21 \u0e43\u0e2b\u0e49\u0e01\u0e14 Yes) ...'),
+    @('^Checking (\S+) \.\.\.$', '\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e23\u0e27\u0e08\u0e44\u0e1f\u0e25\u0e4c $1 ...'),
+    @('^Closing (.+) so the game files can be checked \.\.\.$', '\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e34\u0e14 $1 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e15\u0e23\u0e27\u0e08\u0e44\u0e1f\u0e25\u0e4c\u0e40\u0e01\u0e21 ...'),
+    @('^Closed the Korean updater window.*$', '\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e15\u0e48\u0e32\u0e07\u0e2d\u0e31\u0e1b\u0e40\u0e14\u0e15\u0e20\u0e32\u0e29\u0e32\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35 (\u0e1b\u0e38\u0e48\u0e21 START) \u0e41\u0e25\u0e49\u0e27 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e44\u0e21\u0e48\u0e43\u0e2b\u0e49\u0e44\u0e1f\u0e25\u0e4c\u0e40\u0e01\u0e21\u0e40\u0e2a\u0e35\u0e22'),
+    @('^(\S+) cannot be used: .*$', '$1 \u0e43\u0e0a\u0e49\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 (\u0e44\u0e1f\u0e25\u0e4c\u0e40\u0e2a\u0e35\u0e22\u0e08\u0e32\u0e01\u0e15\u0e31\u0e27\u0e2d\u0e31\u0e1b\u0e40\u0e14\u0e15\u0e20\u0e32\u0e29\u0e32\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35)'),
+    @('^This happens when the Korean updater.*$', '\u0e40\u0e01\u0e34\u0e14\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e15\u0e31\u0e27\u0e2d\u0e31\u0e1b\u0e40\u0e14\u0e15\u0e20\u0e32\u0e29\u0e32\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35 (\u0e2b\u0e19\u0e49\u0e32\u0e15\u0e48\u0e32\u0e07\u0e1b\u0e38\u0e48\u0e21 START) \u0e17\u0e33\u0e07\u0e32\u0e19 \u0e40\u0e01\u0e21\u0e02\u0e2d\u0e07\u0e40\u0e23\u0e32\u0e43\u0e0a\u0e49\u0e44\u0e1f\u0e25\u0e4c\u0e19\u0e31\u0e49\u0e19\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49'),
+    @('^Installing a fresh copy of the game to (\S+) instead.*$', '\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e40\u0e01\u0e21\u0e0a\u0e38\u0e14\u0e43\u0e2b\u0e21\u0e48\u0e17\u0e35\u0e48 $1 \u0e41\u0e17\u0e19 (\u0e43\u0e0a\u0e49\u0e44\u0e1f\u0e25\u0e4c\u0e17\u0e35\u0e48\u0e42\u0e2b\u0e25\u0e14\u0e44\u0e27\u0e49\u0e0b\u0e49\u0e33 \u0e42\u0e1f\u0e25\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e40\u0e14\u0e34\u0e21\u0e44\u0e21\u0e48\u0e16\u0e39\u0e01\u0e41\u0e15\u0e30)'),
+    @('^Only (\S+) GB free on (\S+)\. The game needs about 12 GB\.$', '\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e27\u0e48\u0e32\u0e07\u0e1a\u0e19 $2 \u0e40\u0e2b\u0e25\u0e37\u0e2d $1 GB \u0e40\u0e01\u0e21\u0e15\u0e49\u0e2d\u0e07\u0e43\u0e0a\u0e49\u0e1b\u0e23\u0e30\u0e21\u0e32\u0e13 12 GB'),
+    @('^\s*Free some space and press Enter to continue.*$', '    \u0e25\u0e49\u0e32\u0e07\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e41\u0e25\u0e49\u0e27\u0e01\u0e14 Enter \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e17\u0e33\u0e15\u0e48\u0e2d (\u0e2b\u0e23\u0e37\u0e2d\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e15\u0e48\u0e32\u0e07\u0e19\u0e35\u0e49)'),
+    @('^\s*Press Enter when the Korean installer has completely finished$', '    \u0e01\u0e14 Enter \u0e40\u0e21\u0e37\u0e48\u0e2d\u0e15\u0e31\u0e27\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e20\u0e32\u0e29\u0e32\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35\u0e17\u0e33\u0e07\u0e32\u0e19\u0e08\u0e1a\u0e2a\u0e21\u0e1a\u0e39\u0e23\u0e13\u0e4c\u0e41\u0e25\u0e49\u0e27'),
+    @('^\s*Could not find data\.grf\..*$', '    \u0e2b\u0e32\u0e44\u0e1f\u0e25\u0e4c data.grf \u0e44\u0e21\u0e48\u0e40\u0e08\u0e2d \u0e1e\u0e34\u0e21\u0e1e\u0e4c\u0e42\u0e1f\u0e25\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e17\u0e35\u0e48\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e40\u0e01\u0e21 (\u0e40\u0e0a\u0e48\u0e19 C:\Gravity\Ragnarok)'),
+    @('^Turned off the kRO updater.*$', '\u0e1b\u0e34\u0e14\u0e15\u0e31\u0e27\u0e2d\u0e31\u0e1b\u0e40\u0e14\u0e15\u0e20\u0e32\u0e29\u0e32\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35\u0e02\u0e2d\u0e07\u0e40\u0e01\u0e21\u0e41\u0e25\u0e49\u0e27 (Ragnarok.exe \u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e40\u0e1b\u0e47\u0e19 .off)'),
+    @('^Added the (.+) icon\. It starts .*$', '\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e44\u0e2d\u0e04\u0e2d\u0e19 $1 \u0e41\u0e25\u0e49\u0e27'),
+    @('^Graphics settings found\.$', '\u0e1e\u0e1a\u0e01\u0e32\u0e23\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e01\u0e23\u0e32\u0e1f\u0e34\u0e01\u0e41\u0e25\u0e49\u0e27'),
+    @('^Graphics settings saved\.$', '\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e01\u0e32\u0e23\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e01\u0e23\u0e32\u0e1f\u0e34\u0e01\u0e41\u0e25\u0e49\u0e27'),
+    @('^Graphics are not set yet.*$', '\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e01\u0e23\u0e32\u0e1f\u0e34\u0e01 \u0e2b\u0e19\u0e49\u0e32\u0e15\u0e48\u0e32\u0e07\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e02\u0e2d\u0e07 Gravity \u0e08\u0e30\u0e40\u0e1b\u0e34\u0e14\u0e02\u0e36\u0e49\u0e19 \u0e01\u0e14 Yes \u0e16\u0e49\u0e32 Windows \u0e16\u0e32\u0e21 \u0e41\u0e25\u0e49\u0e27\u0e40\u0e25\u0e37\u0e2d\u0e01'),
+    @('^\s*your graphics card.*$', '  \u0e01\u0e32\u0e23\u0e4c\u0e14\u0e08\u0e2d\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13 (\u0e44\u0e21\u0e48\u0e43\u0e0a\u0e48\u0e42\u0e1b\u0e23\u0e40\u0e08\u0e04\u0e40\u0e15\u0e2d\u0e23\u0e4c), 1024x768, \u0e42\u0e2b\u0e21\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e15\u0e48\u0e32\u0e07 \u0e41\u0e25\u0e49\u0e27\u0e01\u0e14 OK'),
+    @('^Copied the English files and wrote DATA\.INI\.$', '\u0e04\u0e31\u0e14\u0e25\u0e2d\u0e01\u0e44\u0e1f\u0e25\u0e4c\u0e20\u0e32\u0e29\u0e32\u0e2d\u0e31\u0e07\u0e01\u0e24\u0e29\u0e41\u0e25\u0e49\u0e27'),
+    @('^Wrote clientinfo\.xml.*$', '\u0e40\u0e02\u0e35\u0e22\u0e19\u0e44\u0e1f\u0e25\u0e4c\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e40\u0e0b\u0e34\u0e23\u0e4c\u0e1f\u0e40\u0e27\u0e2d\u0e23\u0e4c\u0e41\u0e25\u0e49\u0e27'),
+    @('^OK: the game server (\S+) answers.*$', '\u0e1b\u0e01\u0e15\u0e34: \u0e40\u0e0b\u0e34\u0e23\u0e4c\u0e1f\u0e40\u0e27\u0e2d\u0e23\u0e4c\u0e40\u0e01\u0e21 $1 \u0e15\u0e2d\u0e1a\u0e01\u0e25\u0e31\u0e1a\u0e44\u0e14\u0e49'),
+    @('^Cannot reach (\S+) on port\(s\) (.+)\. The game will not log in.*$', '\u0e15\u0e48\u0e2d\u0e40\u0e0b\u0e34\u0e23\u0e4c\u0e1f\u0e40\u0e27\u0e2d\u0e23\u0e4c $1 \u0e17\u0e35\u0e48\u0e1e\u0e2d\u0e23\u0e4c\u0e15 $2 \u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 \u0e40\u0e01\u0e21\u0e08\u0e30\u0e25\u0e47\u0e2d\u0e01\u0e2d\u0e34\u0e19\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e08\u0e19\u0e01\u0e27\u0e48\u0e32\u0e08\u0e30\u0e41\u0e01\u0e49'),
+    @('^Try another network.*$', '\u0e25\u0e2d\u0e07\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e40\u0e04\u0e23\u0e37\u0e2d\u0e02\u0e48\u0e32\u0e22 (\u0e40\u0e0a\u0e48\u0e19 \u0e2e\u0e2d\u0e15\u0e2a\u0e1b\u0e2d\u0e15\u0e21\u0e37\u0e2d\u0e16\u0e37\u0e2d) \u0e16\u0e49\u0e32\u0e43\u0e0a\u0e49\u0e44\u0e14\u0e49 \u0e41\u0e1b\u0e25\u0e27\u0e48\u0e32\u0e40\u0e23\u0e32\u0e40\u0e15\u0e2d\u0e23\u0e4c \u0e1c\u0e39\u0e49\u0e43\u0e2b\u0e49\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e40\u0e19\u0e47\u0e15 \u0e2b\u0e23\u0e37\u0e2d\u0e44\u0e1f\u0e23\u0e4c\u0e27\u0e2d\u0e25\u0e25\u0e4c\u0e41\u0e2d\u0e19\u0e15\u0e34\u0e44\u0e27\u0e23\u0e31\u0e2a\u0e1a\u0e25\u0e47\u0e2d\u0e01\u0e2d\u0e22\u0e39\u0e48 \u0e16\u0e49\u0e32\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49\u0e17\u0e38\u0e01\u0e17\u0e35\u0e48 \u0e43\u0e2b\u0e49\u0e41\u0e08\u0e49\u0e07\u0e41\u0e2d\u0e14\u0e21\u0e34\u0e19'),
+    @('^\s*The official installer is in Korean\..*$', '    \u0e15\u0e31\u0e27\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e17\u0e32\u0e07\u0e01\u0e32\u0e23\u0e40\u0e1b\u0e47\u0e19\u0e20\u0e32\u0e29\u0e32\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35 \u0e16\u0e49\u0e32 Windows \u0e16\u0e32\u0e21 \u0e43\u0e2b\u0e49\u0e01\u0e14 Yes \u0e41\u0e25\u0e49\u0e27\u0e17\u0e33\u0e15\u0e32\u0e21\u0e19\u0e35\u0e49'),
+    @('^\s*- click the right-hand button.*$', '      - \u0e01\u0e14\u0e1b\u0e38\u0e48\u0e21\u0e14\u0e49\u0e32\u0e19\u0e02\u0e27\u0e32\u0e25\u0e48\u0e32\u0e07\u0e02\u0e2d\u0e07\u0e17\u0e38\u0e01\u0e2b\u0e19\u0e49\u0e32 (Next / I agree)'),
+    @('^\s*- when it shows the install folder, change it to\s+(.+)$', '      - \u0e15\u0e2d\u0e19\u0e16\u0e32\u0e21\u0e42\u0e1f\u0e25\u0e40\u0e14\u0e2d\u0e23\u0e4c\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07 \u0e43\u0e2b\u0e49\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e40\u0e1b\u0e47\u0e19  $1'),
+    @('^\s*- on the last page, untick.*$', '      - \u0e2b\u0e19\u0e49\u0e32\u0e2a\u0e38\u0e14\u0e17\u0e49\u0e32\u0e22 \u0e40\u0e2d\u0e32\u0e15\u0e34\u0e4a\u0e01\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e34\u0e14\u0e40\u0e01\u0e21\u0e2d\u0e2d\u0e01 \u0e41\u0e25\u0e49\u0e27\u0e01\u0e14\u0e40\u0e2a\u0e23\u0e47\u0e08\u0e2a\u0e34\u0e49\u0e19'),
+    @('^\s*Never start the game from the kRO icon.*$', '    \u0e2b\u0e49\u0e32\u0e21\u0e40\u0e1b\u0e34\u0e14\u0e40\u0e01\u0e21\u0e08\u0e32\u0e01\u0e44\u0e2d\u0e04\u0e2d\u0e19 kRO \u0e40\u0e1e\u0e23\u0e32\u0e30\u0e15\u0e31\u0e27\u0e2d\u0e31\u0e1b\u0e40\u0e14\u0e15\u0e08\u0e30\u0e17\u0e33\u0e44\u0e1f\u0e25\u0e4c\u0e02\u0e2d\u0e07\u0e40\u0e0b\u0e34\u0e23\u0e4c\u0e1f\u0e40\u0e27\u0e2d\u0e23\u0e4c\u0e40\u0e23\u0e32\u0e40\u0e2a\u0e35\u0e22'),
+    @('^\s*If a window with a START button appears.*$', '    \u0e16\u0e49\u0e32\u0e21\u0e35\u0e2b\u0e19\u0e49\u0e32\u0e15\u0e48\u0e32\u0e07\u0e1b\u0e38\u0e48\u0e21 START \u0e42\u0e1c\u0e25\u0e48\u0e02\u0e36\u0e49\u0e19\u0e21\u0e32 \u0e2b\u0e49\u0e32\u0e21\u0e01\u0e14 \u0e15\u0e31\u0e27\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e19\u0e35\u0e49\u0e08\u0e30\u0e1b\u0e34\u0e14\u0e43\u0e2b\u0e49\u0e40\u0e2d\u0e07'),
+    @('^Done! Double-click (.+) on your desktop to play\.$', '\u0e40\u0e2a\u0e23\u0e47\u0e08\u0e41\u0e25\u0e49\u0e27! \u0e14\u0e31\u0e1a\u0e40\u0e1a\u0e34\u0e25\u0e04\u0e25\u0e34\u0e01\u0e44\u0e2d\u0e04\u0e2d\u0e19 $1 \u0e1a\u0e19\u0e40\u0e14\u0e2a\u0e01\u0e4c\u0e17\u0e47\u0e2d\u0e1b\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e40\u0e25\u0e48\u0e19'),
+    @('^\s*New account: do NOT click Sign Up.*$', '  \u0e2a\u0e21\u0e31\u0e04\u0e23\u0e1a\u0e31\u0e0d\u0e0a\u0e35: \u0e2b\u0e49\u0e32\u0e21\u0e01\u0e14\u0e1b\u0e38\u0e48\u0e21 Sign Up (\u0e21\u0e31\u0e19\u0e40\u0e1b\u0e34\u0e14\u0e40\u0e27\u0e47\u0e1a\u0e02\u0e2d\u0e07 Gravity \u0e44\u0e21\u0e48\u0e43\u0e0a\u0e48\u0e02\u0e2d\u0e07\u0e40\u0e23\u0e32) \u0e17\u0e35\u0e48\u0e2b\u0e19\u0e49\u0e32\u0e25\u0e47\u0e2d\u0e01\u0e2d\u0e34\u0e19'),
+    @('^\s*type your ID with _M.*$', '  \u0e1e\u0e34\u0e21\u0e1e\u0e4c\u0e0a\u0e37\u0e48\u0e2d\u0e44\u0e2d\u0e14\u0e35\u0e15\u0e48\u0e2d\u0e17\u0e49\u0e32\u0e22\u0e14\u0e49\u0e27\u0e22 _M (\u0e0a\u0e32\u0e22) \u0e2b\u0e23\u0e37\u0e2d _F (\u0e2b\u0e0d\u0e34\u0e07) \u0e40\u0e0a\u0e48\u0e19 myname_M \u0e41\u0e25\u0e30\u0e23\u0e2b\u0e31\u0e2a\u0e1c\u0e48\u0e32\u0e19\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e19\u0e49\u0e2d\u0e22 6 \u0e15\u0e31\u0e27'),
+    @('^\s*6\+ characters .*$', '  (\u0e01\u0e14 Tab \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e44\u0e1b\u0e0a\u0e48\u0e2d\u0e07\u0e23\u0e2b\u0e31\u0e2a) \u0e41\u0e25\u0e49\u0e27\u0e01\u0e14 Enter \u0e04\u0e23\u0e31\u0e49\u0e07\u0e15\u0e48\u0e2d\u0e44\u0e1b\u0e43\u0e2b\u0e49\u0e25\u0e47\u0e2d\u0e01\u0e2d\u0e34\u0e19\u0e42\u0e14\u0e22\u0e44\u0e21\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e21\u0e35 _M / _F'),
+    @('^Install stopped: (.+)$', '\u0e01\u0e32\u0e23\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e2b\u0e22\u0e38\u0e14\u0e25\u0e07: $1'),
+    @('^Run the installer again to retry\. If it keeps failing, send the file (.+)$', '\u0e40\u0e1b\u0e34\u0e14\u0e15\u0e31\u0e27\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e2d\u0e35\u0e01\u0e04\u0e23\u0e31\u0e49\u0e07\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e25\u0e2d\u0e07\u0e43\u0e2b\u0e21\u0e48 \u0e16\u0e49\u0e32\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 \u0e2a\u0e48\u0e07\u0e44\u0e1f\u0e25\u0e4c $1 \u0e21\u0e32\u0e43\u0e2b\u0e49\u0e40\u0e23\u0e32'),
+    @('^Opening the installer as administrator.*$', '\u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e15\u0e31\u0e27\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e41\u0e1a\u0e1a\u0e1c\u0e39\u0e49\u0e14\u0e39\u0e41\u0e25\u0e23\u0e30\u0e1a\u0e1a \u0e01\u0e14 Yes \u0e43\u0e19\u0e2b\u0e19\u0e49\u0e32\u0e15\u0e48\u0e32\u0e07\u0e02\u0e2d\u0e07 Windows \u0e41\u0e25\u0e49\u0e27\u0e43\u0e0a\u0e49\u0e2b\u0e19\u0e49\u0e32\u0e15\u0e48\u0e32\u0e07\u0e43\u0e2b\u0e21\u0e48\u0e17\u0e35\u0e48\u0e02\u0e36\u0e49\u0e19\u0e21\u0e32'),
+    @('^Continuing without administrator rights\.$', '\u0e17\u0e33\u0e15\u0e48\u0e2d\u0e42\u0e14\u0e22\u0e44\u0e21\u0e48\u0e21\u0e35\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e4c\u0e1c\u0e39\u0e49\u0e14\u0e39\u0e41\u0e25\u0e23\u0e30\u0e1a\u0e1a')
+)
+function Tr([string]$Text) {
+    if (-not $IsThaiPc) { return $Text }
+    foreach ($r in $ThRules) {
+        if ($Text -match $r[0]) { return ($Text -replace $r[0], [regex]::Unescape($r[1])) }
+    }
+    return $Text
+}
+# =========================
+
 # Run as administrator: the kRO installer starts its updater (Ragnarok.exe) elevated, and only an elevated installer can close it.
 # If the player says No to the Windows prompt, the install still runs, just without that power.
 if (-not $env:PRONTERA_NO_MAIN -and $env:PRONTERA_SELF -and -not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     try {
-        Write-Host 'Opening the installer as administrator. Click Yes in the Windows window, then use the NEW window.' -ForegroundColor Cyan
+        Write-Host (Tr 'Opening the installer as administrator. Click Yes in the Windows window, then use the NEW window.') -ForegroundColor Cyan
         Start-Process -FilePath $env:PRONTERA_SELF -Verb RunAs -ErrorAction Stop
         return
-    } catch { Write-Host 'Continuing without administrator rights.' -ForegroundColor Yellow }
+    } catch { Write-Host (Tr 'Continuing without administrator rights.') -ForegroundColor Yellow }
 }
 if ($env:PRONTERA_GAME_DIR)  { $GameDir  = $env:PRONTERA_GAME_DIR }
 if ($env:PRONTERA_TOOLS_DIR) { $ToolsDir = $env:PRONTERA_TOOLS_DIR }
@@ -61,9 +135,9 @@ $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-function Step([string]$Text) { Write-Host ''; Write-Host "==> $Text" -ForegroundColor Cyan }
-function Info([string]$Text) { Write-Host "    $Text" }
-function Warn([string]$Text) { Write-Host "    ! $Text" -ForegroundColor Yellow }
+function Step([string]$Text) { Write-Host ''; Write-Host "==> $(Tr $Text)" -ForegroundColor Cyan }
+function Info([string]$Text) { Write-Host "    $(Tr $Text)" }
+function Warn([string]$Text) { Write-Host "    ! $(Tr $Text)" -ForegroundColor Yellow }
 
 function Get-RemoteSize([string]$Url) {
     $ErrorActionPreference = 'Continue'
@@ -650,7 +724,7 @@ function Install-Game {
         $free = (Get-PSDrive -Name $drive.TrimEnd(':')).Free
         if ($free -lt 12GB) {
             Warn ("Only {0:N1} GB free on {1}. The game needs about 12 GB." -f ($free / 1GB), $drive)
-            Read-Host '    Free some space and press Enter to continue (or close this window)' | Out-Null
+            Read-Host (Tr '    Free some space and press Enter to continue (or close this window)') | Out-Null
         }
         $setup = Join-Path $ToolsDir 'RAG_SETUP_220120.exe'
         $earlier = Join-Path $env:USERPROFILE 'Downloads\RAG_SETUP_220120.exe'
@@ -663,25 +737,25 @@ function Install-Game {
             Start-Process -FilePath $setup -ArgumentList @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-', "/DIR=`"$GameDir`"") -Wait
         } else {
             Write-Host ''
-            Write-Host '    The official installer is in Korean. Click Yes if Windows asks, then:' -ForegroundColor Green
-            Write-Host '      - click the right-hand button at the bottom of each page (Next / I agree)'
-            Write-Host "      - when it shows the install folder, change it to  $GameDir"
-            Write-Host '      - on the last page, untick anything that starts the game, then finish'
-            Write-Host '    Never start the game from the kRO icon: its updater breaks the files for our server.' -ForegroundColor Yellow
-            Write-Host '    If a window with a START button appears, do NOT press it; this installer closes it for you.' -ForegroundColor Yellow
+            Write-Host (Tr '    The official installer is in Korean. Click Yes if Windows asks, then:') -ForegroundColor Green
+            Write-Host (Tr '      - click the right-hand button at the bottom of each page (Next / I agree)')
+            Write-Host (Tr "      - when it shows the install folder, change it to  $GameDir")
+            Write-Host (Tr '      - on the last page, untick anything that starts the game, then finish')
+            Write-Host (Tr '    Never start the game from the kRO icon: its updater breaks the files for our server.') -ForegroundColor Yellow
+            Write-Host (Tr '    If a window with a START button appears, do NOT press it; this installer closes it for you.') -ForegroundColor Yellow
             $kro = Start-Process -FilePath $setup -PassThru
             while (-not $kro.HasExited) { Stop-KroUpdater; Start-Sleep -Milliseconds 700 }
             for ($i = 0; $i -lt 10; $i++) { Stop-KroUpdater; Start-Sleep -Milliseconds 500 }
         }
         for ($i = 0; $i -lt 3 -and -not (Find-GameDir); $i++) {
-            Read-Host '    Press Enter when the Korean installer has completely finished' | Out-Null
+            Read-Host (Tr '    Press Enter when the Korean installer has completely finished') | Out-Null
         }
         $found = Find-GameDir
         if (-not $found) {
             Warn "If the Korean installer showed an error, its download is broken: delete $setup and run this installer again."
         }
         while (-not $found) {
-            $answer = Read-Host '    Could not find data.grf. Type the folder you installed the game to (for example C:\Gravity\Ragnarok)'
+            $answer = Read-Host (Tr '    Could not find data.grf. Type the folder you installed the game to (for example C:\Gravity\Ragnarok)')
             if (Test-GameDir $answer.Trim('"', ' ')) { $found = $answer.Trim('"', ' ') }
         }
         $script:GameDir = $found
@@ -878,14 +952,14 @@ function Invoke-Main {
         Test-ServerReachable
 
         Write-Host ''
-        Write-Host "Done! Double-click $ServerName on your desktop to play." -ForegroundColor Green
-        Write-Host '  New account: do NOT click Sign Up (it opens Gravity''s website, not ours). In the login box'
-        Write-Host '  type your ID with _M (male) or _F (female) at the end, e.g. myname_M, and a password of'
-        Write-Host '  6+ characters (use Tab between the boxes), then press Enter. Next time log in without the _M / _F.'
+        Write-Host (Tr "Done! Double-click $ServerName on your desktop to play.") -ForegroundColor Green
+        Write-Host (Tr '  New account: do NOT click Sign Up (it opens Gravity''s website, not ours). In the login box')
+        Write-Host (Tr '  type your ID with _M (male) or _F (female) at the end, e.g. myname_M, and a password of')
+        Write-Host (Tr '  6+ characters (use Tab between the boxes), then press Enter. Next time log in without the _M / _F.')
     } catch {
         Write-Host ''
-        Write-Host "Install stopped: $($_.Exception.Message)" -ForegroundColor Red
-        Write-Host "Run the installer again to retry. If it keeps failing, send the file $log"
+        Write-Host (Tr "Install stopped: $($_.Exception.Message)") -ForegroundColor Red
+        Write-Host (Tr "Run the installer again to retry. If it keeps failing, send the file $log")
     } finally {
         try { Stop-Transcript | Out-Null } catch { }
     }
