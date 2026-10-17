@@ -680,8 +680,9 @@ kbd {
   .slider-bar .slider-toggle { width: 40px; height: 40px; }
   .slider-btn, .slider-dots { background: var(--surface); border-color: var(--border); }
 }
+/* Cross-fade only (no movement), so it stays on for reduced-motion visitors, just a little gentler */
 @media (prefers-reduced-motion: reduce) {
-  .slide, .slide.is-active { transition: none; }
+  .slide, .slide.is-active { transition-duration: .9s, 0s; }
 }
 
 /* Voluntary support box (owner request 2026-10-17): QR is a static image, nothing is collected on the site */
@@ -690,4 +691,7 @@ kbd {
 .support-qr img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); background: #fff; }
 .support-qr figcaption { margin-top: 10px; font-size: .875rem; color: var(--text-muted, #aeb4d0); }
 .support-credit { margin-top: 16px; }
+.support-art { display: flex; flex-direction: column; align-items: center; justify-self: center; width: 100%; max-width: 320px; }
+.support-bobo { display: block; width: 72%; max-width: 230px; height: auto; margin-bottom: -18px; position: relative; z-index: 1; filter: drop-shadow(0 8px 14px rgba(0, 0, 0, .35)); }
+.support-art .support-qr { width: 100%; }
 @media (max-width: 800px) { .support { grid-template-columns: 1fr; gap: 28px; } }
