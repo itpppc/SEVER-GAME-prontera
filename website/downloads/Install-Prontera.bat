@@ -622,8 +622,8 @@ function Install-Game {
             Warn $problem
             Warn 'This happens when the Korean updater (the window with the START button) runs. Our game exe cannot use these files.'
             $fresh = Get-FreshGameDir $GameDir
-            $answer = Read-Host "    Type Y and press Enter to install a fresh copy of the game to $fresh (the big download is reused; $GameDir is left as it is)"
-            if ($answer -notmatch '^\s*[Yy]') { throw "Stopped without changes. Run the installer again and type Y to install a fresh copy." }
+            # No question: a fresh copy is the only fix and changes nothing in the old folder (players closed the window at a Y/N prompt).
+            Info "Installing a fresh copy of the game to $fresh instead (the big download is reused; $GameDir is left as it is)."
             $BrokenDirs.Add($GameDir.TrimEnd('\'))
             $script:GameDir = $fresh
             $found = $null
