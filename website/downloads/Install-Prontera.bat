@@ -37,6 +37,10 @@ try {
     if ($IsThaiPc) { [Console]::OutputEncoding = [Text.Encoding]::GetEncoding(874) }
 } catch { }
 $ThRules = @(
+    @('^Install stopped: The Korean installer stopped with an error.*$', '\u0e01\u0e32\u0e23\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e2b\u0e22\u0e38\u0e14\u0e25\u0e07: \u0e15\u0e31\u0e27\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e20\u0e32\u0e29\u0e32\u0e40\u0e01\u0e32\u0e2b\u0e25\u0e35\u0e2b\u0e22\u0e38\u0e14\u0e14\u0e49\u0e27\u0e22\u0e02\u0e49\u0e2d\u0e1c\u0e34\u0e14\u0e1e\u0e25\u0e32\u0e14 \u0e44\u0e1f\u0e25\u0e4c\u0e17\u0e35\u0e48\u0e42\u0e2b\u0e25\u0e14\u0e21\u0e32\u0e19\u0e48\u0e32\u0e08\u0e30\u0e40\u0e2a\u0e35\u0e22 \u0e25\u0e1a\u0e44\u0e1f\u0e25\u0e4c\u0e40\u0e2a\u0e35\u0e22\u0e43\u0e2b\u0e49\u0e41\u0e25\u0e49\u0e27 \u0e40\u0e1b\u0e34\u0e14\u0e15\u0e31\u0e27\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e19\u0e35\u0e49\u0e43\u0e2b\u0e21\u0e48 \u0e21\u0e31\u0e19\u0e08\u0e30\u0e42\u0e2b\u0e25\u0e14\u0e44\u0e1f\u0e25\u0e4c\u0e43\u0e2b\u0e21\u0e48'),
+    @('^\s*If a CRC error window appears.*$', '    \u0e16\u0e49\u0e32\u0e21\u0e35\u0e2b\u0e19\u0e49\u0e32\u0e15\u0e48\u0e32\u0e07 CRC error \u0e42\u0e1c\u0e25\u0e48\u0e02\u0e36\u0e49\u0e19\u0e21\u0e32 \u0e43\u0e2b\u0e49\u0e01\u0e14 Abort (\u0e1b\u0e38\u0e48\u0e21\u0e0b\u0e49\u0e32\u0e22) \u0e41\u0e25\u0e49\u0e27\u0e40\u0e1b\u0e34\u0e14\u0e15\u0e31\u0e27\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e19\u0e35\u0e49\u0e43\u0e2b\u0e21\u0e48 \u0e2b\u0e49\u0e32\u0e21\u0e01\u0e14 Ignore'),
+    @('^Checking that the download is not damaged \.\.\.$', '\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e23\u0e27\u0e08\u0e27\u0e48\u0e32\u0e44\u0e1f\u0e25\u0e4c\u0e17\u0e35\u0e48\u0e42\u0e2b\u0e25\u0e14\u0e21\u0e32\u0e44\u0e21\u0e48\u0e40\u0e2a\u0e35\u0e22 ...'),
+    @('^The downloaded file is damaged.*$', '\u0e44\u0e1f\u0e25\u0e4c\u0e17\u0e35\u0e48\u0e42\u0e2b\u0e25\u0e14\u0e21\u0e32\u0e40\u0e2a\u0e35\u0e22 \u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14\u0e43\u0e2b\u0e21\u0e48\u0e15\u0e31\u0e49\u0e07\u0e41\u0e15\u0e48\u0e15\u0e49\u0e19 ...'),
     @('^1/7  Ragnarok base game.*$', '1/7  \u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e40\u0e01\u0e21\u0e1e\u0e37\u0e49\u0e19\u0e10\u0e32\u0e19 Ragnarok (\u0e15\u0e31\u0e27\u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e17\u0e32\u0e07\u0e01\u0e32\u0e23\u0e02\u0e2d\u0e07 Gravity)'),
     @('^2/7  Microsoft.*$', '2/7  \u0e15\u0e34\u0e14\u0e15\u0e31\u0e49\u0e07\u0e44\u0e1f\u0e25\u0e4c\u0e17\u0e35\u0e48\u0e40\u0e01\u0e21\u0e15\u0e49\u0e2d\u0e07\u0e43\u0e0a\u0e49 (Microsoft Visual C++)'),
     @('^3/7  Game exe (\S+).*$', '3/7  \u0e14\u0e32\u0e27\u0e19\u0e4c\u0e42\u0e2b\u0e25\u0e14\u0e44\u0e1f\u0e25\u0e4c\u0e40\u0e01\u0e21\u0e2b\u0e25\u0e31\u0e01 $1'),
@@ -122,6 +126,8 @@ $Urls = @{
     Warp      = 'https://github.com/Neo-Mind/WARP/archive/refs/heads/rock_win32.zip'
 }
 # The exe rAthena PACKETVER 20211103 targets (rAthena PR #6431). Other builds of the same day do not work.
+# SHA256 of the official RAG_SETUP_220120.exe (3,577,653,728 bytes). Empty = only the size is checked.
+$SetupSha256 = ''
 $ExeName = '2021-11-03_Ragexe_1635926200'
 $ExeHash = '7d6d0f5400b5cfc8fe6aa366fa293f310f54e3580f0baef5dae617f7b7b575cf'
 # ROenglishRE ClientGenerator.bat, mode 1 (Renewal) + date 9 (2021-10-28), copies these in this order.
@@ -700,6 +706,28 @@ function New-Shortcut([string]$LinkPath, [string]$Target, [string]$WorkDir) {
     }
 }
 
+# A damaged kRO setup (broken or resumed download) fails with CRC errors. Remove it so the next run downloads a clean copy.
+function Remove-DamagedSetup([string]$Path) {
+    try {
+        if ($Path.StartsWith($ToolsDir, [StringComparison]::OrdinalIgnoreCase)) { Remove-Item -LiteralPath $Path -Force -ErrorAction Stop }
+        else { Move-Item -LiteralPath $Path -Destination "$Path.bad" -Force -ErrorAction Stop }
+    } catch { Warn "Could not remove the damaged file $Path. Delete it by hand, then run this installer again." }
+}
+
+function Assert-SetupChecksum([string]$Path, [string]$Url) {
+    if (-not $SetupSha256) { return }
+    for ($try = 1; $try -le 2; $try++) {
+        Info 'Checking that the download is not damaged ...'
+        $hash = (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash
+        if ($hash -eq $SetupSha256) { return }
+        Warn 'The downloaded file is damaged (checksum differs). Downloading it again from the start ...'
+        Remove-DamagedSetup $Path
+        if ($try -eq 2) { break }
+        Get-File $Url $Path
+    }
+    throw 'The download is damaged twice in a row. Check the internet connection and run the installer again.'
+}
+
 function Install-Game {
     Step "1/7  Ragnarok base game (official kRO installer from Gravity)"
     $found = Find-GameDir
@@ -731,7 +759,9 @@ function Install-Game {
         if (-not (Test-Path -LiteralPath $setup) -and (Test-Path -LiteralPath $earlier)) { $setup = $earlier }
         Info 'This file is several GB. If the download stops, run the installer again and it continues.'
         Get-File $Urls.KRO $setup
+        Assert-SetupChecksum $setup $Urls.KRO
         New-Item -ItemType Directory -Force -Path $GameDir | Out-Null
+        $kro = $null
         if (Test-InnoSetup $setup) {
             Info "Installing to $GameDir (click Yes if Windows asks) ..."
             Start-Process -FilePath $setup -ArgumentList @('/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-', "/DIR=`"$GameDir`"") -Wait
@@ -743,6 +773,7 @@ function Install-Game {
             Write-Host (Tr '      - on the last page, untick anything that starts the game, then finish')
             Write-Host (Tr '    Never start the game from the kRO icon: its updater breaks the files for our server.') -ForegroundColor Yellow
             Write-Host (Tr '    If a window with a START button appears, do NOT press it; this installer closes it for you.') -ForegroundColor Yellow
+            Write-Host (Tr '    If a CRC error window appears, click Abort (left button), then run this installer again. Never click Ignore.') -ForegroundColor Yellow
             $kro = Start-Process -FilePath $setup -PassThru
             while (-not $kro.HasExited) { Stop-KroUpdater; Start-Sleep -Milliseconds 700 }
             for ($i = 0; $i -lt 10; $i++) { Stop-KroUpdater; Start-Sleep -Milliseconds 500 }
@@ -751,6 +782,10 @@ function Install-Game {
             Read-Host (Tr '    Press Enter when the Korean installer has completely finished') | Out-Null
         }
         $found = Find-GameDir
+        if (-not $found -and $kro -and $kro.ExitCode -ne 0) {
+            Remove-DamagedSetup $setup
+            throw "The Korean installer stopped with an error (code $($kro.ExitCode)), so its download is probably damaged. The damaged file was removed: run this installer again and it downloads a fresh copy."
+        }
         if (-not $found) {
             Warn "If the Korean installer showed an error, its download is broken: delete $setup and run this installer again."
         }
