@@ -1,0 +1,334 @@
+{
+  "kb_version": "0.1.0",
+  "records": [
+    {
+      "id": "char.phra_ram",
+      "type": "lore_entity",
+      "kind": "character",
+      "faction": "ayodhya",
+      "source": "ramakien",
+      "name": { "th": "พระราม", "en": "Phra Ram (Rama)" },
+      "aliases": ["Rama", "Phra Ram", "Prince Rama", "พระรามจันทร์"],
+      "summary": {
+        "th": "เจ้าชายแห่งอโยธยา อวตารของพระนารายณ์ ถูกเนรเทศเข้าป่า 14 ปีพร้อมพระลักษมณ์และนางสีดา เมื่อทศกัณฐ์ลักพานางสีดาไปลงกา พระรามจึงรวมกองทัพวานรออกศึก อาวุธประจำตัวคือศรศักดิ์สิทธิ์",
+        "en": "Prince of Ayodhya and avatar of Narai. Exiled to the forest for 14 years with Phra Lak and Sita. When Thotsakan carried Sita off to Lanka, Rama gathered the monkey army and went to war. His signature weapon is the sacred bow."
+      },
+      "personality": {
+        "th": "สุขุม ยุติธรรม ใจดีต่อผู้ภักดี ในสไตล์ของเราตาโตใสและยิ้มมุมปากแบบมั่นใจ",
+        "en": "Calm, just and kind to the loyal. In our art style: big bright eyes and a confident half smile."
+      },
+      "voice_hint": {
+        "th": "พูดสุภาพ หนักแน่น ใช้คำว่า 'เรา' และ 'ท่าน'",
+        "en": "Formal and steady; addresses players as 'traveller'."
+      },
+      "status": "live",
+      "spoiler_level": 0,
+      "tags": ["hero", "ayodhya", "archer"],
+      "related": ["char.hanuman", "char.thotsakan", "loc.ayodhya_hub", "item.ring_of_rama"]
+    },
+    {
+      "id": "char.hanuman",
+      "type": "lore_entity",
+      "kind": "character",
+      "faction": "ayodhya",
+      "source": "ramakien",
+      "name": { "th": "หนุมาน", "en": "Hanuman" },
+      "aliases": ["Hanuman", "หนุมาน", "ทหารเอกพระราม", "white monkey"],
+      "summary": {
+        "th": "ทหารเอกของพระราม วานรเผือกที่หาวเป็นดาวเป็นเดือน แปลงกายได้ เหาะได้ เป็นผู้นำแหวนของพระรามไปให้นางสีดาในลงกา และเป็นผู้ลวงเอากล่องดวงใจของทศกัณฐ์มาได้",
+        "en": "Rama's champion: a white monkey who yawns out stars and moons, shapeshifts and flies. He carried Rama's ring to Sita in Lanka and later tricked his way to Thotsakan's heart box."
+      },
+      "personality": {
+        "th": "ซน ฉลาด กล้าหาญ ชอบแกล้งยักษ์ มุกประจำตัวคือแลบลิ้นขยิบตา",
+        "en": "Playful, clever, brave and fond of pranking yakshas. Signature gag: a wink with the tongue out."
+      },
+      "voice_hint": {
+        "th": "พูดเร็ว ขี้เล่น มีมุกตลก แต่จริงจังเมื่อเรื่องเกี่ยวกับพระราม",
+        "en": "Quick, cheeky and joking, but serious whenever Rama is involved."
+      },
+      "status": "live",
+      "spoiler_level": 0,
+      "tags": ["hero", "ayodhya", "monkey_army"],
+      "related": ["char.phra_ram", "quest.ring_for_sita", "quest.heart_of_thotsakan", "item.hanuman_trident"],
+      "game_ref": { "item_id": 990004 }
+    },
+    {
+      "id": "char.thotsakan",
+      "type": "lore_entity",
+      "kind": "character",
+      "faction": "lanka",
+      "source": "ramakien",
+      "name": { "th": "ทศกัณฐ์", "en": "Thotsakan (Ravana)" },
+      "aliases": ["Thotsakan", "Tosakanth", "Ravana", "ทศกัณฐ์", "ราพณาสูร", "Demon King"],
+      "summary": {
+        "th": "เจ้ากรุงลงกา ยักษ์สิบหน้ายี่สิบมือ ลักพานางสีดาไป ถอดดวงใจใส่กล่องฝากไว้กับพระฤาษีโคบุตร จึงไม่มีใครฆ่าได้ตราบใดที่กล่องดวงใจยังอยู่ ในเกมเป็นบอส MVP เลเวล 99 ธาตุมืด HP 1,500,000",
+        "en": "King of Lanka, a ten-faced, twenty-armed yaksha who abducted Sita. He removed his heart, sealed it in a box and left it with the hermit Kobut, so nothing can kill him while the box survives. In game he is an MVP boss: level 99, Dark element, 1,500,000 HP."
+      },
+      "personality": {
+        "th": "หยิ่ง ขี้โอ่ ทรงพลัง ในสไตล์ของเราหน้าหลักทำหน้าขึงขังแต่หน้าข้าง ๆ แอบทำหน้าตลก",
+        "en": "Proud, boastful and mighty. In our style the main face scowls while the side faces pull silly expressions."
+      },
+      "voice_hint": {
+        "th": "เสียงดัง ข่มขู่ เรียกตัวเองว่า 'ข้า' เรียกผู้เล่นว่า 'มนุษย์ตัวจ้อย'",
+        "en": "Loud and threatening; calls players 'little mortal'."
+      },
+      "status": "live",
+      "spoiler_level": 0,
+      "tags": ["villain", "lanka", "mvp", "boss"],
+      "related": ["loc.lanka_citadel", "quest.heart_of_thotsakan", "recipe.mokkhasak_spear"],
+      "game_ref": { "mob_id": 31903, "map": "prt_maze02" }
+    },
+    {
+      "id": "loc.ayodhya_hub",
+      "type": "lore_entity",
+      "kind": "location",
+      "faction": "ayodhya",
+      "source": "game_design",
+      "name": { "th": "นครอโยธยา", "en": "Ayodhya City" },
+      "aliases": ["Ayodhya", "Ayodhaya", "Ayutthaya", "อโยธยา", "เมืองหลวง", "hub", "capital"],
+      "summary": {
+        "th": "เมืองหลวงและจุดศูนย์กลางของผู้เล่นใหม่ทุกคน มีจัตุรัสกลาง ร้านค้า พระฤาษีผู้ให้เควส และประตูวาร์ปสู่ป่าที่เป็นทางไปประตูลงกา",
+        "en": "The capital and starting hub for every new player: a central square, shops, the hermit quest giver and the warp to the forest that leads to the Lanka gate."
+      },
+      "facilities": [
+        {
+          "name": { "th": "พระฤาษีแห่งอโยธยา", "en": "Sage of Ayodhya" },
+          "what": { "th": "เล่าตำนาน ให้เควส ขายของ และวาร์ปไปประตูลงกา (ต้อง Base Lv 60 ขึ้นไป)", "en": "Tells lore, gives quests, sells supplies and warps to the Lanka gate (Base Lv 60+)." },
+          "status": "live"
+        },
+        {
+          "name": { "th": "ร้านเสบียงอโยธยา", "en": "Ayodhya Supplies" },
+          "what": { "th": "น้ำมนต์อโยธยา 1,200 zeny, สมุนไพรหิมพานต์ 2,400 zeny, โอสถสังกรณีตรีชวา 20,000 zeny", "en": "Ayodhya Holy Water 1,200 zeny, Himmapan Ancient Herb 2,400 zeny, Sangkarani Elixir 20,000 zeny." },
+          "status": "live"
+        },
+        {
+          "name": { "th": "โรงตีอาวุธเทวกรรม", "en": "Devakam Forge" },
+          "what": { "th": "จุดคราฟต์ศรศักดิ์สิทธิ์และอาวุธตำนาน", "en": "Crafting station for holy arrows and legendary weapons." },
+          "status": "planned"
+        }
+      ],
+      "status": "live",
+      "spoiler_level": 0,
+      "tags": ["hub", "town", "shop", "warp"],
+      "related": ["loc.lanka_citadel", "quest.ring_for_sita"],
+      "game_ref": { "npc_name": "Sage of Ayodhya", "map": "prontera", "x": 147, "y": 189 }
+    },
+    {
+      "id": "loc.lanka_citadel",
+      "type": "lore_entity",
+      "kind": "location",
+      "faction": "lanka",
+      "source": "game_design",
+      "name": { "th": "ป้อมลงกา", "en": "Lanka Citadel" },
+      "aliases": ["Lanka", "Longka", "Langka", "ลงกา", "กรุงลงกา", "Lanka gate", "ประตูลงกา"],
+      "summary": {
+        "th": "ปราการของทศกัณฐ์ ตอนนี้เปิดเฉพาะประตูลงกาในป่าเขาวงกต มียักษ์เฝ้าประตู กุมภกรรณ และทศกัณฐ์ ส่วนตัวป้อมชั้นในและถนนข้ามทะเลยังอยู่ในแผน",
+        "en": "Thotsakan's stronghold. Today only the Lanka gate in the labyrinth forest is open, with gate yakshas, Kumbhakarn and Thotsakan. The inner citadel and the sea causeway are still planned."
+      },
+      "status": "live",
+      "spoiler_level": 0,
+      "tags": ["dungeon", "lanka", "boss_area"],
+      "related": ["char.thotsakan", "quest.heart_of_thotsakan"],
+      "game_ref": { "map": "prt_maze02" }
+    },
+    {
+      "id": "item.ring_of_rama",
+      "type": "lore_entity",
+      "kind": "artifact",
+      "faction": "ayodhya",
+      "source": "game_design",
+      "name": { "th": "แหวนพระราม", "en": "Ring of Rama" },
+      "aliases": ["Ring of Rama", "แหวน", "ring"],
+      "summary": {
+        "th": "รางวัลจากเควสถวายแหวน เป็นเครื่องประดับที่ยืนยันว่าผู้เล่นได้รับความไว้วางใจจากอโยธยา",
+        "en": "Reward of the quest A Ring for Sita; an accessory proving Ayodhya trusts the player."
+      },
+      "status": "live",
+      "spoiler_level": 0,
+      "tags": ["accessory", "quest_reward"],
+      "related": ["quest.ring_for_sita"],
+      "game_ref": { "item_id": 990007 }
+    },
+    {
+      "id": "item.hanuman_trident",
+      "type": "lore_entity",
+      "kind": "artifact",
+      "faction": "ayodhya",
+      "source": "game_design",
+      "name": { "th": "ตรีเพชรหนุมาน", "en": "Hanuman Trident" },
+      "aliases": ["trident", "ตรีเพชร"],
+      "summary": {
+        "th": "อาวุธที่ทศกัณฐ์ดรอปได้ในโอกาสต่ำ (1%)",
+        "en": "A weapon Thotsakan drops at a low rate (1%)."
+      },
+      "status": "live",
+      "spoiler_level": 0,
+      "tags": ["weapon", "drop"],
+      "related": ["char.thotsakan"],
+      "game_ref": { "item_id": 990004, "mob_id": 31903 }
+    },
+    {
+      "id": "skill.brahmastra_volley",
+      "type": "combat_skill",
+      "source": "game_design",
+      "name": { "th": "ห่าศรพรหมาสตร์", "en": "Brahmastra Volley" },
+      "aliases": ["holy arrow skill", "ศรพรหมาสตร์"],
+      "summary": {
+        "th": "สกิลนักธนูฝ่ายอโยธยา ยิงศรศักดิ์สิทธิ์ 5 ดอกลงพื้นที่ 5x5 ช่อง ใช้คู่กับศรศักดิ์สิทธิ์ได้ผลดีที่สุดกับยักษ์ธาตุมืด",
+        "en": "Ayodhya archer skill: rains 5 holy arrows on a 5x5 area. Best with Holy Arrows against Dark-element yakshas."
+      },
+      "user": "ayodhya_archer",
+      "element": "holy",
+      "target": "area",
+      "max_level": 5,
+      "cast_time_s": 1.5,
+      "cooldown_s": 8,
+      "sp_cost": 45,
+      "effect": {
+        "th": "ดาเมจ 120% x ระดับสกิล ต่อศร เพิ่ม 50% ถ้าเป้าหมายเป็นธาตุมืด",
+        "en": "120% x skill level damage per arrow, +50% against Dark-element targets."
+      },
+      "counter_tip": {
+        "th": "ทศกัณฐ์เรียกกำแพงไฟบังได้ ให้ยืนห่างอย่างน้อย 9 ช่อง",
+        "en": "Thotsakan can raise a fire wall; keep at least 9 cells away."
+      },
+      "status": "planned",
+      "spoiler_level": 0,
+      "tags": ["archer", "holy", "aoe"],
+      "related": ["recipe.holy_arrows", "char.thotsakan"]
+    },
+    {
+      "id": "skill.mokkhasak_throw",
+      "type": "combat_skill",
+      "source": "ramakien",
+      "name": { "th": "พุ่งหอกโมกขศักดิ์", "en": "Mokkhasak Throw" },
+      "aliases": ["Mokkhasak", "โมกขศักดิ์", "spear throw"],
+      "summary": {
+        "th": "ท่าไม้ตายของทศกัณฐ์ในตำนาน พุ่งหอกที่พระลักษมณ์ต้องสลบ ในเกมเป็นสกิลบอส เป้าหมายติดสถานะสลบจนกว่าจะใช้โอสถสังกรณีตรีชวา",
+        "en": "Thotsakan's legendary finisher, the spear that struck Phra Lak down. In game it is a boss skill that knocks the target out until someone uses a Sangkarani Elixir."
+      },
+      "user": "mob:31903",
+      "element": "dark",
+      "target": "line",
+      "cast_time_s": 3,
+      "cooldown_s": 45,
+      "sp_cost": 0,
+      "effect": {
+        "th": "ดาเมจรุนแรงเป็นเส้นตรง 10 ช่อง และสถานะ 'ต้องหอก' (ขยับไม่ได้ HP ลดต่อเนื่อง) 30 วินาที",
+        "en": "Heavy damage in a 10-cell line plus the 'Spear-struck' state (rooted, HP drains) for 30 seconds."
+      },
+      "counter_tip": {
+        "th": "เห็นหอกเรืองแสงเมื่อไหร่ให้หลบออกจากแนวตรง และพกโอสถสังกรณีตรีชวาไว้ช่วยเพื่อน",
+        "en": "When the spear glows, step out of the line, and carry a Sangkarani Elixir to revive allies."
+      },
+      "status": "planned",
+      "spoiler_level": 1,
+      "tags": ["boss_skill", "thotsakan"],
+      "related": ["char.thotsakan", "recipe.mokkhasak_spear"]
+    },
+    {
+      "id": "recipe.holy_arrows",
+      "type": "crafting_recipe",
+      "source": "game_design",
+      "name": { "th": "สูตรศรศักดิ์สิทธิ์", "en": "Recipe: Holy Arrows" },
+      "aliases": ["Holy Arrow", "ศรศักดิ์สิทธิ์", "ลูกศรธาตุศักดิ์สิทธิ์"],
+      "summary": {
+        "th": "ทำศรธาตุศักดิ์สิทธิ์ 100 ดอก ใช้ยิงยักษ์ลงกาซึ่งเป็นธาตุมืด",
+        "en": "Makes 100 Holy-element arrows for fighting the Dark-element yakshas of Lanka."
+      },
+      "output": { "name": { "th": "ศรศักดิ์สิทธิ์", "en": "Holy Arrow" }, "qty": 100 },
+      "ingredients": [
+        { "name": { "th": "น้ำมนต์อโยธยา", "en": "Ayodhya Holy Water" }, "qty": 2, "item_id": 990000, "where_to_get": { "th": "ร้านเสบียงอโยธยา หรือรางวัลเควสถวายแหวน", "en": "Ayodhya Supplies, or the A Ring for Sita reward" } },
+        { "name": { "th": "ไม้ไผ่หิมพานต์", "en": "Himmapan Bamboo" }, "qty": 10, "where_to_get": { "th": "ดรอปจากสัตว์ป่าหิมพานต์ (แผนในอนาคต)", "en": "Himmapan forest monsters (planned)" } }
+      ],
+      "zeny_cost": 500,
+      "station": { "th": "โรงตีอาวุธเทวกรรม ในอโยธยา", "en": "Devakam Forge in Ayodhya" },
+      "required_level": 30,
+      "success_rate": 1.0,
+      "status": "planned",
+      "spoiler_level": 0,
+      "tags": ["crafting", "ammo", "holy"],
+      "related": ["skill.brahmastra_volley", "loc.ayodhya_hub"]
+    },
+    {
+      "id": "recipe.mokkhasak_spear",
+      "type": "crafting_recipe",
+      "source": "game_design",
+      "name": { "th": "สูตรหอกโมกขศักดิ์ (จำลอง)", "en": "Recipe: Mokkhasak Spear (Replica)" },
+      "aliases": ["Mokkhasak Spear", "หอกโมกขศักดิ์", "Thotsakan spear"],
+      "summary": {
+        "th": "หลอมหอกจำลองจากเศษอาวุธของทศกัณฐ์ เป็นหอกสองมือธาตุมืด ต้องผ่านเควสดวงใจทศกัณฐ์ก่อน",
+        "en": "Forge a replica from the shards of Thotsakan's weapon: a two-handed Dark spear. Requires finishing the Heart of Thotsakan questline."
+      },
+      "output": { "name": { "th": "หอกโมกขศักดิ์ (จำลอง)", "en": "Mokkhasak Spear (Replica)" }, "qty": 1 },
+      "ingredients": [
+        { "name": { "th": "เศษหอกโมกขศักดิ์", "en": "Mokkhasak Shard" }, "qty": 5, "where_to_get": { "th": "ทศกัณฐ์ดรอป (แผน)", "en": "Thotsakan drop (planned)" } },
+        { "name": { "th": "ผลึกวิญญาณ", "en": "Soul Crystal" }, "qty": 3, "where_to_get": { "th": "ยักษ์เฝ้าประตูลงกา (แผน)", "en": "Lanka Gate Yaksha (planned)" } },
+        { "name": { "th": "คทากุมภกรรณ", "en": "Kumbhakarn Mace" }, "qty": 1, "item_id": 990005, "where_to_get": { "th": "ดรอปจากกุมภกรรณ", "en": "Kumbhakarn drop" } }
+      ],
+      "zeny_cost": 2000000,
+      "station": { "th": "โรงตีอาวุธเทวกรรม ในอโยธยา", "en": "Devakam Forge in Ayodhya" },
+      "required_level": 90,
+      "success_rate": 0.6,
+      "status": "planned",
+      "spoiler_level": 1,
+      "tags": ["crafting", "weapon", "legendary"],
+      "related": ["skill.mokkhasak_throw", "quest.heart_of_thotsakan"]
+    },
+    {
+      "id": "quest.ring_for_sita",
+      "type": "quest",
+      "source": "game_design",
+      "name": { "th": "ถวายแหวนแด่นางสีดา", "en": "A Ring for Sita" },
+      "aliases": ["ring quest", "เควสแหวน", "ถวายแหวน"],
+      "summary": {
+        "th": "เควสแรกจากพระฤาษีแห่งอโยธยา ปราบยักษ์เฝ้าประตูลงกา 10 ตัว แล้วกลับมารับแหวนพระรามและน้ำมนต์ 5 ขวด",
+        "en": "First quest from the Sage of Ayodhya: defeat 10 Lanka Gate Yakshas, then return for the Ring of Rama and 5 Holy Water."
+      },
+      "giver": "Sage of Ayodhya",
+      "min_level": 60,
+      "steps": [
+        { "n": 1, "do": { "th": "คุยกับพระฤาษีแห่งอโยธยาที่จัตุรัสกลางเมือง (147,189)", "en": "Talk to the Sage of Ayodhya in the central square (147,189)." }, "spoiler_level": 0 },
+        { "n": 2, "do": { "th": "วาร์ปไปประตูลงกา ปราบยักษ์เฝ้าประตู 10 ตัว", "en": "Warp to the Lanka gate and defeat 10 Lanka Gate Yakshas." }, "spoiler_level": 0 },
+        { "n": 3, "do": { "th": "กลับไปหาพระฤาษี ต้องมีช่องกระเป๋าว่าง", "en": "Return to the Sage with free inventory space." }, "spoiler_level": 0 }
+      ],
+      "rewards": [
+        { "th": "แหวนพระราม x1", "en": "Ring of Rama x1" },
+        { "th": "น้ำมนต์อโยธยา x5", "en": "Ayodhya Holy Water x5" }
+      ],
+      "status": "live",
+      "spoiler_level": 0,
+      "tags": ["quest", "starter"],
+      "related": ["item.ring_of_rama", "loc.lanka_citadel"],
+      "game_ref": { "npc_name": "Sage of Ayodhya", "mob_id": 31901 }
+    },
+    {
+      "id": "quest.heart_of_thotsakan",
+      "type": "quest",
+      "source": "game_design",
+      "name": { "th": "ดวงใจทศกัณฐ์", "en": "The Heart of Thotsakan" },
+      "aliases": ["heart quest", "heart removal", "Soul Crystal quest", "กล่องดวงใจ", "ถอดดวงใจ"],
+      "summary": {
+        "th": "เควสต่อเนื่องระดับสูง ตามรอยหนุมานไปเอากล่องดวงใจทศกัณฐ์จากพระฤาษีโคบุตร ใช้ผลึกวิญญาณนำทาง เมื่อทุบกล่องสำเร็จ ทศกัณฐ์จะเสียบัฟอมตะในศึกครั้งถัดไป",
+        "en": "High-level questline: follow Hanuman's path to win Thotsakan's heart box from the hermit Kobut, guided by Soul Crystals. Crushing the box strips Thotsakan's immortal buff for the next fight."
+      },
+      "giver": "Sage of Ayodhya",
+      "min_level": 90,
+      "prerequisites": ["quest.ring_for_sita"],
+      "steps": [
+        { "n": 1, "do": { "th": "สะสมผลึกวิญญาณ 7 ชิ้นจากยักษ์ลงกา", "en": "Collect 7 Soul Crystals from Lanka yakshas." }, "spoiler_level": 0 },
+        { "n": 2, "do": { "th": "ให้พระฤาษีแห่งอโยธยาปลุกผลึก ผลึกจะชี้ทางไปอาศรมที่ซ่อนอยู่", "en": "Have the Sage awaken the crystals; they point to a hidden hermitage." }, "spoiler_level": 1 },
+        { "n": 3, "do": { "th": "แปลงกายเป็นศิษย์ (รับบัฟ 'ร่างแปลง' จากหนุมาน) แล้วตอบคำถามพระฤาษีโคบุตรให้ถูก 3 ข้อ", "en": "Take Hanuman's 'Disguise' buff and answer the hermit Kobut's three questions correctly." }, "spoiler_level": 2 },
+        { "n": 4, "do": { "th": "นำกล่องดวงใจไปทุบต่อหน้าทศกัณฐ์ระหว่างการต่อสู้", "en": "Crush the heart box in front of Thotsakan during the fight." }, "spoiler_level": 2 }
+      ],
+      "rewards": [
+        { "th": "ปลดล็อกสูตรหอกโมกขศักดิ์ (จำลอง)", "en": "Unlocks Recipe: Mokkhasak Spear (Replica)" },
+        { "th": "ฉายา 'ผู้ทุบดวงใจ'", "en": "Title: Heartbreaker" }
+      ],
+      "status": "planned",
+      "spoiler_level": 1,
+      "tags": ["quest", "endgame", "thotsakan"],
+      "related": ["char.thotsakan", "char.hanuman", "recipe.mokkhasak_spear", "loc.lanka_citadel"]
+    }
+  ]
+}
