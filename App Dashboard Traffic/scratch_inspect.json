@@ -1,0 +1,193 @@
+{
+  "CCTV_BKK_otp_66_05.csv": {
+    "type": "csv",
+    "encoding": "utf-8-sig",
+    "rows": 15774,
+    "columns": [
+      "no",
+      "id",
+      "name",
+      "latitude",
+      "longitude",
+      "organization",
+      "date",
+      "date_type",
+      "time_start",
+      "time_end",
+      "speed",
+      "density",
+      "volume",
+      "capacity",
+      "v/c"
+    ],
+    "sample": [
+      {
+        "no": 1,
+        "id": 1,
+        "name": "PER-14-001 38 - พุทธมณฑลสาย 4 - นครชัยศรี",
+        "latitude": 13.777329,
+        "longitude": 100.2234,
+        "organization": "doh",
+        "date": "2022-09-05",
+        "date_type": "working",
+        "time_start": "5:00:00",
+        "time_end": "6:00:00",
+        "speed": 129,
+        "density": 30,
+        "volume": "475",
+        "capacity": "2,700",
+        "v/c": 0.18
+      },
+      {
+        "no": 2,
+        "id": 1,
+        "name": "PER-14-001 38 - พุทธมณฑลสาย 4 - นครชัยศรี",
+        "latitude": 13.777329,
+        "longitude": 100.2234,
+        "organization": "doh",
+        "date": "2022-09-05",
+        "date_type": "working",
+        "time_start": "6:00:00",
+        "time_end": "7:00:00",
+        "speed": 90,
+        "density": 96,
+        "volume": "1,514",
+        "capacity": "2,700",
+        "v/c": 0.56
+      },
+      {
+        "no": 3,
+        "id": 1,
+        "name": "PER-14-001 38 - พุทธมณฑลสาย 4 - นครชัยศรี",
+        "latitude": 13.777329,
+        "longitude": 100.2234,
+        "organization": "doh",
+        "date": "2022-09-05",
+        "date_type": "working",
+        "time_start": "7:00:00",
+        "time_end": "8:00:00",
+        "speed": 72,
+        "density": 53,
+        "volume": "3,283",
+        "capacity": "2,700",
+        "v/c": 1.22
+      }
+    ]
+  },
+  "ผลการวิเคราะห์พื้นที่ที่มีการจอดรับและจ.xlsx": {
+    "type": "xlsx",
+    "sheets": {
+      "otp_69_05": {
+        "rows": 78644,
+        "columns": [
+          "Id",
+          "Year",
+          "Month",
+          "subdistrict",
+          "district",
+          "province",
+          "zone",
+          "bus_stop",
+          "pickup_wd",
+          "dropoff_wd",
+          "total_stops_wd",
+          "pickup_we",
+          "dropoff_we",
+          "total_stops_we"
+        ],
+        "sample": [
+          {
+            "Id": 1,
+            "Year": 2565,
+            "Month": "กุมภาพันธ์",
+            "subdistrict": "ศิริราช",
+            "district": "เขตบางกอกน้อย",
+            "province": "กรุงเทพมหานคร",
+            "zone": 81,
+            "bus_stop": "โรงพยาบาลศิริราช",
+            "pickup_wd": 447,
+            "dropoff_wd": 354,
+            "total_stops_wd": 801,
+            "pickup_we": 273,
+            "dropoff_we": 216,
+            "total_stops_we": 489
+          },
+          {
+            "Id": 2,
+            "Year": 2565,
+            "Month": "กุมภาพันธ์",
+            "subdistrict": "ทุ่งพญาไท",
+            "district": "เขตราชเทวี",
+            "province": "กรุงเทพมหานคร",
+            "zone": 129,
+            "bus_stop": "โรงพยาบาลเด็ก",
+            "pickup_wd": 383,
+            "dropoff_wd": 286,
+            "total_stops_wd": 669,
+            "pickup_we": 237,
+            "dropoff_we": 146,
+            "total_stops_we": 383
+          },
+          {
+            "Id": 3,
+            "Year": 2565,
+            "Month": "กุมภาพันธ์",
+            "subdistrict": "สีกัน",
+            "district": "เขตดอนเมือง",
+            "province": "กรุงเทพมหานคร",
+            "zone": 128,
+            "bus_stop": "อาคารผู้โดยสาร 2 ชั้น 1 ประตู 12",
+            "pickup_wd": 205,
+            "dropoff_wd": 331,
+            "total_stops_wd": 536,
+            "pickup_we": 206,
+            "dropoff_we": 309,
+            "total_stops_we": 515
+          }
+        ]
+      }
+    }
+  },
+  "เวลาในการเดินทางเฉลี่ยและค่าใช้จ่ายในกา.xlsx": {
+    "type": "xlsx",
+    "sheets": {
+      "Sheet1": {
+        "rows": 24,
+        "columns": [
+          "ลำดับ",
+          "ปี",
+          "รูปแบบการเดินทาง",
+          "ชื่อข้อมูล",
+          "รูปแบบการเก็บข้อมูล",
+          "ข้อมูล"
+        ],
+        "sample": [
+          {
+            "ลำดับ": 1,
+            "ปี": 2564,
+            "รูปแบบการเดินทาง": "รถโดยสารประจำทาง",
+            "ชื่อข้อมูล": "รวมเวลาในการเดินทางเข้า - ออกระบบหลัก",
+            "รูปแบบการเก็บข้อมูล": "เวลาในการเดินทางเฉลี่ย (นาทีต่อเที่ยว)",
+            "ข้อมูล": "50 - 55"
+          },
+          {
+            "ลำดับ": 2,
+            "ปี": 2564,
+            "รูปแบบการเดินทาง": "รถโดยสารประจำทาง",
+            "ชื่อข้อมูล": "ไม่รวมเวลาในการเดินทางเข้า-ออกระบบหลัก",
+            "รูปแบบการเก็บข้อมูล": "เวลาในการเดินทางเฉลี่ย (นาทีต่อเที่ยว)",
+            "ข้อมูล": "35 - 40"
+          },
+          {
+            "ลำดับ": 3,
+            "ปี": 2564,
+            "รูปแบบการเดินทาง": "รถโดยสารประจำทาง",
+            "ชื่อข้อมูล": "รวมค่าใช้จ่ายในการเดินทางเข้า-ออกระบบหลัก",
+            "รูปแบบการเก็บข้อมูล": "ค่าใช้จ่ายในการเดินทางเฉลี่ย (บาทต่อเที่ยว)",
+            "ข้อมูล": "18 - 30"
+          }
+        ]
+      }
+    }
+  }
+}
