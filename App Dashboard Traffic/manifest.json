@@ -1,0 +1,26 @@
+{
+  "name": "Bangkok Smart Mobility",
+  "short_name": "BKK Mobility",
+  "description": "ระบบวิเคราะห์การเดินทาง โครงข่ายขนส่ง และสภาพการจราจร กทม. ออกแบบและพัฒนาโดย TON-AI Tech",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0f1d",
+  "theme_color": "#06b6d4",
+  "author": "TON-AI Tech",
+  "author_url": "https://ton-ai-tech.web.app/",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=192&auto=format&fit=crop&q=80",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=512&auto=format&fit=crop&q=80",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

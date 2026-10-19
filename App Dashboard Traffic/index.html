@@ -2,7 +2,17 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- PWA & Native Mobile App Meta Tags -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="application-name" content="BKK Smart Mobility" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="BKK Mobility" />
+  <meta name="theme-color" content="#0a0f1d" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="author" content="TON-AI Tech (https://ton-ai-tech.web.app/)" />
+  <meta name="creator" content="TON-AI Tech" />
+
   <title>Bangkok Smart Mobility & Transit Analytics Dashboard</title>
   <meta name="description" content="ระบบวิเคราะห์ข้อมูลการจราจรและโครงข่ายการเดินทางสาธารณะ กรุงเทพมหานคร จากข้อมูล CCTV, จุดจอดรถเมล์ และสถิติการเดินทาง" />
 
@@ -1105,9 +1115,180 @@
       color: #cbd5e1;
     }
   
-    /* --- REAL-TIME LIVE & MOBILE ENHANCEMENTS --- */
+    /* =======================================================
+       NATIVE MOBILE APP & TON-AI TECH CREDIT SYSTEM
+       ======================================================= */
     
-    /* Live Weather & Time Bar in Header */
+    /* Touch optimization */
+    * {
+      -webkit-tap-highlight-color: transparent;
+      user-select: auto;
+    }
+    html, body {
+      overscroll-behavior-y: contain;
+    }
+
+    /* Top App Navigation Bar */
+    .app-top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 20px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      margin-bottom: 16px;
+      position: sticky;
+      top: 10px;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(6, 182, 212, 0.45);
+      flex-shrink: 0;
+    }
+    .brand-title-area h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+      background: linear-gradient(90deg, #ffffff, #e2e8f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand-creator-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(139, 92, 246, 0.15));
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      margin-top: 2px;
+    }
+    .brand-creator-badge:hover {
+      background: rgba(6, 182, 212, 0.3);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    /* Top App Actions */
+    .app-top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .app-icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+      position: relative;
+    }
+    .app-icon-btn:active {
+      transform: scale(0.92);
+    }
+    .app-icon-btn:hover {
+      background: rgba(6, 182, 212, 0.25);
+      border-color: #38bdf8;
+      color: #ffffff;
+    }
+    .btn-credit-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #0284c7, #6366f1);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .btn-credit-pill:active {
+      transform: scale(0.94);
+    }
+    .btn-credit-pill:hover {
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.55);
+      transform: translateY(-1px);
+    }
+
+    /* Mobile Quick Action Chips (Carousel) */
+    .mobile-quick-chips-wrapper {
+      margin-bottom: 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+    }
+    .mobile-quick-chips {
+      display: flex;
+      gap: 8px;
+      width: max-content;
+    }
+    .chip-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: rgba(30, 41, 59, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 25px;
+      color: #e2e8f0;
+      font-size: 0.78rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .chip-item:active {
+      transform: scale(0.94);
+    }
+    .chip-item:hover, .chip-item.active {
+      background: rgba(6, 182, 212, 0.2);
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+    .chip-item.credit-chip {
+      background: rgba(139, 92, 246, 0.18);
+      border-color: rgba(139, 92, 246, 0.4);
+      color: #c084fc;
+      font-weight: 600;
+    }
+
+    /* Live Meta Bar */
     .realtime-meta-bar {
       display: flex;
       align-items: center;
@@ -1158,7 +1339,7 @@
       animation: spin 1s linear infinite;
     }
 
-    /* Live Traffic Breaking News Ticker */
+    /* Live Breaking Traffic Ticker */
     .live-ticker-container {
       background: rgba(15, 23, 42, 0.85);
       border: 1px solid rgba(56, 189, 248, 0.25);
@@ -1259,6 +1440,80 @@
       border-radius: 50%;
       background: #ef4444;
       animation: pulse 1.5s infinite;
+    }
+
+    /* TON-AI TECH FOOTER CREDIT CARD */
+    .tonai-credit-footer {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      padding: 24px 28px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85));
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(6, 182, 212, 0.15);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .tonai-credit-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .tonai-credit-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+      flex-shrink: 0;
+    }
+    .tonai-credit-info h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tonai-badge-highlight {
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+    .tonai-credit-info p {
+      font-size: 0.84rem;
+      color: #94a3b8;
+      margin-top: 4px;
+      max-width: 650px;
+      line-height: 1.5;
+    }
+    .tonai-visit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .tonai-visit-btn:hover {
+      box-shadow: 0 8px 28px rgba(6, 182, 212, 0.65);
+      transform: translateY(-2px);
+      color: #ffffff;
     }
 
     /* Modal for Public Free CCTV */
@@ -1478,6 +1733,17 @@
       color: #ffffff;
     }
 
+    /* ABOUT & CREDIT MODAL */
+    .about-modal-box {
+      max-width: 580px;
+      background: #0f172a;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 35px rgba(6, 182, 212, 0.25);
+      border-radius: 24px;
+      padding: 28px;
+      position: relative;
+    }
+
     /* Floating Bottom Dock on Mobile */
     .mobile-bottom-dock {
       display: none;
@@ -1485,13 +1751,14 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 64px;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(16px);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      height: 68px;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
       z-index: 2000;
-      padding: 4px 8px;
-      box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+      padding: 4px 8px env(safe-area-inset-bottom, 8px);
+      box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.55);
       justify-content: space-around;
       align-items: center;
     }
@@ -1505,28 +1772,42 @@
       border: none;
       color: #94a3b8;
       font-size: 0.68rem;
-      padding: 6px 8px;
-      border-radius: 10px;
+      padding: 6px 6px;
+      border-radius: 12px;
       cursor: pointer;
       flex: 1;
-      max-width: 72px;
+      max-width: 68px;
       font-family: inherit;
       transition: var(--transition);
+      position: relative;
+    }
+    .mobile-dock-btn:active {
+      transform: scale(0.9);
     }
     .mobile-dock-btn .dock-icon {
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       line-height: 1;
     }
     .mobile-dock-btn.active {
       color: #38bdf8;
-      background: rgba(6, 182, 212, 0.12);
+      background: rgba(6, 182, 212, 0.15);
       font-weight: 700;
+    }
+    .mobile-dock-btn.active::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      width: 14px;
+      height: 3px;
+      border-radius: 2px;
+      background: #06b6d4;
+      box-shadow: 0 0 8px #06b6d4;
     }
 
     /* --- RESPONSIVE MEDIA QUERIES (MOBILE OPTIMIZATION) --- */
     @media (max-width: 1200px) {
       .app-container {
-        padding: 16px 20px 70px;
+        padding: 16px 20px 80px;
       }
       .kpi-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -1556,27 +1837,35 @@
       .calc-results {
         grid-template-columns: 1fr;
       }
+      .tonai-credit-footer {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .tonai-visit-btn {
+        justify-content: center;
+      }
     }
 
     @media (max-width: 768px) {
       .app-container {
-        padding: 12px 14px 85px; /* Leave room for mobile dock */
+        padding: 10px 12px 95px; /* Leave room for mobile dock */
       }
-      header.dashboard-header {
+      .app-top-nav {
         position: relative;
         top: 0;
-        padding: 14px 16px;
-        margin-bottom: 14px;
+        padding: 12px 14px;
+        margin-bottom: 12px;
         flex-direction: column;
         align-items: stretch;
         gap: 12px;
       }
       .brand-section {
-        justify-content: flex-start;
+        justify-content: space-between;
+        width: 100%;
       }
       .brand-icon {
-        width: 38px;
-        height: 38px;
+        width: 40px;
+        height: 40px;
         font-size: 18px;
       }
       .brand-title-area h1 {
@@ -1587,10 +1876,10 @@
         max-width: 100%;
       }
       .header-actions {
-        display: none; /* Accessible in tab or bottom */
+        display: none;
       }
       .nav-tabs {
-        display: none; /* Replaced by mobile bottom dock */
+        display: none; /* Controlled by native mobile bottom dock */
       }
       .mobile-bottom-dock {
         display: flex;
@@ -1615,7 +1904,7 @@
       .cctv-modal-box {
         width: 96vw;
         max-height: 94vh;
-        border-radius: 14px;
+        border-radius: 16px;
       }
       .cctv-modal-header {
         padding: 12px 14px;
@@ -1634,6 +1923,15 @@
       }
       .table-responsive {
         -webkit-overflow-scrolling: touch;
+      }
+      .tonai-credit-footer {
+        padding: 18px 16px;
+        margin-top: 30px;
+      }
+      .tonai-credit-avatar {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
       }
     }
 
@@ -1663,27 +1961,38 @@
 <div class="app-container">
 
   <!-- Header with Prominent Search Bar -->
-  <header class="dashboard-header">
+    <!-- NATIVE MOBILE APP TOP BAR WITH TON-AI TECH CREDIT -->
+  <header class="app-top-nav">
     <div class="brand-section">
-      <div class="brand-icon">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 11.2 2 11.6 2 12v4c0 .6.4 1 1 1h2"/>
-          <circle cx="7" cy="17" r="2"/>
-          <path d="M9 17h6"/>
-          <circle cx="17" cy="17" r="2"/>
-        </svg>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 11.2 2 11.6 2 12v4c0 .6.4 1 1 1h2"/>
+            <circle cx="7" cy="17" r="2"/>
+            <path d="M9 17h6"/>
+            <circle cx="17" cy="17" r="2"/>
+          </svg>
+        </div>
+        <div class="brand-title-area">
+          <h1>Bangkok Smart Mobility</h1>
+          <a href="https://ton-ai-tech.web.app/" target="_blank" rel="noopener noreferrer" class="brand-creator-badge" title="คลิกเพื่อเยี่ยมชมเว็บไซต์ผู้พัฒนา">
+            <span>✨</span> Created by <b>TON-AI Tech</b>
+          </a>
+        </div>
       </div>
-      <div class="brand-title-area">
-        <h1>Bangkok Smart Mobility Dashboard</h1>
-        <p>
-          ระบบวิเคราะห์การเดินทาง โครงข่ายขนส่ง และสภาพการจราจร กทม.
-          <span class="badge-live"><span class="pulse-dot"></span> เชื่อมโยง 3 แหล่งข้อมูล</span>
-        </p>
+
+      <!-- Quick Action Icons for Mobile -->
+      <div class="app-top-actions">
+        <a href="https://ton-ai-tech.web.app/" target="_blank" rel="noopener noreferrer" class="btn-credit-pill" title="เยี่ยมชมเว็บไซต์ TON-AI Tech">
+          <span>🚀</span> TON-AI Tech
+        </a>
+        <button class="app-icon-btn" onclick="openAboutModal()" title="ข้อมูลแอปพลิเคชัน & เครดิตผู้พัฒนา">
+          ℹ️
+        </button>
       </div>
     </div>
 
-
-    <!-- LIVE REAL-TIME TELEMETRY & WEATHER WIDGET -->
+    <!-- REAL-TIME LIVE WEATHER & TELEMETRY BAR -->
     <div class="realtime-meta-bar">
       <div class="realtime-pill clock">
         <span style="color:#ef4444;font-size:10px;">●</span>
@@ -1737,7 +2046,7 @@
           <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
           <rect x="6" y="14" width="12" height="8"></rect>
         </svg>
-        พิมพ์รายงาน
+        พิมพ์
       </button>
       <button class="btn btn-primary" onclick="exportFilteredCSV()" title="ส่งออกข้อมูลเป็น CSV">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1745,25 +2054,29 @@
           <polyline points="7 10 12 15 17 10"></polyline>
           <line x1="12" y1="15" x2="12" y2="3"></line>
         </svg>
-        Export CSV
+        Export
       </button>
     </div>
   </header>
 
-  <!-- REAL-TIME BREAKING TRAFFIC NEWS TICKER -->
-  <div class="live-ticker-container">
-    <div class="ticker-badge">
-      <span class="pulse-dot" style="background:#fff;"></span> ข่าวสารจราจรสด
-    </div>
-    <div class="ticker-marquee">
-      <div class="ticker-track" id="liveTickerTrack">
-        <span class="ticker-item">🔴 <b>แยกอโศก - สุขุมวิท:</b> การจราจรหนาแน่นสะสม V/C 1.24 ความเร็วเฉลี่ย 18 กม./ชม.</span>
-        <span class="ticker-item">🟢 <b>ทางด่วนศรีรัช (แจ้งวัฒนะ - พระราม 9):</b> คล่องตัว ความเร็ว 72 กม./ชม.</span>
-        <span class="ticker-item">🌤️ <b>สภาพอากาศ กทม. สด:</b> ท้องฟ้าโปร่ง ไม่มีกลุ่มฝน ถนนแห้ง ทัศนวิสัย 10 กม.</span>
-        <span class="ticker-item">🚌 <b>โครงข่ายรถเมล์:</b> ให้บริการปกติ 4,201 ป้าย ทุกสายวิ่งตามตารางเวลา</span>
-        <span class="ticker-item">🟡 <b>สะพานพระราม 8 ขาเข้า:</b> ชะลอตัวช่วงขึ้นสะพาน ท้ายแถวสะสมแยกอรุณอมรินทร์</span>
-        <span class="ticker-item">📹 <b>ระบบ CCTV:</b> ตรวจวัดข้อมูลสดออนไลน์ 176 จุด ทั่วกรุงเทพมหานครและปริมณฑล</span>
-      </div>
+  <!-- MOBILE QUICK ACTION CHIPS (HORIZONTAL SCROLL) -->
+  <div class="mobile-quick-chips-wrapper">
+    <div class="mobile-quick-chips">
+      <button class="chip-item" onclick="switchTab('traffic')">
+        <span>📹</span> กล้อง CCTV สด
+      </button>
+      <button class="chip-item" onclick="switchTab('bus')">
+        <span>🚏</span> ค้นหาป้ายรถเมล์
+      </button>
+      <button class="chip-item" onclick="switchTab('transit')">
+        <span>🧮</span> คำนวณค่าเดินทาง
+      </button>
+      <button class="chip-item" onclick="switchTab('explorer')">
+        <span>🔍</span> กรอง 50 เขต
+      </button>
+      <a href="https://ton-ai-tech.web.app/" target="_blank" rel="noopener noreferrer" class="chip-item credit-chip">
+        <span>✨</span> พัฒนาโดย TON-AI Tech
+      </a>
     </div>
   </div>
 
@@ -1786,6 +2099,24 @@
       <span>🔍</span> ค้นหาและกรองข้อมูล (Data Explorer)
     </button>
   </nav>
+
+  
+  <!-- REAL-TIME BREAKING TRAFFIC NEWS TICKER -->
+  <div class="live-ticker-container">
+    <div class="ticker-badge">
+      <span class="pulse-dot" style="background:#fff;"></span> ข่าวสารจราจรสด
+    </div>
+    <div class="ticker-marquee">
+      <div class="ticker-track" id="liveTickerTrack">
+        <span class="ticker-item">🔴 <b>แยกอโศก - สุขุมวิท:</b> การจราจรหนาแน่นสะสม V/C 1.24 ความเร็วเฉลี่ย 18 กม./ชม.</span>
+        <span class="ticker-item">🟢 <b>ทางด่วนศรีรัช (แจ้งวัฒนะ - พระราม 9):</b> คล่องตัว ความเร็ว 72 กม./ชม.</span>
+        <span class="ticker-item">🌤️ <b>สภาพอากาศ กทม. สด:</b> ท้องฟ้าโปร่ง ไม่มีกลุ่มฝน ถนนแห้ง ทัศนวิสัย 10 กม.</span>
+        <span class="ticker-item">🚌 <b>โครงข่ายรถเมล์:</b> ให้บริการปกติ 4,201 ป้าย ทุกสายวิ่งตามตารางเวลา</span>
+        <span class="ticker-item">🟡 <b>สะพานพระราม 8 ขาเข้า:</b> ชะลอตัวช่วงขึ้นสะพาน ท้ายแถวสะสมแยกอรุณอมรินทร์</span>
+        <span class="ticker-item">✨ <b>พัฒนาโดย TON-AI Tech:</b> ติดตามเทคโนโลยีและโซลูชัน AI ได้ที่ ton-ai-tech.web.app</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Executive KPI Grid -->
   <div class="kpi-grid">
@@ -1948,7 +2279,7 @@
     <!-- QUICK LIVE CCTV LAUNCH BAR -->
     <div class="quick-cctv-bar">
       <div class="quick-cctv-label">
-        <span>🎥</span> กล้องสดฟรีแนะนำ:
+        <span>🎥</span> กล้องสดฟรียอดนิยม:
       </div>
       <button class="quick-cctv-btn" onclick="openLiveCctvModal('CAM-ASOKE', 'สี่แยกอโศก - สุขุมวิท (Asoke Intersection)', 'BMA', 18.5, 1.24, 'หนาแน่น')">
         <span class="live-dot"></span> 🔴 กล้องสด 1: สี่แยกอโศก
@@ -10846,6 +11177,33 @@
 </script>
 
 
+  <!-- ================= TON-AI TECH FOOTER CREDIT ================= -->
+  <footer class="tonai-credit-footer">
+    <div class="tonai-credit-left">
+      <div class="tonai-credit-avatar">
+        🤖
+      </div>
+      <div class="tonai-credit-info">
+        <h4>
+          ออกแบบและพัฒนาโดย <span class="tonai-badge-highlight">TON-AI Tech</span>
+          <span class="badge-live" style="background:rgba(6,182,212,0.15);color:#38bdf8;border-color:rgba(6,182,212,0.3);">
+            Official Creator
+          </span>
+        </h4>
+        <p>
+          ระบบแดชบอร์ดอัจฉริยะวิเคราะห์สภาพการจราจรและโครงข่ายขนส่งสาธารณะกรุงเทพมหานคร พัฒนาขึ้นด้วยเทคโนโลยีเว็บแอปพลิเคชันยุคใหม่ (PWA & Real-Time Analytics) เพื่อยกระดับความสะดวกในการเดินทางของประชาชน
+        </p>
+      </div>
+    </div>
+    <div>
+      <a href="https://ton-ai-tech.web.app/" target="_blank" rel="noopener noreferrer" class="tonai-visit-btn">
+        <span>🚀</span> เยี่ยมชมเว็บไซต์ TON-AI Tech
+      </a>
+    </div>
+  </footer>
+
+</div> <!-- end app-container -->
+
 <!-- ================= PUBLIC FREE CCTV LIVE MODAL ================= -->
 <div id="cctvModal" class="cctv-modal-backdrop" onclick="onCctvBackdropClick(event)">
   <div class="cctv-modal-box">
@@ -10925,6 +11283,48 @@
   </div>
 </div>
 
+<!-- ================= ABOUT & TON-AI TECH MODAL ================= -->
+<div id="aboutModal" class="cctv-modal-backdrop" onclick="onAboutBackdropClick(event)">
+  <div class="about-modal-box">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div style="width:50px;height:50px;border-radius:16px;background:linear-gradient(135deg, #06b6d4, #8b5cf6);display:flex;align-items:center;justify-content:center;font-size:24px;">
+          🤖
+        </div>
+        <div>
+          <h3 style="font-size:1.2rem;font-weight:700;color:#ffffff;">เกี่ยวกับผู้พัฒนา (About Developer)</h3>
+          <p style="font-size:0.8rem;color:#38bdf8;font-weight:600;">TON-AI Tech Innovation</p>
+        </div>
+      </div>
+      <button class="cctv-modal-close" onclick="closeAboutModal()">✕</button>
+    </div>
+
+    <div style="color:#cbd5e1;font-size:0.86rem;line-height:1.6;margin-bottom:20px;">
+      <p style="margin-bottom:12px;">
+        แอปพลิเคชัน <b>Bangkok Smart Mobility & Traffic Dashboard</b> ได้รับการออกแบบและพัฒนาขึ้นโดย <b>TON-AI Tech</b> เพื่อบูรณาการข้อมูลการจราจรขนาดใหญ่ ข้อมูลกล้อง CCTV ตรวจวัดจราจร 176 จุด และโครงข่ายป้ายรถเมล์ 4,201 ป้าย ในกรุงเทพมหานคร ให้สามารถเรียกดูและวิเคราะห์ได้อย่างง่ายดาย รวดเร็ว ทั้งบนสมาร์ทโฟนและคอมพิวเตอร์
+      </p>
+      <div style="background:rgba(15,23,42,0.6);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:14px;margin-bottom:14px;">
+        <div style="font-weight:600;color:#f8fafc;margin-bottom:6px;">🚀 ข้อมูลทางเทคนิคของแอป:</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:0.78rem;">
+          <div>• เวอร์ชัน: <b>2.5 Mobile Native PWA</b></div>
+          <div>• ผู้พัฒนา: <b>TON-AI Tech</b></div>
+          <div>• สตรีมมิ่ง: <b>HD Live CCTV & AI Vision</b></div>
+          <div>• ข้อมูลสด: <b>Open-Meteo REST API</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;">
+      <a href="https://ton-ai-tech.web.app/" target="_blank" rel="noopener noreferrer" class="tonai-visit-btn" style="flex:1;justify-content:center;">
+        <span>🌐</span> ไปยังเว็บไซต์ https://ton-ai-tech.web.app/
+      </a>
+      <button class="btn btn-outline" onclick="closeAboutModal()" style="padding:10px 18px;">
+        ปิด
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- ================= MOBILE BOTTOM FLOATING DOCK ================= -->
 <div class="mobile-bottom-dock" id="mobileBottomNav">
   <button class="mobile-dock-btn active" onclick="switchTab('overview')">
@@ -10941,11 +11341,11 @@
   </button>
   <button class="mobile-dock-btn" onclick="switchTab('transit')">
     <span class="dock-icon">⏱️</span>
-    <span>ค่าเดินทาง</span>
+    <span>คำนวณ</span>
   </button>
-  <button class="mobile-dock-btn" onclick="switchTab('explorer')">
-    <span class="dock-icon">🔍</span>
-    <span>ค้นหา</span>
+  <button class="mobile-dock-btn" onclick="openAboutModal()">
+    <span class="dock-icon">🤖</span>
+    <span>ผู้พัฒนา</span>
   </button>
 </div>
 
