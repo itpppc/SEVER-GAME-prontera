@@ -1,8 +1,8 @@
 {
   "id": "bkk-smart-mobility-pwa",
-  "name": "Bangkok Smart Mobility",
+  "name": "Bangkok Smart Mobility & Live CCTV",
   "short_name": "BKK Mobility",
-  "description": "ระบบวิเคราะห์การเดินทาง โครงข่ายขนส่ง และสภาพการจราจร กทม. ออกแบบและพัฒนาโดย TON-AI Tech",
+  "description": "ระบบวิเคราะห์การเดินทาง โครงข่ายขนส่ง และศูนย์รวมกล้องวงจรปิดจราจรสด กทม. ออกแบบและพัฒนาโดย TON-AI Tech",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -54,7 +54,7 @@
   ],
   "shortcuts": [
     {
-      "name": "กล้อง CCTV สด",
+      "name": "กล้อง CCTV สด (176 จุด + Quad-View)",
       "short_name": "CCTV สด",
       "description": "ดูถ่ายทอดสดกล้องวงจรปิดจราจร กทม. ฟรี",
       "url": "./index.html#traffic",
