@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
     <!-- PWA & Native Mobile App Meta Tags -->
   <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
   <meta name="application-name" content="BKK Smart Mobility" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -1116,7 +1119,7 @@
     }
   
     /* =======================================================
-       NATIVE MOBILE APP & TON-AI TECH CREDIT SYSTEM
+       NATIVE MOBILE APP, PWA INSTALL & TON-AI TECH CREDIT SYSTEM
        ======================================================= */
     
     /* Touch optimization */
@@ -1221,6 +1224,37 @@
       border-color: #38bdf8;
       color: #ffffff;
     }
+
+    /* PWA Install Button */
+    .btn-install-app {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #10b981, #06b6d4);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+      transition: var(--transition);
+      font-family: inherit;
+      animation: pulseInstall 2.5s infinite;
+    }
+    @keyframes pulseInstall {
+      0%, 100% { box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); }
+      50% { box-shadow: 0 4px 22px rgba(6, 182, 212, 0.7); }
+    }
+    .btn-install-app:active {
+      transform: scale(0.94);
+    }
+    .btn-install-app:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+    }
+
     .btn-credit-pill {
       display: inline-flex;
       align-items: center;
@@ -1281,11 +1315,136 @@
       border-color: #38bdf8;
       color: #38bdf8;
     }
+    .chip-item.pwa-chip {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: rgba(16, 185, 129, 0.5);
+      color: #34d399;
+      font-weight: 700;
+    }
     .chip-item.credit-chip {
       background: rgba(139, 92, 246, 0.18);
       border-color: rgba(139, 92, 246, 0.4);
       color: #c084fc;
       font-weight: 600;
+    }
+
+    /* PWA Floating Install Banner */
+    .pwa-install-banner {
+      position: fixed;
+      bottom: 76px;
+      left: 14px;
+      right: 14px;
+      max-width: 500px;
+      margin: 0 auto;
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 18px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(6, 182, 212, 0.25);
+      z-index: 1900;
+      animation: bannerSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: var(--transition);
+    }
+    @keyframes bannerSlideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .pwa-install-icon {
+      flex-shrink: 0;
+    }
+    .pwa-install-text {
+      flex: 1;
+      min-width: 0;
+    }
+    .pwa-install-text b {
+      display: block;
+      font-size: 0.88rem;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pwa-install-text p {
+      font-size: 0.74rem;
+      color: #94a3b8;
+      margin-top: 1px;
+      line-height: 1.3;
+    }
+    .pwa-install-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .btn-install-now {
+      background: linear-gradient(135deg, #10b981, #06b6d4);
+      color: #ffffff;
+      border: none;
+      padding: 7px 14px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-install-now:active {
+      transform: scale(0.92);
+    }
+    .btn-install-close {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      font-size: 1.1rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .btn-install-close:hover {
+      color: #ef4444;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* iOS Install Guide Sheet Modal */
+    .ios-step-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+    }
+    .ios-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #06b6d4, #3b82f6);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ios-step-text {
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+    .ios-step-text b {
+      color: #38bdf8;
     }
 
     /* Live Meta Bar */
@@ -1981,10 +2140,14 @@
         </div>
       </div>
 
-      <!-- Quick Action Icons for Mobile -->
+      <!-- Quick Action Icons & Install for Mobile -->
       <div class="app-top-actions">
+        <!-- Prominent PWA Install Button -->
+        <button id="btnTopInstall" class="btn-install-app" onclick="triggerPwaInstall()" title="ติดตั้งแอปลงบนมือถือ">
+          <span>📲</span> ติดตั้งแอป
+        </button>
         <a href="https://ton-ai-tech.web.app/" target="_blank" rel="noopener noreferrer" class="btn-credit-pill" title="เยี่ยมชมเว็บไซต์ TON-AI Tech">
-          <span>🚀</span> TON-AI Tech
+          <span>🚀</span> TON-AI
         </a>
         <button class="app-icon-btn" onclick="openAboutModal()" title="ข้อมูลแอปพลิเคชัน & เครดิตผู้พัฒนา">
           ℹ️
@@ -2062,6 +2225,9 @@
   <!-- MOBILE QUICK ACTION CHIPS (HORIZONTAL SCROLL) -->
   <div class="mobile-quick-chips-wrapper">
     <div class="mobile-quick-chips">
+      <button class="chip-item pwa-chip" onclick="triggerPwaInstall()">
+        <span>📲</span> ติดตั้งแอปลงมือถือ
+      </button>
       <button class="chip-item" onclick="switchTab('traffic')">
         <span>📹</span> กล้อง CCTV สด
       </button>
@@ -2075,7 +2241,7 @@
         <span>🔍</span> กรอง 50 เขต
       </button>
       <a href="https://ton-ai-tech.web.app/" target="_blank" rel="noopener noreferrer" class="chip-item credit-chip">
-        <span>✨</span> พัฒนาโดย TON-AI Tech
+        <span>✨</span> TON-AI Tech
       </a>
     </div>
   </div>
@@ -2108,12 +2274,12 @@
     </div>
     <div class="ticker-marquee">
       <div class="ticker-track" id="liveTickerTrack">
+        <span class="ticker-item">📲 <b>ติดตั้งลงมือถือได้แล้ววันนี้:</b> แตะปุ่ม "ติดตั้งแอป" เพื่อใช้งานเต็มจอแบบ Native App</span>
         <span class="ticker-item">🔴 <b>แยกอโศก - สุขุมวิท:</b> การจราจรหนาแน่นสะสม V/C 1.24 ความเร็วเฉลี่ย 18 กม./ชม.</span>
         <span class="ticker-item">🟢 <b>ทางด่วนศรีรัช (แจ้งวัฒนะ - พระราม 9):</b> คล่องตัว ความเร็ว 72 กม./ชม.</span>
         <span class="ticker-item">🌤️ <b>สภาพอากาศ กทม. สด:</b> ท้องฟ้าโปร่ง ไม่มีกลุ่มฝน ถนนแห้ง ทัศนวิสัย 10 กม.</span>
         <span class="ticker-item">🚌 <b>โครงข่ายรถเมล์:</b> ให้บริการปกติ 4,201 ป้าย ทุกสายวิ่งตามตารางเวลา</span>
-        <span class="ticker-item">🟡 <b>สะพานพระราม 8 ขาเข้า:</b> ชะลอตัวช่วงขึ้นสะพาน ท้ายแถวสะสมแยกอรุณอมรินทร์</span>
-        <span class="ticker-item">✨ <b>พัฒนาโดย TON-AI Tech:</b> ติดตามเทคโนโลยีและโซลูชัน AI ได้ที่ ton-ai-tech.web.app</span>
+        <span class="ticker-item">✨ <b>พัฒนาโดย TON-AI Tech:</b> เข้าสู่เว็บไซต์ได้ที่ ton-ai-tech.web.app</span>
       </div>
     </div>
   </div>
@@ -11195,14 +11361,32 @@
         </p>
       </div>
     </div>
-    <div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn-install-app" onclick="triggerPwaInstall()" style="font-size:0.88rem;padding:10px 20px;">
+        <span>📲</span> ติดตั้งแอปลงมือถือ
+      </button>
       <a href="https://ton-ai-tech.web.app/" target="_blank" rel="noopener noreferrer" class="tonai-visit-btn">
-        <span>🚀</span> เยี่ยมชมเว็บไซต์ TON-AI Tech
+        <span>🚀</span> เว็บไซต์ TON-AI Tech
       </a>
     </div>
   </footer>
 
 </div> <!-- end app-container -->
+
+<!-- ================= PWA FLOATING INSTALL BANNER ================= -->
+<div id="pwaInstallBanner" class="pwa-install-banner" style="display:none;">
+  <div class="pwa-install-icon">
+    <img src="icon-192.png" alt="BKK Mobility" width="46" height="46" style="border-radius:12px;display:block;" />
+  </div>
+  <div class="pwa-install-text">
+    <b>ติดตั้ง BKK Smart Mobility</b>
+    <p>ติดตั้งลงมือถือ เปิดดูเร็ว โหลดไว ไม่ต้องผ่าน App Store</p>
+  </div>
+  <div class="pwa-install-actions">
+    <button class="btn-install-now" onclick="triggerPwaInstall()">ติดตั้ง</button>
+    <button class="btn-install-close" onclick="dismissPwaBanner()">✕</button>
+  </div>
+</div>
 
 <!-- ================= PUBLIC FREE CCTV LIVE MODAL ================= -->
 <div id="cctvModal" class="cctv-modal-backdrop" onclick="onCctvBackdropClick(event)">
@@ -11283,6 +11467,47 @@
   </div>
 </div>
 
+<!-- ================= iOS PWA INSTALL GUIDE MODAL ================= -->
+<div id="iosInstallModal" class="cctv-modal-backdrop" onclick="onIosBackdropClick(event)">
+  <div class="about-modal-box">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="icon-192.png" width="46" height="46" style="border-radius:12px;" />
+        <div>
+          <h3 style="font-size:1.15rem;font-weight:700;color:#ffffff;">วิธีติดตั้งบน iPhone / iPad</h3>
+          <p style="font-size:0.78rem;color:#38bdf8;">ติดตั้งผ่าน Safari ง่ายๆ ใน 3 ขั้นตอน</p>
+        </div>
+      </div>
+      <button class="cctv-modal-close" onclick="closeIosInstallModal()">✕</button>
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <div class="ios-step-card">
+        <div class="ios-step-num">1</div>
+        <div class="ios-step-text">
+          แตะปุ่ม <b>"แชร์" (Share icon [⎋])</b> ที่แถบเมนูด้านล่างของเบราว์เซอร์ Safari
+        </div>
+      </div>
+      <div class="ios-step-card">
+        <div class="ios-step-num">2</div>
+        <div class="ios-step-text">
+          เลื่อนลงแล้วแตะเลือก <b>"เพิ่มไปยังหน้าจอโฮม" (Add to Home Screen [⊞])</b>
+        </div>
+      </div>
+      <div class="ios-step-card">
+        <div class="ios-step-num">3</div>
+        <div class="ios-step-text">
+          แตะ <b>"เพิ่ม" (Add)</b> ที่มุมขวาบน ไอคอนแอปจะไปปรากฏบนหน้าจอมือถือของคุณทันที!
+        </div>
+      </div>
+    </div>
+
+    <button class="tonai-visit-btn" onclick="closeIosInstallModal()" style="width:100%;justify-content:center;">
+      เข้าใจแล้ว เริ่มใช้งาน
+    </button>
+  </div>
+</div>
+
 <!-- ================= ABOUT & TON-AI TECH MODAL ================= -->
 <div id="aboutModal" class="cctv-modal-backdrop" onclick="onAboutBackdropClick(event)">
   <div class="about-modal-box">
@@ -11308,19 +11533,19 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:0.78rem;">
           <div>• เวอร์ชัน: <b>2.5 Mobile Native PWA</b></div>
           <div>• ผู้พัฒนา: <b>TON-AI Tech</b></div>
-          <div>• สตรีมมิ่ง: <b>HD Live CCTV & AI Vision</b></div>
-          <div>• ข้อมูลสด: <b>Open-Meteo REST API</b></div>
+          <div>• การติดตั้ง: <b>รองรับ PWA Installable</b></div>
+          <div>• ออฟไลน์: <b>Service Worker Cached</b></div>
         </div>
       </div>
     </div>
 
-    <div style="display:flex;gap:10px;">
-      <a href="https://ton-ai-tech.web.app/" target="_blank" rel="noopener noreferrer" class="tonai-visit-btn" style="flex:1;justify-content:center;">
-        <span>🌐</span> ไปยังเว็บไซต์ https://ton-ai-tech.web.app/
-      </a>
-      <button class="btn btn-outline" onclick="closeAboutModal()" style="padding:10px 18px;">
-        ปิด
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn-install-app" onclick="triggerPwaInstall(); closeAboutModal();" style="flex:1;justify-content:center;padding:12px;">
+        <span>📲</span> ติดตั้งแอปลงมือถือ
       </button>
+      <a href="https://ton-ai-tech.web.app/" target="_blank" rel="noopener noreferrer" class="tonai-visit-btn" style="flex:1;justify-content:center;">
+        <span>🌐</span> เว็บไซต์ TON-AI Tech
+      </a>
     </div>
   </div>
 </div>
@@ -11343,9 +11568,9 @@
     <span class="dock-icon">⏱️</span>
     <span>คำนวณ</span>
   </button>
-  <button class="mobile-dock-btn" onclick="openAboutModal()">
-    <span class="dock-icon">🤖</span>
-    <span>ผู้พัฒนา</span>
+  <button class="mobile-dock-btn" onclick="triggerPwaInstall()">
+    <span class="dock-icon">📲</span>
+    <span>ติดตั้ง</span>
   </button>
 </div>
 
