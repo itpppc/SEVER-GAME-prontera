@@ -1,0 +1,434 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" role="img" aria-labelledby="t">
+  <title id="t">ภาพการ์ตูนแนวรามเกียรติ์: พระรามถือคันศร หนุมานถือตรีศูล และยักษ์น้อย ยืนหน้าวัดไทยริมน้ำในคืนลอยกระทง</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141a44"/>
+      <stop offset=".45" stop-color="#33276a"/>
+      <stop offset=".75" stop-color="#7a3f78"/>
+      <stop offset="1" stop-color="#d0707a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff0b0"/><stop offset=".5" stop-color="#f2c14e"/><stop offset="1" stop-color="#b9781e"/>
+    </linearGradient>
+    <linearGradient id="goldH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c98a2b"/><stop offset=".45" stop-color="#ffe9a0"/><stop offset="1" stop-color="#c98a2b"/>
+    </linearGradient>
+    <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8564a"/><stop offset="1" stop-color="#8e2430"/>
+    </linearGradient>
+    <linearGradient id="roofG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3fae7c"/><stop offset="1" stop-color="#1d6a4e"/>
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff8ea"/><stop offset="1" stop-color="#e3d2b6"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b2a66"/><stop offset="1" stop-color="#16184a"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4f9a5e"/><stop offset="1" stop-color="#255a3e"/>
+    </linearGradient>
+    <linearGradient id="blade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b8c4d8"/><stop offset=".5" stop-color="#ffffff"/><stop offset="1" stop-color="#c9d3e4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ffd27a" stop-opacity=".95"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="templeGlow" cx=".5" cy=".55" r=".5">
+      <stop offset="0" stop-color="#ffcf7a" stop-opacity=".5"/><stop offset="1" stop-color="#ff9a5a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moonGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff2c4" stop-opacity=".55"/><stop offset="1" stop-color="#fff2c4" stop-opacity="0"/>
+    </radialGradient>
+
+    <g id="lantern">
+      <circle r="13" fill="url(#glow)" opacity=".8"/>
+      <path d="M-5.5 -7 Q0 -9 5.5 -7 L4.5 6 H-4.5z" fill="#ffb347" stroke="#c4581f" stroke-width="1"/>
+      <path d="M-3 -6 L-2.4 5" stroke="#ffe2a0" stroke-width="1.2" opacity=".8"/>
+      <ellipse cx="0" cy="6" rx="4.5" ry="1.4" fill="#fff1b8"/>
+    </g>
+    <g id="krathong">
+      <circle cy="-8" r="12" fill="url(#glow)" opacity=".8"/>
+      <ellipse cx="0" cy="3" rx="13" ry="4" fill="#3d8a4e"/>
+      <path d="M-12 2 L-9 -5 L-5 1 L-2 -6 L2 1 L5 -6 L9 1 L12 -4 L12 2z" fill="#4fae62" stroke="#1f5a34" stroke-width="1"/>
+      <circle cx="-4" cy="-3" r="2.6" fill="#ff86b3"/><circle cx="4" cy="-3" r="2.6" fill="#ffd36b"/>
+      <rect x="-.9" y="-12" width="1.8" height="8" fill="#fff4dc"/>
+      <path d="M0 -16 Q2 -13 0 -12 Q-2 -13 0 -16z" fill="#ffcf4a"/>
+    </g>
+    <path id="kranok" d="M0 0 C2 -12 12 -20 22 -18 C14 -14 12 -8 16 -2 C10 -6 6 -4 6 2 C4 0 2 0 0 0z"/>
+    <g id="palm" stroke-linecap="round">
+      <path d="M0 0 Q-2 -36 0 -72" stroke="#3b2a22" stroke-width="4" fill="none"/>
+      <g stroke="#17402e" stroke-width="5.5" fill="none">
+        <path d="M0 -72 q-14 -2 -26 4"/><path d="M0 -72 q-10 -12 -22 -16"/><path d="M0 -72 q-2 -14 -6 -26"/>
+        <path d="M0 -72 q6 -14 14 -22"/><path d="M0 -72 q12 -8 24 -10"/><path d="M0 -72 q14 0 26 8"/>
+      </g>
+      <circle cy="-72" r="4" fill="#3b2a22"/>
+    </g>
+    <g id="lotus">
+      <ellipse cx="0" cy="7" rx="18" ry="5" fill="#2f7a4c" stroke="#1d4e33" stroke-width="1.5"/>
+      <g stroke="#b3416e" stroke-width="1.5" stroke-linejoin="round">
+        <path d="M0 5 C-14 2 -17 -8 -12 -11 C-6 -6 -3 -1 0 5z" fill="#ff8bb5"/>
+        <path d="M0 5 C14 2 17 -8 12 -11 C6 -6 3 -1 0 5z" fill="#ff8bb5"/>
+        <path d="M0 5 C-8 -2 -7 -13 0 -18 C7 -13 8 -2 0 5z" fill="#ffb3cf"/>
+      </g>
+      <path d="M0 -12 V0" stroke="#fff" stroke-width="1.5" opacity=".6"/>
+    </g>
+    <clipPath id="frame"><rect width="600" height="480" rx="28"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="600" height="480" fill="url(#sky)"/>
+
+    <!-- stars -->
+    <g fill="#fff">
+      <circle cx="40" cy="36" r="1.8"/><circle cx="128" cy="24" r="1.2"/><circle cx="210" cy="52" r="1.6"/>
+      <circle cx="350" cy="20" r="1.4"/><circle cx="420" cy="46" r="1.1"/><circle cx="584" cy="140" r="1.4"/>
+      <circle cx="575" cy="24" r="1.6"/><circle cx="30" cy="120" r="1.1"/><circle cx="260" cy="16" r="1"/>
+    </g>
+    <path d="M300 30l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff4cf"/>
+    <path d="M70 80l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z" fill="#fff4cf"/>
+
+    <!-- moon -->
+    <circle cx="500" cy="84" r="96" fill="url(#moonGlow)"/>
+    <circle cx="500" cy="84" r="34" fill="#fff6d6"/>
+    <g fill="#efe3c0" opacity=".7"><circle cx="510" cy="74" r="7"/><circle cx="488" cy="96" r="5"/><circle cx="514" cy="100" r="3.5"/></g>
+
+    <!-- clouds -->
+    <g opacity=".55">
+      <path d="M20 190 q20 -22 46 -10 q18 -20 44 -4 q26 -6 34 14z" fill="#8a5a9e"/>
+      <path d="M430 210 q16 -18 38 -8 q16 -16 38 -2 q22 -4 30 10z" fill="#8a5a9e"/>
+    </g>
+
+    <!-- distant prang and chedis -->
+    <g fill="#4a3a7e" opacity=".8">
+      <path d="M58 300 V250 Q60 196 72 170 L74 140 L76 170 Q88 196 90 250 V300z"/>
+      <path d="M44 300 V270 H104 V300z"/>
+      <path d="M522 300 V268 Q522 246 534 238 L536 214 L538 238 Q550 246 550 268 V300z"/>
+      <path d="M560 300 V276 Q560 262 568 256 L569 238 L570 256 Q578 262 578 276 V300z"/>
+    </g>
+    <path d="M0 300 Q90 280 170 292 T340 288 T600 290 V330 H0z" fill="#2a2a62"/>
+
+    <!-- floating lanterns (back to front) -->
+    <g opacity=".6">
+      <use href="#lantern" transform="translate(150 150) scale(.55)"/>
+      <use href="#lantern" transform="translate(240 92) scale(.5)"/>
+      <use href="#lantern" transform="translate(372 120) scale(.55)"/>
+      <use href="#lantern" transform="translate(560 180) scale(.5)"/>
+      <use href="#lantern" transform="translate(30 160) scale(.5)"/>
+    </g>
+    <use href="#lantern" transform="translate(96 108) scale(.8)"/>
+    <use href="#lantern" transform="translate(196 44) scale(.75)"/>
+    <use href="#lantern" transform="translate(410 74) scale(.85)"/>
+    <use href="#lantern" transform="translate(440 160) scale(.7)"/>
+    <use href="#lantern" transform="translate(568 236) scale(.75)"/>
+    <use href="#lantern" transform="translate(40 226) scale(.7)"/>
+
+    <!-- temple glow -->
+    <ellipse cx="300" cy="230" rx="230" ry="160" fill="url(#templeGlow)"/>
+
+    <!-- golden chedi -->
+    <g transform="translate(128 318)" stroke="#7a4a14" stroke-width="1.5" stroke-linejoin="round">
+      <circle cy="-90" r="60" fill="url(#glow)" opacity=".35" stroke="none"/>
+      <rect x="-34" y="-16" width="68" height="16" fill="url(#gold)"/>
+      <rect x="-28" y="-28" width="56" height="12" fill="url(#goldH)"/>
+      <rect x="-22" y="-36" width="44" height="8" fill="url(#gold)"/>
+      <path d="M-24 -36 Q-27 -78 0 -88 Q27 -78 24 -36z" fill="url(#goldH)"/>
+      <rect x="-11" y="-98" width="22" height="10" fill="url(#gold)"/>
+      <g fill="url(#goldH)">
+        <ellipse cx="0" cy="-104" rx="9" ry="5"/><ellipse cx="0" cy="-113" rx="7.5" ry="4.5"/>
+        <ellipse cx="0" cy="-121" rx="6" ry="4"/><ellipse cx="0" cy="-128" rx="4.5" ry="3.5"/>
+      </g>
+      <path d="M-3.5 -131 Q0 -170 0 -178 Q0 -170 3.5 -131z" fill="url(#gold)"/>
+      <path d="M-14 -40 Q-16 -70 -4 -80" stroke="#fff6cf" stroke-width="3" fill="none" opacity=".7"/>
+    </g>
+
+    <!-- TEMPLE -->
+    <g stroke-linejoin="round">
+      <!-- side wings -->
+      <g stroke="#5a1a22" stroke-width="2">
+        <path d="M168 258 L198 218 H246 L246 258z" fill="url(#roofG)"/>
+        <path d="M432 258 L402 218 H354 L354 258z" fill="url(#roofG)"/>
+      </g>
+      <path d="M168 258 L198 218" stroke="#f2c14e" stroke-width="4" stroke-linecap="round"/>
+      <path d="M432 258 L402 218" stroke="#f2c14e" stroke-width="4" stroke-linecap="round"/>
+      <g fill="none" stroke="#ffd36b" stroke-width="3.5" stroke-linecap="round">
+        <path d="M168 258 C158 256 154 246 160 240"/><path d="M432 258 C442 256 446 246 440 240"/>
+      </g>
+      <rect x="180" y="258" width="66" height="50" fill="url(#wall)" stroke="#8a6a4a" stroke-width="1.5"/>
+      <rect x="354" y="258" width="66" height="50" fill="url(#wall)" stroke="#8a6a4a" stroke-width="1.5"/>
+      <g fill="#ffcf6a" stroke="#a8741e" stroke-width="1.5">
+        <path d="M198 274 Q205 264 212 274 V294 H198z"/><path d="M220 274 Q227 264 234 274 V294 H220z"/>
+        <path d="M366 274 Q373 264 380 274 V294 H366z"/><path d="M388 274 Q395 264 402 274 V294 H388z"/>
+      </g>
+
+      <!-- roof tiers -->
+      <g stroke="#5a1a22" stroke-width="2">
+        <path d="M226 172 Q268 140 300 62 Q332 140 374 172z" fill="url(#roof)"/>
+        <path d="M208 204 Q262 168 300 98 Q338 168 392 204z" fill="url(#roof)"/>
+        <path d="M190 240 Q254 200 300 132 Q346 200 410 240z" fill="url(#roof)"/>
+      </g>
+      <!-- tile lines -->
+      <g stroke="#7a1e2a" stroke-width="1.2" opacity=".55" fill="none">
+        <path d="M206 228 Q258 196 300 140"/><path d="M394 228 Q342 196 300 140"/>
+        <path d="M222 194 Q266 164 300 106"/><path d="M378 194 Q334 164 300 106"/>
+      </g>
+      <!-- gold bargeboards + serrated hang hong -->
+      <g fill="none" stroke-linecap="round">
+        <g stroke="url(#goldH)" stroke-width="6">
+          <path d="M226 172 Q268 140 300 62 Q332 140 374 172"/>
+          <path d="M208 204 Q262 168 300 98 Q338 168 392 204"/>
+          <path d="M190 240 Q254 200 300 132 Q346 200 410 240"/>
+        </g>
+        <g stroke="#ffe08a" stroke-width="5" stroke-dasharray="2 5">
+          <path d="M228 166 Q268 134 300 56 Q332 134 372 166"/>
+          <path d="M210 198 Q262 162 300 92 Q338 162 390 198"/>
+          <path d="M192 234 Q254 194 300 126 Q346 194 408 234"/>
+        </g>
+      </g>
+      <!-- gable panel -->
+      <path d="M242 232 Q278 202 300 166 Q322 202 358 232z" fill="url(#gold)" stroke="#8a5a1a" stroke-width="1.5"/>
+      <g fill="#a8681e">
+        <use href="#kranok" transform="translate(266 224) scale(.9)"/>
+        <use href="#kranok" transform="translate(334 224) scale(-.9 .9)"/>
+        <use href="#kranok" transform="translate(284 206) scale(.6)"/>
+        <use href="#kranok" transform="translate(316 206) scale(-.6 .6)"/>
+      </g>
+      <circle cx="300" cy="212" r="9" fill="#a8681e"/>
+      <circle cx="300" cy="212" r="6" fill="#ffe7a3"/>
+      <g stroke="#a8681e" stroke-width="1.5"><path d="M300 206 V218 M294 212 H306 M296 208 L304 216 M304 208 L296 216"/></g>
+      <!-- chofa + ngao -->
+      <g fill="none" stroke="#ffd36b" stroke-width="4.5" stroke-linecap="round">
+        <path d="M300 64 C298 44 312 36 320 46"/>
+        <path d="M300 100 C298 84 310 78 316 86"/>
+        <path d="M300 134 C298 118 310 112 316 120"/>
+        <path d="M190 240 C176 238 172 224 180 216"/><path d="M410 240 C424 238 428 224 420 216"/>
+        <path d="M208 204 C196 202 192 190 199 184"/><path d="M392 204 C404 202 408 190 401 184"/>
+        <path d="M226 172 C216 170 212 160 218 154"/><path d="M374 172 C384 170 388 160 382 154"/>
+      </g>
+
+      <!-- main walls -->
+      <rect x="220" y="240" width="160" height="68" fill="url(#wall)" stroke="#8a6a4a" stroke-width="1.5"/>
+      <g fill="#efe2c8" stroke="#8a6a4a" stroke-width="1">
+        <rect x="224" y="240" width="11" height="68"/><rect x="258" y="240" width="11" height="68"/>
+        <rect x="331" y="240" width="11" height="68"/><rect x="365" y="240" width="11" height="68"/>
+      </g>
+      <g fill="url(#gold)" stroke="#8a5a1a" stroke-width="1">
+        <path d="M221 240 H238 L235 248 H224z"/><path d="M255 240 H272 L269 248 H258z"/>
+        <path d="M328 240 H345 L342 248 H331z"/><path d="M362 240 H379 L376 248 H365z"/>
+      </g>
+      <g fill="#ffcf6a" stroke="#a8741e" stroke-width="1.5">
+        <path d="M240 262 Q247 252 254 262 V284 H240z"/><path d="M346 262 Q353 252 360 262 V284 H346z"/>
+      </g>
+      <!-- door -->
+      <ellipse cx="300" cy="300" rx="40" ry="16" fill="#ffcf6a" opacity=".35"/>
+      <path d="M280 308 V262 Q300 238 320 262 V308z" fill="#8e2430" stroke="#5a1a22" stroke-width="1.5"/>
+      <path d="M276 262 Q300 232 324 262" fill="none" stroke="url(#goldH)" stroke-width="4"/>
+      <path d="M300 250 V308" stroke="#f2c14e" stroke-width="1.5"/>
+      <g fill="#f2c14e"><circle cx="290" cy="280" r="3"/><circle cx="310" cy="280" r="3"/></g>
+      <!-- platform + stairs -->
+      <rect x="168" y="306" width="264" height="14" fill="#efe2c8" stroke="#8a6a4a" stroke-width="1.5"/>
+      <path fill="#c98a2b" d="M174 320l6-9 6 9zM190 320l6-9 6 9zM206 320l6-9 6 9zM222 320l6-9 6 9zM238 320l6-9 6 9zM254 320l6-9 6 9zM334 320l6-9 6 9zM350 320l6-9 6 9zM366 320l6-9 6 9zM382 320l6-9 6 9zM398 320l6-9 6 9zM414 320l6-9 6 9z"/>
+      <g fill="#e3d2b6" stroke="#8a6a4a" stroke-width="1">
+        <rect x="272" y="308" width="56" height="5"/><rect x="268" y="313" width="64" height="5"/><rect x="264" y="318" width="72" height="5"/>
+      </g>
+      <!-- naga balustrades -->
+      <g stroke="#7a4a14" stroke-width="1.5">
+        <path d="M268 308 Q262 316 256 322 L250 322 Q252 312 262 306z" fill="url(#roofG)"/>
+        <path d="M250 322 C244 316 244 306 250 302 C252 308 256 312 258 316z" fill="url(#gold)"/>
+        <path d="M332 308 Q338 316 344 322 L350 322 Q348 312 338 306z" fill="url(#roofG)"/>
+        <path d="M350 322 C356 316 356 306 350 302 C348 308 344 312 342 316z" fill="url(#gold)"/>
+      </g>
+    </g>
+
+    <!-- stilt houses -->
+    <g stroke="#3a2016" stroke-width="1.5" stroke-linejoin="round">
+      <g transform="translate(446 262)">
+        <g fill="#5b3a26"><rect x="6" y="36" width="5" height="26"/><rect x="31" y="36" width="5" height="26"/><rect x="56" y="36" width="5" height="26"/></g>
+        <rect x="0" y="10" width="68" height="28" fill="#a8693c"/>
+        <path d="M2 16 H66 M2 24 H66 M2 32 H66" stroke="#8a4f2a" stroke-width="1"/>
+        <path d="M-10 12 Q20 4 34 -30 Q48 4 78 12z" fill="#8a4a2a"/>
+        <path d="M-10 12 Q20 4 34 -30 Q48 4 78 12" fill="none" stroke="#f2c14e" stroke-width="2.5"/>
+        <path d="M34 -30 C32 -40 40 -44 44 -40" fill="none" stroke="#f2c14e" stroke-width="2.5" stroke-linecap="round"/>
+        <rect x="12" y="16" width="13" height="13" fill="#ffcf6a"/><rect x="43" y="16" width="13" height="13" fill="#ffcf6a"/>
+      </g>
+      <path d="M440 276 Q480 288 520 276" fill="none" stroke="#3a2016" stroke-width="1"/>
+      <g stroke="none">
+        <circle cx="452" cy="280" r="4" fill="#e8463a"/><circle cx="468" cy="284" r="4" fill="#ffb347"/>
+        <circle cx="484" cy="285" r="4" fill="#e8463a"/><circle cx="500" cy="283" r="4" fill="#ffb347"/>
+      </g>
+    </g>
+    <use href="#palm" x="420" y="318"/>
+    <use href="#palm" x="174" y="320" transform="translate(174 320) scale(.9) translate(-174 -320)"/>
+    <use href="#palm" x="34" y="320"/>
+    <use href="#palm" x="582" y="318"/>
+
+    <!-- river -->
+    <path d="M0 322 Q300 314 600 322 V384 H0z" fill="url(#water)"/>
+    <g stroke-linecap="round" fill="none">
+      <g stroke="#ffcf6a" opacity=".55" stroke-width="3">
+        <path d="M262 334 H338"/><path d="M272 344 H328"/><path d="M280 354 H320"/><path d="M288 364 H312"/>
+      </g>
+      <g stroke="#fff2c4" opacity=".45" stroke-width="2.5">
+        <path d="M480 336 H520"/><path d="M488 348 H512"/><path d="M494 360 H506"/>
+      </g>
+      <g stroke="#ffb347" opacity=".45" stroke-width="2">
+        <path d="M120 340 H150"/><path d="M118 350 H136"/><path d="M402 342 H426"/>
+      </g>
+    </g>
+    <use href="#krathong" x="140" y="352"/>
+    <use href="#krathong" transform="translate(410 346) scale(.8)"/>
+    <use href="#krathong" transform="translate(236 368) scale(.9)"/>
+
+    <!-- near bank -->
+    <path d="M0 380 Q160 362 300 376 T600 372 V480 H0z" fill="url(#grass)"/>
+    <path d="M0 380 Q160 362 300 376 T600 372" fill="none" stroke="#7fc98a" stroke-width="3" opacity=".6"/>
+    <use href="#lotus" x="34" y="384"/>
+    <use href="#lotus" transform="translate(566 382) scale(.9)"/>
+    <g fill="#ffe27a">
+      <circle cx="96" cy="420" r="2.5"/><circle cx="530" cy="416" r="2.5"/><circle cx="252" cy="440" r="2"/>
+      <circle cx="470" cy="456" r="2"/><circle cx="60" cy="462" r="2"/>
+    </g>
+    <g fill="#ff9fc4"><circle cx="118" cy="452" r="3"/><circle cx="500" cy="440" r="3"/><circle cx="560" cy="466" r="3"/></g>
+
+    <!-- ===== PHRA RAM (chibi) ===== -->
+    <g transform="translate(146 300) scale(1.12)" stroke="#2b1b33" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+      <ellipse cx="44" cy="148" rx="36" ry="7" fill="#000" opacity=".28" stroke="none"/>
+      <!-- bow -->
+      <path d="M-2 30 Q-34 88 -2 146" fill="none" stroke="#2b1b33" stroke-width="7"/>
+      <path d="M-2 30 Q-34 88 -2 146" fill="none" stroke="url(#gold)" stroke-width="4"/>
+      <path d="M-2 30 L-2 146" fill="none" stroke="#fff4e0" stroke-width="1.2"/>
+      <g fill="url(#gold)" stroke-width="1.6"><circle cx="-2" cy="30" r="3"/><circle cx="-2" cy="146" r="3"/></g>
+      <!-- legs -->
+      <rect x="28" y="126" width="12" height="18" rx="5" fill="#5fbf8e"/>
+      <rect x="48" y="126" width="12" height="18" rx="5" fill="#5fbf8e"/>
+      <path d="M27 136 h14 M47 136 h14" stroke="#f2c14e" stroke-width="3"/>
+      <!-- sanap phlao (breeches) -->
+      <path d="M22 106 H66 L68 128 H20z" fill="#c8303c"/>
+      <path d="M20 126 H68" stroke="#f2c14e" stroke-width="3.5"/>
+      <!-- hoi na (front panel) -->
+      <path d="M34 104 H54 L50 134 L44 140 L38 134z" fill="url(#gold)"/>
+      <path d="M38 110 H50 L48 128 L44 132 L40 128z" fill="#c8303c" stroke-width="1.6"/>
+      <!-- torso -->
+      <path d="M22 76 Q44 68 66 76 L66 108 H22z" fill="#c8303c"/>
+      <path d="M24 80 L64 100 M64 80 L24 100" stroke="#f2c14e" stroke-width="2" opacity=".85"/>
+      <path d="M30 74 Q44 92 58 74 Q52 86 44 88 Q36 86 30 74z" fill="url(#gold)" stroke-width="1.8"/>
+      <rect x="20" y="102" width="48" height="7" rx="3" fill="url(#goldH)" stroke-width="1.8"/>
+      <circle cx="44" cy="105.5" r="3.4" fill="#3fd0a0" stroke-width="1.4"/>
+      <!-- inthanu (upturned epaulettes) -->
+      <path d="M24 76 Q10 74 8 62 Q16 68 26 70z" fill="url(#gold)" stroke-width="1.8"/>
+      <path d="M64 76 Q78 74 80 62 Q72 68 62 70z" fill="url(#gold)" stroke-width="1.8"/>
+      <!-- arms -->
+      <path d="M24 80 Q10 86 2 88" fill="none" stroke-width="10"/>
+      <path d="M24 80 Q10 86 2 88" fill="none" stroke="#5fbf8e" stroke-width="6"/>
+      <circle cx="0" cy="88" r="6.5" fill="#5fbf8e"/>
+      <path d="M64 80 Q76 92 66 104" fill="none" stroke-width="10"/>
+      <path d="M64 80 Q76 92 66 104" fill="none" stroke="#5fbf8e" stroke-width="6"/>
+      <rect x="68" y="86" width="10" height="5" rx="2" fill="url(#gold)" stroke-width="1.6" transform="rotate(30 73 88)"/>
+      <!-- head -->
+      <circle cx="44" cy="48" r="29" fill="#6cc99a"/>
+      <path d="M22 60 Q30 72 44 74 Q58 72 66 60" fill="none" stroke="#4fae7c" stroke-width="2" opacity=".7"/>
+      <!-- chada -->
+      <path d="M15 36 Q44 22 73 36 L71 44 Q44 32 17 44z" fill="url(#gold)"/>
+      <path d="M21 33 L26 12 H62 L67 33z" fill="url(#goldH)"/>
+      <path d="M28 12 L32 -4 H56 L60 12z" fill="url(#gold)"/>
+      <path d="M34 -4 L37 -18 H51 L54 -4z" fill="url(#goldH)"/>
+      <path d="M38 -18 L44 -46 L50 -18z" fill="url(#gold)"/>
+      <g fill="none" stroke="#a8681e" stroke-width="1.6"><path d="M24 23 H64"/><path d="M30 4 H58"/><path d="M36 -11 H52"/></g>
+      <g stroke-width="1.4"><circle cx="44" cy="25" r="3.8" fill="#e8463a"/><circle cx="31" cy="26" r="2.3" fill="#3fd0a0"/><circle cx="57" cy="26" r="2.3" fill="#3fd0a0"/><circle cx="44" cy="6" r="2.4" fill="#e8463a"/></g>
+      <path d="M15 44 C5 48 5 64 13 72 C13 62 15 54 19 50z" fill="url(#gold)" stroke-width="1.8"/>
+      <path d="M73 44 C83 48 83 64 75 72 C75 62 73 54 69 50z" fill="url(#gold)" stroke-width="1.8"/>
+      <!-- face -->
+      <path d="M29 48 Q34 45 39 47 M49 47 Q54 45 59 48" fill="none" stroke-width="2.2"/>
+      <ellipse cx="35" cy="56" rx="4.4" ry="5.6" fill="#1d2a24" stroke="none"/>
+      <ellipse cx="53" cy="56" rx="4.4" ry="5.6" fill="#1d2a24" stroke="none"/>
+      <g fill="#fff" stroke="none"><circle cx="36.5" cy="53.6" r="1.8"/><circle cx="54.5" cy="53.6" r="1.8"/><circle cx="33.8" cy="58.6" r=".9"/><circle cx="51.8" cy="58.6" r=".9"/></g>
+      <g fill="#ff8e9e" opacity=".6" stroke="none"><ellipse cx="27" cy="64" rx="5" ry="3"/><ellipse cx="61" cy="64" rx="5" ry="3"/></g>
+      <path d="M39 65 Q44 69 49 65" fill="none" stroke-width="2.2"/>
+    </g>
+
+    <!-- ===== HANUMAN (chibi) ===== -->
+    <g transform="translate(362 300) scale(1.12)" stroke="#2b1b33" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+      <ellipse cx="42" cy="148" rx="34" ry="7" fill="#000" opacity=".28" stroke="none"/>
+      <!-- tail -->
+      <path d="M66 118 Q96 116 92 88 Q90 70 80 72" fill="none" stroke-width="10"/>
+      <path d="M66 118 Q96 116 92 88 Q90 70 80 72" fill="none" stroke="#f7f7fb" stroke-width="6"/>
+      <g fill="url(#gold)" stroke-width="1.4"><circle cx="92" cy="100" r="3.4"/><circle cx="82" cy="72" r="3"/></g>
+      <!-- trident -->
+      <rect x="-7" y="18" width="6" height="128" rx="3" fill="url(#goldH)" stroke-width="1.8"/>
+      <path d="M-4 22 L-4 -6 M-16 18 Q-16 2 -12 -4 M8 18 Q8 2 4 -4" fill="none" stroke-width="7"/>
+      <path d="M-4 22 L-4 -6 M-16 18 Q-16 2 -12 -4 M8 18 Q8 2 4 -4" fill="none" stroke="url(#blade)" stroke-width="4"/>
+      <path d="M-18 20 H10" stroke-width="2"/>
+      <rect x="-19" y="17" width="30" height="6" rx="3" fill="url(#gold)" stroke-width="1.8"/>
+      <circle cx="-4" cy="92" r="6.5" fill="#f7f7fb"/>
+      <!-- legs -->
+      <rect x="26" y="126" width="12" height="18" rx="5" fill="#f7f7fb"/>
+      <rect x="46" y="126" width="12" height="18" rx="5" fill="#f7f7fb"/>
+      <path d="M25 136 h14 M45 136 h14" stroke="#f2c14e" stroke-width="3"/>
+      <path d="M20 106 H64 L66 128 H18z" fill="#c8303c"/>
+      <path d="M18 126 H66" stroke="#f2c14e" stroke-width="3.5"/>
+      <path d="M32 104 H52 L48 134 L42 140 L36 134z" fill="url(#gold)"/>
+      <path d="M36 110 H48 L46 128 L42 132 L38 128z" fill="#2f4aa8" stroke-width="1.6"/>
+      <!-- torso -->
+      <path d="M20 76 Q42 68 64 76 L64 108 H20z" fill="#f7f7fb"/>
+      <path d="M26 74 Q42 96 58 74 Q56 90 42 94 Q28 90 26 74z" fill="url(#gold)" stroke-width="1.8"/>
+      <g fill="#e8463a" stroke-width="1.2"><circle cx="42" cy="88" r="3"/><circle cx="33" cy="83" r="1.8"/><circle cx="51" cy="83" r="1.8"/></g>
+      <rect x="18" y="102" width="48" height="7" rx="3" fill="url(#goldH)" stroke-width="1.8"/>
+      <path d="M22 76 Q8 74 6 62 Q14 68 24 70z" fill="url(#gold)" stroke-width="1.8"/>
+      <path d="M62 76 Q76 74 78 62 Q70 68 60 70z" fill="url(#gold)" stroke-width="1.8"/>
+      <path d="M24 80 Q10 86 0 90" fill="none" stroke-width="10"/>
+      <path d="M24 80 Q10 86 0 90" fill="none" stroke="#f7f7fb" stroke-width="6"/>
+      <path d="M62 80 Q74 92 64 104" fill="none" stroke-width="10"/>
+      <path d="M62 80 Q74 92 64 104" fill="none" stroke="#f7f7fb" stroke-width="6"/>
+      <!-- head -->
+      <circle cx="42" cy="50" r="30" fill="#f7f7fb"/>
+      <ellipse cx="42" cy="62" rx="20" ry="14" fill="#fde9ee" stroke-width="1.8"/>
+      <!-- crown (mongkut) -->
+      <path d="M14 36 Q42 20 70 36 L68 43 Q42 31 16 43z" fill="url(#gold)"/>
+      <path d="M22 32 Q42 -4 62 32z" fill="url(#goldH)"/>
+      <path d="M36 12 L42 -14 L48 12z" fill="url(#gold)"/>
+      <g fill="none" stroke="#a8681e" stroke-width="1.6"><path d="M27 24 Q42 16 57 24"/></g>
+      <g stroke-width="1.4"><circle cx="42" cy="26" r="3.8" fill="#3fd0a0"/><circle cx="30" cy="30" r="2.2" fill="#e8463a"/><circle cx="54" cy="30" r="2.2" fill="#e8463a"/></g>
+      <!-- ears with gold ornaments -->
+      <path d="M13 44 C3 48 3 62 11 68 C11 60 13 54 17 50z" fill="url(#gold)" stroke-width="1.8"/>
+      <path d="M71 44 C81 48 81 62 73 68 C73 60 71 54 67 50z" fill="url(#gold)" stroke-width="1.8"/>
+      <!-- khon brow swirls -->
+      <path d="M22 46 Q28 38 38 44 Q32 42 30 46" fill="#e2558a" stroke-width="1.6"/>
+      <path d="M62 46 Q56 38 46 44 Q52 42 54 46" fill="#e2558a" stroke-width="1.6"/>
+      <!-- eyes -->
+      <circle cx="32" cy="52" r="7" fill="#fff" stroke-width="2"/><circle cx="52" cy="52" r="7" fill="#fff" stroke-width="2"/>
+      
+      <circle cx="33" cy="53" r="3.6" fill="#1d1424" stroke="none"/><circle cx="51" cy="53" r="3.6" fill="#1d1424" stroke="none"/>
+      <g fill="#fff" stroke="none"><circle cx="34.2" cy="51.6" r="1.3"/><circle cx="52.2" cy="51.6" r="1.3"/></g>
+      <ellipse cx="42" cy="60" rx="3" ry="2" fill="#2b1b33" stroke="none"/>
+      <!-- grin with fangs -->
+      <path d="M30 64 Q42 78 54 64z" fill="#c8303c" stroke-width="2"/>
+      <path d="M31 65 H53" stroke="#fff" stroke-width="2.6"/>
+      <path d="M33 64 L35 69 L37 64z M47 64 L49 69 L51 64z" fill="#fff" stroke-width="1.2"/>
+      <g fill="#ff8e9e" opacity=".6" stroke="none"><ellipse cx="20" cy="62" rx="4.5" ry="2.8"/><ellipse cx="64" cy="62" rx="4.5" ry="2.8"/></g>
+    </g>
+
+    <!-- ===== LITTLE YAK (chibi giant) ===== -->
+    <g transform="translate(266 384) scale(1.1)" stroke="#3a1420" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+      <ellipse cx="34" cy="66" rx="30" ry="6" fill="#000" opacity=".28" stroke="none"/>
+      <rect x="16" y="52" width="12" height="14" rx="5" fill="#e0584c"/><rect x="40" y="52" width="12" height="14" rx="5" fill="#e0584c"/>
+      <ellipse cx="34" cy="40" rx="26" ry="24" fill="#e0584c"/>
+      <ellipse cx="34" cy="46" rx="14" ry="11" fill="#f59a8a" stroke="none"/>
+      <rect x="10" y="50" width="48" height="6" rx="3" fill="url(#goldH)" stroke-width="1.6"/>
+      <!-- mini crown -->
+      <path d="M18 20 Q34 10 50 20 L48 24 Q34 16 20 24z" fill="url(#gold)" stroke-width="1.8"/>
+      <path d="M24 18 L34 -4 L44 18z" fill="url(#goldH)" stroke-width="1.8"/>
+      <circle cx="34" cy="12" r="2.4" fill="#3fd0a0" stroke-width="1.2"/>
+      <!-- bulging eyes + brows -->
+      <path d="M14 26 Q20 20 28 26 M40 26 Q48 20 54 26" fill="none" stroke="#1d2a24" stroke-width="3"/>
+      <circle cx="23" cy="33" r="6.5" fill="#fff" stroke-width="2"/><circle cx="45" cy="33" r="6.5" fill="#fff" stroke-width="2"/>
+      <circle cx="24" cy="34" r="3.4" fill="#1d1424" stroke="none"/><circle cx="44" cy="34" r="3.4" fill="#1d1424" stroke="none"/>
+      <g fill="#fff" stroke="none"><circle cx="25" cy="32.6" r="1.2"/><circle cx="45" cy="32.6" r="1.2"/></g>
+      <!-- grin with tusks -->
+      <path d="M22 42 Q34 54 46 42z" fill="#8e2430" stroke-width="2"/>
+      <path d="M24 44 L22 36 L28 43z M44 44 L46 36 L40 43z" fill="#fffaf0" stroke-width="1.6"/>
+      <g fill="#ffb3a6" opacity=".8" stroke="none"><ellipse cx="13" cy="42" rx="4" ry="2.4"/><ellipse cx="55" cy="42" rx="4" ry="2.4"/></g>
+      <path d="M8 38 Q2 42 6 50" fill="none" stroke-width="8"/><path d="M8 38 Q2 42 6 50" fill="none" stroke="#e0584c" stroke-width="4.5"/>
+      <path d="M60 38 Q66 42 62 50" fill="none" stroke-width="8"/><path d="M60 38 Q66 42 62 50" fill="none" stroke="#e0584c" stroke-width="4.5"/>
+    </g>
+  </g>
+</svg>

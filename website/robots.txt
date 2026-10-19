@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /downloads/
+Disallow: /api/
+
+Sitemap: https://sever-game-prontera.vercel.app/sitemap.xml

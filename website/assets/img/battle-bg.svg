@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#121640"/><stop offset=".55" stop-color="#3a2568"/><stop offset="1" stop-color="#a24a6a"/></linearGradient>
+<linearGradient id="fire" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff6a3a" stop-opacity="0"/><stop offset="1" stop-color="#ff6a3a" stop-opacity=".55"/></linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0b0"/><stop offset=".5" stop-color="#f2c14e"/><stop offset="1" stop-color="#9c6418"/></linearGradient>
+<linearGradient id="lanka" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d2384a"/><stop offset="1" stop-color="#5a1430"/></linearGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c3f8a"/><stop offset="1" stop-color="#141a48"/></linearGradient>
+<linearGradient id="landL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f8a56"/><stop offset="1" stop-color="#1c4a34"/></linearGradient>
+<linearGradient id="landR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6a3a5a"/><stop offset="1" stop-color="#32173a"/></linearGradient>
+<radialGradient id="moon" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff6d0"/><stop offset=".6" stop-color="#ffe9a0" stop-opacity=".5"/><stop offset="1" stop-color="#ffe9a0" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1600" height="700" fill="url(#sky)"/>
+<circle cx="800" cy="150" r="150" fill="url(#moon)"/><circle cx="800" cy="150" r="58" fill="#fff4cf"/>
+<g fill="#fff" opacity=".8"><circle cx="120" cy="60" r="2"/><circle cx="300" cy="120" r="1.6"/><circle cx="520" cy="50" r="2.2"/><circle cx="1050" cy="80" r="1.8"/><circle cx="1260" cy="40" r="2"/><circle cx="1480" cy="110" r="1.6"/><circle cx="660" cy="230" r="1.4"/><circle cx="960" cy="260" r="1.4"/></g>
+<rect x="1000" y="300" width="600" height="400" fill="url(#fire)"/>
+<!-- Ayodhya camp (left) -->
+<g stroke="#2b1b33" stroke-width="3" stroke-linejoin="round">
+<path d="M80 470 L130 360 L180 470z" fill="url(#gold)"/><path d="M110 470 v-30 h40 v30" fill="#fff3d6"/>
+<path d="M200 470 L270 330 L340 470z" fill="url(#gold)"/><path d="M245 470 v-40 h50 v40" fill="#fff3d6"/>
+<path d="M270 330 v-40" /><path d="M270 292 l26 10 -26 10z" fill="#e8463a"/>
+<path d="M380 470 L425 380 L470 470z" fill="url(#gold)"/>
+</g>
+<!-- Lanka city (right) -->
+<g stroke="#2b1b33" stroke-width="3" stroke-linejoin="round">
+<path d="M1150 470 v-110 h70 v110z" fill="url(#lanka)"/><path d="M1140 362 L1185 250 L1230 362z" fill="url(#lanka)"/><path d="M1185 250 v-40" stroke="#f2c14e" stroke-width="5"/>
+<path d="M1260 470 v-160 h90 v160z" fill="url(#lanka)"/><path d="M1248 312 Q1305 170 1362 312z" fill="url(#lanka)"/><path d="M1305 205 v-60" stroke="#f2c14e" stroke-width="6"/><circle cx="1305" cy="140" r="9" fill="url(#gold)"/>
+<path d="M1380 470 v-90 h60 v90z" fill="url(#lanka)"/><path d="M1372 382 L1410 300 L1448 382z" fill="url(#lanka)"/>
+<path d="M1460 470 v-130 h80 v130z" fill="url(#lanka)"/><path d="M1452 342 Q1500 230 1548 342z" fill="url(#lanka)"/>
+<g fill="#ffd27a" stroke="none"><rect x="1178" y="400" width="14" height="22" rx="7"/><rect x="1292" y="360" width="16" height="26" rx="8"/><rect x="1292" y="410" width="16" height="26" rx="8"/><rect x="1402" y="410" width="14" height="22" rx="7"/><rect x="1490" y="380" width="16" height="24" rx="8"/></g>
+</g>
+<!-- land, sea and the stone bridge -->
+<path d="M0 470 H560 Q620 470 640 520 V700 H0z" fill="url(#landL)"/>
+<path d="M1600 470 H1040 Q980 470 960 520 V700 H1600z" fill="url(#landR)"/>
+<path d="M640 520 Q800 490 960 520 V700 H640z" fill="url(#sea)"/>
+<g fill="#8a8fb0" stroke="#2b1b33" stroke-width="2.5"><path d="M560 520 Q800 470 1040 520 L1040 548 Q800 500 560 548z"/></g>
+<g stroke="#5a5f80" stroke-width="2" fill="none"><path d="M620 520 l10 22 M680 510 l8 24 M740 502 l6 26 M800 499 v26 M860 502 l-6 26 M920 510 l-8 24 M980 520 l-10 22"/></g>
+<g fill="none" stroke="#7fa2ff" stroke-width="3" opacity=".5" stroke-linecap="round"><path d="M660 600 q20 -10 40 0 t40 0"/><path d="M820 640 q20 -10 40 0 t40 0"/><path d="M760 580 q14 -8 28 0"/></g>
+<rect x="0" y="640" width="1600" height="60" fill="#000" opacity=".18"/>
+</svg>

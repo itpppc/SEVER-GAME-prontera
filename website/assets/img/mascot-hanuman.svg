@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -8 128 128" role="img" aria-labelledby="t"><title id="t">หนุมานน้อยสวมมงกุฎทอง</title>
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0b0"/><stop offset=".5" stop-color="#f2c14e"/><stop offset="1" stop-color="#b9781e"/></linearGradient></defs>
+<ellipse cx="60" cy="112" rx="38" ry="6" fill="#000" opacity=".25"/>
+<g stroke="#2b1b33" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+<path d="M84 100 Q110 98 106 74 Q104 62 96 64" fill="none" stroke-width="10"/><path d="M84 100 Q110 98 106 74 Q104 62 96 64" fill="none" stroke="#f7f7fb" stroke-width="6"/>
+<path d="M34 92 Q60 80 86 92 L84 110 H36z" fill="#f7f7fb"/>
+<path d="M44 90 Q60 106 76 90 Q72 102 60 104 Q48 102 44 90z" fill="url(#g)" stroke-width="2"/>
+<circle cx="60" cy="98" r="3" fill="#e8463a" stroke-width="1.4"/>
+<circle cx="60" cy="58" r="34" fill="#f7f7fb"/>
+<ellipse cx="60" cy="72" rx="22" ry="15" fill="#fde9ee" stroke-width="2"/>
+<path d="M28 42 Q60 24 92 42 L90 50 Q60 36 30 50z" fill="url(#g)"/>
+<path d="M38 38 Q60 -2 82 38z" fill="url(#g)"/>
+<path d="M54 16 L60 -2 L66 16z" fill="url(#g)"/>
+<circle cx="60" cy="31" r="4.2" fill="#3fd0a0" stroke-width="1.6"/>
+<path d="M27 50 C16 54 16 70 25 77 C25 68 27 62 31 57z" fill="url(#g)" stroke-width="2"/>
+<path d="M93 50 C104 54 104 70 95 77 C95 68 93 62 89 57z" fill="url(#g)" stroke-width="2"/>
+<path d="M37 52 Q44 43 56 50 Q49 48 46 52z" fill="#e2558a" stroke-width="1.8"/>
+<path d="M83 52 Q76 43 64 50 Q71 48 74 52z" fill="#e2558a" stroke-width="1.8"/>
+<circle cx="48" cy="60" r="8" fill="#fff" stroke-width="2.2"/><circle cx="72" cy="60" r="8" fill="#fff" stroke-width="2.2"/>
+<circle cx="49" cy="61" r="4.2" fill="#1d1424" stroke="none"/><circle cx="71" cy="61" r="4.2" fill="#1d1424" stroke="none"/>
+<circle cx="50.4" cy="59.4" r="1.5" fill="#fff" stroke="none"/><circle cx="72.4" cy="59.4" r="1.5" fill="#fff" stroke="none"/>
+<ellipse cx="60" cy="69" rx="3.4" ry="2.2" fill="#2b1b33" stroke="none"/>
+<path d="M46 74 Q60 90 74 74z" fill="#c8303c" stroke-width="2.2"/>
+<path d="M47 75 H73" stroke="#fff" stroke-width="3"/>
+<path d="M50 74 L52 80 L54 74z M66 74 L68 80 L70 74z" fill="#fff" stroke-width="1.4"/>
+</g>
+<g fill="#ff8e9e" opacity=".6"><ellipse cx="34" cy="72" rx="5" ry="3"/><ellipse cx="86" cy="72" rx="5" ry="3"/></g>
+</svg>

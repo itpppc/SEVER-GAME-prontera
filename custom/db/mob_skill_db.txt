@@ -1,0 +1,14 @@
+// Ramakien monster skills for SEVER GAME Prontera.
+// Copied to rathena/db/import/mob_skill_db.txt by scripts/apply-config.sh.
+// Format: see rathena/db/re/mob_skill_db.txt. Lines adapted from Minorous (Kumbhakarn) and Dark Lord (Thotsakan).
+31902,Kumbhakarn@BS_HAMMERFALL,attack,110,3,500,1500,5000,no,target,always,0,,,,,,,
+31902,Kumbhakarn@NPC_FIREATTACK,attack,186,3,500,500,5000,no,target,always,0,,,,,,6,
+31902,Kumbhakarn@WZ_HEAVENDRIVE,attack,91,5,500,1200,5000,yes,target,always,0,,,,,,19,
+31903,Thotsakan@AL_TELEPORT,idle,26,1,10000,0,0,yes,self,rudeattacked,,,,,,,,
+31903,Thotsakan@NPC_AGIUP,attack,350,5,10000,0,30000,yes,self,myhpltmaxrate,30,,,,,,6,
+31903,Thotsakan@MG_FIREWALL,chase,18,10,2000,500,5000,no,target,always,0,,,,,,,
+31903,Thotsakan@NPC_HELLJUDGEMENT,attack,662,5,10000,800,10000,no,self,always,0,,,,,,36,
+31903,Thotsakan@NPC_DARKBLESSING,attack,203,1,500,800,5000,no,target,always,0,,,,,,9,
+31903,Thotsakan@NPC_SUMMONSLAVE,attack,196,3,10000,700,10000,no,self,slavele,3,31901,,,,,,
+31903,Thotsakan@NPC_SUMMONSLAVE,idle,196,3,10000,700,10000,no,self,slavele,3,31901,,,,,,
+31903,Thotsakan@WZ_METEOR,attack,83,11,5000,500,2000,no,target,always,0,,,,,,,

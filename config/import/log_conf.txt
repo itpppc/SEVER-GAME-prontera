@@ -1,0 +1,6 @@
+// SEVER GAME Prontera: log overrides.
+// Rendered by scripts/apply-config.sh into rathena/conf/import/log_conf.txt.
+
+// Record MVP kills in ragnarok_log.mvplog (rAthena default: no).
+// The website's MVP ranking (webapi/) reads this table.
+log_mvpdrop: yes

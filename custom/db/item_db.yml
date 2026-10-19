@@ -1,0 +1,215 @@
+# Ramakien items for SEVER GAME Prontera.
+# Copied to rathena/db/import/item_db.yml by scripts/apply-config.sh.
+# IDs 990000-990099 are reserved for this server's custom items.
+# Names stay in English until the client is set up to show Thai (see custom/RAMAKIEN.md).
+# Until the client gets a matching itemInfo patch, these show as unknown items in game but still work.
+
+Header:
+  Type: ITEM_DB
+  Version: 3
+
+Body:
+  - Id: 990000
+    AegisName: RK_Holy_Water
+    Name: Ayodhya Holy Water
+    Type: Healing
+    Buy: 1200
+    Weight: 50
+    Delay:
+      Duration: 2000
+    Script: |
+      percentheal 30,0;
+      sc_end SC_CURSE;
+      sc_end SC_POISON;
+      sc_end SC_BLIND;
+  - Id: 990001
+    AegisName: RK_Ancient_Herb
+    Name: Himmapan Ancient Herb
+    Type: Healing
+    Buy: 2400
+    Weight: 50
+    Delay:
+      Duration: 3000
+    Script: |
+      percentheal 0,15;
+  - Id: 990002
+    AegisName: RK_Sangkarani_Elixir
+    Name: Sangkarani Elixir
+    Type: DelayConsume
+    Buy: 20000
+    Weight: 100
+    Script: |
+      itemskill "ALL_RESURRECTION",4;
+  - Id: 990003
+    AegisName: RK_Brahmastra_Bow
+    Name: Brahmastra Bow
+    Type: Weapon
+    SubType: Bow
+    Buy: 20
+    Weight: 1500
+    Attack: 210
+    Range: 5
+    Slots: 1
+    Jobs:
+      Archer: true
+      BardDancer: true
+      Hunter: true
+      Rogue: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 70
+    Refineable: true
+    Script: |
+      bonus bAtkEle,Ele_Holy;
+      bonus2 bAddRace,RC_Demon,15;
+  - Id: 990004
+    AegisName: RK_Hanuman_Trident
+    Name: Hanuman Trident
+    Type: Weapon
+    SubType: 2hSpear
+    Buy: 20
+    Weight: 2000
+    Attack: 185
+    Range: 3
+    Slots: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 70
+    Refineable: true
+    Script: |
+      bonus bAtkEle,Ele_Wind;
+      bonus2 bAddRace,RC_Demon,10;
+      bonus bStr,3;
+  - Id: 990005
+    AegisName: RK_Kumbhakarn_Mace
+    Name: Kumbhakarn Mace
+    Type: Weapon
+    SubType: Mace
+    Buy: 20
+    Weight: 1800
+    Attack: 240
+    Range: 1
+    Slots: 1
+    Jobs:
+      Acolyte: true
+      Blacksmith: true
+      Crusader: true
+      Knight: true
+      Merchant: true
+      Monk: true
+      Priest: true
+      Swordman: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 70
+    Refineable: true
+    Script: |
+      bonus2 bAddEff,Eff_Stun,1000;
+  - Id: 990006
+    AegisName: RK_Seven_Curve_Kris
+    Name: Seven Curve Kris
+    Type: Weapon
+    SubType: Dagger
+    Buy: 20
+    Weight: 600
+    Attack: 150
+    Range: 1
+    Slots: 1
+    Jobs:
+      Archer: true
+      Assassin: true
+      BardDancer: true
+      Mage: true
+      Rogue: true
+      Swordman: true
+      Thief: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 4
+    EquipLevelMin: 70
+    Refineable: true
+    Script: |
+      bonus bCritical,20;
+  - Id: 990007
+    AegisName: RK_Ring_Of_Rama
+    Name: Ring of Rama
+    Type: Armor
+    Buy: 20
+    Weight: 100
+    Jobs:
+      All: true
+    Locations:
+      Both_Accessory: true
+    ArmorLevel: 1
+    EquipLevelMin: 30
+    Script: |
+      bonus bAllStats,2;
+      bonus bMaxHPrate,3;
+  - Id: 990008
+    AegisName: RK_Emerald_Naga_Armor
+    Name: Emerald Naga Armor
+    Type: Armor
+    Buy: 20
+    Weight: 3500
+    Defense: 120
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: false
+      SuperNovice: false
+    Locations:
+      Armor: true
+    ArmorLevel: 2
+    EquipLevelMin: 70
+    Refineable: true
+    Script: |
+      bonus bVit,8;
+      bonus2 bSubRace,RC_Demon,15;
+  - Id: 990009
+    AegisName: RK_Devaraja_Crown
+    Name: Devaraja Crown
+    Type: Armor
+    Buy: 20
+    Weight: 400
+    Defense: 10
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: false
+      SuperNovice: false
+    Locations:
+      Head_Top: true
+    ArmorLevel: 1
+    EquipLevelMin: 70
+    Refineable: true
+    View: 45
+    Script: |
+      bonus bInt,10;
+      bonus bVariableCastrate,-10;
+  - Id: 990010
+    AegisName: RK_Surya_Shield
+    Name: Surya Shield
+    Type: Armor
+    Buy: 20
+    Weight: 1300
+    Defense: 60
+    Slots: 1
+    Jobs:
+      All: true
+      Novice: false
+      SuperNovice: false
+    Locations:
+      Left_Hand: true
+    ArmorLevel: 1
+    EquipLevelMin: 70
+    Refineable: true
+    View: 1
+    Script: |
+      bonus bShortWeaponDamageReturn,8;
