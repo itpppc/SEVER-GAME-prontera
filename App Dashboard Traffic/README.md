@@ -9,17 +9,18 @@
 
 ## สถานะการ Deploy (Production Status)
 
-- **Production Server**: ทำงานอยู่ในโหมด Background Daemon (Multi-threaded HTTP Server)
-- **Production Live URL**: [http://localhost:5555/](http://localhost:5555/)
-- **Fallback Standalone File**: [index.html](file:///e:/Agentic/index.html) (เปิดดูแบบ Offline ได้ 100%)
+- **Production Cloud Live URL (Vercel)**: [https://bangkok-traffic-dashboard.vercel.app](https://bangkok-traffic-dashboard.vercel.app)
+- **Official Creator & Developer**: [TON-AI Tech](https://ton-ai-tech.web.app/)
+- **PWA Native Mobile App**: รองรับการติดตั้งแบบ Web App (Add to Home Screen) พร้อม `manifest.json`
+- **Fallback Offline File**: [index.html](file:///e:/Agentic/App%20Dashboard%20Traffic/index.html) หรือ [dashboard.html](file:///e:/Agentic/App%20Dashboard%20Traffic/dashboard.html)
 
 ---
 
-## วิธีการเปิดใช้งาน (Quick Access)
+## เครดิตผู้พัฒนา (Credits)
 
-1. **เปิดผ่านเบราว์เซอร์ทันที**: คลิกเข้าที่ [http://localhost:5555/](http://localhost:5555/)
-2. **เปิดผ่าน Batch File ในโฟลเดอร์**: ดับเบิลคลิกที่ [START_DASHBOARD.bat](file:///e:/Agentic/START_DASHBOARD.bat)
-3. **เปิดไฟล์ HTML โดยตรง**: ดับเบิลคลิกที่ [index.html](file:///e:/Agentic/index.html) หรือ [dashboard.html](file:///e:/Agentic/dashboard.html)
+แอปพลิเคชันนี้ออกแบบและพัฒนาโดย **[TON-AI Tech](https://ton-ai-tech.web.app/)**
+- เว็บไซต์ทางการ: [https://ton-ai-tech.web.app/](https://ton-ai-tech.web.app/)
+- โซลูชัน: Smart Mobility Analytics, AI Traffic Vision & Native Mobile Web Applications
 
 ---
 
