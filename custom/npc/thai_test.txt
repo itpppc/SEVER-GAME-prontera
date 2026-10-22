@@ -1,0 +1,11 @@
+//===== Thai text test (experiment, see docs/THAI-TEST.md) =====
+// This file is saved in Thai code page 874 on purpose: the game client shows Thai only when it reads these bytes as cp874.
+// If the dialog shows boxes or random Korean letters, Thai does not work with this client setup.
+prontera,149,189,4	script	Thai Test::TH_Test	4_F_SISTER,{
+	mes "[Thai Test]";
+	mes "สวัสดีครับ ยินดีต้อนรับสู่ Prontera รามเกียรติ์";
+	mes "ทดสอบภาษาไทย: กขคงจฉชซ ก่ ก้ ก็ กิ กี กุ กู";
+	mes "ถ้าเห็นเป็นภาษาไทยปกติ แปลว่าใช้ได้";
+	mes "If you only see boxes or strange letters, Thai is not working yet.";
+	close;
+}
