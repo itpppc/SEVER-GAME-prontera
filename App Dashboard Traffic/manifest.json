@@ -1,0 +1,93 @@
+{
+  "id": "bkk-smart-mobility-pwa",
+  "name": "Bangkok Smart Mobility & Live CCTV",
+  "short_name": "BKK Mobility",
+  "description": "ระบบวิเคราะห์การเดินทาง โครงข่ายขนส่ง และศูนย์รวมกล้องวงจรปิดจราจรสด กทม. ออกแบบและพัฒนาโดย TON-AI Tech",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0f1d",
+  "theme_color": "#06b6d4",
+  "categories": [
+    "navigation",
+    "travel",
+    "utilities"
+  ],
+  "author": "TON-AI Tech",
+  "author_url": "https://ton-ai-tech.web.app/",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "กล้อง CCTV สด (176 จุด + Quad-View)",
+      "short_name": "CCTV สด",
+      "description": "ดูถ่ายทอดสดกล้องวงจรปิดจราจร กทม. ฟรี",
+      "url": "./index.html#traffic",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "ค้นหาป้ายรถเมล์",
+      "short_name": "รถเมล์",
+      "description": "ค้นหาป้ายและเส้นทางรถเมล์",
+      "url": "./index.html#bus",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "คำนวณค่าเดินทาง",
+      "short_name": "คำนวณ",
+      "description": "คำนวณค่าโดยสารและเวลาเดินทาง",
+      "url": "./index.html#transit",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

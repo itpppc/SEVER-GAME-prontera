@@ -1,0 +1,7447 @@
+{
+  "overview": {
+    "cctv_cameras_count": 176,
+    "cctv_records_count": 15774,
+    "avg_traffic_speed": 41.9,
+    "avg_traffic_vc": 0.73,
+    "bus_districts_count": 50,
+    "bus_unique_stops": 4201,
+    "bus_records_count": 78644,
+    "total_bus_wd": 1073849,
+    "total_bus_we": 1007916,
+    "travel_modes_count": 3
+  },
+  "cctv": {
+    "cameras": [
+      {
+        "id": 1,
+        "name": "PER-14-001 38 - พุทธมณฑลสาย 4 - นครชัยศรี",
+        "organization": "DOH",
+        "lat": 13.777329,
+        "lng": 100.2234,
+        "avg_speed": 75.6,
+        "avg_vc": 0.89,
+        "avg_volume": 59,
+        "avg_capacity": 0,
+        "avg_density": 76.8,
+        "max_vc": 1.49,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 2,
+        "name": "PER-12-016 3310 - กระทุ่มล้ม - พุทธมณฑล",
+        "organization": "DOH",
+        "lat": 13.7644,
+        "lng": 100.3288,
+        "avg_speed": 44.4,
+        "avg_vc": 1.17,
+        "avg_volume": 35,
+        "avg_capacity": 0,
+        "avg_density": 134.1,
+        "max_vc": 1.9,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 3,
+        "name": "PER-13-031  4 - อ้อมใหญ่ -นครชัยศรี IN",
+        "organization": "DOH",
+        "lat": 13.71173,
+        "lng": 100.2645,
+        "avg_speed": 31.9,
+        "avg_vc": 0.85,
+        "avg_volume": 74,
+        "avg_capacity": 0,
+        "avg_density": 149.9,
+        "max_vc": 1.8,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 4,
+        "name": "PER-3-004 ถ.เพชรเกษม อ้อมใหญ่",
+        "organization": "DOH",
+        "lat": 13.708,
+        "lng": 100.2841,
+        "avg_speed": 22.4,
+        "avg_vc": 1.15,
+        "avg_volume": 50,
+        "avg_capacity": 0,
+        "avg_density": 176.8,
+        "max_vc": 2.06,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 5,
+        "name": "PER-10-023 3091 - อ.กระทุ่มแบน จ.สมุทรสาคร",
+        "organization": "DOH",
+        "lat": 13.634921,
+        "lng": 100.296815,
+        "avg_speed": 25.5,
+        "avg_vc": 0.88,
+        "avg_volume": 65,
+        "avg_capacity": 0,
+        "avg_density": 145.6,
+        "max_vc": 2.33,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 6,
+        "name": "PER-3-012 ถ.รังสิต-นครนายก กม.9",
+        "organization": "DOH",
+        "lat": 14.0043,
+        "lng": 100.697,
+        "avg_speed": 17.5,
+        "avg_vc": 0.71,
+        "avg_volume": 113,
+        "avg_capacity": 0,
+        "avg_density": 140.9,
+        "max_vc": 1.35,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 7,
+        "name": "SPC-009 หมูบ้านชิชา",
+        "organization": "DOH",
+        "lat": 13.67652,
+        "lng": 100.462701,
+        "avg_speed": 19.1,
+        "avg_vc": 1.35,
+        "avg_volume": 142,
+        "avg_capacity": 0,
+        "avg_density": 130.9,
+        "max_vc": 2.15,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 8,
+        "name": "PER-9-027 304-เขตมีนบุรี จ.กรุงเทพมหานคร",
+        "organization": "DOH",
+        "lat": 13.81171565,
+        "lng": 100.7873394,
+        "avg_speed": 43.0,
+        "avg_vc": 0.61,
+        "avg_volume": 140,
+        "avg_capacity": 0,
+        "avg_density": 87.1,
+        "max_vc": 1.18,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 9,
+        "name": "ถ.ราชพฤกษ์ -> ทล.345 กม.3+890",
+        "organization": "DRR",
+        "lat": 13.92287333,
+        "lng": 100.476562,
+        "avg_speed": 33.3,
+        "avg_vc": 1.13,
+        "avg_volume": 48,
+        "avg_capacity": 0,
+        "avg_density": 82.0,
+        "max_vc": 1.79,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 10,
+        "name": "ถ.ราชพฤกษ์ -> ถ.รัตนาธิเบศร์ กม.3+850",
+        "organization": "DRR",
+        "lat": 13.922811,
+        "lng": 100.4769327,
+        "avg_speed": 36.7,
+        "avg_vc": 1.04,
+        "avg_volume": 33,
+        "avg_capacity": 0,
+        "avg_density": 89.4,
+        "max_vc": 1.93,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 11,
+        "name": "ถ.ชัยพฤกษ์ -> ถ.แจ้งวัฒนะ N : 13.910287  E : 100.499288",
+        "organization": "DRR",
+        "lat": 13.91019809,
+        "lng": 100.4991017,
+        "avg_speed": 33.3,
+        "avg_vc": 0.8,
+        "avg_volume": 232,
+        "avg_capacity": 0,
+        "avg_density": 68.6,
+        "max_vc": 1.87,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 11,
+        "name": "ถ.แจ้งวัฒนะ -> ถ.ชัยพฤกษ์ N : 13.910287  E : 100.499288",
+        "organization": "DRR",
+        "lat": 13.91038007,
+        "lng": 100.4993554,
+        "avg_speed": 34.2,
+        "avg_vc": 0.84,
+        "avg_volume": 144,
+        "avg_capacity": 0,
+        "avg_density": 88.5,
+        "max_vc": 1.34,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 12,
+        "name": "ถ.ราชพฤกษ์ -> ถ.ชัยพฤกษ์ กม.22+710",
+        "organization": "DRR",
+        "lat": 13.88125696,
+        "lng": 100.4507026,
+        "avg_speed": 40.8,
+        "avg_vc": 1.46,
+        "avg_volume": 0,
+        "avg_capacity": 0,
+        "avg_density": 142.7,
+        "max_vc": 2.17,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 12,
+        "name": "ถ.ราชพฤกษ์ -> ถ.นครอินทร์ กม.22+710",
+        "organization": "DRR",
+        "lat": 13.88125758,
+        "lng": 100.450731,
+        "avg_speed": 36.5,
+        "avg_vc": 1.21,
+        "avg_volume": 57,
+        "avg_capacity": 0,
+        "avg_density": 136.8,
+        "max_vc": 1.75,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 13,
+        "name": "ถ.ราชพฤกษ์ -> ถ.กาญจนาภิเษก  กม.4+010",
+        "organization": "DRR",
+        "lat": 13.92316114,
+        "lng": 100.4754912,
+        "avg_speed": 34.6,
+        "avg_vc": 0.47,
+        "avg_volume": 438,
+        "avg_capacity": 0,
+        "avg_density": 47.1,
+        "max_vc": 1.46,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 14,
+        "name": "ถ.รัตนาธิเบศร์ ->  ถ.ราชพฤกษ์ กม.22+210",
+        "organization": "DRR",
+        "lat": 13.87675296,
+        "lng": 100.4510899,
+        "avg_speed": 26.4,
+        "avg_vc": 0.64,
+        "avg_volume": 308,
+        "avg_capacity": 0,
+        "avg_density": 62.0,
+        "max_vc": 1.38,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 15,
+        "name": "ถ.ชัยพฤกษ์ -> ปากเกร็ด กม.3+890",
+        "organization": "DRR",
+        "lat": 13.92291051,
+        "lng": 100.4765718,
+        "avg_speed": 54.1,
+        "avg_vc": 0.5,
+        "avg_volume": 391,
+        "avg_capacity": 0,
+        "avg_density": 47.8,
+        "max_vc": 0.95,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 16,
+        "name": "ถ.ราชพฤกษ์ -> ถ.กาญจนาภิเษก  กม.3+850",
+        "organization": "DRR",
+        "lat": 13.9227733,
+        "lng": 100.4769232,
+        "avg_speed": 42.4,
+        "avg_vc": 0.34,
+        "avg_volume": 545,
+        "avg_capacity": 0,
+        "avg_density": 66.7,
+        "max_vc": 0.73,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 17,
+        "name": "ถ.ราชพฤกษ์ -> ถ.ชัยพฤกษ์ กม.23+190",
+        "organization": "DRR",
+        "lat": 13.88558854,
+        "lng": 100.4504866,
+        "avg_speed": 30.0,
+        "avg_vc": 1.05,
+        "avg_volume": 45,
+        "avg_capacity": 0,
+        "avg_density": 85.7,
+        "max_vc": 2.19,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 18,
+        "name": "ถ.ราชพฤกษ์ -> ถ.ชัยพฤกษ์ กม.21+835",
+        "organization": "DRR",
+        "lat": 13.87337242,
+        "lng": 100.4513443,
+        "avg_speed": 52.3,
+        "avg_vc": 1.25,
+        "avg_volume": 8,
+        "avg_capacity": 0,
+        "avg_density": 95.7,
+        "max_vc": 2.04,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 18,
+        "name": "ถ.ราชพฤกษ์ -> ถ.ชัยพฤกษ์ กม.22+345",
+        "organization": "DRR",
+        "lat": 13.87796612,
+        "lng": 100.4509488,
+        "avg_speed": 56.5,
+        "avg_vc": 0.53,
+        "avg_volume": 441,
+        "avg_capacity": 0,
+        "avg_density": 42.5,
+        "max_vc": 1.03,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 18,
+        "name": "ถ.ราชพฤกษ์ -> ถ.ชัยพฤกษ์ กม.22+436",
+        "organization": "DRR",
+        "lat": 13.87876051,
+        "lng": 100.4508782,
+        "avg_speed": 36.8,
+        "avg_vc": 0.49,
+        "avg_volume": 485,
+        "avg_capacity": 0,
+        "avg_density": 71.9,
+        "max_vc": 1.25,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 18,
+        "name": "ถ.ราชพฤกษ์ -> ถ.ชัยพฤกษ์ กม.22+436",
+        "organization": "DRR",
+        "lat": 13.8788,
+        "lng": 100.4508743,
+        "avg_speed": 38.7,
+        "avg_vc": 0.49,
+        "avg_volume": 367,
+        "avg_capacity": 0,
+        "avg_density": 56.9,
+        "max_vc": 1.04,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 18,
+        "name": "ถ.ราชพฤกษ์ -> ถ.นครอินทร์ กม.22+436",
+        "organization": "DRR",
+        "lat": 13.87880227,
+        "lng": 100.4509168,
+        "avg_speed": 46.0,
+        "avg_vc": 0.65,
+        "avg_volume": 0,
+        "avg_capacity": 0,
+        "avg_density": 45.0,
+        "max_vc": 0.65,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 19,
+        "name": "ถ.ราชพฤกษ์ -> ถ.นครอินทร์ กม.22+436",
+        "organization": "DRR",
+        "lat": 13.87880227,
+        "lng": 100.4509168,
+        "avg_speed": 37.5,
+        "avg_vc": 1.24,
+        "avg_volume": 0,
+        "avg_capacity": 0,
+        "avg_density": 132.2,
+        "max_vc": 1.93,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 20,
+        "name": "ถ.ราชพฤกษ์ -> ถ.นครอินทร์  กม.21+835",
+        "organization": "DRR",
+        "lat": 13.87337545,
+        "lng": 100.45138,
+        "avg_speed": 46.9,
+        "avg_vc": 1.14,
+        "avg_volume": 41,
+        "avg_capacity": 0,
+        "avg_density": 154.1,
+        "max_vc": 2.17,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 20,
+        "name": "ถ.ราชพฤกษ์ -> ถ.นครอินทร์ กม.22+436",
+        "organization": "DRR",
+        "lat": 13.87876932,
+        "lng": 100.4509192,
+        "avg_speed": 34.2,
+        "avg_vc": 1.37,
+        "avg_volume": 0,
+        "avg_capacity": 0,
+        "avg_density": 161.8,
+        "max_vc": 2.04,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 20,
+        "name": "ถ.ราชพฤกษ์ -> ถ.นครอินทร์ กม.22+436",
+        "organization": "DRR",
+        "lat": 13.87880227,
+        "lng": 100.4509168,
+        "avg_speed": 41.0,
+        "avg_vc": 1.42,
+        "avg_volume": 12,
+        "avg_capacity": 0,
+        "avg_density": 93.2,
+        "max_vc": 2.06,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 21,
+        "name": "ถ.รัตนาธิเบศร์ ->  ถ.ราชพฤกษ์ กม.22+210",
+        "organization": "DRR",
+        "lat": 13.8765638,
+        "lng": 100.4511639,
+        "avg_speed": 40.4,
+        "avg_vc": 0.69,
+        "avg_volume": 133,
+        "avg_capacity": 0,
+        "avg_density": 82.7,
+        "max_vc": 1.38,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 21,
+        "name": "ถ.ราชพฤกษ์ -> ถ.กาญจนาภิเษก กม.22+345",
+        "organization": "DRR",
+        "lat": 13.87796782,
+        "lng": 100.4509814,
+        "avg_speed": 30.0,
+        "avg_vc": 0.52,
+        "avg_volume": 321,
+        "avg_capacity": 0,
+        "avg_density": 50.0,
+        "max_vc": 1.68,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 22,
+        "name": "DS-255-02-01 ถ.ราชวิถี-ลงจากสะพานกรุงธน",
+        "organization": "BMA",
+        "lat": 13.77937437,
+        "lng": 100.5063515,
+        "avg_speed": 65.9,
+        "avg_vc": 0.96,
+        "avg_volume": 57,
+        "avg_capacity": 0,
+        "avg_density": 24.3,
+        "max_vc": 1.53,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 23,
+        "name": "DS-255-02-04 ถ.ราชวิถี-ก่อนขึ้นสะพานกรุงธน",
+        "organization": "BMA",
+        "lat": 13.77928359,
+        "lng": 100.5062991,
+        "avg_speed": 77.9,
+        "avg_vc": 1.67,
+        "avg_volume": 13,
+        "avg_capacity": 0,
+        "avg_density": 44.8,
+        "max_vc": 3.02,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 24,
+        "name": "PN-254-02-02 ถ.ราชดำเนินนอก-ถ.กรุงเกษม",
+        "organization": "BMA",
+        "lat": 13.76055074,
+        "lng": 100.5078264,
+        "avg_speed": 88.5,
+        "avg_vc": 0.37,
+        "avg_volume": 268,
+        "avg_capacity": 0,
+        "avg_density": 19.3,
+        "max_vc": 0.87,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 25,
+        "name": "PN-256-02-04 ถ.ราชดำเนินนอก-ถ.จักรพรรดิพงษ์",
+        "organization": "BMA",
+        "lat": 13.76044906,
+        "lng": 100.5080208,
+        "avg_speed": 61.2,
+        "avg_vc": 0.47,
+        "avg_volume": 279,
+        "avg_capacity": 0,
+        "avg_density": 41.3,
+        "max_vc": 1.23,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 26,
+        "name": "PY-10-02-03 ถ.พระราม 6-ถ.ราชวิถี",
+        "organization": "BMA",
+        "lat": 13.7751251,
+        "lng": 100.5311351,
+        "avg_speed": 89.4,
+        "avg_vc": 0.84,
+        "avg_volume": 113,
+        "avg_capacity": 0,
+        "avg_density": 21.6,
+        "max_vc": 1.79,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 26,
+        "name": "PY-10-02-04 ถ.พระราม 6-ถ.ราชวิถี",
+        "organization": "BMA",
+        "lat": 13.77498666,
+        "lng": 100.5310886,
+        "avg_speed": 8.7,
+        "avg_vc": 0.21,
+        "avg_volume": 551,
+        "avg_capacity": 0,
+        "avg_density": 157.4,
+        "max_vc": 0.47,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 27,
+        "name": "RW-55-02-03 ถ.พระราม 6-ถ.ศรีอยุธยา",
+        "organization": "BMA",
+        "lat": 13.76350314,
+        "lng": 100.5266408,
+        "avg_speed": 82.0,
+        "avg_vc": 0.54,
+        "avg_volume": 97,
+        "avg_capacity": 0,
+        "avg_density": 33.4,
+        "max_vc": 1.52,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 28,
+        "name": "RW-56-02-02 ถ.พระราม 6-ถ.ราชวิถี",
+        "organization": "BMA",
+        "lat": 13.76284623,
+        "lng": 100.525971,
+        "avg_speed": 78.9,
+        "avg_vc": 1.0,
+        "avg_volume": 124,
+        "avg_capacity": 0,
+        "avg_density": 24.9,
+        "max_vc": 2.7,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 29,
+        "name": "TF1-BB-02 ถ.กาญจนาภิเษก - ถ. บางบอน 1",
+        "organization": "BMA",
+        "lat": 13.66318,
+        "lng": 100.40585,
+        "avg_speed": 20.5,
+        "avg_vc": 0.13,
+        "avg_volume": 452,
+        "avg_capacity": 0,
+        "avg_density": 12.9,
+        "max_vc": 0.29,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 30,
+        "name": "TF1-BK-01 ถ.ประเสริฐมนูกิจ - ถ.รัชดา-รามอินทรา ",
+        "organization": "BMA",
+        "lat": 13.815735,
+        "lng": 100.642561,
+        "avg_speed": 33.2,
+        "avg_vc": 0.61,
+        "avg_volume": 307,
+        "avg_capacity": 0,
+        "avg_density": 172.0,
+        "max_vc": 1.88,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 31,
+        "name": "TF1-CT-01 ถ.กัลปพฤกษ์ - ถ. ราชพฤกษ์",
+        "organization": "BMA",
+        "lat": 13.712454,
+        "lng": 100.459028,
+        "avg_speed": 8.8,
+        "avg_vc": 0.95,
+        "avg_volume": 39,
+        "avg_capacity": 0,
+        "avg_density": 75.0,
+        "max_vc": 2.1,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 32,
+        "name": "TF1-HK-02 ถ.พระราม 9 - ถ.รามคำแหง",
+        "organization": "BMA",
+        "lat": 13.741352,
+        "lng": 100.616005,
+        "avg_speed": 33.5,
+        "avg_vc": 1.48,
+        "avg_volume": 8,
+        "avg_capacity": 0,
+        "avg_density": 138.7,
+        "max_vc": 2.49,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 33,
+        "name": "TF1-HK-05 ถ.ประชาอุทิศ - ปากซอยลิ้มทอง",
+        "organization": "BMA",
+        "lat": 13.769973,
+        "lng": 100.586409,
+        "avg_speed": 9.9,
+        "avg_vc": 0.33,
+        "avg_volume": 401,
+        "avg_capacity": 0,
+        "avg_density": 172.5,
+        "max_vc": 0.99,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 34,
+        "name": "TF1-JJ-02 ถ.วิภาวดีรังสิต - ถ.งามวงศ์วาน",
+        "organization": "BMA",
+        "lat": 13.8475,
+        "lng": 100.561278,
+        "avg_speed": 48.8,
+        "avg_vc": 1.0,
+        "avg_volume": 49,
+        "avg_capacity": 0,
+        "avg_density": 20.2,
+        "max_vc": 1.54,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 35,
+        "name": "TF1-LK-02 ถ.ร่มเกล้า - ถ.เจ้าคุณทหาร",
+        "organization": "BMA",
+        "lat": 13.754419,
+        "lng": 100.746239,
+        "avg_speed": 26.7,
+        "avg_vc": 0.27,
+        "avg_volume": 397,
+        "avg_capacity": 0,
+        "avg_density": 29.0,
+        "max_vc": 0.68,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 36,
+        "name": "TF1-LS-01 ถ.แจ้งวัฒนะ-ถ.กำแพงเพชร 6",
+        "organization": "BMA",
+        "lat": 13.891961,
+        "lng": 100.564306,
+        "avg_speed": 25.9,
+        "avg_vc": 0.37,
+        "avg_volume": 332,
+        "avg_capacity": 900,
+        "avg_density": 47.9,
+        "max_vc": 0.93,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 37,
+        "name": "TF1-PC-01 ถ.เพชรเกษม-ถ.ราชพฤกษ์",
+        "organization": "BMA",
+        "lat": 13.712537,
+        "lng": 100.428889,
+        "avg_speed": 29.5,
+        "avg_vc": 2.46,
+        "avg_volume": 0,
+        "avg_capacity": 0,
+        "avg_density": 190.1,
+        "max_vc": 3.74,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 38,
+        "name": "TF1-RW-02 ถ.จตุรทิศ-ถ.อโศก-ดินแดง",
+        "organization": "BMA",
+        "lat": 13.756727,
+        "lng": 100.548484,
+        "avg_speed": 14.5,
+        "avg_vc": 0.73,
+        "avg_volume": 131,
+        "avg_capacity": 0,
+        "avg_density": 135.2,
+        "max_vc": 1.56,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 39,
+        "name": "TF1-TW-02 ถ.คลองทวีวัฒนา - ถ.อักษะ",
+        "organization": "BMA",
+        "lat": 13.777117,
+        "lng": 100.340343,
+        "avg_speed": 29.4,
+        "avg_vc": 0.08,
+        "avg_volume": 211,
+        "avg_capacity": 0,
+        "avg_density": 38.4,
+        "max_vc": 0.16,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 40,
+        "name": "TF1-TW-03 ถ.ทางคู่ขนานบรมราชชนนี-ถ.พุทธมณฑลสาย 2",
+        "organization": "BMA",
+        "lat": 13.784222,
+        "lng": 100.394883,
+        "avg_speed": 76.1,
+        "avg_vc": 0.43,
+        "avg_volume": 503,
+        "avg_capacity": 0,
+        "avg_density": 5.2,
+        "max_vc": 0.92,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 41,
+        "name": "TF1-TW-04 ถ.เพชรเกษม - ถ.เพชรเกษม 69",
+        "organization": "BMA",
+        "lat": 13.708085,
+        "lng": 100.373659,
+        "avg_speed": 93.7,
+        "avg_vc": 0.42,
+        "avg_volume": 71,
+        "avg_capacity": 0,
+        "avg_density": 96.9,
+        "max_vc": 0.84,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 42,
+        "name": "TF1-WL-01 ถ. ประดิษฐ์มนูธรรม-ปากซอยรามคำแหง 21",
+        "organization": "BMA",
+        "lat": 13.76684,
+        "lng": 100.602283,
+        "avg_speed": 86.7,
+        "avg_vc": 0.74,
+        "avg_volume": 59,
+        "avg_capacity": 0,
+        "avg_density": 101.5,
+        "max_vc": 1.73,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 43,
+        "name": "TF1-WL-02 ถ.ลาดพร้าว -ปากซอยลาดพร้าว 81",
+        "organization": "BMA",
+        "lat": 13.786418,
+        "lng": 100.609083,
+        "avg_speed": 38.8,
+        "avg_vc": 0.41,
+        "avg_volume": 438,
+        "avg_capacity": 0,
+        "avg_density": 114.9,
+        "max_vc": 0.78,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 44,
+        "name": "TF2-DD-S10-02 ถ.วิภาวดีรังสิต - ถ.สุทธิสารวินิจฉัย",
+        "organization": "BMA",
+        "lat": 13.789353,
+        "lng": 100.561856,
+        "avg_speed": 17.1,
+        "avg_vc": 0.32,
+        "avg_volume": 206,
+        "avg_capacity": 0,
+        "avg_density": 127.8,
+        "max_vc": 0.71,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 45,
+        "name": "TF2-DD-S9-01 ถ.สุทธิสารวินิจฉัย- ถ.วิภาวดีรังสิต ",
+        "organization": "BMA",
+        "lat": 13.789338,
+        "lng": 100.561159,
+        "avg_speed": 29.8,
+        "avg_vc": 0.3,
+        "avg_volume": 480,
+        "avg_capacity": 0,
+        "avg_density": 76.5,
+        "max_vc": 0.55,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 46,
+        "name": "TF2-DS-S14-01 ถ.พระรามที่ 5 -ถ. อำนวยสงคราม",
+        "organization": "BMA",
+        "lat": 13.783423,
+        "lng": 100.524415,
+        "avg_speed": 11.7,
+        "avg_vc": 0.7,
+        "avg_volume": 211,
+        "avg_capacity": 0,
+        "avg_density": 121.6,
+        "max_vc": 1.69,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 47,
+        "name": "TF2-DS-S15-01 ถ.ประดิพัทธ์-ถ.พระรามที่ 5",
+        "organization": "BMA",
+        "lat": 13.79328609,
+        "lng": 100.5299149,
+        "avg_speed": 14.8,
+        "avg_vc": 0.51,
+        "avg_volume": 231,
+        "avg_capacity": 0,
+        "avg_density": 69.0,
+        "max_vc": 1.3,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 48,
+        "name": "TF2-DS-S15-02 ถ.ประดิพัทธ์-ถ.ทหาร",
+        "organization": "BMA",
+        "lat": 13.79351061,
+        "lng": 100.5298111,
+        "avg_speed": 16.7,
+        "avg_vc": 0.31,
+        "avg_volume": 332,
+        "avg_capacity": 0,
+        "avg_density": 161.8,
+        "max_vc": 0.78,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 49,
+        "name": "TF2-DS-S17-01 ถ.ทหาร - ถ.ประชาราษฎร์ สาย 1",
+        "organization": "BMA",
+        "lat": 13.797499,
+        "lng": 100.5213,
+        "avg_speed": 18.0,
+        "avg_vc": 0.38,
+        "avg_volume": 207,
+        "avg_capacity": 0,
+        "avg_density": 162.6,
+        "max_vc": 1.02,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 50,
+        "name": "TF2-DS-S18-01 ถ.นครไชยศรี - ถ.ร่วมจิตต์",
+        "organization": "BMA",
+        "lat": 13.782932,
+        "lng": 100.516103,
+        "avg_speed": 23.1,
+        "avg_vc": 0.32,
+        "avg_volume": 533,
+        "avg_capacity": 0,
+        "avg_density": 110.8,
+        "max_vc": 0.66,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 51,
+        "name": "TF2-HK-S63-01 ถ.รัชดาภิเษก - ถ.พระราม 9",
+        "organization": "BMA",
+        "lat": 13.769468,
+        "lng": 100.572877,
+        "avg_speed": 16.5,
+        "avg_vc": 0.58,
+        "avg_volume": 172,
+        "avg_capacity": 0,
+        "avg_density": 177.3,
+        "max_vc": 1.35,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 52,
+        "name": "TF2-HK-S67-06 ถ.ประชาราษฎร์บำเพ็ญ - ถ.รัชดาภิเษก",
+        "organization": "BMA",
+        "lat": 13.778459,
+        "lng": 100.573785,
+        "avg_speed": 16.8,
+        "avg_vc": 0.27,
+        "avg_volume": 500,
+        "avg_capacity": 0,
+        "avg_density": 163.7,
+        "max_vc": 0.83,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 53,
+        "name": "TF2-JJ-S39-01 ถ.กำแพงเพชร - ถ. พหลโยธิน",
+        "organization": "BMA",
+        "lat": 13.798006,
+        "lng": 100.550908,
+        "avg_speed": 17.9,
+        "avg_vc": 0.41,
+        "avg_volume": 211,
+        "avg_capacity": 0,
+        "avg_density": 143.4,
+        "max_vc": 1.02,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 54,
+        "name": "TF2-JJ-S40-03 ปากซอยพหลโยธิน 18 - ถ. พหลโยธิน",
+        "organization": "BMA",
+        "lat": 13.797896,
+        "lng": 100.551208,
+        "avg_speed": 19.1,
+        "avg_vc": 0.38,
+        "avg_volume": 321,
+        "avg_capacity": 0,
+        "avg_density": 136.5,
+        "max_vc": 0.73,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 55,
+        "name": "TF2-JJ-S66-04 ถ.รัชดาภิเษก - ปากซอยข้างศาลอาญา",
+        "organization": "BMA",
+        "lat": 13.810199,
+        "lng": 100.575098,
+        "avg_speed": 49.2,
+        "avg_vc": 0.71,
+        "avg_volume": 39,
+        "avg_capacity": 0,
+        "avg_density": 175.7,
+        "max_vc": 1.15,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 56,
+        "name": "TF2-JJ-S7-02 ถ.พหลโยธิน - ถ.รัชดาภิเษก",
+        "organization": "BMA",
+        "lat": 13.826893,
+        "lng": 100.568133,
+        "avg_speed": 18.6,
+        "avg_vc": 0.24,
+        "avg_volume": 446,
+        "avg_capacity": 0,
+        "avg_density": 165.5,
+        "max_vc": 0.72,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 57,
+        "name": "TF2-KL-S59-01 ถ.เจริญกรุง - ปากซอยเจริญกรุง 74 แยก 3",
+        "organization": "BMA",
+        "lat": 13.701495,
+        "lng": 100.50124,
+        "avg_speed": 16.7,
+        "avg_vc": 0.38,
+        "avg_volume": 638,
+        "avg_capacity": 0,
+        "avg_density": 171.0,
+        "max_vc": 0.65,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 58,
+        "name": "TF2-KL-S60-01 ถ.เจริญกรุง - ปากซอยเจริญกรุง 72/3",
+        "organization": "BMA",
+        "lat": 13.706941,
+        "lng": 100.507255,
+        "avg_speed": 24.6,
+        "avg_vc": 0.36,
+        "avg_volume": 488,
+        "avg_capacity": 0,
+        "avg_density": 86.2,
+        "max_vc": 0.72,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 59,
+        "name": "TF2-KS-S5-02 ถ.เจริญนคร - ปากซอยเจริญนคร 12",
+        "organization": "BMA",
+        "lat": 13.723788,
+        "lng": 100.509033,
+        "avg_speed": 21.5,
+        "avg_vc": 0.4,
+        "avg_volume": 542,
+        "avg_capacity": 0,
+        "avg_density": 109.7,
+        "max_vc": 1.18,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 60,
+        "name": "TF2-PP-S1-01 ถ.กรุงเกษม - ถ. วังเจ้าสาย",
+        "organization": "BMA",
+        "lat": 13.742948,
+        "lng": 100.51573,
+        "avg_speed": 40.2,
+        "avg_vc": 0.2,
+        "avg_volume": 454,
+        "avg_capacity": 0,
+        "avg_density": 140.8,
+        "max_vc": 0.5,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 61,
+        "name": "TF2-PP-S3-04  ถ.ดำรงรักษ์ - ถ. จักรพรรดิพงษ์",
+        "organization": "BMA",
+        "lat": 13.754913,
+        "lng": 100.509578,
+        "avg_speed": 21.7,
+        "avg_vc": 0.26,
+        "avg_volume": 452,
+        "avg_capacity": 0,
+        "avg_density": 86.5,
+        "max_vc": 0.72,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 62,
+        "name": "TF2-PP-S4-02 ถ.หลวง - ถ.วรจักร",
+        "organization": "BMA",
+        "lat": 13.748358,
+        "lng": 100.507207,
+        "avg_speed": 16.8,
+        "avg_vc": 0.61,
+        "avg_volume": 231,
+        "avg_capacity": 0,
+        "avg_density": 183.3,
+        "max_vc": 1.17,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 63,
+        "name": "TF2-PT-S27-02 ถ.พระรามที่ 4 -ถ.บรรทัดทอง",
+        "organization": "BMA",
+        "lat": 13.735782,
+        "lng": 100.521346,
+        "avg_speed": 38.6,
+        "avg_vc": 0.35,
+        "avg_volume": 164,
+        "avg_capacity": 0,
+        "avg_density": 106.8,
+        "max_vc": 1.04,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 64,
+        "name": "TF2-PT-S29-04 ถ.พระรามที่ 1 -ถ.ราชดำริ",
+        "organization": "BMA",
+        "lat": 13.745203,
+        "lng": 100.535931,
+        "avg_speed": 16.1,
+        "avg_vc": 0.16,
+        "avg_volume": 264,
+        "avg_capacity": 0,
+        "avg_density": 97.0,
+        "max_vc": 0.64,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 65,
+        "name": "TF2-PT-S33-02 ถ.พระรามที่ 1 -ปากซอยรองเมือง 5",
+        "organization": "BMA",
+        "lat": 13.747606,
+        "lng": 100.523066,
+        "avg_speed": 29.3,
+        "avg_vc": 0.3,
+        "avg_volume": 226,
+        "avg_capacity": 0,
+        "avg_density": 107.7,
+        "max_vc": 0.87,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 66,
+        "name": "TF2-PY-S12-04 ถ.พระรามที่ 6 - ปากซอยหม่อมแผ้ว",
+        "organization": "BMA",
+        "lat": 13.791981,
+        "lng": 100.537882,
+        "avg_speed": 19.5,
+        "avg_vc": 0.3,
+        "avg_volume": 290,
+        "avg_capacity": 0,
+        "avg_density": 144.0,
+        "max_vc": 1.0,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 67,
+        "name": "TF2-PY-S13-01 ถ.พระรามที่ 6 - ปากซอยพระรามที่ 6 ซอย 43",
+        "organization": "BMA",
+        "lat": 13.791915,
+        "lng": 100.538026,
+        "avg_speed": 22.4,
+        "avg_vc": 0.13,
+        "avg_volume": 272,
+        "avg_capacity": 0,
+        "avg_density": 153.8,
+        "max_vc": 0.7,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 68,
+        "name": "TF2-PY-S35-04 ปากซอยพหลโยธิน 2 - ถ.พหลโยธิน",
+        "organization": "BMA",
+        "lat": 13.77561,
+        "lng": 100.543149,
+        "avg_speed": 27.3,
+        "avg_vc": 0.42,
+        "avg_volume": 185,
+        "avg_capacity": 0,
+        "avg_density": 105.3,
+        "max_vc": 0.78,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 69,
+        "name": "TF2-PY-S37-02 ถ.ประดิพัทธ์-ถ.สาลีรัฐวิภาค",
+        "organization": "BMA",
+        "lat": 13.789811,
+        "lng": 100.548109,
+        "avg_speed": 15.7,
+        "avg_vc": 0.31,
+        "avg_volume": 368,
+        "avg_capacity": 0,
+        "avg_density": 162.2,
+        "max_vc": 0.95,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 70,
+        "name": "TF2-PY-S38-02 ถ.พหลโยธิน - ถ.ประดิพัทธ์",
+        "organization": "BMA",
+        "lat": 13.789634,
+        "lng": 100.548172,
+        "avg_speed": 19.4,
+        "avg_vc": 0.45,
+        "avg_volume": 252,
+        "avg_capacity": 0,
+        "avg_density": 162.2,
+        "max_vc": 1.23,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 71,
+        "name": "TF2-ST-S51-03 ถ.จันทน์-ถ.นราธิวาสราชนครินทร์",
+        "organization": "BMA",
+        "lat": 13.707243,
+        "lng": 100.53776,
+        "avg_speed": 23.4,
+        "avg_vc": 0.31,
+        "avg_volume": 285,
+        "avg_capacity": 0,
+        "avg_density": 162.7,
+        "max_vc": 1.08,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 72,
+        "name": "TF2-ST-SA49-01 ถ.นราธิวาสราชนครินทร์-ถ.สาทรเหนือ",
+        "organization": "BMA",
+        "lat": 13.721834,
+        "lng": 100.530456,
+        "avg_speed": 12.3,
+        "avg_vc": 0.31,
+        "avg_volume": 296,
+        "avg_capacity": 0,
+        "avg_density": 167.5,
+        "max_vc": 0.91,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 72,
+        "name": "TF2-ST-SA50-02 ถ.นราธิวาสราชนครินทร์-ถ.สาทรเหนือ",
+        "organization": "BMA",
+        "lat": 13.721725,
+        "lng": 100.530187,
+        "avg_speed": 25.2,
+        "avg_vc": 0.63,
+        "avg_volume": 68,
+        "avg_capacity": 0,
+        "avg_density": 185.6,
+        "max_vc": 1.23,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 73,
+        "name": "TF2-TR-S19-02 ถ.มไหสวรรย์ - ถ.เจริญนคร",
+        "organization": "BMA",
+        "lat": 13.702911,
+        "lng": 100.488497,
+        "avg_speed": 21.4,
+        "avg_vc": 0.49,
+        "avg_volume": 165,
+        "avg_capacity": 0,
+        "avg_density": 157.8,
+        "max_vc": 0.82,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 74,
+        "name": "TF2-TR-S22-01 ถ.เทอดไท.เพชรเกษม",
+        "organization": "BMA",
+        "lat": 13.727296,
+        "lng": 100.487263,
+        "avg_speed": 20.3,
+        "avg_vc": 0.32,
+        "avg_volume": 315,
+        "avg_capacity": 0,
+        "avg_density": 118.6,
+        "max_vc": 0.98,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 75,
+        "name": "TF2-YW-S46-02 ปากซอยนราธิวาสราชนครินทร์ 30 - ถ.นราธิวาสราชนครินทร์",
+        "organization": "BMA",
+        "lat": 13.695564,
+        "lng": 100.546223,
+        "avg_speed": 24.2,
+        "avg_vc": 0.12,
+        "avg_volume": 213,
+        "avg_capacity": 0,
+        "avg_density": 73.3,
+        "max_vc": 0.28,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 76,
+        "name": "TF2-YW-S47-02 ถ.นนทรี-ซ.นนทรี 16",
+        "organization": "BMA",
+        "lat": 13.695175,
+        "lng": 100.541115,
+        "avg_speed": 14.4,
+        "avg_vc": 0.42,
+        "avg_volume": 262,
+        "avg_capacity": 0,
+        "avg_density": 111.2,
+        "max_vc": 0.77,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 77,
+        "name": "TF-HW-01-02-06 ซ.อรุณอมรินทร์ 30 - ถ.อรุณอมรินทร์",
+        "organization": "BMA",
+        "lat": 13.771042,
+        "lng": 100.488669,
+        "avg_speed": 25.3,
+        "avg_vc": 0.16,
+        "avg_volume": 143,
+        "avg_capacity": 900,
+        "avg_density": 29.7,
+        "max_vc": 0.6,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 78,
+        "name": "TF-HW-01-02-17 ถ.พระราม 8- ถ.สามเสน",
+        "organization": "BMA",
+        "lat": 13.770021,
+        "lng": 100.495487,
+        "avg_speed": 24.5,
+        "avg_vc": 1.13,
+        "avg_volume": 164,
+        "avg_capacity": 900,
+        "avg_density": 79.8,
+        "max_vc": 1.95,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 79,
+        "name": "โทลเวย์ดินแดง",
+        "organization": "EXAT",
+        "lat": 13.7645146,
+        "lng": 100.5481813,
+        "avg_speed": 89.6,
+        "avg_vc": 1.22,
+        "avg_volume": 58,
+        "avg_capacity": 0,
+        "avg_density": 148.5,
+        "max_vc": 2.22,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 80,
+        "name": "เชื่อมก่อนลงดินแดง",
+        "organization": "EXAT",
+        "lat": 13.7602789,
+        "lng": 100.5454637,
+        "avg_speed": 42.1,
+        "avg_vc": 0.6,
+        "avg_volume": 245,
+        "avg_capacity": 0,
+        "avg_density": 57.0,
+        "max_vc": 1.21,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 81,
+        "name": "โค้งบางกอกพาเลส",
+        "organization": "EXAT",
+        "lat": 13.7527211,
+        "lng": 100.5474192,
+        "avg_speed": 68.5,
+        "avg_vc": 1.37,
+        "avg_volume": 63,
+        "avg_capacity": 0,
+        "avg_density": 43.0,
+        "max_vc": 2.29,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 82,
+        "name": "ลงเพลินจิตเหนือ",
+        "organization": "EXAT",
+        "lat": 13.743638,
+        "lng": 100.5486377,
+        "avg_speed": 25.1,
+        "avg_vc": 2.23,
+        "avg_volume": 54,
+        "avg_capacity": 0,
+        "avg_density": 107.7,
+        "max_vc": 4.84,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 83,
+        "name": "ขึ้นเพชรบุรี",
+        "organization": "EXAT",
+        "lat": 13.7496127,
+        "lng": 100.5487911,
+        "avg_speed": 20.8,
+        "avg_vc": 1.0,
+        "avg_volume": 102,
+        "avg_capacity": 0,
+        "avg_density": 102.1,
+        "max_vc": 2.82,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 83,
+        "name": "ลงเพชรบุรี",
+        "organization": "EXAT",
+        "lat": 13.7494881,
+        "lng": 100.5493036,
+        "avg_speed": 55.3,
+        "avg_vc": 0.59,
+        "avg_volume": 274,
+        "avg_capacity": 0,
+        "avg_density": 22.0,
+        "max_vc": 1.72,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 84,
+        "name": "เนินเพลินจิต",
+        "organization": "EXAT",
+        "lat": 13.7438195,
+        "lng": 100.5486124,
+        "avg_speed": 30.1,
+        "avg_vc": 0.4,
+        "avg_volume": 358,
+        "avg_capacity": 0,
+        "avg_density": 79.9,
+        "max_vc": 2.01,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 85,
+        "name": "ดวงพิทักษ์",
+        "organization": "EXAT",
+        "lat": 13.7378887,
+        "lng": 100.5511531,
+        "avg_speed": 70.5,
+        "avg_vc": 1.33,
+        "avg_volume": 63,
+        "avg_capacity": 0,
+        "avg_density": 46.4,
+        "max_vc": 2.42,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 86,
+        "name": "ราบบ่อนไก่",
+        "organization": "EXAT",
+        "lat": 13.7245558,
+        "lng": 100.5524072,
+        "avg_speed": 29.0,
+        "avg_vc": 1.01,
+        "avg_volume": 116,
+        "avg_capacity": 0,
+        "avg_density": 76.6,
+        "max_vc": 2.59,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 87,
+        "name": "พระราม4-2",
+        "organization": "EXAT",
+        "lat": 13.7233932,
+        "lng": 100.5525094,
+        "avg_speed": 51.4,
+        "avg_vc": 1.18,
+        "avg_volume": 57,
+        "avg_capacity": 0,
+        "avg_density": 60.1,
+        "max_vc": 2.77,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 88,
+        "name": "เหนือถ.พระราม4",
+        "organization": "EXAT",
+        "lat": 13.7229278,
+        "lng": 100.5524743,
+        "avg_speed": 31.0,
+        "avg_vc": 1.29,
+        "avg_volume": 43,
+        "avg_capacity": 0,
+        "avg_density": 49.1,
+        "max_vc": 2.44,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 89,
+        "name": "ต่างระดับท่าเรือ",
+        "organization": "EXAT",
+        "lat": 13.7168353,
+        "lng": 100.5557778,
+        "avg_speed": 29.6,
+        "avg_vc": 1.33,
+        "avg_volume": 93,
+        "avg_capacity": 0,
+        "avg_density": 79.3,
+        "max_vc": 3.23,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 90,
+        "name": "เข้าด่านพระราม4-1",
+        "organization": "EXAT",
+        "lat": 13.7235501,
+        "lng": 100.5527571,
+        "avg_speed": 28.4,
+        "avg_vc": 0.48,
+        "avg_volume": 274,
+        "avg_capacity": 0,
+        "avg_density": 114.7,
+        "max_vc": 1.51,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 91,
+        "name": "เข้าด่านพระราม4-2",
+        "organization": "EXAT",
+        "lat": 13.7227684,
+        "lng": 100.5525772,
+        "avg_speed": 24.5,
+        "avg_vc": 0.72,
+        "avg_volume": 70,
+        "avg_capacity": 0,
+        "avg_density": 121.6,
+        "max_vc": 1.78,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 92,
+        "name": "หน้าด่านบางนา",
+        "organization": "EXAT",
+        "lat": 13.6748855,
+        "lng": 100.6045766,
+        "avg_speed": 29.6,
+        "avg_vc": 1.02,
+        "avg_volume": 46,
+        "avg_capacity": 0,
+        "avg_density": 86.6,
+        "max_vc": 1.56,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 93,
+        "name": "ใต้ด่านบางจาก",
+        "organization": "EXAT",
+        "lat": 13.6852069,
+        "lng": 100.6024709,
+        "avg_speed": 47.6,
+        "avg_vc": 0.69,
+        "avg_volume": 103,
+        "avg_capacity": 0,
+        "avg_density": 133.3,
+        "max_vc": 1.26,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 94,
+        "name": "ปตท. ขาออก",
+        "organization": "EXAT",
+        "lat": 13.6860887,
+        "lng": 100.6025228,
+        "avg_speed": 31.4,
+        "avg_vc": 0.43,
+        "avg_volume": 181,
+        "avg_capacity": 0,
+        "avg_density": 41.4,
+        "max_vc": 1.22,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 95,
+        "name": "สุขุมวิท62_1",
+        "organization": "EXAT",
+        "lat": 13.6915256,
+        "lng": 100.600743,
+        "avg_speed": 25.0,
+        "avg_vc": 0.81,
+        "avg_volume": 136,
+        "avg_capacity": 0,
+        "avg_density": 109.0,
+        "max_vc": 1.79,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 96,
+        "name": "ทางออกสุขุมวิท62",
+        "organization": "EXAT",
+        "lat": 13.6946079,
+        "lng": 100.5971169,
+        "avg_speed": 80.3,
+        "avg_vc": 1.72,
+        "avg_volume": 178,
+        "avg_capacity": 900,
+        "avg_density": 25.5,
+        "max_vc": 4.04,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 97,
+        "name": "ทางขึ้นอาจณรงค์",
+        "organization": "EXAT",
+        "lat": 13.7126317,
+        "lng": 100.5712826,
+        "avg_speed": 41.0,
+        "avg_vc": 0.5,
+        "avg_volume": 251,
+        "avg_capacity": 0,
+        "avg_density": 71.2,
+        "max_vc": 1.01,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 97,
+        "name": "ทางลงสุขุมวิท50",
+        "organization": "EXAT",
+        "lat": 13.7015567,
+        "lng": 100.5907624,
+        "avg_speed": 28.9,
+        "avg_vc": 0.43,
+        "avg_volume": 241,
+        "avg_capacity": 0,
+        "avg_density": 52.8,
+        "max_vc": 2.17,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 98,
+        "name": "ด่านดาวคะนอง",
+        "organization": "EXAT",
+        "lat": 13.6762968,
+        "lng": 100.4795587,
+        "avg_speed": 23.7,
+        "avg_vc": 0.54,
+        "avg_volume": 340,
+        "avg_capacity": 0,
+        "avg_density": 110.8,
+        "max_vc": 1.3,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 99,
+        "name": "สะพานพระราม9",
+        "organization": "EXAT",
+        "lat": 13.6848056,
+        "lng": 100.5194778,
+        "avg_speed": 27.5,
+        "avg_vc": 1.02,
+        "avg_volume": 66,
+        "avg_capacity": 0,
+        "avg_density": 64.0,
+        "max_vc": 2.47,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 100,
+        "name": "พระราม3",
+        "organization": "EXAT",
+        "lat": 13.6899218,
+        "lng": 100.5234974,
+        "avg_speed": 78.8,
+        "avg_vc": 1.16,
+        "avg_volume": 36,
+        "avg_capacity": 0,
+        "avg_density": 53.4,
+        "max_vc": 2.36,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 101,
+        "name": "ก่อนถึงทางขึ้นเลียบแม่น้ำ",
+        "organization": "EXAT",
+        "lat": 13.7058247,
+        "lng": 100.5471407,
+        "avg_speed": 26.2,
+        "avg_vc": 0.36,
+        "avg_volume": 401,
+        "avg_capacity": 0,
+        "avg_density": 91.1,
+        "max_vc": 2.18,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 102,
+        "name": "ทางร่วมศรีรัช (บางโคล่)",
+        "organization": "EXAT",
+        "lat": 13.6955811,
+        "lng": 100.5339792,
+        "avg_speed": 33.0,
+        "avg_vc": 0.36,
+        "avg_volume": 283,
+        "avg_capacity": 0,
+        "avg_density": 128.5,
+        "max_vc": 0.96,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 103,
+        "name": "ขึ้นเลียบแม่น้ำ",
+        "organization": "EXAT",
+        "lat": 13.710806,
+        "lng": 100.5517956,
+        "avg_speed": 23.8,
+        "avg_vc": 0.68,
+        "avg_volume": 154,
+        "avg_capacity": 0,
+        "avg_density": 95.9,
+        "max_vc": 2.46,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 104,
+        "name": "ต่างระดับท่าเรือ_2",
+        "organization": "EXAT",
+        "lat": 13.7150379,
+        "lng": 100.5558236,
+        "avg_speed": 79.5,
+        "avg_vc": 0.94,
+        "avg_volume": 75,
+        "avg_capacity": 0,
+        "avg_density": 26.8,
+        "max_vc": 2.32,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 105,
+        "name": "CCTV-71ทางลงบางจาก",
+        "organization": "EXAT",
+        "lat": 13.6830186,
+        "lng": 100.6029119,
+        "avg_speed": 68.0,
+        "avg_vc": 0.34,
+        "avg_volume": 414,
+        "avg_capacity": 0,
+        "avg_density": 15.4,
+        "max_vc": 0.88,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 106,
+        "name": "CCTV-69เหนือด่านสุขุมวิท62",
+        "organization": "EXAT",
+        "lat": 13.6953936,
+        "lng": 100.595689,
+        "avg_speed": 58.4,
+        "avg_vc": 0.4,
+        "avg_volume": 263,
+        "avg_capacity": 0,
+        "avg_density": 14.3,
+        "max_vc": 0.81,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 107,
+        "name": "CCTV-65ท่าเรือเชื่อมเข้าS1",
+        "organization": "EXAT",
+        "lat": 13.6979308,
+        "lng": 100.5915148,
+        "avg_speed": 56.4,
+        "avg_vc": 0.55,
+        "avg_volume": 319,
+        "avg_capacity": 0,
+        "avg_density": 44.8,
+        "max_vc": 1.22,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 108,
+        "name": "CCTV-67S1ทางขึ้นมาจากท่าเรือ",
+        "organization": "EXAT",
+        "lat": 13.6982049,
+        "lng": 100.591889,
+        "avg_speed": 50.8,
+        "avg_vc": 0.41,
+        "avg_volume": 312,
+        "avg_capacity": 0,
+        "avg_density": 43.2,
+        "max_vc": 0.96,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 109,
+        "name": "CCTV-33หน้าด่านอาจณรงค์1",
+        "organization": "EXAT",
+        "lat": 13.7013993,
+        "lng": 100.591934,
+        "avg_speed": 36.8,
+        "avg_vc": 0.52,
+        "avg_volume": 172,
+        "avg_capacity": 0,
+        "avg_density": 52.0,
+        "max_vc": 1.28,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 110,
+        "name": "CCTV-03ทางลง50",
+        "organization": "EXAT",
+        "lat": 13.7099677,
+        "lng": 100.5974572,
+        "avg_speed": 44.8,
+        "avg_vc": 0.5,
+        "avg_volume": 311,
+        "avg_capacity": 0,
+        "avg_density": 68.3,
+        "max_vc": 1.42,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 111,
+        "name": "CCTV-04ขึ้นพระโขนง",
+        "organization": "EXAT",
+        "lat": 13.7224093,
+        "lng": 100.6044163,
+        "avg_speed": 81.2,
+        "avg_vc": 1.26,
+        "avg_volume": 61,
+        "avg_capacity": 0,
+        "avg_density": 38.1,
+        "max_vc": 2.24,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 112,
+        "name": "CCTV-05โค้งก่อนลงพัฒนาการ1",
+        "organization": "EXAT",
+        "lat": 13.7222046,
+        "lng": 100.6043229,
+        "avg_speed": 68.8,
+        "avg_vc": 0.97,
+        "avg_volume": 74,
+        "avg_capacity": 0,
+        "avg_density": 39.7,
+        "max_vc": 1.57,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 113,
+        "name": "CCTV-80ทางลงพัฒนาการ1",
+        "organization": "EXAT",
+        "lat": 13.7365258,
+        "lng": 100.6041018,
+        "avg_speed": 59.1,
+        "avg_vc": 0.42,
+        "avg_volume": 398,
+        "avg_capacity": 0,
+        "avg_density": 19.1,
+        "max_vc": 1.61,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 114,
+        "name": "CCTV-07ขึ้นพัฒนาการ2",
+        "organization": "EXAT",
+        "lat": 13.742556,
+        "lng": 100.6050302,
+        "avg_speed": 21.6,
+        "avg_vc": 0.31,
+        "avg_volume": 490,
+        "avg_capacity": 0,
+        "avg_density": 115.2,
+        "max_vc": 0.92,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 115,
+        "name": "CCTV-13ทางขึ้นพระราม9_2ลงพระราม2",
+        "organization": "EXAT",
+        "lat": 13.7810955,
+        "lng": 100.6077724,
+        "avg_speed": 79.2,
+        "avg_vc": 1.38,
+        "avg_volume": 34,
+        "avg_capacity": 0,
+        "avg_density": 142.7,
+        "max_vc": 3.04,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 116,
+        "name": "TV41 37_001 B ทางพิเศษฉลองรัช-ปากซอยประดิษฐ์มนูธรรม 15",
+        "organization": "EXAT",
+        "lat": 13.7947982,
+        "lng": 100.6123996,
+        "avg_speed": 32.9,
+        "avg_vc": 0.25,
+        "avg_volume": 363,
+        "avg_capacity": 0,
+        "avg_density": 28.0,
+        "max_vc": 0.74,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 117,
+        "name": "TV68 0_493 9-2 ถ.ประดิษฐ์มนูธรรม - ปากซอยร่วมใจ",
+        "organization": "EXAT",
+        "lat": 13.7951149,
+        "lng": 100.6129868,
+        "avg_speed": 48.5,
+        "avg_vc": 1.41,
+        "avg_volume": 29,
+        "avg_capacity": 0,
+        "avg_density": 75.4,
+        "max_vc": 2.71,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 118,
+        "name": "TV49 45_182 B ทางพิเศษฉลองรัช-ถ.ลาดพร้าว",
+        "organization": "EXAT",
+        "lat": 13.780113,
+        "lng": 100.6074617,
+        "avg_speed": 67.9,
+        "avg_vc": 0.58,
+        "avg_volume": 225,
+        "avg_capacity": 0,
+        "avg_density": 23.2,
+        "max_vc": 1.81,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 119,
+        "name": "TV22 18_123  A ด่านสุขาภิบาล",
+        "organization": "EXAT",
+        "lat": 13.8868189,
+        "lng": 100.6496725,
+        "avg_speed": 38.1,
+        "avg_vc": 0.2,
+        "avg_volume": 270,
+        "avg_capacity": 0,
+        "avg_density": 39.4,
+        "max_vc": 0.44,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 220,
+        "name": "CCTV11 11_800A บางเมือง-ปากน้ำ",
+        "organization": "EXAT",
+        "lat": 13.8439,
+        "lng": 100.636366,
+        "avg_speed": 21.2,
+        "avg_vc": 0.67,
+        "avg_volume": 248,
+        "avg_capacity": 0,
+        "avg_density": 112.6,
+        "max_vc": 2.4,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 221,
+        "name": "CCTV15 15_950A ปากน้ำ-สะพานกาญจนา",
+        "organization": "EXAT",
+        "lat": 13.6290971,
+        "lng": 100.5875437,
+        "avg_speed": 62.2,
+        "avg_vc": 0.4,
+        "avg_volume": 339,
+        "avg_capacity": 0,
+        "avg_density": 23.5,
+        "max_vc": 1.07,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 221,
+        "name": "CCTV16 17_000A ปากน้ำ-สะพานกาญจนา",
+        "organization": "EXAT",
+        "lat": 13.6214183,
+        "lng": 100.5093979,
+        "avg_speed": 81.2,
+        "avg_vc": 0.32,
+        "avg_volume": 287,
+        "avg_capacity": 0,
+        "avg_density": 24.2,
+        "max_vc": 0.81,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 222,
+        "name": "CCTV17 18_221B สะพานกาญจนา-ปู่เจ้า",
+        "organization": "EXAT",
+        "lat": 13.6319078,
+        "lng": 100.5787415,
+        "avg_speed": 75.7,
+        "avg_vc": 0.73,
+        "avg_volume": 49,
+        "avg_capacity": 0,
+        "avg_density": 24.3,
+        "max_vc": 1.81,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 223,
+        "name": "CCTV19 20_100B สะพานกาญจนา-ปากน้ำ",
+        "organization": "EXAT",
+        "lat": 13.6320539,
+        "lng": 100.5791169,
+        "avg_speed": 52.6,
+        "avg_vc": 0.5,
+        "avg_volume": 177,
+        "avg_capacity": 0,
+        "avg_density": 43.5,
+        "max_vc": 0.94,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 224,
+        "name": "CCTV20 20_100A สะพานกาญจนา-บางครุ",
+        "organization": "EXAT",
+        "lat": 13.6389489,
+        "lng": 100.5538607,
+        "avg_speed": 79.0,
+        "avg_vc": 0.45,
+        "avg_volume": 323,
+        "avg_capacity": 0,
+        "avg_density": 29.7,
+        "max_vc": 1.33,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 225,
+        "name": "CCTV24 1_700A บางครุ-บางขุนเทียน",
+        "organization": "EXAT",
+        "lat": 13.6312088,
+        "lng": 100.5335246,
+        "avg_speed": 69.1,
+        "avg_vc": 1.02,
+        "avg_volume": 75,
+        "avg_capacity": 0,
+        "avg_density": 44.4,
+        "max_vc": 1.75,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 226,
+        "name": "CCTV34 12_500A บางครุ-บางขุนเทียน ",
+        "organization": "EXAT",
+        "lat": 13.6257061,
+        "lng": 100.4698372,
+        "avg_speed": 61.6,
+        "avg_vc": 0.91,
+        "avg_volume": 26,
+        "avg_capacity": 0,
+        "avg_density": 63.6,
+        "max_vc": 2.01,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 227,
+        "name": "CCTV35 13_500B เข้าด่านฯบางขุนเทียน1 ",
+        "organization": "EXAT",
+        "lat": 13.6407072,
+        "lng": 100.412505,
+        "avg_speed": 85.7,
+        "avg_vc": 1.0,
+        "avg_volume": 13,
+        "avg_capacity": 0,
+        "avg_density": 39.3,
+        "max_vc": 2.01,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 228,
+        "name": "CCTV42 หน้าด่านบางแก้ว2",
+        "organization": "EXAT",
+        "lat": 13.7502425,
+        "lng": 100.549468,
+        "avg_speed": 42.6,
+        "avg_vc": 1.79,
+        "avg_volume": 13,
+        "avg_capacity": 0,
+        "avg_density": 89.0,
+        "max_vc": 2.83,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 229,
+        "name": "CCTV05 มักกะสัน2",
+        "organization": "EXAT",
+        "lat": 13.7545453,
+        "lng": 100.5231508,
+        "avg_speed": 50.9,
+        "avg_vc": 0.64,
+        "avg_volume": 241,
+        "avg_capacity": 0,
+        "avg_density": 25.7,
+        "max_vc": 1.62,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 230,
+        "name": "CCTV30 ทางลงอุรุพงษ์",
+        "organization": "EXAT",
+        "lat": 13.7848944,
+        "lng": 100.5354082,
+        "avg_speed": 39.6,
+        "avg_vc": 1.81,
+        "avg_volume": 16,
+        "avg_capacity": 0,
+        "avg_density": 76.7,
+        "max_vc": 2.91,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 231,
+        "name": "CCTV29 ทางลงยมราช",
+        "organization": "EXAT",
+        "lat": 13.7599774,
+        "lng": 100.5249092,
+        "avg_speed": 47.2,
+        "avg_vc": 0.43,
+        "avg_volume": 307,
+        "avg_capacity": 0,
+        "avg_density": 67.6,
+        "max_vc": 1.42,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 232,
+        "name": "CCTV12 ก่อนทางลงปะปา2 (พระราม6)",
+        "organization": "EXAT",
+        "lat": 13.8012901,
+        "lng": 100.5418195,
+        "avg_speed": 47.6,
+        "avg_vc": 0.91,
+        "avg_volume": 11,
+        "avg_capacity": 0,
+        "avg_density": 46.2,
+        "max_vc": 1.62,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 233,
+        "name": "CCTV21 ทางลงงามวงศ์วาน 2",
+        "organization": "EXAT",
+        "lat": 13.7942905,
+        "lng": 100.5392719,
+        "avg_speed": 46.1,
+        "avg_vc": 0.8,
+        "avg_volume": 204,
+        "avg_capacity": 0,
+        "avg_density": 79.2,
+        "max_vc": 1.84,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 234,
+        "name": "CCTV14 ทางขึ้นย่านพหลฯ",
+        "organization": "EXAT",
+        "lat": 13.788193,
+        "lng": 100.5367473,
+        "avg_speed": 39.6,
+        "avg_vc": 1.17,
+        "avg_volume": 46,
+        "avg_capacity": 0,
+        "avg_density": 124.6,
+        "max_vc": 2.82,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 235,
+        "name": "CCTV01 อโศก 4",
+        "organization": "EXAT",
+        "lat": 13.7710907,
+        "lng": 100.5332639,
+        "avg_speed": 68.1,
+        "avg_vc": 1.07,
+        "avg_volume": 127,
+        "avg_capacity": 0,
+        "avg_density": 41.3,
+        "max_vc": 2.34,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 236,
+        "name": "CCTV10 ทางขึ้นประปา1",
+        "organization": "EXAT",
+        "lat": 13.7134683,
+        "lng": 100.5200869,
+        "avg_speed": 38.6,
+        "avg_vc": 0.4,
+        "avg_volume": 531,
+        "avg_capacity": 0,
+        "avg_density": 68.4,
+        "max_vc": 1.12,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 237,
+        "name": "CCTV27 ต่างระดับพญาไท-YR (พระมงกุฏ)",
+        "organization": "EXAT",
+        "lat": 13.6969702,
+        "lng": 100.5229255,
+        "avg_speed": 32.9,
+        "avg_vc": 1.22,
+        "avg_volume": 36,
+        "avg_capacity": 0,
+        "avg_density": 63.8,
+        "max_vc": 2.17,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 238,
+        "name": "CCTV36 ทางลงสาทร",
+        "organization": "EXAT",
+        "lat": 13.8272112,
+        "lng": 100.5437003,
+        "avg_speed": 47.4,
+        "avg_vc": 1.1,
+        "avg_volume": 24,
+        "avg_capacity": 0,
+        "avg_density": 60.7,
+        "max_vc": 2.56,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 239,
+        "name": "CCTV38 ทางลงสาธุฯ3",
+        "organization": "EXAT",
+        "lat": 13.783581,
+        "lng": 100.5348777,
+        "avg_speed": 53.7,
+        "avg_vc": 0.79,
+        "avg_volume": 271,
+        "avg_capacity": 0,
+        "avg_density": 42.3,
+        "max_vc": 2.03,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 240,
+        "name": "CCTV18 ทางขึ้นรัชดาฯ",
+        "organization": "EXAT",
+        "lat": 13.6946177,
+        "lng": 100.5258639,
+        "avg_speed": 78.2,
+        "avg_vc": 0.34,
+        "avg_volume": 417,
+        "avg_capacity": 0,
+        "avg_density": 23.2,
+        "max_vc": 0.81,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 241,
+        "name": "CCTV09 ทางลงประปา2",
+        "organization": "EXAT",
+        "lat": 13.7029704,
+        "lng": 100.5185797,
+        "avg_speed": 33.1,
+        "avg_vc": 1.03,
+        "avg_volume": 47,
+        "avg_capacity": 0,
+        "avg_density": 55.1,
+        "max_vc": 2.09,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 242,
+        "name": "CCTV37 ทางลงถ.จันทน์",
+        "organization": "EXAT",
+        "lat": 13.7569958,
+        "lng": 100.5496269,
+        "avg_speed": 74.4,
+        "avg_vc": 1.25,
+        "avg_volume": 63,
+        "avg_capacity": 0,
+        "avg_density": 31.3,
+        "max_vc": 2.75,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 243,
+        "name": "CCTV08 ต่างระดับพญาไท (บางโคล่)",
+        "organization": "EXAT",
+        "lat": 13.8927413,
+        "lng": 100.541133,
+        "avg_speed": 63.3,
+        "avg_vc": 0.47,
+        "avg_volume": 242,
+        "avg_capacity": 0,
+        "avg_density": 24.1,
+        "max_vc": 1.49,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 244,
+        "name": "CCTV04 ก่อนเข้าต่างระดับมักกะสัน",
+        "organization": "EXAT",
+        "lat": 13.7774262,
+        "lng": 100.5321564,
+        "avg_speed": 41.7,
+        "avg_vc": 0.96,
+        "avg_volume": 122,
+        "avg_capacity": 0,
+        "avg_density": 59.3,
+        "max_vc": 2.09,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 245,
+        "name": "CCTV25 แจ้งวัฒนะ",
+        "organization": "EXAT",
+        "lat": 13.7238599,
+        "lng": 100.5175447,
+        "avg_speed": 44.8,
+        "avg_vc": 0.77,
+        "avg_volume": 77,
+        "avg_capacity": 0,
+        "avg_density": 51.3,
+        "max_vc": 2.78,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 246,
+        "name": "CCTV26 โรงกรองน้ำ",
+        "organization": "EXAT",
+        "lat": 13.7649883,
+        "lng": 100.5270622,
+        "avg_speed": 32.9,
+        "avg_vc": 0.96,
+        "avg_volume": 123,
+        "avg_capacity": 0,
+        "avg_density": 60.9,
+        "max_vc": 2.43,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 247,
+        "name": "CCTV34 ทางลงสีลม(เลิศสิน) ",
+        "organization": "EXAT",
+        "lat": 13.7379294,
+        "lng": 100.5192347,
+        "avg_speed": 71.2,
+        "avg_vc": 1.26,
+        "avg_volume": 31,
+        "avg_capacity": 0,
+        "avg_density": 63.4,
+        "max_vc": 2.04,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 248,
+        "name": "CCTV28 เหนือรพ.รามา",
+        "organization": "EXAT",
+        "lat": 13.7332062,
+        "lng": 100.5177293,
+        "avg_speed": 58.3,
+        "avg_vc": 0.57,
+        "avg_volume": 200,
+        "avg_capacity": 0,
+        "avg_density": 30.4,
+        "max_vc": 1.12,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 249,
+        "name": "CCTV31 ทางขึ้นหัวลำโพง",
+        "organization": "EXAT",
+        "lat": 13.75232,
+        "lng": 100.5693498,
+        "avg_speed": 35.9,
+        "avg_vc": 0.58,
+        "avg_volume": 431,
+        "avg_capacity": 0,
+        "avg_density": 57.0,
+        "max_vc": 1.83,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 250,
+        "name": "CCTV32 ทางลงมหานคร",
+        "organization": "EXAT",
+        "lat": 13.7113131,
+        "lng": 100.5652639,
+        "avg_speed": 72.9,
+        "avg_vc": 0.41,
+        "avg_volume": 479,
+        "avg_capacity": 0,
+        "avg_density": 19.5,
+        "max_vc": 0.82,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 251,
+        "name": "CCTV02 อโศก 1",
+        "organization": "EXAT",
+        "lat": 13.7536645,
+        "lng": 100.5871583,
+        "avg_speed": 57.3,
+        "avg_vc": 0.3,
+        "avg_volume": 373,
+        "avg_capacity": 0,
+        "avg_density": 34.7,
+        "max_vc": 0.82,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 252,
+        "name": "CCTV06 ทางขึ้นพหลฯ1 (อนุสาวรีย์)",
+        "organization": "EXAT",
+        "lat": 13.7611639,
+        "lng": 100.597509,
+        "avg_speed": 46.6,
+        "avg_vc": 0.87,
+        "avg_volume": 168,
+        "avg_capacity": 0,
+        "avg_density": 77.4,
+        "max_vc": 2.68,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 253,
+        "name": "CCTV23 สามัคคี",
+        "organization": "EXAT",
+        "lat": 13.8209014,
+        "lng": 100.5491674,
+        "avg_speed": 82.7,
+        "avg_vc": 0.53,
+        "avg_volume": 268,
+        "avg_capacity": 0,
+        "avg_density": 18.9,
+        "max_vc": 1.81,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 254,
+        "name": "CCTV17 หมอชิต",
+        "organization": "EXAT",
+        "lat": 13.8497023,
+        "lng": 100.5333702,
+        "avg_speed": 34.5,
+        "avg_vc": 1.55,
+        "avg_volume": 38,
+        "avg_capacity": 0,
+        "avg_density": 105.9,
+        "max_vc": 2.83,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 255,
+        "name": "Camera 4 กำแพงเพชร2",
+        "organization": "EXAT",
+        "lat": 13.8075483,
+        "lng": 100.5482977,
+        "avg_speed": 62.0,
+        "avg_vc": 1.02,
+        "avg_volume": 30,
+        "avg_capacity": 0,
+        "avg_density": 76.2,
+        "max_vc": 1.75,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 256,
+        "name": "CCTV16 ทางร่วมบางซื่อ",
+        "organization": "EXAT",
+        "lat": 13.7569707,
+        "lng": 100.5481779,
+        "avg_speed": 18.2,
+        "avg_vc": 1.17,
+        "avg_volume": 58,
+        "avg_capacity": 0,
+        "avg_density": 118.3,
+        "max_vc": 2.63,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 257,
+        "name": "CCTV42 ทางขึ้นพระราม 9",
+        "organization": "EXAT",
+        "lat": 13.7493321,
+        "lng": 100.5990651,
+        "avg_speed": 36.5,
+        "avg_vc": 0.59,
+        "avg_volume": 235,
+        "avg_capacity": 0,
+        "avg_density": 59.3,
+        "max_vc": 1.32,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 258,
+        "name": "CCTV43 ทางลงรามคำแหง",
+        "organization": "EXAT",
+        "lat": 13.742256,
+        "lng": 100.6129475,
+        "avg_speed": 39.1,
+        "avg_vc": 0.99,
+        "avg_volume": 104,
+        "avg_capacity": 0,
+        "avg_density": 98.6,
+        "max_vc": 1.75,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 259,
+        "name": "CCTV46 ทางลงเดอะไนน์",
+        "organization": "EXAT",
+        "lat": 13.7419235,
+        "lng": 100.6403341,
+        "avg_speed": 49.8,
+        "avg_vc": 1.17,
+        "avg_volume": 37,
+        "avg_capacity": 0,
+        "avg_density": 82.0,
+        "max_vc": 2.64,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 260,
+        "name": "CCTV22 วัดบัวขวัญ",
+        "organization": "EXAT",
+        "lat": 13.9073813,
+        "lng": 100.5439972,
+        "avg_speed": 46.1,
+        "avg_vc": 1.18,
+        "avg_volume": 56,
+        "avg_capacity": 0,
+        "avg_density": 51.0,
+        "max_vc": 2.12,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 261,
+        "name": "022Z 1_535B ทางลงศรีสมาน",
+        "organization": "EXAT",
+        "lat": 13.9360663,
+        "lng": 100.5589235,
+        "avg_speed": 54.7,
+        "avg_vc": 0.5,
+        "avg_volume": 204,
+        "avg_capacity": 0,
+        "avg_density": 18.3,
+        "max_vc": 1.01,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 262,
+        "name": "047Z 4_555A ทล 345",
+        "organization": "EXAT",
+        "lat": 13.9711962,
+        "lng": 100.570074,
+        "avg_speed": 40.8,
+        "avg_vc": 0.95,
+        "avg_volume": 143,
+        "avg_capacity": 0,
+        "avg_density": 62.7,
+        "max_vc": 2.82,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      }
+    ],
+    "org_stats": {
+      "BMA": {
+        "count": 59,
+        "avg_speed": 31.8,
+        "avg_vc": 0.52,
+        "avg_volume": 261
+      },
+      "DOH": {
+        "count": 8,
+        "avg_speed": 37.9,
+        "avg_vc": 0.96,
+        "avg_volume": 73
+      },
+      "DRR": {
+        "count": 17,
+        "avg_speed": 38.9,
+        "avg_vc": 0.87,
+        "avg_volume": 202
+      },
+      "EXAT": {
+        "count": 87,
+        "avg_speed": 49.4,
+        "avg_vc": 0.83,
+        "avg_volume": 177
+      }
+    },
+    "hourly": {
+      "labels": [
+        "05:00",
+        "06:00",
+        "07:00",
+        "08:00",
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00"
+      ],
+      "working": {
+        "speed": [
+          63.9,
+          45.3,
+          42.0,
+          42.6,
+          39.9,
+          39.7,
+          44.5,
+          40.8,
+          40.0,
+          39.8,
+          39.8,
+          43.0,
+          42.4,
+          42.1
+        ],
+        "volume": [
+          318,
+          233,
+          157,
+          168,
+          181,
+          184,
+          179,
+          180,
+          185,
+          175,
+          173,
+          164,
+          160,
+          171
+        ],
+        "vc": [
+          0.22,
+          0.68,
+          0.86,
+          0.87,
+          0.84,
+          0.84,
+          0.81,
+          0.82,
+          0.83,
+          0.84,
+          0.83,
+          0.93,
+          0.92,
+          0.84
+        ]
+      },
+      "holiday": {
+        "speed": [
+          54.8,
+          38.9,
+          37.6,
+          38.6,
+          36.2,
+          36.3,
+          36.8,
+          36.5,
+          36.2,
+          36.4,
+          36.4,
+          36.6,
+          34.7,
+          33.3
+        ],
+        "volume": [
+          237,
+          340,
+          300,
+          263,
+          261,
+          253,
+          233,
+          258,
+          261,
+          262,
+          265,
+          251,
+          223,
+          286
+        ],
+        "vc": [
+          0.11,
+          0.32,
+          0.44,
+          0.59,
+          0.56,
+          0.56,
+          0.72,
+          0.56,
+          0.56,
+          0.56,
+          0.56,
+          0.71,
+          0.7,
+          0.51
+        ]
+      }
+    },
+    "speed_dist": {
+      "< 30 กม./ชม.": 6463,
+      "30 - 50 กม./ชม.": 4104,
+      "50 - 70 กม./ชม.": 2309,
+      "70 - 90 กม./ชม.": 1914,
+      "> 90 กม./ชม.": 984
+    },
+    "top_congested": [
+      {
+        "id": 37,
+        "name": "TF1-PC-01 ถ.เพชรเกษม-ถ.ราชพฤกษ์",
+        "organization": "BMA",
+        "lat": 13.712537,
+        "lng": 100.428889,
+        "avg_speed": 29.5,
+        "avg_vc": 2.46,
+        "avg_volume": 0,
+        "avg_capacity": 0,
+        "avg_density": 190.1,
+        "max_vc": 3.74,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 82,
+        "name": "ลงเพลินจิตเหนือ",
+        "organization": "EXAT",
+        "lat": 13.743638,
+        "lng": 100.5486377,
+        "avg_speed": 25.1,
+        "avg_vc": 2.23,
+        "avg_volume": 54,
+        "avg_capacity": 0,
+        "avg_density": 107.7,
+        "max_vc": 4.84,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 230,
+        "name": "CCTV30 ทางลงอุรุพงษ์",
+        "organization": "EXAT",
+        "lat": 13.7848944,
+        "lng": 100.5354082,
+        "avg_speed": 39.6,
+        "avg_vc": 1.81,
+        "avg_volume": 16,
+        "avg_capacity": 0,
+        "avg_density": 76.7,
+        "max_vc": 2.91,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 228,
+        "name": "CCTV42 หน้าด่านบางแก้ว2",
+        "organization": "EXAT",
+        "lat": 13.7502425,
+        "lng": 100.549468,
+        "avg_speed": 42.6,
+        "avg_vc": 1.79,
+        "avg_volume": 13,
+        "avg_capacity": 0,
+        "avg_density": 89.0,
+        "max_vc": 2.83,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 96,
+        "name": "ทางออกสุขุมวิท62",
+        "organization": "EXAT",
+        "lat": 13.6946079,
+        "lng": 100.5971169,
+        "avg_speed": 80.3,
+        "avg_vc": 1.72,
+        "avg_volume": 178,
+        "avg_capacity": 900,
+        "avg_density": 25.5,
+        "max_vc": 4.04,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 23,
+        "name": "DS-255-02-04 ถ.ราชวิถี-ก่อนขึ้นสะพานกรุงธน",
+        "organization": "BMA",
+        "lat": 13.77928359,
+        "lng": 100.5062991,
+        "avg_speed": 77.9,
+        "avg_vc": 1.67,
+        "avg_volume": 13,
+        "avg_capacity": 0,
+        "avg_density": 44.8,
+        "max_vc": 3.02,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 254,
+        "name": "CCTV17 หมอชิต",
+        "organization": "EXAT",
+        "lat": 13.8497023,
+        "lng": 100.5333702,
+        "avg_speed": 34.5,
+        "avg_vc": 1.55,
+        "avg_volume": 38,
+        "avg_capacity": 0,
+        "avg_density": 105.9,
+        "max_vc": 2.83,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 32,
+        "name": "TF1-HK-02 ถ.พระราม 9 - ถ.รามคำแหง",
+        "organization": "BMA",
+        "lat": 13.741352,
+        "lng": 100.616005,
+        "avg_speed": 33.5,
+        "avg_vc": 1.48,
+        "avg_volume": 8,
+        "avg_capacity": 0,
+        "avg_density": 138.7,
+        "max_vc": 2.49,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 12,
+        "name": "ถ.ราชพฤกษ์ -> ถ.ชัยพฤกษ์ กม.22+710",
+        "organization": "DRR",
+        "lat": 13.88125696,
+        "lng": 100.4507026,
+        "avg_speed": 40.8,
+        "avg_vc": 1.46,
+        "avg_volume": 0,
+        "avg_capacity": 0,
+        "avg_density": 142.7,
+        "max_vc": 2.17,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 20,
+        "name": "ถ.ราชพฤกษ์ -> ถ.นครอินทร์ กม.22+436",
+        "organization": "DRR",
+        "lat": 13.87880227,
+        "lng": 100.4509168,
+        "avg_speed": 41.0,
+        "avg_vc": 1.42,
+        "avg_volume": 12,
+        "avg_capacity": 0,
+        "avg_density": 93.2,
+        "max_vc": 2.06,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      }
+    ],
+    "top_fastest": [
+      {
+        "id": 41,
+        "name": "TF1-TW-04 ถ.เพชรเกษม - ถ.เพชรเกษม 69",
+        "organization": "BMA",
+        "lat": 13.708085,
+        "lng": 100.373659,
+        "avg_speed": 93.7,
+        "avg_vc": 0.42,
+        "avg_volume": 71,
+        "avg_capacity": 0,
+        "avg_density": 96.9,
+        "max_vc": 0.84,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 79,
+        "name": "โทลเวย์ดินแดง",
+        "organization": "EXAT",
+        "lat": 13.7645146,
+        "lng": 100.5481813,
+        "avg_speed": 89.6,
+        "avg_vc": 1.22,
+        "avg_volume": 58,
+        "avg_capacity": 0,
+        "avg_density": 148.5,
+        "max_vc": 2.22,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 26,
+        "name": "PY-10-02-03 ถ.พระราม 6-ถ.ราชวิถี",
+        "organization": "BMA",
+        "lat": 13.7751251,
+        "lng": 100.5311351,
+        "avg_speed": 89.4,
+        "avg_vc": 0.84,
+        "avg_volume": 113,
+        "avg_capacity": 0,
+        "avg_density": 21.6,
+        "max_vc": 1.79,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 24,
+        "name": "PN-254-02-02 ถ.ราชดำเนินนอก-ถ.กรุงเกษม",
+        "organization": "BMA",
+        "lat": 13.76055074,
+        "lng": 100.5078264,
+        "avg_speed": 88.5,
+        "avg_vc": 0.37,
+        "avg_volume": 268,
+        "avg_capacity": 0,
+        "avg_density": 19.3,
+        "max_vc": 0.87,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 42,
+        "name": "TF1-WL-01 ถ. ประดิษฐ์มนูธรรม-ปากซอยรามคำแหง 21",
+        "organization": "BMA",
+        "lat": 13.76684,
+        "lng": 100.602283,
+        "avg_speed": 86.7,
+        "avg_vc": 0.74,
+        "avg_volume": 59,
+        "avg_capacity": 0,
+        "avg_density": 101.5,
+        "max_vc": 1.73,
+        "status": "เริ่มชะลอตัว",
+        "color": "#f59e0b"
+      },
+      {
+        "id": 227,
+        "name": "CCTV35 13_500B เข้าด่านฯบางขุนเทียน1 ",
+        "organization": "EXAT",
+        "lat": 13.6407072,
+        "lng": 100.412505,
+        "avg_speed": 85.7,
+        "avg_vc": 1.0,
+        "avg_volume": 13,
+        "avg_capacity": 0,
+        "avg_density": 39.3,
+        "max_vc": 2.01,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 253,
+        "name": "CCTV23 สามัคคี",
+        "organization": "EXAT",
+        "lat": 13.8209014,
+        "lng": 100.5491674,
+        "avg_speed": 82.7,
+        "avg_vc": 0.53,
+        "avg_volume": 268,
+        "avg_capacity": 0,
+        "avg_density": 18.9,
+        "max_vc": 1.81,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 27,
+        "name": "RW-55-02-03 ถ.พระราม 6-ถ.ศรีอยุธยา",
+        "organization": "BMA",
+        "lat": 13.76350314,
+        "lng": 100.5266408,
+        "avg_speed": 82.0,
+        "avg_vc": 0.54,
+        "avg_volume": 97,
+        "avg_capacity": 0,
+        "avg_density": 33.4,
+        "max_vc": 1.52,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      },
+      {
+        "id": 111,
+        "name": "CCTV-04ขึ้นพระโขนง",
+        "organization": "EXAT",
+        "lat": 13.7224093,
+        "lng": 100.6044163,
+        "avg_speed": 81.2,
+        "avg_vc": 1.26,
+        "avg_volume": 61,
+        "avg_capacity": 0,
+        "avg_density": 38.1,
+        "max_vc": 2.24,
+        "status": "หนาแน่น / ติดขัด",
+        "color": "#ef4444"
+      },
+      {
+        "id": 221,
+        "name": "CCTV16 17_000A ปากน้ำ-สะพานกาญจนา",
+        "organization": "EXAT",
+        "lat": 13.6214183,
+        "lng": 100.5093979,
+        "avg_speed": 81.2,
+        "avg_vc": 0.32,
+        "avg_volume": 287,
+        "avg_capacity": 0,
+        "avg_density": 24.2,
+        "max_vc": 0.81,
+        "status": "คล่องตัว",
+        "color": "#10b981"
+      }
+    ]
+  },
+  "bus": {
+    "years": [
+      2565,
+      2566,
+      2567,
+      2568,
+      2569
+    ],
+    "months": [
+      "มกราคม",
+      "กุมภาพันธ์",
+      "มีนาคม",
+      "เมษายน",
+      "พฤษภาคม",
+      "มิถุนายน",
+      "กรกฎาคม",
+      "สิงหาคม",
+      "กันยายน",
+      "ตุลาคม",
+      "พฤศจิกายน",
+      "ธันวาคม"
+    ],
+    "districts": [
+      {
+        "name": "เขตจตุจักร",
+        "total_wd": 81630,
+        "total_we": 84755,
+        "pickup_wd": 45483,
+        "dropoff_wd": 36177,
+        "pickup_we": 47688,
+        "dropoff_we": 37365,
+        "stop_count": 185,
+        "top_stops": [
+          {
+            "name": "อู่หมอชิต 2",
+            "stops_wd": 11792
+          },
+          {
+            "name": "ตรงข้ามเซ็นทรัลลาดพร้าว",
+            "stops_wd": 3484
+          },
+          {
+            "name": "นครชัยแอร์",
+            "stops_wd": 2909
+          }
+        ]
+      },
+      {
+        "name": "เขตบางกอกน้อย",
+        "total_wd": 46379,
+        "total_we": 41705,
+        "pickup_wd": 25397,
+        "dropoff_wd": 20994,
+        "pickup_we": 22677,
+        "dropoff_we": 19103,
+        "stop_count": 102,
+        "top_stops": [
+          {
+            "name": "โรงพยาบาลศิริราช",
+            "stops_wd": 5580
+          },
+          {
+            "name": "เซ็นทรัลปิ่นเกล้า",
+            "stops_wd": 4418
+          },
+          {
+            "name": "ตรงข้ามโรงพยาบาลศิริราช",
+            "stops_wd": 3863
+          }
+        ]
+      },
+      {
+        "name": "เขตราชเทวี",
+        "total_wd": 44380,
+        "total_we": 37325,
+        "pickup_wd": 24273,
+        "dropoff_wd": 20108,
+        "pickup_we": 20414,
+        "dropoff_we": 16938,
+        "stop_count": 103,
+        "top_stops": [
+          {
+            "name": "โรงพยาบาลรามาธิบดี",
+            "stops_wd": 5959
+          },
+          {
+            "name": "โรงพยาบาลเด็ก",
+            "stops_wd": 4276
+          },
+          {
+            "name": "อนุสาวรีย์ชัยสมรภูมิ (เกาะราชวิถี)",
+            "stops_wd": 3178
+          }
+        ]
+      },
+      {
+        "name": "เขตพระนคร",
+        "total_wd": 39011,
+        "total_we": 40481,
+        "pickup_wd": 20142,
+        "dropoff_wd": 18875,
+        "pickup_we": 21377,
+        "dropoff_we": 19212,
+        "stop_count": 146,
+        "top_stops": [
+          {
+            "name": "ปากคลองตลาด",
+            "stops_wd": 2163
+          },
+          {
+            "name": "อนุสาวรีย์ประชาธิปไตย(ศึกษาภัณฑ์)",
+            "stops_wd": 1464
+          },
+          {
+            "name": "แยกคอกวัวตรงข้ามกองสลาก",
+            "stops_wd": 1383
+          }
+        ]
+      },
+      {
+        "name": "เขตบางกะปิ",
+        "total_wd": 36955,
+        "total_we": 36305,
+        "pickup_wd": 20987,
+        "dropoff_wd": 16007,
+        "pickup_we": 21132,
+        "dropoff_we": 15469,
+        "stop_count": 168,
+        "top_stops": [
+          {
+            "name": "เอ็นมาร์คพลาซ่า(น้อมจิตต์)",
+            "stops_wd": 3864
+          },
+          {
+            "name": "เดอะมอลล์บางกะปิ",
+            "stops_wd": 1412
+          },
+          {
+            "name": "ตลาดบางกะปิ ตรงข้าม IT CITY",
+            "stops_wd": 1162
+          }
+        ]
+      },
+      {
+        "name": "เขตปทุมวัน",
+        "total_wd": 36097,
+        "total_we": 36165,
+        "pickup_wd": 18835,
+        "dropoff_wd": 17272,
+        "pickup_we": 18774,
+        "dropoff_we": 17464,
+        "stop_count": 135,
+        "top_stops": [
+          {
+            "name": "BTS สยาม",
+            "stops_wd": 1644
+          },
+          {
+            "name": "โรงพยาบาลจุฬาลงกรณ์(ฝั่งราชดำริ)",
+            "stops_wd": 1594
+          },
+          {
+            "name": "เซ็นทรัลเวิลด์",
+            "stops_wd": 1454
+          }
+        ]
+      },
+      {
+        "name": "เขตบางพลัด",
+        "total_wd": 33917,
+        "total_we": 33747,
+        "pickup_wd": 19705,
+        "dropoff_wd": 14244,
+        "pickup_we": 19943,
+        "dropoff_we": 13982,
+        "stop_count": 85,
+        "top_stops": [
+          {
+            "name": "เมเจอร์ปิ่นเกล้า",
+            "stops_wd": 3742
+          },
+          {
+            "name": "MRT บางยี่ขัน",
+            "stops_wd": 1484
+          },
+          {
+            "name": "ตลาดพงษ์ทรัพย์",
+            "stops_wd": 1307
+          }
+        ]
+      },
+      {
+        "name": "เขตดินแดง",
+        "total_wd": 31209,
+        "total_we": 30600,
+        "pickup_wd": 17052,
+        "dropoff_wd": 14226,
+        "pickup_we": 17240,
+        "dropoff_we": 13703,
+        "stop_count": 111,
+        "top_stops": [
+          {
+            "name": "สถานีดับเพลิงห้วยขวาง,สาธารณสุข 52",
+            "stops_wd": 2544
+          },
+          {
+            "name": "MRT ห้วยขวาง",
+            "stops_wd": 1766
+          },
+          {
+            "name": "MRT พระรามเก้า",
+            "stops_wd": 1288
+          }
+        ]
+      },
+      {
+        "name": "เขตบางแค",
+        "total_wd": 30556,
+        "total_we": 27764,
+        "pickup_wd": 18448,
+        "dropoff_wd": 12111,
+        "pickup_we": 17097,
+        "dropoff_we": 10677,
+        "stop_count": 128,
+        "top_stops": [
+          {
+            "name": "ตรงข้ามเดอะมอลล์บางแค",
+            "stops_wd": 3184
+          },
+          {
+            "name": "ตลาดบางแค",
+            "stops_wd": 1980
+          },
+          {
+            "name": "MRT หลักสอง",
+            "stops_wd": 1860
+          }
+        ]
+      },
+      {
+        "name": "เขตคลองเตย",
+        "total_wd": 30443,
+        "total_we": 31580,
+        "pickup_wd": 16653,
+        "dropoff_wd": 13836,
+        "pickup_we": 17526,
+        "dropoff_we": 14386,
+        "stop_count": 137,
+        "top_stops": [
+          {
+            "name": "ซอยสุขุมวิท 10(ตรงข้ามแอมบาสเดอร์),สวนชูวิทย์",
+            "stops_wd": 1748
+          },
+          {
+            "name": "BTSอ่อนนุช(ขาเข้า)",
+            "stops_wd": 1620
+          },
+          {
+            "name": "ตลาดคองเตย",
+            "stops_wd": 1345
+          }
+        ]
+      },
+      {
+        "name": "เขตห้วยขวาง",
+        "total_wd": 29024,
+        "total_we": 29637,
+        "pickup_wd": 15479,
+        "dropoff_wd": 13548,
+        "pickup_we": 15964,
+        "dropoff_we": 13736,
+        "stop_count": 101,
+        "top_stops": [
+          {
+            "name": "เซ็นทรัลพระราม 9",
+            "stops_wd": 2099
+          },
+          {
+            "name": "MRT ห้วยขวาง",
+            "stops_wd": 1619
+          },
+          {
+            "name": "ตรงข้ามสำนักผังเมือง",
+            "stops_wd": 1039
+          }
+        ]
+      },
+      {
+        "name": "เขตวัฒนา",
+        "total_wd": 28146,
+        "total_we": 30558,
+        "pickup_wd": 15391,
+        "dropoff_wd": 12752,
+        "pickup_we": 17105,
+        "dropoff_we": 13625,
+        "stop_count": 126,
+        "top_stops": [
+          {
+            "name": "ซอยศรียาภัย",
+            "stops_wd": 1584
+          },
+          {
+            "name": "ตรงข้ามโรงพยาบาลบำรุงราษฎร์",
+            "stops_wd": 974
+          },
+          {
+            "name": "ซอยสุขุมวิท 15",
+            "stops_wd": 808
+          }
+        ]
+      },
+      {
+        "name": "เขตธนบุรี",
+        "total_wd": 27359,
+        "total_we": 26106,
+        "pickup_wd": 15111,
+        "dropoff_wd": 12255,
+        "pickup_we": 14735,
+        "dropoff_we": 11507,
+        "stop_count": 106,
+        "top_stops": [
+          {
+            "name": "ตรงข้ามเดอะมอลล์ท่าพระ",
+            "stops_wd": 1622
+          },
+          {
+            "name": "โรงพยาบาลสมเด็จพระปิ่นเกล้า",
+            "stops_wd": 1398
+          },
+          {
+            "name": "เดอะมอลล์ท่าพระ",
+            "stops_wd": 1120
+          }
+        ]
+      },
+      {
+        "name": "เขตบางรัก",
+        "total_wd": 27046,
+        "total_we": 26557,
+        "pickup_wd": 15120,
+        "dropoff_wd": 11924,
+        "pickup_we": 15209,
+        "dropoff_we": 11358,
+        "stop_count": 84,
+        "top_stops": [
+          {
+            "name": "BTS ศาลาแดง(ทางออก1)",
+            "stops_wd": 3226
+          },
+          {
+            "name": "รพ.เลิดสิน",
+            "stops_wd": 1465
+          },
+          {
+            "name": "ตรงข้ามโรบินสันบางรัก",
+            "stops_wd": 1285
+          }
+        ]
+      },
+      {
+        "name": "เขตภาษีเจริญ",
+        "total_wd": 26362,
+        "total_we": 23874,
+        "pickup_wd": 14851,
+        "dropoff_wd": 11518,
+        "pickup_we": 13448,
+        "dropoff_we": 10474,
+        "stop_count": 85,
+        "top_stops": [
+          {
+            "name": "ซีคอนบางแค",
+            "stops_wd": 2937
+          },
+          {
+            "name": "สถานีรถไฟฟ้าบางหว้า",
+            "stops_wd": 1959
+          },
+          {
+            "name": "MRT บางหว้า",
+            "stops_wd": 1873
+          }
+        ]
+      },
+      {
+        "name": "เขตคลองสาน",
+        "total_wd": 24550,
+        "total_we": 22077,
+        "pickup_wd": 13229,
+        "dropoff_wd": 11324,
+        "pickup_we": 11913,
+        "dropoff_we": 10190,
+        "stop_count": 81,
+        "top_stops": [
+          {
+            "name": "ไอคอนสยาม",
+            "stops_wd": 2916
+          },
+          {
+            "name": "โรงพยาบาลตากสิน",
+            "stops_wd": 1736
+          },
+          {
+            "name": "BTS วงเวียนใหญ่",
+            "stops_wd": 1457
+          }
+        ]
+      },
+      {
+        "name": "เขตสวนหลวง",
+        "total_wd": 23567,
+        "total_we": 21760,
+        "pickup_wd": 12683,
+        "dropoff_wd": 10891,
+        "pickup_we": 11911,
+        "dropoff_we": 9937,
+        "stop_count": 94,
+        "top_stops": [
+          {
+            "name": "โรงแรมนาซ่าเวกัส",
+            "stops_wd": 1235
+          },
+          {
+            "name": "ตรงข้ามโรงพยาบาลวิภาราม",
+            "stops_wd": 745
+          },
+          {
+            "name": "ตรงข้ามวัดมหาบุศย์",
+            "stops_wd": 737
+          }
+        ]
+      },
+      {
+        "name": "เขตบางซื่อ",
+        "total_wd": 23396,
+        "total_we": 21100,
+        "pickup_wd": 12572,
+        "dropoff_wd": 10838,
+        "pickup_we": 11642,
+        "dropoff_we": 9837,
+        "stop_count": 143,
+        "top_stops": [
+          {
+            "name": "ซอยสายสิน",
+            "stops_wd": 1037
+          },
+          {
+            "name": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ",
+            "stops_wd": 890
+          },
+          {
+            "name": "เทสโก้โลตัสเตาปูน",
+            "stops_wd": 757
+          }
+        ]
+      },
+      {
+        "name": "เขตพญาไท",
+        "total_wd": 23311,
+        "total_we": 21646,
+        "pickup_wd": 12880,
+        "dropoff_wd": 10443,
+        "pickup_we": 12480,
+        "dropoff_we": 9424,
+        "stop_count": 95,
+        "top_stops": [
+          {
+            "name": "ซอยประดิพัทธ์ 21",
+            "stops_wd": 1510
+          },
+          {
+            "name": "ซอยพหลโยธิน 11,ซอยเสนาร่วม",
+            "stops_wd": 1478
+          },
+          {
+            "name": "BTS อารีย์(ทางออก3)",
+            "stops_wd": 1444
+          }
+        ]
+      },
+      {
+        "name": "เขตบางเขน",
+        "total_wd": 22588,
+        "total_we": 20741,
+        "pickup_wd": 13121,
+        "dropoff_wd": 9476,
+        "pickup_we": 12315,
+        "dropoff_we": 8527,
+        "stop_count": 95,
+        "top_stops": [
+          {
+            "name": "ตลาดยิ่งเจริญ",
+            "stops_wd": 1564
+          },
+          {
+            "name": "สถานีตำรวจบางเขน",
+            "stops_wd": 1265
+          },
+          {
+            "name": "ใต้ทางด่วนแยกเข้าวัชรพล",
+            "stops_wd": 1126
+          }
+        ]
+      },
+      {
+        "name": "เขตดอนเมือง",
+        "total_wd": 22354,
+        "total_we": 20751,
+        "pickup_wd": 10982,
+        "dropoff_wd": 11395,
+        "pickup_we": 10373,
+        "dropoff_we": 10489,
+        "stop_count": 54,
+        "top_stops": [
+          {
+            "name": "อาคารผู้โดยสาร ชั้น 3",
+            "stops_wd": 11191
+          },
+          {
+            "name": "อาคารผู้โดยสาร 2 ชั้น 1 ประตู 12",
+            "stops_wd": 2422
+          },
+          {
+            "name": "ดอนเมือง(สำนักงานท่าอากาศยาน)",
+            "stops_wd": 794
+          }
+        ]
+      },
+      {
+        "name": "เขตดุสิต",
+        "total_wd": 21086,
+        "total_we": 15725,
+        "pickup_wd": 10839,
+        "dropoff_wd": 10259,
+        "pickup_we": 8088,
+        "dropoff_we": 7873,
+        "stop_count": 167,
+        "top_stops": [
+          {
+            "name": "โรงพยาบาลวชิรพยาบาล",
+            "stops_wd": 2397
+          },
+          {
+            "name": "วิทยาลัยอาชีวศึกษาอาชีวศิลป์,ตรงข้ามตลาดศรีย่าน",
+            "stops_wd": 838
+          },
+          {
+            "name": "ตรงข้ามมหาวิทยาลัยราชภัฏสวนสุนันทา",
+            "stops_wd": 596
+          }
+        ]
+      },
+      {
+        "name": "เขตยานนาวา",
+        "total_wd": 20080,
+        "total_we": 17098,
+        "pickup_wd": 10286,
+        "dropoff_wd": 9801,
+        "pickup_we": 8873,
+        "dropoff_we": 8274,
+        "stop_count": 101,
+        "top_stops": [
+          {
+            "name": "เซ็นทรัลพระราม 3",
+            "stops_wd": 2174
+          },
+          {
+            "name": "อาคารปัญจธานี",
+            "stops_wd": 676
+          },
+          {
+            "name": "วัดโพธิ์แมนคุณาราม",
+            "stops_wd": 626
+          }
+        ]
+      },
+      {
+        "name": "เขตตลิ่งชัน",
+        "total_wd": 18899,
+        "total_we": 16426,
+        "pickup_wd": 10081,
+        "dropoff_wd": 8824,
+        "pickup_we": 8904,
+        "dropoff_we": 7621,
+        "stop_count": 104,
+        "top_stops": [
+          {
+            "name": "สถานีขนส่งสายใต้ใหม่(ตลิ่งชัน)",
+            "stops_wd": 3123
+          },
+          {
+            "name": "ตรงข้ามสถานีขนส่งสายใต้ใหม่(ตลิ่งชัน)",
+            "stops_wd": 783
+          },
+          {
+            "name": "ท่าปล่อยรถ สายใต้ใหม่ (ตลิ่งชัน)",
+            "stops_wd": 687
+          }
+        ]
+      },
+      {
+        "name": "เขตลาดกระบัง",
+        "total_wd": 18391,
+        "total_we": 15544,
+        "pickup_wd": 10576,
+        "dropoff_wd": 7820,
+        "pickup_we": 9322,
+        "dropoff_we": 6272,
+        "stop_count": 123,
+        "top_stops": [
+          {
+            "name": "ARL ลาดกระบัง",
+            "stops_wd": 1696
+          },
+          {
+            "name": "วัดลานบุญ(วัด1)",
+            "stops_wd": 780
+          },
+          {
+            "name": "ดิยูโรเปี้ยนทาวน์",
+            "stops_wd": 752
+          }
+        ]
+      },
+      {
+        "name": "เขตบึงกุ่ม",
+        "total_wd": 18324,
+        "total_we": 15446,
+        "pickup_wd": 10382,
+        "dropoff_wd": 7967,
+        "pickup_we": 9155,
+        "dropoff_we": 6430,
+        "stop_count": 121,
+        "top_stops": [
+          {
+            "name": "ตรงข้ามตลาดปัฐวิกรณ์",
+            "stops_wd": 737
+          },
+          {
+            "name": "ตรงข้ามตลาดอินทรารักษ์(นวมินทร์ 38)",
+            "stops_wd": 489
+          },
+          {
+            "name": "โรงพยาบาลพญาไทนวมินทร์",
+            "stops_wd": 488
+          }
+        ]
+      },
+      {
+        "name": "เขตบางนา",
+        "total_wd": 18176,
+        "total_we": 17164,
+        "pickup_wd": 10286,
+        "dropoff_wd": 7901,
+        "pickup_we": 9974,
+        "dropoff_we": 7303,
+        "stop_count": 56,
+        "top_stops": [
+          {
+            "name": "เซ็นทรัลบางนา",
+            "stops_wd": 2047
+          },
+          {
+            "name": "BTS อุดมสุข",
+            "stops_wd": 1844
+          },
+          {
+            "name": "BTS อุดมสุข(ทางออก 1)",
+            "stops_wd": 1038
+          }
+        ]
+      },
+      {
+        "name": "เขตสาทร",
+        "total_wd": 18018,
+        "total_we": 16867,
+        "pickup_wd": 9744,
+        "dropoff_wd": 8274,
+        "pickup_we": 9113,
+        "dropoff_we": 7778,
+        "stop_count": 90,
+        "top_stops": [
+          {
+            "name": "ตรงข้ามตลาดสวนพลู(ซอยสวนพลู 6)",
+            "stops_wd": 940
+          },
+          {
+            "name": "BRT สาทร",
+            "stops_wd": 722
+          },
+          {
+            "name": "ซอยจันทร์ 18/8",
+            "stops_wd": 694
+          }
+        ]
+      },
+      {
+        "name": "เขตบางขุนเทียน",
+        "total_wd": 17953,
+        "total_we": 18963,
+        "pickup_wd": 10879,
+        "dropoff_wd": 7090,
+        "pickup_we": 11702,
+        "dropoff_we": 7311,
+        "stop_count": 63,
+        "top_stops": [
+          {
+            "name": "เซ็นทรัลพระราม 2",
+            "stops_wd": 2943
+          },
+          {
+            "name": "บิ๊กซีพระราม 2",
+            "stops_wd": 2015
+          },
+          {
+            "name": "เคหะธนบุรี(บิ๊กซีการเคหะพระราม2)",
+            "stops_wd": 1184
+          }
+        ]
+      },
+      {
+        "name": "เขตวังทองหลาง",
+        "total_wd": 17848,
+        "total_we": 16975,
+        "pickup_wd": 9783,
+        "dropoff_wd": 8065,
+        "pickup_we": 9572,
+        "dropoff_we": 7443,
+        "stop_count": 86,
+        "top_stops": [
+          {
+            "name": "อิมพิเรียลลาดพร้าว",
+            "stops_wd": 1514
+          },
+          {
+            "name": "ท่าสะพานมิตรมหาดไทย",
+            "stops_wd": 854
+          },
+          {
+            "name": "ซอยลาดพร้าว 122",
+            "stops_wd": 821
+          }
+        ]
+      },
+      {
+        "name": "เขตประเวศ",
+        "total_wd": 17121,
+        "total_we": 16043,
+        "pickup_wd": 9548,
+        "dropoff_wd": 7592,
+        "pickup_we": 9353,
+        "dropoff_we": 6853,
+        "stop_count": 119,
+        "top_stops": [
+          {
+            "name": "ซอยศรีนครินทร์ 42,ตรงข้ามซีคอนสแควร์ป้ายที่ 1",
+            "stops_wd": 1643
+          },
+          {
+            "name": "ซีคอนสแควร์",
+            "stops_wd": 1378
+          },
+          {
+            "name": "โรงพยาบาลสิรินธร",
+            "stops_wd": 917
+          }
+        ]
+      },
+      {
+        "name": "เขตจอมทอง",
+        "total_wd": 16317,
+        "total_we": 15042,
+        "pickup_wd": 9465,
+        "dropoff_wd": 6852,
+        "pickup_we": 8983,
+        "dropoff_we": 6059,
+        "stop_count": 63,
+        "top_stops": [
+          {
+            "name": "BTS วุฒากาศ",
+            "stops_wd": 769
+          },
+          {
+            "name": "โรงพยาบาลบางมด",
+            "stops_wd": 759
+          },
+          {
+            "name": "ซอยปลั่ง",
+            "stops_wd": 720
+          }
+        ]
+      },
+      {
+        "name": "เขตหลักสี่",
+        "total_wd": 15996,
+        "total_we": 11748,
+        "pickup_wd": 8604,
+        "dropoff_wd": 7389,
+        "pickup_we": 6555,
+        "dropoff_we": 5227,
+        "stop_count": 65,
+        "top_stops": [
+          {
+            "name": "ศูนย์ราชการแจ้งวัฒนะ(อาคารB)",
+            "stops_wd": 1377
+          },
+          {
+            "name": "ตรงข้ามบิ๊กซีแจ้งวัฒนะ",
+            "stops_wd": 1050
+          },
+          {
+            "name": "สี่แยกหลักสี่ (ถนนวิภาวดีรังสิต)",
+            "stops_wd": 786
+          }
+        ]
+      },
+      {
+        "name": "เขตบางคอแหลม",
+        "total_wd": 15652,
+        "total_we": 14327,
+        "pickup_wd": 8431,
+        "dropoff_wd": 7222,
+        "pickup_we": 7849,
+        "dropoff_we": 6548,
+        "stop_count": 64,
+        "top_stops": [
+          {
+            "name": "โรงพยาบาลเจริญกรุง(ตรงข้ามซอยเจริญกรุง 86)",
+            "stops_wd": 1871
+          },
+          {
+            "name": "ทุ่งวัดดอน",
+            "stops_wd": 835
+          },
+          {
+            "name": "เอเชียทีคเดอะรีเวอร์ฟร้อนท์",
+            "stops_wd": 831
+          }
+        ]
+      },
+      {
+        "name": "เขตคันนายาว",
+        "total_wd": 15110,
+        "total_we": 13055,
+        "pickup_wd": 8351,
+        "dropoff_wd": 6764,
+        "pickup_we": 7369,
+        "dropoff_we": 5769,
+        "stop_count": 90,
+        "top_stops": [
+          {
+            "name": "แฟชั่นไอส์แลนด์",
+            "stops_wd": 2768
+          },
+          {
+            "name": "ตรงข้ามโรงพยาบาลนพรัตน์",
+            "stops_wd": 1119
+          },
+          {
+            "name": "ตรงข้ามแฟชั่นไอส์แลนด์",
+            "stops_wd": 676
+          }
+        ]
+      },
+      {
+        "name": "เขตมีนบุรี",
+        "total_wd": 14529,
+        "total_we": 11973,
+        "pickup_wd": 8506,
+        "dropoff_wd": 6026,
+        "pickup_we": 7355,
+        "dropoff_we": 4661,
+        "stop_count": 127,
+        "top_stops": [
+          {
+            "name": "ตลาดมีนบุรี(ตลาดสด)",
+            "stops_wd": 1694
+          },
+          {
+            "name": "หน้าร้านทองมีนบุรี",
+            "stops_wd": 759
+          },
+          {
+            "name": "โรงพยาบาลนวมินทร์ 9",
+            "stops_wd": 699
+          }
+        ]
+      },
+      {
+        "name": "เขตราษฎร์บูรณะ",
+        "total_wd": 14447,
+        "total_we": 12041,
+        "pickup_wd": 8214,
+        "dropoff_wd": 6237,
+        "pickup_we": 6983,
+        "dropoff_we": 5073,
+        "stop_count": 90,
+        "top_stops": [
+          {
+            "name": "ตลาดบางปะกอก",
+            "stops_wd": 933
+          },
+          {
+            "name": "ตรงข้ามตลาดบางปะกอก",
+            "stops_wd": 692
+          },
+          {
+            "name": "ตรงข้ามวัดสน",
+            "stops_wd": 559
+          }
+        ]
+      },
+      {
+        "name": "เขตป้อมปราบศัตรูพ่าย",
+        "total_wd": 14304,
+        "total_we": 13042,
+        "pickup_wd": 7335,
+        "dropoff_wd": 6965,
+        "pickup_we": 6729,
+        "dropoff_we": 6340,
+        "stop_count": 78,
+        "top_stops": [
+          {
+            "name": "โรงพยาบาลกลาง(ฝั่งเสือป่า)",
+            "stops_wd": 1482
+          },
+          {
+            "name": "ยศเส",
+            "stops_wd": 1032
+          },
+          {
+            "name": "ตลาดโบ้เบ้(อาคารโบ๊เบ๊ทาวเวอร์)",
+            "stops_wd": 752
+          }
+        ]
+      },
+      {
+        "name": "เขตบางบอน",
+        "total_wd": 13569,
+        "total_we": 14156,
+        "pickup_wd": 7875,
+        "dropoff_wd": 5697,
+        "pickup_we": 8480,
+        "dropoff_we": 5678,
+        "stop_count": 94,
+        "top_stops": [
+          {
+            "name": "บิ๊กซีถนนเอกชัย",
+            "stops_wd": 653
+          },
+          {
+            "name": "โรงพยาบาลบางกอก8อินเตอร์เนชั่นแนล",
+            "stops_wd": 637
+          },
+          {
+            "name": "ตลาดสดเอกชัย",
+            "stops_wd": 571
+          }
+        ]
+      },
+      {
+        "name": "เขตลาดพร้าว",
+        "total_wd": 12448,
+        "total_we": 11259,
+        "pickup_wd": 6798,
+        "dropoff_wd": 5650,
+        "pickup_we": 6289,
+        "dropoff_we": 4970,
+        "stop_count": 82,
+        "top_stops": [
+          {
+            "name": "โลตัสเลียบทางด่วนรามอินทรา",
+            "stops_wd": 882
+          },
+          {
+            "name": "ลาดพร้าวสะพาน 2",
+            "stops_wd": 627
+          },
+          {
+            "name": "โรงเรียนสตรีวิทยา 2",
+            "stops_wd": 477
+          }
+        ]
+      },
+      {
+        "name": "เขตบางกอกใหญ่",
+        "total_wd": 12369,
+        "total_we": 12031,
+        "pickup_wd": 6672,
+        "dropoff_wd": 5697,
+        "pickup_we": 6550,
+        "dropoff_we": 5481,
+        "stop_count": 43,
+        "top_stops": [
+          {
+            "name": "วัดท่าพระ",
+            "stops_wd": 1049
+          },
+          {
+            "name": "ตรงข้ามซอยอิสรภาพ 23/2",
+            "stops_wd": 716
+          },
+          {
+            "name": "ตรงข้ามวัดอรุณ",
+            "stops_wd": 647
+          }
+        ]
+      },
+      {
+        "name": "เขตสัมพันธวงศ์",
+        "total_wd": 9919,
+        "total_we": 11174,
+        "pickup_wd": 5448,
+        "dropoff_wd": 4471,
+        "pickup_we": 6158,
+        "dropoff_we": 5016,
+        "stop_count": 25,
+        "top_stops": [
+          {
+            "name": "MRT วัดมังกร",
+            "stops_wd": 2055
+          },
+          {
+            "name": "ตลาดเก่าเยาวราช",
+            "stops_wd": 1760
+          },
+          {
+            "name": "แยกเฉลิมบุรี",
+            "stops_wd": 1152
+          }
+        ]
+      },
+      {
+        "name": "เขตหนองแขม",
+        "total_wd": 8808,
+        "total_we": 7202,
+        "pickup_wd": 5267,
+        "dropoff_wd": 3569,
+        "pickup_we": 4566,
+        "dropoff_we": 2764,
+        "stop_count": 80,
+        "top_stops": [
+          {
+            "name": "ซอยเพชรเกษม 110,มหาวิทยาลัยธนบุรี",
+            "stops_wd": 541
+          },
+          {
+            "name": "วัดศรีนวลธรรมวิมล",
+            "stops_wd": 488
+          },
+          {
+            "name": "ซอยเพชรเกษม 73/2",
+            "stops_wd": 392
+          }
+        ]
+      },
+      {
+        "name": "เขตทวีวัฒนา",
+        "total_wd": 7394,
+        "total_we": 6360,
+        "pickup_wd": 4297,
+        "dropoff_wd": 3126,
+        "pickup_we": 3847,
+        "dropoff_we": 2607,
+        "stop_count": 77,
+        "top_stops": [
+          {
+            "name": "กองบังคับการตำรวจนครบาล 7",
+            "stops_wd": 672
+          },
+          {
+            "name": "ซอยเลียบคลอง 9,ตรงข้ามซอยทวีวัฒนา 9",
+            "stops_wd": 510
+          },
+          {
+            "name": "ตลาดพุทธ,",
+            "stops_wd": 426
+          }
+        ]
+      },
+      {
+        "name": "เขตสายไหม",
+        "total_wd": 6871,
+        "total_we": 5218,
+        "pickup_wd": 3690,
+        "dropoff_wd": 3196,
+        "pickup_we": 2828,
+        "dropoff_we": 2462,
+        "stop_count": 53,
+        "top_stops": [
+          {
+            "name": "โรงพยาบาลภูมิพลอดุลยเดช",
+            "stops_wd": 1333
+          },
+          {
+            "name": "โรงพยาบาลบีแคร์เมดิคอลเซ็นเตอร์",
+            "stops_wd": 537
+          },
+          {
+            "name": "แยก คปอ.,แยกแปดแฉก",
+            "stops_wd": 464
+          }
+        ]
+      },
+      {
+        "name": "เขตสะพานสูง",
+        "total_wd": 6513,
+        "total_we": 4869,
+        "pickup_wd": 3707,
+        "dropoff_wd": 2806,
+        "pickup_we": 2871,
+        "dropoff_we": 1998,
+        "stop_count": 51,
+        "top_stops": [
+          {
+            "name": "หมู่บ้านพฤษชาติ",
+            "stops_wd": 497
+          },
+          {
+            "name": "โรงพยาบาลการุณเวช(ถนนรามคำแหง)",
+            "stops_wd": 374
+          },
+          {
+            "name": "SRT บ้านทับช้าง",
+            "stops_wd": 350
+          }
+        ]
+      },
+      {
+        "name": "เขตทุ่งครุ",
+        "total_wd": 5235,
+        "total_we": 4446,
+        "pickup_wd": 3142,
+        "dropoff_wd": 2093,
+        "pickup_we": 2809,
+        "dropoff_we": 1637,
+        "stop_count": 60,
+        "top_stops": [
+          {
+            "name": "ซอยประชาอุทิศ 61",
+            "stops_wd": 396
+          },
+          {
+            "name": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี",
+            "stops_wd": 395
+          },
+          {
+            "name": "หมู่บ้านสวนธนบุรีรมย์",
+            "stops_wd": 297
+          }
+        ]
+      },
+      {
+        "name": "เขตพระโขนง",
+        "total_wd": 4835,
+        "total_we": 4396,
+        "pickup_wd": 2501,
+        "dropoff_wd": 2334,
+        "pickup_we": 2264,
+        "dropoff_we": 2132,
+        "stop_count": 30,
+        "top_stops": [
+          {
+            "name": "BTS ปุณณวิถี",
+            "stops_wd": 490
+          },
+          {
+            "name": "ตรงข้ามตลาดบางจาก(สุขุมวิท 93)",
+            "stops_wd": 446
+          },
+          {
+            "name": "ตลาดบางจาก",
+            "stops_wd": 418
+          }
+        ]
+      },
+      {
+        "name": "เขตคลองสามวา",
+        "total_wd": 4116,
+        "total_we": 3299,
+        "pickup_wd": 2290,
+        "dropoff_wd": 1832,
+        "pickup_we": 1940,
+        "dropoff_we": 1387,
+        "stop_count": 52,
+        "top_stops": [
+          {
+            "name": "ต้นกกรีสอร์ท(ขาเข้า)",
+            "stops_wd": 462
+          },
+          {
+            "name": "โชร์รูมมิตซู,ตรงข้ามซอยหทัยราษฎร์ 29",
+            "stops_wd": 280
+          },
+          {
+            "name": "หมู่บ้านภัทรินทร์ 2",
+            "stops_wd": 241
+          }
+        ]
+      },
+      {
+        "name": "เขตหนองจอก",
+        "total_wd": 1241,
+        "total_we": 793,
+        "pickup_wd": 694,
+        "dropoff_wd": 547,
+        "pickup_we": 473,
+        "dropoff_we": 320,
+        "stop_count": 44,
+        "top_stops": [
+          {
+            "name": "โรงพยาบาลเวชการุณย์รัศมิ์",
+            "stops_wd": 144
+          },
+          {
+            "name": "โรงเรียนมัธยมหนองจอก",
+            "stops_wd": 123
+          },
+          {
+            "name": "หมู่บ้านซื่อตรง(สุวินทวงศ์)",
+            "stops_wd": 92
+          }
+        ]
+      }
+    ],
+    "top_25_stops": [
+      {
+        "rank": 1,
+        "bus_stop": "อู่หมอชิต 2",
+        "district": "เขตจตุจักร",
+        "pickup_wd": 5176,
+        "dropoff_wd": 6616,
+        "total_wd": 11792,
+        "total_we": 12834,
+        "grand_total": 24626
+      },
+      {
+        "rank": 2,
+        "bus_stop": "อาคารผู้โดยสาร ชั้น 3",
+        "district": "เขตดอนเมือง",
+        "pickup_wd": 4539,
+        "dropoff_wd": 6652,
+        "total_wd": 11191,
+        "total_we": 11048,
+        "grand_total": 22239
+      },
+      {
+        "rank": 3,
+        "bus_stop": "เซ็นทรัลปิ่นเกล้า",
+        "district": "เขตบางกอกน้อย",
+        "pickup_wd": 2329,
+        "dropoff_wd": 2089,
+        "total_wd": 4418,
+        "total_we": 5079,
+        "grand_total": 9497
+      },
+      {
+        "rank": 4,
+        "bus_stop": "โรงพยาบาลศิริราช",
+        "district": "เขตบางกอกน้อย",
+        "pickup_wd": 3274,
+        "dropoff_wd": 2306,
+        "total_wd": 5580,
+        "total_we": 3649,
+        "grand_total": 9229
+      },
+      {
+        "rank": 5,
+        "bus_stop": "โรงพยาบาลรามาธิบดี",
+        "district": "เขตราชเทวี",
+        "pickup_wd": 3368,
+        "dropoff_wd": 2591,
+        "total_wd": 5959,
+        "total_we": 2870,
+        "grand_total": 8829
+      },
+      {
+        "rank": 6,
+        "bus_stop": "เอ็นมาร์คพลาซ่า(น้อมจิตต์)",
+        "district": "เขตบางกะปิ",
+        "pickup_wd": 2564,
+        "dropoff_wd": 1300,
+        "total_wd": 3864,
+        "total_we": 4565,
+        "grand_total": 8429
+      },
+      {
+        "rank": 7,
+        "bus_stop": "เมเจอร์ปิ่นเกล้า",
+        "district": "เขตบางพลัด",
+        "pickup_wd": 2599,
+        "dropoff_wd": 1143,
+        "total_wd": 3742,
+        "total_we": 4443,
+        "grand_total": 8185
+      },
+      {
+        "rank": 8,
+        "bus_stop": "ตรงข้ามเซ็นทรัลลาดพร้าว",
+        "district": "เขตจตุจักร",
+        "pickup_wd": 2131,
+        "dropoff_wd": 1353,
+        "total_wd": 3484,
+        "total_we": 4339,
+        "grand_total": 7823
+      },
+      {
+        "rank": 9,
+        "bus_stop": "เซ็นทรัลพระราม 2",
+        "district": "เขตบางขุนเทียน",
+        "pickup_wd": 1653,
+        "dropoff_wd": 1290,
+        "total_wd": 2943,
+        "total_we": 4096,
+        "grand_total": 7039
+      },
+      {
+        "rank": 10,
+        "bus_stop": "BTS ศาลาแดง(ทางออก1)",
+        "district": "เขตบางรัก",
+        "pickup_wd": 2146,
+        "dropoff_wd": 1080,
+        "total_wd": 3226,
+        "total_we": 3672,
+        "grand_total": 6898
+      },
+      {
+        "rank": 11,
+        "bus_stop": "ตรงข้ามเดอะมอลล์บางแค",
+        "district": "เขตบางแค",
+        "pickup_wd": 2847,
+        "dropoff_wd": 337,
+        "total_wd": 3184,
+        "total_we": 3400,
+        "grand_total": 6584
+      },
+      {
+        "rank": 12,
+        "bus_stop": "โรงพยาบาลเด็ก",
+        "district": "เขตราชเทวี",
+        "pickup_wd": 2493,
+        "dropoff_wd": 1783,
+        "total_wd": 4276,
+        "total_we": 2267,
+        "grand_total": 6543
+      },
+      {
+        "rank": 13,
+        "bus_stop": "ซีคอนบางแค",
+        "district": "เขตภาษีเจริญ",
+        "pickup_wd": 1826,
+        "dropoff_wd": 1111,
+        "total_wd": 2937,
+        "total_we": 3542,
+        "grand_total": 6479
+      },
+      {
+        "rank": 14,
+        "bus_stop": "ตรงข้ามโรงพยาบาลศิริราช",
+        "district": "เขตบางกอกน้อย",
+        "pickup_wd": 2275,
+        "dropoff_wd": 1588,
+        "total_wd": 3863,
+        "total_we": 2471,
+        "grand_total": 6334
+      },
+      {
+        "rank": 15,
+        "bus_stop": "แฟชั่นไอส์แลนด์",
+        "district": "เขตคันนายาว",
+        "pickup_wd": 1445,
+        "dropoff_wd": 1323,
+        "total_wd": 2768,
+        "total_we": 3559,
+        "grand_total": 6327
+      },
+      {
+        "rank": 16,
+        "bus_stop": "ไอคอนสยาม",
+        "district": "เขตคลองสาน",
+        "pickup_wd": 1694,
+        "dropoff_wd": 1222,
+        "total_wd": 2916,
+        "total_we": 3338,
+        "grand_total": 6254
+      },
+      {
+        "rank": 17,
+        "bus_stop": "สถานีขนส่งสายใต้ใหม่(ตลิ่งชัน)",
+        "district": "เขตตลิ่งชัน",
+        "pickup_wd": 1103,
+        "dropoff_wd": 2020,
+        "total_wd": 3123,
+        "total_we": 3088,
+        "grand_total": 6211
+      },
+      {
+        "rank": 18,
+        "bus_stop": "นครชัยแอร์",
+        "district": "เขตจตุจักร",
+        "pickup_wd": 1789,
+        "dropoff_wd": 1120,
+        "total_wd": 2909,
+        "total_we": 3003,
+        "grand_total": 5912
+      },
+      {
+        "rank": 19,
+        "bus_stop": "พันธุ์ทิพย์ประตูน้ำ",
+        "district": "เขตราชเทวี",
+        "pickup_wd": 1261,
+        "dropoff_wd": 1114,
+        "total_wd": 2375,
+        "total_we": 3012,
+        "grand_total": 5387
+      },
+      {
+        "rank": 20,
+        "bus_stop": "อนุสาวรีย์ชัยสมรภูมิ (เกาะราชวิถี)",
+        "district": "เขตราชเทวี",
+        "pickup_wd": 1842,
+        "dropoff_wd": 1336,
+        "total_wd": 3178,
+        "total_we": 2205,
+        "grand_total": 5383
+      },
+      {
+        "rank": 21,
+        "bus_stop": "สถานีดับเพลิงห้วยขวาง,สาธารณสุข 52",
+        "district": "เขตดินแดง",
+        "pickup_wd": 1557,
+        "dropoff_wd": 987,
+        "total_wd": 2544,
+        "total_we": 2722,
+        "grand_total": 5266
+      },
+      {
+        "rank": 22,
+        "bus_stop": "เซ็นทรัลพระราม 3",
+        "district": "เขตยานนาวา",
+        "pickup_wd": 1206,
+        "dropoff_wd": 968,
+        "total_wd": 2174,
+        "total_we": 2739,
+        "grand_total": 4913
+      },
+      {
+        "rank": 23,
+        "bus_stop": "อาคารผู้โดยสาร 2 ชั้น 1 ประตู 12",
+        "district": "เขตดอนเมือง",
+        "pickup_wd": 1135,
+        "dropoff_wd": 1287,
+        "total_wd": 2422,
+        "total_we": 2343,
+        "grand_total": 4765
+      },
+      {
+        "rank": 24,
+        "bus_stop": "เซ็นทรัลพระราม 9",
+        "district": "เขตห้วยขวาง",
+        "pickup_wd": 1212,
+        "dropoff_wd": 887,
+        "total_wd": 2099,
+        "total_we": 2555,
+        "grand_total": 4654
+      },
+      {
+        "rank": 25,
+        "bus_stop": "MRT วัดมังกร",
+        "district": "เขตสัมพันธวงศ์",
+        "pickup_wd": 1114,
+        "dropoff_wd": 941,
+        "total_wd": 2055,
+        "total_we": 2589,
+        "grand_total": 4644
+      }
+    ],
+    "monthly_trend": {
+      "มกราคม": {
+        "total_wd": 94411,
+        "total_we": 87155
+      },
+      "กุมภาพันธ์": {
+        "total_wd": 149120,
+        "total_we": 140077
+      },
+      "มีนาคม": {
+        "total_wd": 60534,
+        "total_we": 55749
+      },
+      "เมษายน": {
+        "total_wd": 114779,
+        "total_we": 107588
+      },
+      "พฤษภาคม": {
+        "total_wd": 114789,
+        "total_we": 108079
+      },
+      "มิถุนายน": {
+        "total_wd": 105156,
+        "total_we": 96910
+      },
+      "กรกฎาคม": {
+        "total_wd": 106054,
+        "total_we": 98945
+      },
+      "สิงหาคม": {
+        "total_wd": 90624,
+        "total_we": 85611
+      },
+      "กันยายน": {
+        "total_wd": 78370,
+        "total_we": 76795
+      },
+      "ตุลาคม": {
+        "total_wd": 24421,
+        "total_we": 21135
+      },
+      "พฤศจิกายน": {
+        "total_wd": 66067,
+        "total_we": 65909
+      },
+      "ธันวาคม": {
+        "total_wd": 69524,
+        "total_we": 63963
+      }
+    },
+    "yearly_trend": {
+      "2565": {
+        "total_wd": 493613,
+        "total_we": 480339,
+        "pickup_wd": 269354,
+        "dropoff_wd": 224636
+      },
+      "2566": {
+        "total_wd": 178155,
+        "total_we": 168821,
+        "pickup_wd": 100433,
+        "dropoff_wd": 77861
+      },
+      "2567": {
+        "total_wd": 321713,
+        "total_we": 293372,
+        "pickup_wd": 177232,
+        "dropoff_wd": 144481
+      },
+      "2568": {
+        "total_wd": 56740,
+        "total_we": 46410,
+        "pickup_wd": 31603,
+        "dropoff_wd": 25137
+      },
+      "2569": {
+        "total_wd": 23628,
+        "total_we": 18974,
+        "pickup_wd": 13463,
+        "dropoff_wd": 10165
+      }
+    },
+    "searchable_stops": [
+      {
+        "name": "อู่หมอชิต 2",
+        "district": "เขตจตุจักร",
+        "total_wd": 11792,
+        "pickup_wd": 5176,
+        "dropoff_wd": 6616,
+        "total_we": 12834,
+        "grand_total": 24626
+      },
+      {
+        "name": "อาคารผู้โดยสาร ชั้น 3",
+        "district": "เขตดอนเมือง",
+        "total_wd": 11191,
+        "pickup_wd": 4539,
+        "dropoff_wd": 6652,
+        "total_we": 11048,
+        "grand_total": 22239
+      },
+      {
+        "name": "เซ็นทรัลปิ่นเกล้า",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 4418,
+        "pickup_wd": 2329,
+        "dropoff_wd": 2089,
+        "total_we": 5079,
+        "grand_total": 9497
+      },
+      {
+        "name": "โรงพยาบาลศิริราช",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 5580,
+        "pickup_wd": 3274,
+        "dropoff_wd": 2306,
+        "total_we": 3649,
+        "grand_total": 9229
+      },
+      {
+        "name": "โรงพยาบาลรามาธิบดี",
+        "district": "เขตราชเทวี",
+        "total_wd": 5959,
+        "pickup_wd": 3368,
+        "dropoff_wd": 2591,
+        "total_we": 2870,
+        "grand_total": 8829
+      },
+      {
+        "name": "เอ็นมาร์คพลาซ่า(น้อมจิตต์)",
+        "district": "เขตบางกะปิ",
+        "total_wd": 3864,
+        "pickup_wd": 2564,
+        "dropoff_wd": 1300,
+        "total_we": 4565,
+        "grand_total": 8429
+      },
+      {
+        "name": "เมเจอร์ปิ่นเกล้า",
+        "district": "เขตบางพลัด",
+        "total_wd": 3742,
+        "pickup_wd": 2599,
+        "dropoff_wd": 1143,
+        "total_we": 4443,
+        "grand_total": 8185
+      },
+      {
+        "name": "ตรงข้ามเซ็นทรัลลาดพร้าว",
+        "district": "เขตจตุจักร",
+        "total_wd": 3484,
+        "pickup_wd": 2131,
+        "dropoff_wd": 1353,
+        "total_we": 4339,
+        "grand_total": 7823
+      },
+      {
+        "name": "เซ็นทรัลพระราม 2",
+        "district": "เขตบางขุนเทียน",
+        "total_wd": 2943,
+        "pickup_wd": 1653,
+        "dropoff_wd": 1290,
+        "total_we": 4096,
+        "grand_total": 7039
+      },
+      {
+        "name": "BTS ศาลาแดง(ทางออก1)",
+        "district": "เขตบางรัก",
+        "total_wd": 3226,
+        "pickup_wd": 2146,
+        "dropoff_wd": 1080,
+        "total_we": 3672,
+        "grand_total": 6898
+      },
+      {
+        "name": "ตรงข้ามเดอะมอลล์บางแค",
+        "district": "เขตบางแค",
+        "total_wd": 3184,
+        "pickup_wd": 2847,
+        "dropoff_wd": 337,
+        "total_we": 3400,
+        "grand_total": 6584
+      },
+      {
+        "name": "โรงพยาบาลเด็ก",
+        "district": "เขตราชเทวี",
+        "total_wd": 4276,
+        "pickup_wd": 2493,
+        "dropoff_wd": 1783,
+        "total_we": 2267,
+        "grand_total": 6543
+      },
+      {
+        "name": "ซีคอนบางแค",
+        "district": "เขตภาษีเจริญ",
+        "total_wd": 2937,
+        "pickup_wd": 1826,
+        "dropoff_wd": 1111,
+        "total_we": 3542,
+        "grand_total": 6479
+      },
+      {
+        "name": "ตรงข้ามโรงพยาบาลศิริราช",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 3863,
+        "pickup_wd": 2275,
+        "dropoff_wd": 1588,
+        "total_we": 2471,
+        "grand_total": 6334
+      },
+      {
+        "name": "แฟชั่นไอส์แลนด์",
+        "district": "เขตคันนายาว",
+        "total_wd": 2768,
+        "pickup_wd": 1445,
+        "dropoff_wd": 1323,
+        "total_we": 3559,
+        "grand_total": 6327
+      },
+      {
+        "name": "ไอคอนสยาม",
+        "district": "เขตคลองสาน",
+        "total_wd": 2916,
+        "pickup_wd": 1694,
+        "dropoff_wd": 1222,
+        "total_we": 3338,
+        "grand_total": 6254
+      },
+      {
+        "name": "สถานีขนส่งสายใต้ใหม่(ตลิ่งชัน)",
+        "district": "เขตตลิ่งชัน",
+        "total_wd": 3123,
+        "pickup_wd": 1103,
+        "dropoff_wd": 2020,
+        "total_we": 3088,
+        "grand_total": 6211
+      },
+      {
+        "name": "นครชัยแอร์",
+        "district": "เขตจตุจักร",
+        "total_wd": 2909,
+        "pickup_wd": 1789,
+        "dropoff_wd": 1120,
+        "total_we": 3003,
+        "grand_total": 5912
+      },
+      {
+        "name": "พันธุ์ทิพย์ประตูน้ำ",
+        "district": "เขตราชเทวี",
+        "total_wd": 2375,
+        "pickup_wd": 1261,
+        "dropoff_wd": 1114,
+        "total_we": 3012,
+        "grand_total": 5387
+      },
+      {
+        "name": "อนุสาวรีย์ชัยสมรภูมิ (เกาะราชวิถี)",
+        "district": "เขตราชเทวี",
+        "total_wd": 3178,
+        "pickup_wd": 1842,
+        "dropoff_wd": 1336,
+        "total_we": 2205,
+        "grand_total": 5383
+      },
+      {
+        "name": "สถานีดับเพลิงห้วยขวาง,สาธารณสุข 52",
+        "district": "เขตดินแดง",
+        "total_wd": 2544,
+        "pickup_wd": 1557,
+        "dropoff_wd": 987,
+        "total_we": 2722,
+        "grand_total": 5266
+      },
+      {
+        "name": "เซ็นทรัลพระราม 3",
+        "district": "เขตยานนาวา",
+        "total_wd": 2174,
+        "pickup_wd": 1206,
+        "dropoff_wd": 968,
+        "total_we": 2739,
+        "grand_total": 4913
+      },
+      {
+        "name": "อาคารผู้โดยสาร 2 ชั้น 1 ประตู 12",
+        "district": "เขตดอนเมือง",
+        "total_wd": 2422,
+        "pickup_wd": 1135,
+        "dropoff_wd": 1287,
+        "total_we": 2343,
+        "grand_total": 4765
+      },
+      {
+        "name": "เซ็นทรัลพระราม 9",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 2099,
+        "pickup_wd": 1212,
+        "dropoff_wd": 887,
+        "total_we": 2555,
+        "grand_total": 4654
+      },
+      {
+        "name": "MRT วัดมังกร",
+        "district": "เขตสัมพันธวงศ์",
+        "total_wd": 2055,
+        "pickup_wd": 1114,
+        "dropoff_wd": 941,
+        "total_we": 2589,
+        "grand_total": 4644
+      },
+      {
+        "name": "บิ๊กซีพระราม 2",
+        "district": "เขตบางขุนเทียน",
+        "total_wd": 2015,
+        "pickup_wd": 1507,
+        "dropoff_wd": 508,
+        "total_we": 2592,
+        "grand_total": 4607
+      },
+      {
+        "name": "ปากคลองตลาด",
+        "district": "เขตพระนคร",
+        "total_wd": 2163,
+        "pickup_wd": 1332,
+        "dropoff_wd": 831,
+        "total_we": 2268,
+        "grand_total": 4431
+      },
+      {
+        "name": "เซ็นทรัลบางนา",
+        "district": "เขตบางนา",
+        "total_wd": 2047,
+        "pickup_wd": 1140,
+        "dropoff_wd": 907,
+        "total_we": 2280,
+        "grand_total": 4327
+      },
+      {
+        "name": "ตลาดบางแค",
+        "district": "เขตบางแค",
+        "total_wd": 1980,
+        "pickup_wd": 1413,
+        "dropoff_wd": 567,
+        "total_we": 2249,
+        "grand_total": 4229
+      },
+      {
+        "name": "ซอยศรีนครินทร์ 42,ตรงข้ามซีคอนสแควร์ป้ายที่ 1",
+        "district": "เขตประเวศ",
+        "total_wd": 1643,
+        "pickup_wd": 1012,
+        "dropoff_wd": 631,
+        "total_we": 2558,
+        "grand_total": 4201
+      },
+      {
+        "name": "BTS เสนานิคม",
+        "district": "เขตจตุจักร",
+        "total_wd": 1914,
+        "pickup_wd": 1318,
+        "dropoff_wd": 596,
+        "total_we": 2101,
+        "grand_total": 4015
+      },
+      {
+        "name": "ตลาดเก่าเยาวราช",
+        "district": "เขตสัมพันธวงศ์",
+        "total_wd": 1760,
+        "pickup_wd": 1100,
+        "dropoff_wd": 660,
+        "total_we": 2102,
+        "grand_total": 3862
+      },
+      {
+        "name": "MRT หลักสอง",
+        "district": "เขตบางแค",
+        "total_wd": 1860,
+        "pickup_wd": 717,
+        "dropoff_wd": 1143,
+        "total_we": 1995,
+        "grand_total": 3855
+      },
+      {
+        "name": "อนุสาวรีย์ประชาธิปไตย(ศึกษาภัณฑ์)",
+        "district": "เขตพระนคร",
+        "total_wd": 1464,
+        "pickup_wd": 780,
+        "dropoff_wd": 684,
+        "total_we": 2270,
+        "grand_total": 3734
+      },
+      {
+        "name": "ซอยสุขุมวิท 10(ตรงข้ามแอมบาสเดอร์),สวนชูวิทย์",
+        "district": "เขตคลองเตย",
+        "total_wd": 1748,
+        "pickup_wd": 1055,
+        "dropoff_wd": 693,
+        "total_we": 1972,
+        "grand_total": 3720
+      },
+      {
+        "name": "MRT ห้วยขวาง",
+        "district": "เขตดินแดง",
+        "total_wd": 1766,
+        "pickup_wd": 1132,
+        "dropoff_wd": 634,
+        "total_we": 1946,
+        "grand_total": 3712
+      },
+      {
+        "name": "ซอยศรียาภัย",
+        "district": "เขตวัฒนา",
+        "total_wd": 1584,
+        "pickup_wd": 952,
+        "dropoff_wd": 632,
+        "total_we": 2126,
+        "grand_total": 3710
+      },
+      {
+        "name": "ตรงข้ามเดอะมอลล์ท่าพระ",
+        "district": "เขตธนบุรี",
+        "total_wd": 1622,
+        "pickup_wd": 990,
+        "dropoff_wd": 632,
+        "total_we": 2061,
+        "grand_total": 3683
+      },
+      {
+        "name": "ตลาดมีนบุรี(ตลาดสด)",
+        "district": "เขตมีนบุรี",
+        "total_wd": 1694,
+        "pickup_wd": 1151,
+        "dropoff_wd": 543,
+        "total_we": 1978,
+        "grand_total": 3672
+      },
+      {
+        "name": "BTS สยาม",
+        "district": "เขตปทุมวัน",
+        "total_wd": 1644,
+        "pickup_wd": 974,
+        "dropoff_wd": 670,
+        "total_we": 2023,
+        "grand_total": 3667
+      },
+      {
+        "name": "BTS อุดมสุข",
+        "district": "เขตบางนา",
+        "total_wd": 1844,
+        "pickup_wd": 1298,
+        "dropoff_wd": 546,
+        "total_we": 1815,
+        "grand_total": 3659
+      },
+      {
+        "name": "แยกลาดพร้าว(ลาดพร้าวซอย4)",
+        "district": "เขตจตุจักร",
+        "total_wd": 1532,
+        "pickup_wd": 968,
+        "dropoff_wd": 564,
+        "total_we": 2106,
+        "grand_total": 3638
+      },
+      {
+        "name": "BTSอ่อนนุช(ขาเข้า)",
+        "district": "เขตคลองเตย",
+        "total_wd": 1620,
+        "pickup_wd": 1073,
+        "dropoff_wd": 547,
+        "total_we": 1921,
+        "grand_total": 3541
+      },
+      {
+        "name": "MRT บางหว้า",
+        "district": "เขตภาษีเจริญ",
+        "total_wd": 1873,
+        "pickup_wd": 1146,
+        "dropoff_wd": 727,
+        "total_we": 1632,
+        "grand_total": 3505
+      },
+      {
+        "name": "MRT ห้วยขวาง",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 1619,
+        "pickup_wd": 975,
+        "dropoff_wd": 644,
+        "total_we": 1857,
+        "grand_total": 3476
+      },
+      {
+        "name": "ARL ลาดกระบัง",
+        "district": "เขตลาดกระบัง",
+        "total_wd": 1696,
+        "pickup_wd": 888,
+        "dropoff_wd": 808,
+        "total_we": 1735,
+        "grand_total": 3431
+      },
+      {
+        "name": "โรงพยาบาลวชิรพยาบาล",
+        "district": "เขตดุสิต",
+        "total_wd": 2397,
+        "pickup_wd": 1331,
+        "dropoff_wd": 1066,
+        "total_we": 1013,
+        "grand_total": 3410
+      },
+      {
+        "name": "มาบุญครอง",
+        "district": "เขตปทุมวัน",
+        "total_wd": 1402,
+        "pickup_wd": 730,
+        "dropoff_wd": 672,
+        "total_we": 1952,
+        "grand_total": 3354
+      },
+      {
+        "name": "เซ็นทรัลเวิลด์",
+        "district": "เขตปทุมวัน",
+        "total_wd": 1454,
+        "pickup_wd": 765,
+        "dropoff_wd": 689,
+        "total_we": 1889,
+        "grand_total": 3343
+      },
+      {
+        "name": "ซอยประดิพัทธ์ 21",
+        "district": "เขตพญาไท",
+        "total_wd": 1510,
+        "pickup_wd": 900,
+        "dropoff_wd": 610,
+        "total_we": 1791,
+        "grand_total": 3301
+      },
+      {
+        "name": "ซีคอนสแควร์",
+        "district": "เขตประเวศ",
+        "total_wd": 1378,
+        "pickup_wd": 723,
+        "dropoff_wd": 655,
+        "total_we": 1920,
+        "grand_total": 3298
+      },
+      {
+        "name": "ซอยพหลโยธิน 11,ซอยเสนาร่วม",
+        "district": "เขตพญาไท",
+        "total_wd": 1478,
+        "pickup_wd": 903,
+        "dropoff_wd": 575,
+        "total_we": 1807,
+        "grand_total": 3285
+      },
+      {
+        "name": "ตลาดยิ่งเจริญ",
+        "district": "เขตบางเขน",
+        "total_wd": 1564,
+        "pickup_wd": 1024,
+        "dropoff_wd": 540,
+        "total_we": 1701,
+        "grand_total": 3265
+      },
+      {
+        "name": "ตลาดบางขุนศรี",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 1625,
+        "pickup_wd": 1103,
+        "dropoff_wd": 522,
+        "total_we": 1627,
+        "grand_total": 3252
+      },
+      {
+        "name": "แยกคอกวัวตรงข้ามกองสลาก",
+        "district": "เขตพระนคร",
+        "total_wd": 1383,
+        "pickup_wd": 801,
+        "dropoff_wd": 582,
+        "total_we": 1844,
+        "grand_total": 3227
+      },
+      {
+        "name": "อิมพิเรียลลาดพร้าว",
+        "district": "เขตวังทองหลาง",
+        "total_wd": 1514,
+        "pickup_wd": 882,
+        "dropoff_wd": 632,
+        "total_we": 1686,
+        "grand_total": 3200
+      },
+      {
+        "name": "สถานีรถไฟฟ้าบางหว้า",
+        "district": "เขตภาษีเจริญ",
+        "total_wd": 1959,
+        "pickup_wd": 1238,
+        "dropoff_wd": 721,
+        "total_we": 1238,
+        "grand_total": 3197
+      },
+      {
+        "name": "ตลาดคองเตย",
+        "district": "เขตคลองเตย",
+        "total_wd": 1345,
+        "pickup_wd": 691,
+        "dropoff_wd": 654,
+        "total_we": 1810,
+        "grand_total": 3155
+      },
+      {
+        "name": "อินทราสแควร์ประตูน้ำ",
+        "district": "เขตราชเทวี",
+        "total_wd": 1384,
+        "pickup_wd": 771,
+        "dropoff_wd": 613,
+        "total_we": 1713,
+        "grand_total": 3097
+      },
+      {
+        "name": "เดอะมอลล์บางกะปิ",
+        "district": "เขตบางกะปิ",
+        "total_wd": 1412,
+        "pickup_wd": 906,
+        "dropoff_wd": 506,
+        "total_we": 1680,
+        "grand_total": 3092
+      },
+      {
+        "name": "SRT ชุมทางบางซื่อ",
+        "district": "เขตจตุจักร",
+        "total_wd": 1491,
+        "pickup_wd": 604,
+        "dropoff_wd": 887,
+        "total_we": 1590,
+        "grand_total": 3081
+      },
+      {
+        "name": "MRT บางยี่ขัน",
+        "district": "เขตบางพลัด",
+        "total_wd": 1484,
+        "pickup_wd": 1074,
+        "dropoff_wd": 410,
+        "total_we": 1580,
+        "grand_total": 3064
+      },
+      {
+        "name": "BTS วงเวียนใหญ่",
+        "district": "เขตคลองสาน",
+        "total_wd": 1457,
+        "pickup_wd": 1026,
+        "dropoff_wd": 431,
+        "total_we": 1440,
+        "grand_total": 2897
+      },
+      {
+        "name": "MRT สวนจตุจักร",
+        "district": "เขตจตุจักร",
+        "total_wd": 1341,
+        "pickup_wd": 865,
+        "dropoff_wd": 476,
+        "total_we": 1527,
+        "grand_total": 2868
+      },
+      {
+        "name": "ตรงข้ามเมเจอร์รัชโยธิน",
+        "district": "เขตจตุจักร",
+        "total_wd": 1225,
+        "pickup_wd": 752,
+        "dropoff_wd": 473,
+        "total_we": 1613,
+        "grand_total": 2838
+      },
+      {
+        "name": "MRT พระรามเก้า",
+        "district": "เขตดินแดง",
+        "total_wd": 1288,
+        "pickup_wd": 772,
+        "dropoff_wd": 516,
+        "total_we": 1542,
+        "grand_total": 2830
+      },
+      {
+        "name": "พาหุรัด(ไชน่าเวิลด์)",
+        "district": "เขตพระนคร",
+        "total_wd": 1362,
+        "pickup_wd": 737,
+        "dropoff_wd": 625,
+        "total_we": 1463,
+        "grand_total": 2825
+      },
+      {
+        "name": "เดอะมอลล์บางแค",
+        "district": "เขตบางแค",
+        "total_wd": 1343,
+        "pickup_wd": 593,
+        "dropoff_wd": 750,
+        "total_we": 1460,
+        "grand_total": 2803
+      },
+      {
+        "name": "BTS อารีย์(ทางออก3)",
+        "district": "เขตพญาไท",
+        "total_wd": 1444,
+        "pickup_wd": 910,
+        "dropoff_wd": 534,
+        "total_we": 1322,
+        "grand_total": 2766
+      },
+      {
+        "name": "ตรงข้ามโรบินสันบางรัก",
+        "district": "เขตบางรัก",
+        "total_wd": 1285,
+        "pickup_wd": 852,
+        "dropoff_wd": 433,
+        "total_we": 1460,
+        "grand_total": 2745
+      },
+      {
+        "name": "เซ็นทรัลลาดพร้าว",
+        "district": "เขตจตุจักร",
+        "total_wd": 1217,
+        "pickup_wd": 701,
+        "dropoff_wd": 516,
+        "total_we": 1479,
+        "grand_total": 2696
+      },
+      {
+        "name": "โรงพยาบาลเจริญกรุง(ตรงข้ามซอยเจริญกรุง 86)",
+        "district": "เขตบางคอแหลม",
+        "total_wd": 1871,
+        "pickup_wd": 991,
+        "dropoff_wd": 880,
+        "total_we": 798,
+        "grand_total": 2669
+      },
+      {
+        "name": "กิ่งเพชร",
+        "district": "เขตราชเทวี",
+        "total_wd": 1257,
+        "pickup_wd": 688,
+        "dropoff_wd": 569,
+        "total_we": 1393,
+        "grand_total": 2650
+      },
+      {
+        "name": "ท่าปล่อยรถ สวนจตุจักร (A1)",
+        "district": "เขตจตุจักร",
+        "total_wd": 1228,
+        "pickup_wd": 814,
+        "dropoff_wd": 414,
+        "total_we": 1417,
+        "grand_total": 2645
+      },
+      {
+        "name": "ท่ามหาราช",
+        "district": "เขตพระนคร",
+        "total_wd": 1246,
+        "pickup_wd": 627,
+        "dropoff_wd": 619,
+        "total_we": 1396,
+        "grand_total": 2642
+      },
+      {
+        "name": "แยกคอกวัว",
+        "district": "เขตพระนคร",
+        "total_wd": 1064,
+        "pickup_wd": 562,
+        "dropoff_wd": 502,
+        "total_we": 1541,
+        "grand_total": 2605
+      },
+      {
+        "name": "ตลาดพงษ์ทรัพย์",
+        "district": "เขตบางพลัด",
+        "total_wd": 1307,
+        "pickup_wd": 846,
+        "dropoff_wd": 461,
+        "total_we": 1290,
+        "grand_total": 2597
+      },
+      {
+        "name": "สยามสแควร์",
+        "district": "เขตปทุมวัน",
+        "total_wd": 1150,
+        "pickup_wd": 665,
+        "dropoff_wd": 485,
+        "total_we": 1434,
+        "grand_total": 2584
+      },
+      {
+        "name": "เคหะธนบุรี(บิ๊กซีการเคหะพระราม2)",
+        "district": "เขตบางขุนเทียน",
+        "total_wd": 1184,
+        "pickup_wd": 794,
+        "dropoff_wd": 390,
+        "total_we": 1346,
+        "grand_total": 2530
+      },
+      {
+        "name": "สถานีตำรวจบางเขน",
+        "district": "เขตบางเขน",
+        "total_wd": 1265,
+        "pickup_wd": 949,
+        "dropoff_wd": 316,
+        "total_we": 1264,
+        "grand_total": 2529
+      },
+      {
+        "name": "สามย่าน",
+        "district": "เขตปทุมวัน",
+        "total_wd": 1138,
+        "pickup_wd": 641,
+        "dropoff_wd": 497,
+        "total_we": 1369,
+        "grand_total": 2507
+      },
+      {
+        "name": "เดอะมอลล์ท่าพระ",
+        "district": "เขตธนบุรี",
+        "total_wd": 1120,
+        "pickup_wd": 674,
+        "dropoff_wd": 446,
+        "total_we": 1368,
+        "grand_total": 2488
+      },
+      {
+        "name": "วัดชนะสงคราม",
+        "district": "เขตพระนคร",
+        "total_wd": 1055,
+        "pickup_wd": 569,
+        "dropoff_wd": 486,
+        "total_we": 1428,
+        "grand_total": 2483
+      },
+      {
+        "name": "โรงพยาบาลจุฬาลงกรณ์(ฝั่งราชดำริ)",
+        "district": "เขตปทุมวัน",
+        "total_wd": 1594,
+        "pickup_wd": 851,
+        "dropoff_wd": 743,
+        "total_we": 885,
+        "grand_total": 2479
+      },
+      {
+        "name": "โรงแรมนาซ่าเวกัส",
+        "district": "เขตสวนหลวง",
+        "total_wd": 1235,
+        "pickup_wd": 775,
+        "dropoff_wd": 460,
+        "total_we": 1244,
+        "grand_total": 2479
+      },
+      {
+        "name": "รพ.เลิดสิน",
+        "district": "เขตบางรัก",
+        "total_wd": 1465,
+        "pickup_wd": 753,
+        "dropoff_wd": 712,
+        "total_we": 1013,
+        "grand_total": 2478
+      },
+      {
+        "name": "ตลาดบางกะปิ ตรงข้าม IT CITY",
+        "district": "เขตบางกะปิ",
+        "total_wd": 1162,
+        "pickup_wd": 719,
+        "dropoff_wd": 443,
+        "total_we": 1313,
+        "grand_total": 2475
+      },
+      {
+        "name": "แยกเฉลิมบุรี",
+        "district": "เขตสัมพันธวงศ์",
+        "total_wd": 1152,
+        "pickup_wd": 593,
+        "dropoff_wd": 559,
+        "total_we": 1318,
+        "grand_total": 2470
+      },
+      {
+        "name": "โรงพยาบาลตากสิน",
+        "district": "เขตคลองสาน",
+        "total_wd": 1736,
+        "pickup_wd": 864,
+        "dropoff_wd": 872,
+        "total_we": 717,
+        "grand_total": 2453
+      },
+      {
+        "name": "ไปรษณีย์ไทย สาขาบางลำภูบน",
+        "district": "เขตพระนคร",
+        "total_wd": 1078,
+        "pickup_wd": 560,
+        "dropoff_wd": 518,
+        "total_we": 1360,
+        "grand_total": 2438
+      },
+      {
+        "name": "กรมการขนส่งทางบก",
+        "district": "เขตจตุจักร",
+        "total_wd": 782,
+        "pickup_wd": 417,
+        "dropoff_wd": 365,
+        "total_we": 1630,
+        "grand_total": 2412
+      },
+      {
+        "name": "โรงพยาบาลกลาง(ฝั่งเสือป่า)",
+        "district": "เขตป้อมปราบศัตรูพ่าย",
+        "total_wd": 1482,
+        "pickup_wd": 734,
+        "dropoff_wd": 748,
+        "total_we": 922,
+        "grand_total": 2404
+      },
+      {
+        "name": "BTS ศาลาแดง",
+        "district": "เขตบางรัก",
+        "total_wd": 1041,
+        "pickup_wd": 685,
+        "dropoff_wd": 356,
+        "total_we": 1358,
+        "grand_total": 2399
+      },
+      {
+        "name": "ซอยนานา",
+        "district": "เขตคลองเตย",
+        "total_wd": 1174,
+        "pickup_wd": 786,
+        "dropoff_wd": 388,
+        "total_we": 1213,
+        "grand_total": 2387
+      },
+      {
+        "name": "ใต้ทางด่วนแยกเข้าวัชรพล",
+        "district": "เขตบางเขน",
+        "total_wd": 1126,
+        "pickup_wd": 623,
+        "dropoff_wd": 503,
+        "total_we": 1261,
+        "grand_total": 2387
+      },
+      {
+        "name": "สถานีรถไฟหัวลำโพง",
+        "district": "เขตปทุมวัน",
+        "total_wd": 1052,
+        "pickup_wd": 428,
+        "dropoff_wd": 624,
+        "total_we": 1332,
+        "grand_total": 2384
+      },
+      {
+        "name": "ท่ารถไฟ (ข้ามฟาก)",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 1295,
+        "pickup_wd": 622,
+        "dropoff_wd": 673,
+        "total_we": 1074,
+        "grand_total": 2369
+      },
+      {
+        "name": "เอ็มควอเทียร์",
+        "district": "เขตคลองเตย",
+        "total_wd": 1014,
+        "pickup_wd": 637,
+        "dropoff_wd": 377,
+        "total_we": 1348,
+        "grand_total": 2362
+      },
+      {
+        "name": "ตรงข้ามสำนักผังเมือง",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 1039,
+        "pickup_wd": 506,
+        "dropoff_wd": 533,
+        "total_we": 1320,
+        "grand_total": 2359
+      },
+      {
+        "name": "BTS-ARL พญาไท",
+        "district": "เขตราชเทวี",
+        "total_wd": 1167,
+        "pickup_wd": 686,
+        "dropoff_wd": 481,
+        "total_we": 1168,
+        "grand_total": 2335
+      },
+      {
+        "name": "พาต้าปิ่นเกล้า",
+        "district": "เขตบางพลัด",
+        "total_wd": 1106,
+        "pickup_wd": 698,
+        "dropoff_wd": 408,
+        "total_we": 1197,
+        "grand_total": 2303
+      },
+      {
+        "name": "ตรงข้าม รร.เตรียมอุดมฯ รัชดา",
+        "district": "เขตดินแดง",
+        "total_wd": 1069,
+        "pickup_wd": 624,
+        "dropoff_wd": 445,
+        "total_we": 1233,
+        "grand_total": 2302
+      },
+      {
+        "name": "วัดแขก",
+        "district": "เขตบางรัก",
+        "total_wd": 996,
+        "pickup_wd": 542,
+        "dropoff_wd": 454,
+        "total_we": 1275,
+        "grand_total": 2271
+      },
+      {
+        "name": "BTS รัชโยธิน",
+        "district": "เขตจตุจักร",
+        "total_wd": 1029,
+        "pickup_wd": 696,
+        "dropoff_wd": 333,
+        "total_we": 1227,
+        "grand_total": 2256
+      },
+      {
+        "name": "สวนสันติภาพ",
+        "district": "เขตราชเทวี",
+        "total_wd": 1023,
+        "pickup_wd": 637,
+        "dropoff_wd": 386,
+        "total_we": 1213,
+        "grand_total": 2236
+      },
+      {
+        "name": "วัดท่าพระ",
+        "district": "เขตบางกอกใหญ่",
+        "total_wd": 1049,
+        "pickup_wd": 590,
+        "dropoff_wd": 459,
+        "total_we": 1161,
+        "grand_total": 2210
+      },
+      {
+        "name": "เคหะธนบุรี(โลตัสพระราม2)",
+        "district": "เขตบางขุนเทียน",
+        "total_wd": 1074,
+        "pickup_wd": 795,
+        "dropoff_wd": 279,
+        "total_we": 1053,
+        "grand_total": 2127
+      },
+      {
+        "name": "BTS อุดมสุข(ทางออก 1)",
+        "district": "เขตบางนา",
+        "total_wd": 1038,
+        "pickup_wd": 706,
+        "dropoff_wd": 332,
+        "total_we": 1074,
+        "grand_total": 2112
+      },
+      {
+        "name": "โรงเรียนปิ่นมงคลการศึกษา",
+        "district": "เขตบางพลัด",
+        "total_wd": 1015,
+        "pickup_wd": 455,
+        "dropoff_wd": 560,
+        "total_we": 1085,
+        "grand_total": 2100
+      },
+      {
+        "name": "รพ.เจ้าพระยา",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 968,
+        "pickup_wd": 529,
+        "dropoff_wd": 439,
+        "total_we": 1131,
+        "grand_total": 2099
+      },
+      {
+        "name": "BTS ช่องนนทรี",
+        "district": "เขตบางรัก",
+        "total_wd": 1057,
+        "pickup_wd": 635,
+        "dropoff_wd": 422,
+        "total_we": 1042,
+        "grand_total": 2099
+      },
+      {
+        "name": "ไปรษณีย์ห้วยขวาง (ถนนเทียมร่วมมิตรขาออก)",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 995,
+        "pickup_wd": 632,
+        "dropoff_wd": 363,
+        "total_we": 1086,
+        "grand_total": 2081
+      },
+      {
+        "name": "ตรงข้ามเจเจมอลล์",
+        "district": "เขตจตุจักร",
+        "total_wd": 616,
+        "pickup_wd": 357,
+        "dropoff_wd": 259,
+        "total_we": 1454,
+        "grand_total": 2070
+      },
+      {
+        "name": "มหาวิทยาลัยราชภัฎบ้านสมเด็จเจ้าพระยา",
+        "district": "เขตธนบุรี",
+        "total_wd": 967,
+        "pickup_wd": 522,
+        "dropoff_wd": 445,
+        "total_we": 1101,
+        "grand_total": 2068
+      },
+      {
+        "name": "ตลาดนัดจตุจักร(ประตู1)",
+        "district": "เขตจตุจักร",
+        "total_wd": 643,
+        "pickup_wd": 370,
+        "dropoff_wd": 273,
+        "total_we": 1412,
+        "grand_total": 2055
+      },
+      {
+        "name": "เมเจอร์ปิ่นเกล้า",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 938,
+        "pickup_wd": 564,
+        "dropoff_wd": 374,
+        "total_we": 1097,
+        "grand_total": 2035
+      },
+      {
+        "name": "ตรงข้ามบิ๊กซีแจ้งวัฒนะ",
+        "district": "เขตหลักสี่",
+        "total_wd": 1050,
+        "pickup_wd": 580,
+        "dropoff_wd": 470,
+        "total_we": 981,
+        "grand_total": 2031
+      },
+      {
+        "name": "ตรงข้ามโรงพยาบาลบำรุงราษฎร์",
+        "district": "เขตวัฒนา",
+        "total_wd": 974,
+        "pickup_wd": 401,
+        "dropoff_wd": 573,
+        "total_we": 1051,
+        "grand_total": 2025
+      },
+      {
+        "name": "ตรงข้ามเซ็นทรัลบางนา",
+        "district": "เขตบางนา",
+        "total_wd": 1018,
+        "pickup_wd": 649,
+        "dropoff_wd": 369,
+        "total_we": 997,
+        "grand_total": 2015
+      },
+      {
+        "name": "ตรงข้ามตลาดสวนพลู(ซอยสวนพลู 6)",
+        "district": "เขตสาทร",
+        "total_wd": 940,
+        "pickup_wd": 530,
+        "dropoff_wd": 410,
+        "total_we": 1032,
+        "grand_total": 1972
+      },
+      {
+        "name": "โรงพยาบาลพญาไท3",
+        "district": "เขตภาษีเจริญ",
+        "total_wd": 1036,
+        "pickup_wd": 573,
+        "dropoff_wd": 463,
+        "total_we": 935,
+        "grand_total": 1971
+      },
+      {
+        "name": "โรงพยาบาลราชพิพัฒน์",
+        "district": "เขตบางแค",
+        "total_wd": 1368,
+        "pickup_wd": 802,
+        "dropoff_wd": 566,
+        "total_we": 597,
+        "grand_total": 1965
+      },
+      {
+        "name": "โรงเรียนไทยวิจิตรศิลป์",
+        "district": "เขตจตุจักร",
+        "total_wd": 856,
+        "pickup_wd": 538,
+        "dropoff_wd": 318,
+        "total_we": 1082,
+        "grand_total": 1938
+      },
+      {
+        "name": "ยศเส",
+        "district": "เขตป้อมปราบศัตรูพ่าย",
+        "total_wd": 1032,
+        "pickup_wd": 541,
+        "dropoff_wd": 491,
+        "total_we": 905,
+        "grand_total": 1937
+      },
+      {
+        "name": "ลาซาลสนามไดร์ฟกอล์ฟ",
+        "district": "เขตบางนา",
+        "total_wd": 995,
+        "pickup_wd": 553,
+        "dropoff_wd": 442,
+        "total_we": 934,
+        "grand_total": 1929
+      },
+      {
+        "name": "สวนจตุจักร",
+        "district": "เขตจตุจักร",
+        "total_wd": 806,
+        "pickup_wd": 504,
+        "dropoff_wd": 302,
+        "total_we": 1121,
+        "grand_total": 1927
+      },
+      {
+        "name": "ศูนย์วิทยาศาสตร์",
+        "district": "เขตบางพลัด",
+        "total_wd": 1025,
+        "pickup_wd": 609,
+        "dropoff_wd": 416,
+        "total_we": 898,
+        "grand_total": 1923
+      },
+      {
+        "name": "ซอยสายสิน",
+        "district": "เขตบางซื่อ",
+        "total_wd": 1037,
+        "pickup_wd": 558,
+        "dropoff_wd": 479,
+        "total_we": 886,
+        "grand_total": 1923
+      },
+      {
+        "name": "BTS ราชเทวี",
+        "district": "เขตราชเทวี",
+        "total_wd": 875,
+        "pickup_wd": 525,
+        "dropoff_wd": 350,
+        "total_we": 1044,
+        "grand_total": 1919
+      },
+      {
+        "name": "ซอยรัชดาภิเษก 14",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 885,
+        "pickup_wd": 463,
+        "dropoff_wd": 422,
+        "total_we": 1025,
+        "grand_total": 1910
+      },
+      {
+        "name": "ท่าสะพานมิตรมหาดไทย",
+        "district": "เขตวังทองหลาง",
+        "total_wd": 854,
+        "pickup_wd": 477,
+        "dropoff_wd": 377,
+        "total_we": 1050,
+        "grand_total": 1904
+      },
+      {
+        "name": "แยกอิสรภาพ 44",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 948,
+        "pickup_wd": 490,
+        "dropoff_wd": 458,
+        "total_we": 953,
+        "grand_total": 1901
+      },
+      {
+        "name": "ซอยลาดพร้าว 122",
+        "district": "เขตวังทองหลาง",
+        "total_wd": 821,
+        "pickup_wd": 453,
+        "dropoff_wd": 368,
+        "total_we": 1072,
+        "grand_total": 1893
+      },
+      {
+        "name": "โลตัสเลียบทางด่วนรามอินทรา",
+        "district": "เขตลาดพร้าว",
+        "total_wd": 882,
+        "pickup_wd": 481,
+        "dropoff_wd": 401,
+        "total_we": 1005,
+        "grand_total": 1887
+      },
+      {
+        "name": "ตรงข้ามบิ๊กซีรัชดาภิเษก",
+        "district": "เขตดินแดง",
+        "total_wd": 884,
+        "pickup_wd": 509,
+        "dropoff_wd": 375,
+        "total_we": 997,
+        "grand_total": 1881
+      },
+      {
+        "name": "เอเชียทีคเดอะรีเวอร์ฟร้อนท์",
+        "district": "เขตบางคอแหลม",
+        "total_wd": 831,
+        "pickup_wd": 472,
+        "dropoff_wd": 359,
+        "total_we": 1036,
+        "grand_total": 1867
+      },
+      {
+        "name": "โรงพิมพ์สยามรัฐ",
+        "district": "เขตบางพลัด",
+        "total_wd": 908,
+        "pickup_wd": 462,
+        "dropoff_wd": 446,
+        "total_we": 955,
+        "grand_total": 1863
+      },
+      {
+        "name": "บิ๊กซีราม,หมู่บ้านเสรี",
+        "district": "เขตบางกะปิ",
+        "total_wd": 887,
+        "pickup_wd": 522,
+        "dropoff_wd": 365,
+        "total_we": 974,
+        "grand_total": 1861
+      },
+      {
+        "name": "ตลาดบางปะกอก",
+        "district": "เขตราษฎร์บูรณะ",
+        "total_wd": 933,
+        "pickup_wd": 611,
+        "dropoff_wd": 322,
+        "total_we": 927,
+        "grand_total": 1860
+      },
+      {
+        "name": "BTS สะพานควาย(ทางออก2)",
+        "district": "เขตพญาไท",
+        "total_wd": 853,
+        "pickup_wd": 510,
+        "dropoff_wd": 343,
+        "total_we": 1001,
+        "grand_total": 1854
+      },
+      {
+        "name": "ทุ่งวัดดอน",
+        "district": "เขตบางคอแหลม",
+        "total_wd": 835,
+        "pickup_wd": 445,
+        "dropoff_wd": 390,
+        "total_we": 1015,
+        "grand_total": 1850
+      },
+      {
+        "name": "เดอะมอลล์บางแค(ฝั่งวงแหวน)",
+        "district": "เขตบางแค",
+        "total_wd": 919,
+        "pickup_wd": 657,
+        "dropoff_wd": 262,
+        "total_we": 922,
+        "grand_total": 1841
+      },
+      {
+        "name": "เซ็นทรัลรามอินทรา",
+        "district": "เขตบางเขน",
+        "total_wd": 887,
+        "pickup_wd": 520,
+        "dropoff_wd": 367,
+        "total_we": 948,
+        "grand_total": 1835
+      },
+      {
+        "name": "โรงพยาบาลสมเด็จพระปิ่นเกล้า",
+        "district": "เขตธนบุรี",
+        "total_wd": 1398,
+        "pickup_wd": 739,
+        "dropoff_wd": 659,
+        "total_we": 434,
+        "grand_total": 1832
+      },
+      {
+        "name": "สำนักงานใหญ่ปตท.",
+        "district": "เขตจตุจักร",
+        "total_wd": 1116,
+        "pickup_wd": 564,
+        "dropoff_wd": 552,
+        "total_we": 706,
+        "grand_total": 1822
+      },
+      {
+        "name": "โรงพยาบาลภูมิพลอดุลยเดช",
+        "district": "เขตสายไหม",
+        "total_wd": 1333,
+        "pickup_wd": 757,
+        "dropoff_wd": 576,
+        "total_we": 477,
+        "grand_total": 1810
+      },
+      {
+        "name": "พาหุรัด(เพาะช่าง-สวนกุหลาบ)",
+        "district": "เขตพระนคร",
+        "total_wd": 886,
+        "pickup_wd": 500,
+        "dropoff_wd": 386,
+        "total_we": 919,
+        "grand_total": 1805
+      },
+      {
+        "name": "SRT ธนบุรี",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 852,
+        "pickup_wd": 417,
+        "dropoff_wd": 435,
+        "total_we": 921,
+        "grand_total": 1773
+      },
+      {
+        "name": "โรงพยาบาลยันฮี",
+        "district": "เขตบางพลัด",
+        "total_wd": 918,
+        "pickup_wd": 510,
+        "dropoff_wd": 408,
+        "total_we": 855,
+        "grand_total": 1773
+      },
+      {
+        "name": "ซอยสุขุมวิท 15",
+        "district": "เขตวัฒนา",
+        "total_wd": 808,
+        "pickup_wd": 460,
+        "dropoff_wd": 348,
+        "total_we": 953,
+        "grand_total": 1761
+      },
+      {
+        "name": "ตรงข้ามมาบุญครอง",
+        "district": "เขตปทุมวัน",
+        "total_wd": 751,
+        "pickup_wd": 379,
+        "dropoff_wd": 372,
+        "total_we": 996,
+        "grand_total": 1747
+      },
+      {
+        "name": "อนุสาวรีย์ชัยสมรภูมิ (เกาะพญาไท)",
+        "district": "เขตราชเทวี",
+        "total_wd": 786,
+        "pickup_wd": 439,
+        "dropoff_wd": 347,
+        "total_we": 959,
+        "grand_total": 1745
+      },
+      {
+        "name": "ศูนย์ราชการแจ้งวัฒนะ(อาคารB)",
+        "district": "เขตหลักสี่",
+        "total_wd": 1377,
+        "pickup_wd": 591,
+        "dropoff_wd": 786,
+        "total_we": 365,
+        "grand_total": 1742
+      },
+      {
+        "name": "ตลาดดาวคะนอง",
+        "district": "เขตธนบุรี",
+        "total_wd": 853,
+        "pickup_wd": 550,
+        "dropoff_wd": 303,
+        "total_we": 887,
+        "grand_total": 1740
+      },
+      {
+        "name": "ใต้สะพานตลาดพลู",
+        "district": "เขตธนบุรี",
+        "total_wd": 818,
+        "pickup_wd": 473,
+        "dropoff_wd": 345,
+        "total_we": 912,
+        "grand_total": 1730
+      },
+      {
+        "name": "สนามหลวง(ศาลหลักเมือง)",
+        "district": "เขตพระนคร",
+        "total_wd": 685,
+        "pickup_wd": 271,
+        "dropoff_wd": 414,
+        "total_we": 1043,
+        "grand_total": 1728
+      },
+      {
+        "name": "ตรงข้ามวัดมหาบุศย์",
+        "district": "เขตสวนหลวง",
+        "total_wd": 737,
+        "pickup_wd": 363,
+        "dropoff_wd": 374,
+        "total_we": 974,
+        "grand_total": 1711
+      },
+      {
+        "name": "สำเพ็ง-พาหุรัด",
+        "district": "เขตสัมพันธวงศ์",
+        "total_wd": 802,
+        "pickup_wd": 478,
+        "dropoff_wd": 324,
+        "total_we": 908,
+        "grand_total": 1710
+      },
+      {
+        "name": "แยกทองหล่อ",
+        "district": "เขตวัฒนา",
+        "total_wd": 701,
+        "pickup_wd": 385,
+        "dropoff_wd": 316,
+        "total_we": 999,
+        "grand_total": 1700
+      },
+      {
+        "name": "บ้านหม้อ",
+        "district": "เขตพระนคร",
+        "total_wd": 831,
+        "pickup_wd": 465,
+        "dropoff_wd": 366,
+        "total_we": 842,
+        "grand_total": 1673
+      },
+      {
+        "name": "แยก คปอ.,แยกแปดแฉก",
+        "district": "เขตดอนเมือง",
+        "total_wd": 778,
+        "pickup_wd": 494,
+        "dropoff_wd": 284,
+        "total_we": 895,
+        "grand_total": 1673
+      },
+      {
+        "name": "ตรงข้ามตลาดปัฐวิกรณ์",
+        "district": "เขตบึงกุ่ม",
+        "total_wd": 737,
+        "pickup_wd": 495,
+        "dropoff_wd": 242,
+        "total_we": 930,
+        "grand_total": 1667
+      },
+      {
+        "name": "ตลาดพระโขนง(ซอยปรีดีพนนมยงศ์ 5)",
+        "district": "เขตวัฒนา",
+        "total_wd": 752,
+        "pickup_wd": 432,
+        "dropoff_wd": 320,
+        "total_we": 913,
+        "grand_total": 1665
+      },
+      {
+        "name": "วิทยาลัยอาชีวศึกษาอาชีวศิลป์,ตรงข้ามตลาดศรีย่าน",
+        "district": "เขตดุสิต",
+        "total_wd": 838,
+        "pickup_wd": 467,
+        "dropoff_wd": 371,
+        "total_we": 824,
+        "grand_total": 1662
+      },
+      {
+        "name": "ตลาดโบ้เบ้(อาคารโบ๊เบ๊ทาวเวอร์)",
+        "district": "เขตป้อมปราบศัตรูพ่าย",
+        "total_wd": 752,
+        "pickup_wd": 430,
+        "dropoff_wd": 322,
+        "total_we": 910,
+        "grand_total": 1662
+      },
+      {
+        "name": "สมบัติทัวร์",
+        "district": "เขตจตุจักร",
+        "total_wd": 860,
+        "pickup_wd": 533,
+        "dropoff_wd": 327,
+        "total_we": 800,
+        "grand_total": 1660
+      },
+      {
+        "name": "ตรงข้ามโรงพยาบาลนพรัตน์",
+        "district": "เขตคันนายาว",
+        "total_wd": 1119,
+        "pickup_wd": 600,
+        "dropoff_wd": 519,
+        "total_we": 541,
+        "grand_total": 1660
+      },
+      {
+        "name": "ตรงข้ามฟิวเจอร์",
+        "district": "เขตบางคอแหลม",
+        "total_wd": 720,
+        "pickup_wd": 386,
+        "dropoff_wd": 334,
+        "total_we": 940,
+        "grand_total": 1660
+      },
+      {
+        "name": "ตรงข้ามสถานีขนส่งสายใต้ใหม่(ตลิ่งชัน)",
+        "district": "เขตตลิ่งชัน",
+        "total_wd": 783,
+        "pickup_wd": 547,
+        "dropoff_wd": 236,
+        "total_we": 864,
+        "grand_total": 1647
+      },
+      {
+        "name": "วัดลานบุญ(วัด1)",
+        "district": "เขตลาดกระบัง",
+        "total_wd": 780,
+        "pickup_wd": 428,
+        "dropoff_wd": 352,
+        "total_we": 866,
+        "grand_total": 1646
+      },
+      {
+        "name": "หน้าร้านทองมีนบุรี",
+        "district": "เขตมีนบุรี",
+        "total_wd": 759,
+        "pickup_wd": 470,
+        "dropoff_wd": 289,
+        "total_we": 881,
+        "grand_total": 1640
+      },
+      {
+        "name": "BTS ห้าแยกลาดพร้าว",
+        "district": "เขตจตุจักร",
+        "total_wd": 764,
+        "pickup_wd": 496,
+        "dropoff_wd": 268,
+        "total_we": 868,
+        "grand_total": 1632
+      },
+      {
+        "name": "แยกลาดพร้าว(ซอยลาดพร้าว 1)",
+        "district": "เขตจตุจักร",
+        "total_wd": 754,
+        "pickup_wd": 439,
+        "dropoff_wd": 315,
+        "total_we": 877,
+        "grand_total": 1631
+      },
+      {
+        "name": "บริษัท ไฟลมาร์ จำกัด",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 833,
+        "pickup_wd": 453,
+        "dropoff_wd": 380,
+        "total_we": 796,
+        "grand_total": 1629
+      },
+      {
+        "name": "BTS หมอชิต",
+        "district": "เขตจตุจักร",
+        "total_wd": 750,
+        "pickup_wd": 515,
+        "dropoff_wd": 235,
+        "total_we": 879,
+        "grand_total": 1629
+      },
+      {
+        "name": "ซอยจรัญสนิทวงศ์ 43",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 755,
+        "pickup_wd": 423,
+        "dropoff_wd": 332,
+        "total_we": 869,
+        "grand_total": 1624
+      },
+      {
+        "name": "ซอยพหลโยธิน 1,ซอยลือชา",
+        "district": "เขตพญาไท",
+        "total_wd": 799,
+        "pickup_wd": 468,
+        "dropoff_wd": 331,
+        "total_we": 819,
+        "grand_total": 1618
+      },
+      {
+        "name": "เซ็นจูรี่",
+        "district": "เขตราชเทวี",
+        "total_wd": 803,
+        "pickup_wd": 443,
+        "dropoff_wd": 360,
+        "total_we": 812,
+        "grand_total": 1615
+      },
+      {
+        "name": "เทสโก้โลตัสเตาปูน",
+        "district": "เขตบางซื่อ",
+        "total_wd": 757,
+        "pickup_wd": 377,
+        "dropoff_wd": 380,
+        "total_we": 852,
+        "grand_total": 1609
+      },
+      {
+        "name": "เทสโกโลตัสปิ่นเกล้า",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 795,
+        "pickup_wd": 343,
+        "dropoff_wd": 452,
+        "total_we": 805,
+        "grand_total": 1600
+      },
+      {
+        "name": "โรงพยาบาลรามคำแหง",
+        "district": "เขตบางกะปิ",
+        "total_wd": 781,
+        "pickup_wd": 454,
+        "dropoff_wd": 327,
+        "total_we": 813,
+        "grand_total": 1594
+      },
+      {
+        "name": "ตลาดสดเอกชัย",
+        "district": "เขตบางบอน",
+        "total_wd": 571,
+        "pickup_wd": 322,
+        "dropoff_wd": 249,
+        "total_we": 1012,
+        "grand_total": 1583
+      },
+      {
+        "name": "เทสโก้โลตัสลาดพร้าว",
+        "district": "เขตจตุจักร",
+        "total_wd": 720,
+        "pickup_wd": 392,
+        "dropoff_wd": 328,
+        "total_we": 843,
+        "grand_total": 1563
+      },
+      {
+        "name": "โลตัสจรัญสนิทวงศ์",
+        "district": "เขตบางพลัด",
+        "total_wd": 727,
+        "pickup_wd": 443,
+        "dropoff_wd": 284,
+        "total_we": 836,
+        "grand_total": 1563
+      },
+      {
+        "name": "ซอยปลั่ง",
+        "district": "เขตจอมทอง",
+        "total_wd": 720,
+        "pickup_wd": 461,
+        "dropoff_wd": 259,
+        "total_we": 839,
+        "grand_total": 1559
+      },
+      {
+        "name": "ดอนเมือง(สำนักงานท่าอากาศยาน)",
+        "district": "เขตดอนเมือง",
+        "total_wd": 794,
+        "pickup_wd": 519,
+        "dropoff_wd": 275,
+        "total_we": 763,
+        "grand_total": 1557
+      },
+      {
+        "name": "อนุสาวรีย์ชัยสมรภูมิ (เกาะดินแดง)",
+        "district": "เขตราชเทวี",
+        "total_wd": 721,
+        "pickup_wd": 417,
+        "dropoff_wd": 304,
+        "total_we": 833,
+        "grand_total": 1554
+      },
+      {
+        "name": "สำนักงานเขตบางขุนเทียน",
+        "district": "เขตบางขุนเทียน",
+        "total_wd": 782,
+        "pickup_wd": 343,
+        "dropoff_wd": 439,
+        "total_we": 770,
+        "grand_total": 1552
+      },
+      {
+        "name": "ซอยเอกมัย 7",
+        "district": "เขตวัฒนา",
+        "total_wd": 679,
+        "pickup_wd": 396,
+        "dropoff_wd": 283,
+        "total_we": 872,
+        "grand_total": 1551
+      },
+      {
+        "name": "บิ๊กซีแจ้งวัฒนะ",
+        "district": "เขตหลักสี่",
+        "total_wd": 782,
+        "pickup_wd": 446,
+        "dropoff_wd": 336,
+        "total_we": 754,
+        "grand_total": 1536
+      },
+      {
+        "name": "ตรงข้ามสวนจตุจักร",
+        "district": "เขตจตุจักร",
+        "total_wd": 750,
+        "pickup_wd": 507,
+        "dropoff_wd": 243,
+        "total_we": 784,
+        "grand_total": 1534
+      },
+      {
+        "name": "ท่าราม 1",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 728,
+        "pickup_wd": 394,
+        "dropoff_wd": 334,
+        "total_we": 805,
+        "grand_total": 1533
+      },
+      {
+        "name": "บิ๊กซีเอ็กซ์ตร้าอ่อนนุช",
+        "district": "เขตวัฒนา",
+        "total_wd": 710,
+        "pickup_wd": 388,
+        "dropoff_wd": 322,
+        "total_we": 806,
+        "grand_total": 1516
+      },
+      {
+        "name": "ศูนย์อีซูซุถนนเทียมร่วมมิตร",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 725,
+        "pickup_wd": 338,
+        "dropoff_wd": 387,
+        "total_we": 787,
+        "grand_total": 1512
+      },
+      {
+        "name": "ศาลอาญา",
+        "district": "เขตจตุจักร",
+        "total_wd": 862,
+        "pickup_wd": 509,
+        "dropoff_wd": 353,
+        "total_we": 644,
+        "grand_total": 1506
+      },
+      {
+        "name": "บรมราชชนนี 12",
+        "district": "เขตบางพลัด",
+        "total_wd": 755,
+        "pickup_wd": 492,
+        "dropoff_wd": 263,
+        "total_we": 750,
+        "grand_total": 1505
+      },
+      {
+        "name": "ลุมพินีพาร์คปิ่นเกล้า",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 691,
+        "pickup_wd": 389,
+        "dropoff_wd": 302,
+        "total_we": 811,
+        "grand_total": 1502
+      },
+      {
+        "name": "สยามนิรมิต",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 738,
+        "pickup_wd": 391,
+        "dropoff_wd": 347,
+        "total_we": 758,
+        "grand_total": 1496
+      },
+      {
+        "name": "ดิยูโรเปี้ยนทาวน์",
+        "district": "เขตลาดกระบัง",
+        "total_wd": 752,
+        "pickup_wd": 454,
+        "dropoff_wd": 298,
+        "total_we": 742,
+        "grand_total": 1494
+      },
+      {
+        "name": "การเคหะร่มเกล้าตลาดเกรียงไกร",
+        "district": "เขตลาดกระบัง",
+        "total_wd": 750,
+        "pickup_wd": 419,
+        "dropoff_wd": 331,
+        "total_we": 738,
+        "grand_total": 1488
+      },
+      {
+        "name": "บิ๊กซีราชดำริ",
+        "district": "เขตปทุมวัน",
+        "total_wd": 657,
+        "pickup_wd": 334,
+        "dropoff_wd": 323,
+        "total_we": 824,
+        "grand_total": 1481
+      },
+      {
+        "name": "โรงเรียนเจริญผล",
+        "district": "เขตหลักสี่",
+        "total_wd": 727,
+        "pickup_wd": 421,
+        "dropoff_wd": 306,
+        "total_we": 748,
+        "grand_total": 1475
+      },
+      {
+        "name": "ตรงข้ามวัดอรุณ",
+        "district": "เขตบางกอกใหญ่",
+        "total_wd": 647,
+        "pickup_wd": 321,
+        "dropoff_wd": 326,
+        "total_we": 828,
+        "grand_total": 1475
+      },
+      {
+        "name": "MRT สามย่าน",
+        "district": "เขตบางรัก",
+        "total_wd": 702,
+        "pickup_wd": 369,
+        "dropoff_wd": 333,
+        "total_we": 769,
+        "grand_total": 1471
+      },
+      {
+        "name": "ตรงข้ามซอยปลั่ง",
+        "district": "เขตจอมทอง",
+        "total_wd": 645,
+        "pickup_wd": 384,
+        "dropoff_wd": 261,
+        "total_we": 822,
+        "grand_total": 1467
+      },
+      {
+        "name": "ซอยจันทร์ 18/8",
+        "district": "เขตสาทร",
+        "total_wd": 694,
+        "pickup_wd": 382,
+        "dropoff_wd": 312,
+        "total_we": 772,
+        "grand_total": 1466
+      },
+      {
+        "name": "โรงพยาบาลบางมด",
+        "district": "เขตจอมทอง",
+        "total_wd": 759,
+        "pickup_wd": 417,
+        "dropoff_wd": 342,
+        "total_we": 707,
+        "grand_total": 1466
+      },
+      {
+        "name": "ธนาคารกรุงไทย,ตรงข้ามโรงพยาบาลเซ็นทรัล",
+        "district": "เขตบางเขน",
+        "total_wd": 755,
+        "pickup_wd": 492,
+        "dropoff_wd": 263,
+        "total_we": 708,
+        "grand_total": 1463
+      },
+      {
+        "name": "BTS บางนา",
+        "district": "เขตบางนา",
+        "total_wd": 777,
+        "pickup_wd": 305,
+        "dropoff_wd": 472,
+        "total_we": 681,
+        "grand_total": 1458
+      },
+      {
+        "name": "ตรงข้ามตลาดพระโขนง",
+        "district": "เขตคลองเตย",
+        "total_wd": 647,
+        "pickup_wd": 376,
+        "dropoff_wd": 271,
+        "total_we": 810,
+        "grand_total": 1457
+      },
+      {
+        "name": "แยกเกษตร(ตลาดอมรพันธ์)",
+        "district": "เขตจตุจักร",
+        "total_wd": 641,
+        "pickup_wd": 374,
+        "dropoff_wd": 267,
+        "total_we": 812,
+        "grand_total": 1453
+      },
+      {
+        "name": "MRT กำแพงเพชร",
+        "district": "เขตจตุจักร",
+        "total_wd": 589,
+        "pickup_wd": 330,
+        "dropoff_wd": 259,
+        "total_we": 862,
+        "grand_total": 1451
+      },
+      {
+        "name": "ปณ.รองเมือง",
+        "district": "เขตปทุมวัน",
+        "total_wd": 699,
+        "pickup_wd": 378,
+        "dropoff_wd": 321,
+        "total_we": 746,
+        "grand_total": 1445
+      },
+      {
+        "name": "BTS วุฒากาศ",
+        "district": "เขตจอมทอง",
+        "total_wd": 769,
+        "pickup_wd": 447,
+        "dropoff_wd": 322,
+        "total_we": 671,
+        "grand_total": 1440
+      },
+      {
+        "name": "BTS มหาวิทยาลัยเกษตรศาสตร์",
+        "district": "เขตจตุจักร",
+        "total_wd": 744,
+        "pickup_wd": 579,
+        "dropoff_wd": 165,
+        "total_we": 691,
+        "grand_total": 1435
+      },
+      {
+        "name": "ตรงข้ามซอยอิสรภาพ 23/2",
+        "district": "เขตบางกอกใหญ่",
+        "total_wd": 716,
+        "pickup_wd": 377,
+        "dropoff_wd": 339,
+        "total_we": 713,
+        "grand_total": 1429
+      },
+      {
+        "name": "สถานีรถไฟบางเขน,ตรงข้ามโรงพยาบาลวิภาวดี",
+        "district": "เขตจตุจักร",
+        "total_wd": 722,
+        "pickup_wd": 414,
+        "dropoff_wd": 308,
+        "total_we": 706,
+        "grand_total": 1428
+      },
+      {
+        "name": "รามคำแหง 2 ซอย 8",
+        "district": "เขตประเวศ",
+        "total_wd": 702,
+        "pickup_wd": 443,
+        "dropoff_wd": 259,
+        "total_we": 720,
+        "grand_total": 1422
+      },
+      {
+        "name": "โรงพยาบาลเพชรเวช",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 727,
+        "pickup_wd": 391,
+        "dropoff_wd": 336,
+        "total_we": 695,
+        "grand_total": 1422
+      },
+      {
+        "name": "เจเจมอลล์",
+        "district": "เขตจตุจักร",
+        "total_wd": 563,
+        "pickup_wd": 279,
+        "dropoff_wd": 284,
+        "total_we": 856,
+        "grand_total": 1419
+      },
+      {
+        "name": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ",
+        "district": "เขตบางซื่อ",
+        "total_wd": 890,
+        "pickup_wd": 535,
+        "dropoff_wd": 355,
+        "total_we": 527,
+        "grand_total": 1417
+      },
+      {
+        "name": "BTS ราชเทวี(ทางออก2)",
+        "district": "เขตราชเทวี",
+        "total_wd": 659,
+        "pickup_wd": 400,
+        "dropoff_wd": 259,
+        "total_we": 756,
+        "grand_total": 1415
+      },
+      {
+        "name": "ตรงข้ามตลาดบางปะกอก",
+        "district": "เขตราษฎร์บูรณะ",
+        "total_wd": 692,
+        "pickup_wd": 461,
+        "dropoff_wd": 231,
+        "total_we": 719,
+        "grand_total": 1411
+      },
+      {
+        "name": "ตรงข้ามมหาวิทยาลัยราชภัฏสวนสุนันทา",
+        "district": "เขตดุสิต",
+        "total_wd": 596,
+        "pickup_wd": 314,
+        "dropoff_wd": 282,
+        "total_we": 813,
+        "grand_total": 1409
+      },
+      {
+        "name": "วัดบางพลัด,จรัญสนิทวงศ์ 77/3",
+        "district": "เขตบางพลัด",
+        "total_wd": 679,
+        "pickup_wd": 384,
+        "dropoff_wd": 295,
+        "total_we": 725,
+        "grand_total": 1404
+      },
+      {
+        "name": "ซอยเสือใหญ่",
+        "district": "เขตจตุจักร",
+        "total_wd": 682,
+        "pickup_wd": 326,
+        "dropoff_wd": 356,
+        "total_we": 717,
+        "grand_total": 1399
+      },
+      {
+        "name": "ตรงข้ามแฟชั่นไอส์แลนด์",
+        "district": "เขตคันนายาว",
+        "total_wd": 676,
+        "pickup_wd": 372,
+        "dropoff_wd": 304,
+        "total_we": 715,
+        "grand_total": 1391
+      },
+      {
+        "name": "บิ๊กซีถนนเอกชัย",
+        "district": "เขตบางบอน",
+        "total_wd": 653,
+        "pickup_wd": 430,
+        "dropoff_wd": 223,
+        "total_we": 738,
+        "grand_total": 1391
+      },
+      {
+        "name": "ท่าเรือประตูน้ำภาษีเจริญ",
+        "district": "เขตภาษีเจริญ",
+        "total_wd": 630,
+        "pickup_wd": 334,
+        "dropoff_wd": 296,
+        "total_we": 757,
+        "grand_total": 1387
+      },
+      {
+        "name": "เอส.เฮช.เค.กรุ๊ป",
+        "district": "เขตจตุจักร",
+        "total_wd": 645,
+        "pickup_wd": 314,
+        "dropoff_wd": 331,
+        "total_we": 740,
+        "grand_total": 1385
+      },
+      {
+        "name": "เดอวิลเลจอินทาวส์",
+        "district": "เขตวังทองหลาง",
+        "total_wd": 654,
+        "pickup_wd": 359,
+        "dropoff_wd": 295,
+        "total_we": 729,
+        "grand_total": 1383
+      },
+      {
+        "name": "ท่าปล่อยรถ สายใต้ใหม่ (ตลิ่งชัน)",
+        "district": "เขตตลิ่งชัน",
+        "total_wd": 687,
+        "pickup_wd": 392,
+        "dropoff_wd": 295,
+        "total_we": 694,
+        "grand_total": 1381
+      },
+      {
+        "name": "สะพานพระปิ่นเกล้า(ขาออก)",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 704,
+        "pickup_wd": 419,
+        "dropoff_wd": 285,
+        "total_we": 669,
+        "grand_total": 1373
+      },
+      {
+        "name": "กระทรวงมหาดไทย",
+        "district": "เขตพระนคร",
+        "total_wd": 721,
+        "pickup_wd": 377,
+        "dropoff_wd": 344,
+        "total_we": 647,
+        "grand_total": 1368
+      },
+      {
+        "name": "ตรงข้ามโรงพยาบาลวิภาราม",
+        "district": "เขตสวนหลวง",
+        "total_wd": 745,
+        "pickup_wd": 382,
+        "dropoff_wd": 363,
+        "total_we": 622,
+        "grand_total": 1367
+      },
+      {
+        "name": "ตลาดสำเหร่(ซอยวัดสุทธาราม)",
+        "district": "เขตธนบุรี",
+        "total_wd": 676,
+        "pickup_wd": 387,
+        "dropoff_wd": 289,
+        "total_we": 686,
+        "grand_total": 1362
+      },
+      {
+        "name": "ตรงข้ามพาต้าปิ่นเกล้า",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 678,
+        "pickup_wd": 409,
+        "dropoff_wd": 269,
+        "total_we": 683,
+        "grand_total": 1361
+      },
+      {
+        "name": "BTS อนุสาวรีย์ชัยสมรภูมิ",
+        "district": "เขตราชเทวี",
+        "total_wd": 646,
+        "pickup_wd": 349,
+        "dropoff_wd": 297,
+        "total_we": 711,
+        "grand_total": 1357
+      },
+      {
+        "name": "ศูนย์หนังสือมหาวิทยาลัยรามคำแหง",
+        "district": "เขตบางกะปิ",
+        "total_wd": 657,
+        "pickup_wd": 395,
+        "dropoff_wd": 262,
+        "total_we": 694,
+        "grand_total": 1351
+      },
+      {
+        "name": "วัดดอนเมือง",
+        "district": "เขตดอนเมือง",
+        "total_wd": 693,
+        "pickup_wd": 426,
+        "dropoff_wd": 267,
+        "total_we": 656,
+        "grand_total": 1349
+      },
+      {
+        "name": "วัดเสมียนนารี",
+        "district": "เขตจตุจักร",
+        "total_wd": 702,
+        "pickup_wd": 377,
+        "dropoff_wd": 325,
+        "total_we": 644,
+        "grand_total": 1346
+      },
+      {
+        "name": "ซอยสุขุมวิท 31",
+        "district": "เขตคลองเตย",
+        "total_wd": 586,
+        "pickup_wd": 327,
+        "dropoff_wd": 259,
+        "total_we": 758,
+        "grand_total": 1344
+      },
+      {
+        "name": "ท่าเดอะมอลล์บางกะปิ",
+        "district": "เขตบางกะปิ",
+        "total_wd": 624,
+        "pickup_wd": 263,
+        "dropoff_wd": 361,
+        "total_we": 714,
+        "grand_total": 1338
+      },
+      {
+        "name": "แยกลาดปลาเค้า(ศูนย์การค้ารามอินทรา)",
+        "district": "เขตบางเขน",
+        "total_wd": 673,
+        "pickup_wd": 431,
+        "dropoff_wd": 242,
+        "total_we": 661,
+        "grand_total": 1334
+      },
+      {
+        "name": "เอสพลานาดรัชดาภิเษก",
+        "district": "เขตดินแดง",
+        "total_wd": 637,
+        "pickup_wd": 358,
+        "dropoff_wd": 279,
+        "total_we": 693,
+        "grand_total": 1330
+      },
+      {
+        "name": "ลุมพินีทาวเวอร์(ตรงข้ามบ่อนไก่)",
+        "district": "เขตสาทร",
+        "total_wd": 654,
+        "pickup_wd": 376,
+        "dropoff_wd": 278,
+        "total_we": 673,
+        "grand_total": 1327
+      },
+      {
+        "name": "ธนาคารธนชาต",
+        "district": "เขตธนบุรี",
+        "total_wd": 657,
+        "pickup_wd": 387,
+        "dropoff_wd": 270,
+        "total_we": 670,
+        "grand_total": 1327
+      },
+      {
+        "name": "พาต้าปิ่นเกล้า",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 637,
+        "pickup_wd": 413,
+        "dropoff_wd": 224,
+        "total_we": 685,
+        "grand_total": 1322
+      },
+      {
+        "name": "โรงพยาบาลกว๋องสิวมูลนิธิ",
+        "district": "เขตป้อมปราบศัตรูพ่าย",
+        "total_wd": 591,
+        "pickup_wd": 344,
+        "dropoff_wd": 247,
+        "total_we": 730,
+        "grand_total": 1321
+      },
+      {
+        "name": "กองบังคับการตำรวจนครบาล 7",
+        "district": "เขตทวีวัฒนา",
+        "total_wd": 672,
+        "pickup_wd": 410,
+        "dropoff_wd": 262,
+        "total_we": 646,
+        "grand_total": 1318
+      },
+      {
+        "name": "ตรงข้ามธนบุรีพลาซ่า",
+        "district": "เขตธนบุรี",
+        "total_wd": 630,
+        "pickup_wd": 358,
+        "dropoff_wd": 272,
+        "total_we": 686,
+        "grand_total": 1316
+      },
+      {
+        "name": "MRTบางซื่อ",
+        "district": "เขตจตุจักร",
+        "total_wd": 637,
+        "pickup_wd": 483,
+        "dropoff_wd": 154,
+        "total_we": 675,
+        "grand_total": 1312
+      },
+      {
+        "name": "ตรงข้ามโรงแรมตะวันนา",
+        "district": "เขตบางรัก",
+        "total_wd": 646,
+        "pickup_wd": 361,
+        "dropoff_wd": 285,
+        "total_we": 657,
+        "grand_total": 1303
+      },
+      {
+        "name": "โรบินสันสีลม(ตรงข้ามรพ.จุฬา)",
+        "district": "เขตปทุมวัน",
+        "total_wd": 818,
+        "pickup_wd": 439,
+        "dropoff_wd": 379,
+        "total_we": 481,
+        "grand_total": 1299
+      },
+      {
+        "name": "ซอยสุขุมวิท 10(ตรงข้ามแอมบาสเดอร์),สวนชูวิทย์",
+        "district": "เขตวัฒนา",
+        "total_wd": 592,
+        "pickup_wd": 356,
+        "dropoff_wd": 236,
+        "total_we": 705,
+        "grand_total": 1297
+      },
+      {
+        "name": "สำนักงานตำรวจแห่งชาติ",
+        "district": "เขตปทุมวัน",
+        "total_wd": 669,
+        "pickup_wd": 372,
+        "dropoff_wd": 297,
+        "total_we": 627,
+        "grand_total": 1296
+      },
+      {
+        "name": "สี่แยกหลักสี่ (ถนนวิภาวดีรังสิต)",
+        "district": "เขตหลักสี่",
+        "total_wd": 786,
+        "pickup_wd": 443,
+        "dropoff_wd": 343,
+        "total_we": 509,
+        "grand_total": 1295
+      },
+      {
+        "name": "วงเวียน 22 กรกฎา",
+        "district": "เขตป้อมปราบศัตรูพ่าย",
+        "total_wd": 616,
+        "pickup_wd": 314,
+        "dropoff_wd": 302,
+        "total_we": 678,
+        "grand_total": 1294
+      },
+      {
+        "name": "อาคารซันทาวเวอร์",
+        "district": "เขตจตุจักร",
+        "total_wd": 838,
+        "pickup_wd": 547,
+        "dropoff_wd": 291,
+        "total_we": 455,
+        "grand_total": 1293
+      },
+      {
+        "name": "หลังสวน,BTS ชิดลม",
+        "district": "เขตปทุมวัน",
+        "total_wd": 605,
+        "pickup_wd": 328,
+        "dropoff_wd": 277,
+        "total_we": 686,
+        "grand_total": 1291
+      },
+      {
+        "name": "แยกจรัสเมือง [A]",
+        "district": "เขตปทุมวัน",
+        "total_wd": 574,
+        "pickup_wd": 314,
+        "dropoff_wd": 260,
+        "total_we": 717,
+        "grand_total": 1291
+      },
+      {
+        "name": "วัดโพธิ์",
+        "district": "เขตพระนคร",
+        "total_wd": 594,
+        "pickup_wd": 300,
+        "dropoff_wd": 294,
+        "total_we": 696,
+        "grand_total": 1290
+      },
+      {
+        "name": "กองปราบปราม",
+        "district": "เขตจตุจักร",
+        "total_wd": 601,
+        "pickup_wd": 341,
+        "dropoff_wd": 260,
+        "total_we": 684,
+        "grand_total": 1285
+      },
+      {
+        "name": "โรงพยาบาลสิรินธร",
+        "district": "เขตประเวศ",
+        "total_wd": 917,
+        "pickup_wd": 356,
+        "dropoff_wd": 561,
+        "total_we": 368,
+        "grand_total": 1285
+      },
+      {
+        "name": "เจริญนคร 59",
+        "district": "เขตธนบุรี",
+        "total_wd": 631,
+        "pickup_wd": 309,
+        "dropoff_wd": 322,
+        "total_we": 653,
+        "grand_total": 1284
+      },
+      {
+        "name": "ศูนย์วิจัย",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 609,
+        "pickup_wd": 329,
+        "dropoff_wd": 280,
+        "total_we": 675,
+        "grand_total": 1284
+      },
+      {
+        "name": "วัดธรรมาส์นักบุญเปรโต",
+        "district": "เขตภาษีเจริญ",
+        "total_wd": 625,
+        "pickup_wd": 372,
+        "dropoff_wd": 253,
+        "total_we": 658,
+        "grand_total": 1283
+      },
+      {
+        "name": "ซอยโชคชัยร่วมมิตร",
+        "district": "เขตจตุจักร",
+        "total_wd": 651,
+        "pickup_wd": 365,
+        "dropoff_wd": 286,
+        "total_we": 631,
+        "grand_total": 1282
+      },
+      {
+        "name": "ซอยเอกชัย 64/7",
+        "district": "เขตบางบอน",
+        "total_wd": 427,
+        "pickup_wd": 245,
+        "dropoff_wd": 182,
+        "total_we": 852,
+        "grand_total": 1279
+      },
+      {
+        "name": "แยกบางนา(ขึ้นทางด่วน)",
+        "district": "เขตบางนา",
+        "total_wd": 628,
+        "pickup_wd": 378,
+        "dropoff_wd": 250,
+        "total_we": 650,
+        "grand_total": 1278
+      },
+      {
+        "name": "โรงเรียนพระรามหกเทคโนโลยี",
+        "district": "เขตบางพลัด",
+        "total_wd": 648,
+        "pickup_wd": 363,
+        "dropoff_wd": 285,
+        "total_we": 629,
+        "grand_total": 1277
+      },
+      {
+        "name": "มหาวิทยาลัยหอการค้าไทย",
+        "district": "เขตดินแดง",
+        "total_wd": 612,
+        "pickup_wd": 335,
+        "dropoff_wd": 277,
+        "total_we": 664,
+        "grand_total": 1276
+      },
+      {
+        "name": "อาคารปัญจธานี",
+        "district": "เขตยานนาวา",
+        "total_wd": 676,
+        "pickup_wd": 315,
+        "dropoff_wd": 361,
+        "total_we": 591,
+        "grand_total": 1267
+      },
+      {
+        "name": "ซอยเอกชัย 83/8",
+        "district": "เขตบางบอน",
+        "total_wd": 406,
+        "pickup_wd": 252,
+        "dropoff_wd": 154,
+        "total_we": 861,
+        "grand_total": 1267
+      },
+      {
+        "name": "รร.เตรียมอุดมฯ รัชดา",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 619,
+        "pickup_wd": 365,
+        "dropoff_wd": 254,
+        "total_we": 647,
+        "grand_total": 1266
+      },
+      {
+        "name": "ตลาดศรีเขมา(ขาเข้า)",
+        "district": "เขตบางซื่อ",
+        "total_wd": 613,
+        "pickup_wd": 346,
+        "dropoff_wd": 267,
+        "total_we": 647,
+        "grand_total": 1260
+      },
+      {
+        "name": "BTS เอกมัย",
+        "district": "เขตคลองเตย",
+        "total_wd": 559,
+        "pickup_wd": 292,
+        "dropoff_wd": 267,
+        "total_we": 698,
+        "grand_total": 1257
+      },
+      {
+        "name": "วัดโพธิ์แมนคุณาราม",
+        "district": "เขตยานนาวา",
+        "total_wd": 626,
+        "pickup_wd": 326,
+        "dropoff_wd": 300,
+        "total_we": 630,
+        "grand_total": 1256
+      },
+      {
+        "name": "สถานีนวสี(สายสีเทา)",
+        "district": "เขตวังทองหลาง",
+        "total_wd": 615,
+        "pickup_wd": 329,
+        "dropoff_wd": 286,
+        "total_we": 638,
+        "grand_total": 1253
+      },
+      {
+        "name": "อนุสาวรีย์ชัยสมรภูมิ (เกาะพหลโยธิน)",
+        "district": "เขตราชเทวี",
+        "total_wd": 582,
+        "pickup_wd": 359,
+        "dropoff_wd": 223,
+        "total_we": 669,
+        "grand_total": 1251
+      },
+      {
+        "name": "สะพานวุฒากาศ 1(ซอยวิฒากาศ 24)",
+        "district": "เขตธนบุรี",
+        "total_wd": 636,
+        "pickup_wd": 351,
+        "dropoff_wd": 285,
+        "total_we": 615,
+        "grand_total": 1251
+      },
+      {
+        "name": "โรงพยาบาลนวมินทร์ 9",
+        "district": "เขตมีนบุรี",
+        "total_wd": 699,
+        "pickup_wd": 369,
+        "dropoff_wd": 330,
+        "total_we": 548,
+        "grand_total": 1247
+      },
+      {
+        "name": "ตลาดบางแค(ไอทีแกรนด์)",
+        "district": "เขตบางแค",
+        "total_wd": 556,
+        "pickup_wd": 327,
+        "dropoff_wd": 229,
+        "total_we": 689,
+        "grand_total": 1245
+      },
+      {
+        "name": "อาคารว่องวานิช",
+        "district": "เขตห้วยขวาง",
+        "total_wd": 616,
+        "pickup_wd": 304,
+        "dropoff_wd": 312,
+        "total_we": 628,
+        "grand_total": 1244
+      },
+      {
+        "name": "เตาปูนแมนชั่น",
+        "district": "เขตบางซื่อ",
+        "total_wd": 621,
+        "pickup_wd": 278,
+        "dropoff_wd": 343,
+        "total_we": 617,
+        "grand_total": 1238
+      },
+      {
+        "name": "บิ๊กซีเพชรเกษม(หลักสอง)",
+        "district": "เขตบางแค",
+        "total_wd": 625,
+        "pickup_wd": 401,
+        "dropoff_wd": 224,
+        "total_we": 609,
+        "grand_total": 1234
+      },
+      {
+        "name": "ซอยลาดพร้าว 17, MRT ลาดพร้าว ,ลาดพร้าว 19",
+        "district": "เขตจตุจักร",
+        "total_wd": 578,
+        "pickup_wd": 384,
+        "dropoff_wd": 194,
+        "total_we": 655,
+        "grand_total": 1233
+      },
+      {
+        "name": "เสาชิงช้า",
+        "district": "เขตพระนคร",
+        "total_wd": 565,
+        "pickup_wd": 291,
+        "dropoff_wd": 274,
+        "total_we": 665,
+        "grand_total": 1230
+      },
+      {
+        "name": "โรงแรมกานต์มณี",
+        "district": "เขตพญาไท",
+        "total_wd": 591,
+        "pickup_wd": 338,
+        "dropoff_wd": 253,
+        "total_we": 635,
+        "grand_total": 1226
+      },
+      {
+        "name": "วิภาวดีซอย3,ตรงข้ามซอยโชคชัยร่วมมิตร",
+        "district": "เขตจตุจักร",
+        "total_wd": 624,
+        "pickup_wd": 329,
+        "dropoff_wd": 295,
+        "total_we": 601,
+        "grand_total": 1225
+      },
+      {
+        "name": "ศาลาว่าการกรุงเทพมหานคร",
+        "district": "เขตพระนคร",
+        "total_wd": 611,
+        "pickup_wd": 328,
+        "dropoff_wd": 283,
+        "total_we": 614,
+        "grand_total": 1225
+      },
+      {
+        "name": "ตรงข้ามโรงเรียนเขมะสิริอนุสสรณ์",
+        "district": "เขตบางพลัด",
+        "total_wd": 624,
+        "pickup_wd": 388,
+        "dropoff_wd": 236,
+        "total_we": 596,
+        "grand_total": 1220
+      },
+      {
+        "name": "ลาดพร้าวสะพาน 2",
+        "district": "เขตลาดพร้าว",
+        "total_wd": 627,
+        "pickup_wd": 337,
+        "dropoff_wd": 290,
+        "total_we": 586,
+        "grand_total": 1213
+      },
+      {
+        "name": "ซอยเลียบคลอง 9,ตรงข้ามซอยทวีวัฒนา 9",
+        "district": "เขตทวีวัฒนา",
+        "total_wd": 510,
+        "pickup_wd": 312,
+        "dropoff_wd": 198,
+        "total_we": 701,
+        "grand_total": 1211
+      },
+      {
+        "name": "ตรงข้ามเมืองไทยภัทร,บริษัทเมืองไทยประกันชีวิต",
+        "district": "เขตดินแดง",
+        "total_wd": 576,
+        "pickup_wd": 301,
+        "dropoff_wd": 275,
+        "total_we": 631,
+        "grand_total": 1207
+      },
+      {
+        "name": "ตลาดสดศิริชัยซอย 3",
+        "district": "เขตบางบอน",
+        "total_wd": 418,
+        "pickup_wd": 245,
+        "dropoff_wd": 173,
+        "total_we": 787,
+        "grand_total": 1205
+      },
+      {
+        "name": "โรงพยาบาล หู ตา คอ จมูก ,ก่อนถึงสายใต้ปิ่นเกล้า",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 607,
+        "pickup_wd": 324,
+        "dropoff_wd": 283,
+        "total_we": 590,
+        "grand_total": 1197
+      },
+      {
+        "name": "แยกพรานนก",
+        "district": "เขตบางกอกน้อย",
+        "total_wd": 581,
+        "pickup_wd": 317,
+        "dropoff_wd": 264,
+        "total_we": 614,
+        "grand_total": 1195
+      },
+      {
+        "name": "โรงเรียนบางบัว",
+        "district": "เขตจตุจักร",
+        "total_wd": 614,
+        "pickup_wd": 315,
+        "dropoff_wd": 299,
+        "total_we": 579,
+        "grand_total": 1193
+      },
+      {
+        "name": "ตรงข้ามศูนย์ฮอนด้าพระราม3สาขาสุรวงศ์",
+        "district": "เขตบางรัก",
+        "total_wd": 618,
+        "pickup_wd": 342,
+        "dropoff_wd": 276,
+        "total_we": 574,
+        "grand_total": 1192
+      }
+    ]
+  },
+  "travel": {
+    "modes": [
+      {
+        "id": "bus",
+        "name": "รถโดยสารประจำทาง (Bus)",
+        "color": "#3b82f6",
+        "time_total": "50 - 55",
+        "time_total_num": 52.5,
+        "time_in_transit": "35 - 40",
+        "time_in_transit_num": 37.5,
+        "time_feeder_num": 15.0,
+        "cost_total": "18 - 30",
+        "cost_total_num": 24.0,
+        "cost_in_transit": "14 - 24",
+        "cost_in_transit_num": 19.0,
+        "cost_feeder_num": 5.0,
+        "speed_rank": "ปานกลาง",
+        "cost_rank": "ประหยัดสุด",
+        "feeder": {
+          "การเดิน": 70,
+          "จักรยานยนต์รับจ้าง": 10,
+          "รถโดยสารประจำทาง": 0,
+          "อื่นๆ": 20
+        }
+      },
+      {
+        "id": "boat",
+        "name": "เรือโดยสาร (Boat)",
+        "color": "#06b6d4",
+        "time_total": "45 - 55",
+        "time_total_num": 50.0,
+        "time_in_transit": "25 - 30",
+        "time_in_transit_num": 27.5,
+        "time_feeder_num": 22.5,
+        "cost_total": "25 - 30",
+        "cost_total_num": 27.5,
+        "cost_in_transit": "18 - 21",
+        "cost_in_transit_num": 19.5,
+        "cost_feeder_num": 8.0,
+        "speed_rank": "ปานกลาง-เร็ว",
+        "cost_rank": "ปานกลาง",
+        "feeder": {
+          "การเดิน": 70,
+          "จักรยานยนต์รับจ้าง": 10,
+          "รถโดยสารประจำทาง": 0,
+          "อื่นๆ": 20
+        }
+      },
+      {
+        "id": "train",
+        "name": "รถไฟฟ้า (BTS/MRT Rail)",
+        "color": "#8b5cf6",
+        "time_total": "30 - 50",
+        "time_total_num": 40.0,
+        "time_in_transit": "15 - 25",
+        "time_in_transit_num": 20.0,
+        "time_feeder_num": 20.0,
+        "cost_total": "45 - 50",
+        "cost_total_num": 47.5,
+        "cost_in_transit": "28 - 35",
+        "cost_in_transit_num": 31.5,
+        "cost_feeder_num": 16.0,
+        "speed_rank": "เร็วที่สุด",
+        "cost_rank": "สูงกว่าระบบอื่น",
+        "feeder": {
+          "การเดิน": 50,
+          "จักรยานยนต์รับจ้าง": 20,
+          "รถโดยสารประจำทาง": 10,
+          "อื่นๆ": 20
+        }
+      }
+    ]
+  }
+}

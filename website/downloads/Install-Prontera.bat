@@ -104,13 +104,23 @@ function Tr([string]$Text) {
 # =========================
 
 # Run as administrator: the kRO installer starts its updater (Ragnarok.exe) elevated, and only an elevated installer can close it.
-# If the player says No to the Windows prompt, the install still runs, just without that power.
+# If the player says No to the Windows prompt, the installer stops (see below).
 if (-not $env:PRONTERA_NO_MAIN -and $env:PRONTERA_SELF -and -not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     try {
         Write-Host (Tr 'Opening the installer as administrator. Click Yes in the Windows window, then use the NEW window.') -ForegroundColor Cyan
         Start-Process -FilePath $env:PRONTERA_SELF -Verb RunAs -ErrorAction Stop
         return
-    } catch { Write-Host (Tr 'Continuing without administrator rights.') -ForegroundColor Yellow }
+    } catch { }
+}
+# Without administrator rights the Korean updater (it runs elevated) can neither be closed nor blocked, and it breaks the game files
+# for our server. So stop here with a clear message instead of an install that ends in a broken game.
+if (-not $env:PRONTERA_NO_MAIN -and -not $env:PRONTERA_ALLOW_NON_ADMIN -and -not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+    Write-Host ''
+    Write-Host 'STOP: this installer must run as administrator.' -ForegroundColor Red
+    Write-Host 'Close this window. Right-click Install-Prontera.bat, choose Run as administrator, and click Yes.' -ForegroundColor Yellow
+    Write-Host 'Without it the Korean updater (the window with the START button) starts and breaks the game.' -ForegroundColor Yellow
+    Read-Host 'Press Enter to close' | Out-Null
+    return
 }
 if ($env:PRONTERA_GAME_DIR)  { $GameDir  = $env:PRONTERA_GAME_DIR }
 if ($env:PRONTERA_TOOLS_DIR) { $ToolsDir = $env:PRONTERA_TOOLS_DIR }
@@ -306,6 +316,33 @@ function Stop-KroUpdater {
     foreach ($p in @(Get-Process -Name 'Ragnarok' -ErrorAction SilentlyContinue)) {
         try { Stop-Process -Id $p.Id -Force -ErrorAction Stop; Info 'Closed the Korean updater window (START button) so it cannot damage the game files.' } catch { }
     }
+}
+
+# Last line of defence: Windows Firewall may not let any Ragnarok.exe (the kRO updater) reach Gravity's patch servers, so even if
+# it opens (the player presses START, an old icon, the wizard's last page) it cannot download the 2022 patches that break our game.
+# Rules are made before the Korean installer runs; they match by path, so the file does not need to exist yet.
+function Block-KroUpdater {
+    $dirs = @($GameDir, 'C:\Gravity\Ragnarok', 'C:\RO', 'C:\RO2', 'C:\RO3') | Where-Object { $_ } | ForEach-Object { $_.TrimEnd('\') } | Select-Object -Unique
+    $ok = 0
+    foreach ($dir in $dirs) {
+        $name = "Prontera - block Korean updater ($dir)"
+        try {
+            & netsh.exe advfirewall firewall delete rule "name=$name" 2>&1 | Out-Null
+            & netsh.exe advfirewall firewall add rule "name=$name" dir=out action=block "program=$dir\Ragnarok.exe" enable=yes 2>&1 | Out-Null
+            if ($LASTEXITCODE -eq 0) { $ok++ }
+        } catch { }
+    }
+    if ($ok -gt 0) { Info "Windows Firewall now blocks the Korean updater (Ragnarok.exe) from the internet ($ok rules)." }
+    else { Warn 'Could not add the firewall rule that blocks the Korean updater. Never press START in the Korean window.' }
+}
+
+# Waits for Enter while closing the Korean updater the moment it appears (the wizard can start it on its last page).
+function Wait-EnterGuarded([string]$Prompt) {
+    Write-Host $Prompt
+    try {
+        while (-not [Console]::KeyAvailable) { Stop-KroUpdater; Start-Sleep -Milliseconds 500 }
+        [void][Console]::ReadKey($true)
+    } catch { Read-Host | Out-Null }
 }
 
 # A folder for a fresh copy of the game next to a broken one: C:\RO, else C:\RO2, C:\RO3, ...
@@ -742,6 +779,7 @@ function Install-Game {
     if ($found) {
         $script:GameDir = $found
         Info "Found the game in $GameDir"
+        Block-KroUpdater
         Stop-GameProcesses
         $problem = Get-GameFilesProblem
         if ($problem) {
@@ -769,6 +807,7 @@ function Install-Game {
         Get-File $Urls.KRO $setup
         Assert-SetupChecksum $setup $Urls.KRO
         New-Item -ItemType Directory -Force -Path $GameDir | Out-Null
+        Block-KroUpdater
         $kro = $null
         if (Test-InnoSetup $setup) {
             Info "Installing to $GameDir (click Yes if Windows asks) ..."
@@ -783,11 +822,12 @@ function Install-Game {
             Write-Host (Tr '    If a window with a START button appears, do NOT press it; this installer closes it for you.') -ForegroundColor Yellow
             Write-Host (Tr '    If a CRC error window appears, click Abort (left button), then run this installer again. Never click Ignore.') -ForegroundColor Yellow
             $kro = Start-Process -FilePath $setup -PassThru
-            while (-not $kro.HasExited) { Stop-KroUpdater; Start-Sleep -Milliseconds 700 }
-            for ($i = 0; $i -lt 10; $i++) { Stop-KroUpdater; Start-Sleep -Milliseconds 500 }
+            # The setup program may hand over to a helper process and exit early, so wait for those too.
+            while (-not $kro.HasExited -or (Get-Process -Name 'ISBEW64', 'ISBEW32', 'RAG_SETUP_220120' -ErrorAction SilentlyContinue)) { Stop-KroUpdater; Start-Sleep -Milliseconds 500 }
+            for ($i = 0; $i -lt 30; $i++) { Stop-KroUpdater; Start-Sleep -Milliseconds 500 }
         }
         for ($i = 0; $i -lt 3 -and -not (Find-GameDir); $i++) {
-            Read-Host (Tr '    Press Enter when the Korean installer has completely finished') | Out-Null
+            Wait-EnterGuarded (Tr '    Press Enter when the Korean installer has completely finished')
         }
         $found = Find-GameDir
         if (-not $found -and $kro -and $kro.ExitCode -ne 0) {
@@ -811,9 +851,20 @@ function Install-Game {
     Set-Content -LiteralPath (Get-GameDirFile) -Value $GameDir -Encoding ASCII
     $updater = Join-Path $GameDir 'Ragnarok.exe'
     if (Test-Path -LiteralPath $updater) {
-        Move-Item -LiteralPath $updater -Destination "$updater.off" -Force
-        Info 'Turned off the kRO updater (Ragnarok.exe -> Ragnarok.exe.off) so it cannot break the game files.'
+        for ($try = 1; $try -le 5; $try++) {
+            try {
+                Move-Item -LiteralPath $updater -Destination "$updater.off" -Force -ErrorAction Stop
+                Info 'Turned off the kRO updater (Ragnarok.exe -> Ragnarok.exe.off) so it cannot break the game files.'
+                break
+            } catch {
+                Stop-KroUpdater
+                Start-Sleep -Seconds 1
+                if ($try -eq 5) { Warn "Could not rename $updater ($($_.Exception.Message)). The firewall still blocks it. Never press START." }
+            }
+        }
     }
+    # Remove the Korean icons now, not only at the very end: if a later step stops, an old icon must not start the updater.
+    try { Remove-KroShortcuts } catch { Warn "Could not check the Korean icons: $($_.Exception.Message)" }
 }
 
 function Install-Runtime {
@@ -977,6 +1028,7 @@ function Invoke-Main {
     try { Start-Transcript -Path $log -Append | Out-Null } catch { }
     try {
         Write-Host "SEVER GAME $ServerName - game installer" -ForegroundColor Green
+        Write-Host "Installer build: 2026-10-22 (updater firewall block)"
         Write-Host "Game folder: $GameDir   Tools and downloads: $ToolsDir"
         if (-not (Get-Command curl.exe -ErrorAction SilentlyContinue)) { Warn 'curl.exe not found; downloads will be slower.' }
         Install-Game
