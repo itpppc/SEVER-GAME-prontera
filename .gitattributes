@@ -1,2 +1,3 @@
 # Windows batch files must keep CRLF line endings.
 installer/*.bat -text
+custom/npc/thai_test.txt -text
