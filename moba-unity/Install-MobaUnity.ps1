@@ -1,37 +1,46 @@
-﻿# Install-MobaUnity.ps1  -  ติดตั้ง Unity และเปิดเกม "ศึกลงกา MOBA" ให้ในคำสั่งเดียว (Windows)
-# ใช้งาน: เปิด PowerShell แล้ววาง
+# Install-MobaUnity.ps1 - installs Unity and opens the "Suek Lanka MOBA" game (Windows, one command).
+# Run in PowerShell:
 #   irm https://raw.githubusercontent.com/itpppc/SEVER-GAME-prontera/main/moba-unity/Install-MobaUnity.ps1 | iex
-# ไม่ลบหรือแก้ไฟล์อื่นในเครื่อง ลงเฉพาะ Unity Hub, Unity 6 LTS (ไว้ที่ F:\Unity ถ้ามีไดรฟ์ F) และโฟลเดอร์โปรเจกต์ของเกมนี้ (F:\ProjectAI\SuekLanka-MOBA)
+# This file is deliberately plain ASCII with no BOM: "irm | iex" on Windows PowerShell 5.1 breaks on a BOM
+# and the console cannot draw Thai glyphs, so all messages here are English. Thai steps are given in the chat.
+# Installs only Unity Hub, Unity 6 LTS (to F:\Unity\Editor when drive F exists) and the game project folder.
 $ErrorActionPreference = 'Stop'
-try { [Console]::OutputEncoding = [Text.Encoding]::UTF8 } catch {}
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 $Ref  = if ($env:MOBA_REF) { $env:MOBA_REF } else { 'main' }
 $Repo = 'itpppc/SEVER-GAME-prontera'
-$Dest = if (Test-Path 'F:\') { 'F:\ProjectAI\SuekLanka-MOBA' } else { Join-Path $env:USERPROFILE 'SuekLanka-MOBA' }
-$HubExe = 'C:\Program Files\Unity Hub\Unity Hub.exe'
-# มีไดรฟ์ F: ให้ลง Unity Editor (ไฟล์ใหญ่) ไว้ที่ F:\Unity\Editor ไม่งั้นใช้ที่มาตรฐานของ Unity Hub
-$EditorRoot = if (Test-Path 'F:\') { 'F:\Unity\Editor' } else { 'C:\Program Files\Unity\Hub\Editor' }
+$HasF = Test-Path 'F:\'
+$Dest = if ($HasF) { 'F:\ProjectAI\SuekLanka-MOBA' } else { Join-Path $env:USERPROFILE 'SuekLanka-MOBA' }
+$EditorRoot = if ($HasF) { 'F:\Unity\Editor' } else { 'C:\Program Files\Unity\Hub\Editor' }
+$HubCandidates = @(
+    'C:\Program Files\Unity Hub\Unity Hub.exe',
+    (Join-Path $env:LOCALAPPDATA 'Programs\Unity Hub\Unity Hub.exe'),
+    'C:\Program Files (x86)\Unity Hub\Unity Hub.exe'
+)
+function Find-Hub { $HubCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1 }
 
 function Say($m) { Write-Host ""; Write-Host ">> $m" -ForegroundColor Yellow }
 function Ok($m)  { Write-Host "   $m" -ForegroundColor Green }
 
-Say "1/5 ตรวจสอบ Unity Hub"
-if (-not (Test-Path $HubExe)) {
+Say '1/5 Checking Unity Hub'
+$HubExe = Find-Hub
+if (-not $HubExe) {
     $winget = Get-Command winget -ErrorAction SilentlyContinue
     if ($winget) {
         winget install -e --id Unity.UnityHub --accept-package-agreements --accept-source-agreements | Out-Host
+        $HubExe = Find-Hub
     }
-    if (-not (Test-Path $HubExe)) {
+    if (-not $HubExe) {
         $setup = Join-Path $env:TEMP 'UnityHubSetup.exe'
         Invoke-WebRequest 'https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.exe' -OutFile $setup
         Start-Process $setup -ArgumentList '/S' -Wait
+        $HubExe = Find-Hub
     }
 }
-if (-not (Test-Path $HubExe)) { throw 'ติดตั้ง Unity Hub ไม่สำเร็จ ลองโหลดเองที่ https://unity.com/download แล้วรันคำสั่งนี้อีกครั้ง' }
-Ok 'พบ Unity Hub แล้ว'
+if (-not $HubExe) { throw 'Could not install Unity Hub. Download it from https://unity.com/download, then run this command again.' }
+Ok "Unity Hub found: $HubExe"
 
-Say "2/5 ตรวจสอบ Unity Editor (รุ่น 6000 = Unity 6)"
+Say '2/5 Checking Unity Editor (version 6000 = Unity 6)'
 $unity = $null
 if (Test-Path $EditorRoot) {
     $unity = Get-ChildItem $EditorRoot -Directory | Where-Object { $_.Name -like '6000.*' } | Sort-Object Name -Descending |
@@ -42,43 +51,43 @@ if (-not $unity) {
     try {
         $r = Invoke-RestMethod 'https://services.api.unity.com/unity/editor/release/v1/releases?stream=LTS&version=6000&limit=1&order=RELEASE_DATE_DESC&platform=WINDOWS'
         $ver = $r.results[0].version; $cs = $r.results[0].shortRevision
-    } catch { Write-Host '   (ดึงรุ่นล่าสุดจากเว็บ Unity ไม่ได้ ลองถาม Unity Hub แทน)' }
+    } catch { Write-Host '   (could not read the latest version from unity.com, asking Unity Hub instead)' }
     if (-not $ver) {
         $list = & $HubExe -- --headless editors -r 2>&1 | Out-String
         $m = [regex]::Match($list, '6000\.\d+\.\d+f\d+')
         if ($m.Success) { $ver = $m.Value }
     }
-    if (-not $ver) { throw 'หารุ่น Unity 6 ไม่เจอ เปิด Unity Hub ติดตั้ง Unity 6 LTS เองแล้วรันคำสั่งนี้ใหม่' }
+    if (-not $ver) { throw 'Could not find a Unity 6 version. Install Unity 6 LTS from Unity Hub yourself, then run this command again.' }
     New-Item -ItemType Directory -Force -Path $EditorRoot | Out-Null
     & $HubExe -- --headless install-path -s "$EditorRoot" | Out-Host
-    Write-Host "   กำลังติดตั้ง Unity $ver (ไฟล์ใหญ่ราว 3-5 GB ใช้เวลาสักพัก อย่าปิดหน้าต่างนี้)"
+    Write-Host "   Installing Unity $ver to $EditorRoot (about 3-5 GB, please wait and keep this window open)"
     if ($cs) { & $HubExe -- --headless install --version $ver --changeset $cs | Out-Host }
     else     { & $HubExe -- --headless install --version $ver | Out-Host }
     $deadline = (Get-Date).AddMinutes(60)
     while (-not (Test-Path (Join-Path $EditorRoot "$ver\Editor\Unity.exe")) -and (Get-Date) -lt $deadline) { Start-Sleep -Seconds 10 }
     $unity = Join-Path $EditorRoot "$ver\Editor\Unity.exe"
-    if (-not (Test-Path $unity)) { throw 'Unity ยังติดตั้งไม่เสร็จ รอสักครู่แล้วรันคำสั่งเดิมอีกครั้ง' }
+    if (-not (Test-Path $unity)) { throw 'Unity is not finished installing yet. Wait a bit and run the same command again.' }
 }
-Ok "พบ Unity ที่ $unity"
+Ok "Unity found: $unity"
 
-Say "3/5 ดาวน์โหลดโปรเจกต์เกม"
+Say '3/5 Downloading the game project'
 $zip = Join-Path $env:TEMP 'suek-lanka.zip'; $tmp = Join-Path $env:TEMP 'suek-lanka-src'
 if (Test-Path $tmp) { Remove-Item $tmp -Recurse -Force }
 Invoke-WebRequest "https://github.com/$Repo/archive/refs/heads/$Ref.zip" -OutFile $zip
 Expand-Archive $zip -DestinationPath $tmp -Force
 $src = Get-ChildItem $tmp -Directory | Select-Object -First 1
 $proj = Join-Path $src.FullName 'moba-unity'
-if (-not (Test-Path $proj)) { throw "ไม่พบโฟลเดอร์ moba-unity ในสาขา $Ref" }
+if (-not (Test-Path $proj)) { throw "Folder moba-unity not found in branch $Ref" }
 New-Item -ItemType Directory -Force -Path $Dest | Out-Null
 robocopy $proj $Dest /E /XD Library Temp Builds Logs UserSettings /NFL /NDL /NJH /NJS | Out-Null
-Ok "วางโปรเจกต์ไว้ที่ $Dest"
+Ok "Project copied to $Dest"
 
-Say "4/5 เปิดโปรเจกต์ใน Unity (ครั้งแรกใช้เวลา 2-5 นาที)"
+Say '4/5 Opening the project in Unity (first open takes 2-5 minutes)'
 Start-Process $unity -ArgumentList @('-projectPath', "`"$Dest`"")
 
-Say "5/5 เหลือแค่นี้"
-Write-Host '   1) ถ้า Unity ขอให้ล็อกอิน ให้ล็อกอินด้วยบัญชี Unity ID (สมัครฟรี) แล้วเลือกใบอนุญาต Personal (ฟรี)'
-Write-Host '   2) รอจนหน้าจอ Unity เปิดขึ้นมาและหยุดโหลด'
-Write-Host '   3) กดปุ่ม ▶ Play ตรงกลางด้านบน แล้วเลือกฮีโร่ กด "เริ่มเล่น"'
+Say '5/5 What is left'
+Write-Host '   1) If Unity asks you to sign in, use your Unity ID (free) and choose the Personal (free) license'
+Write-Host '   2) Wait until the Unity window opens and stops loading'
+Write-Host '   3) Press the Play button at the top center, pick a hero, press Start'
 Write-Host ''
-Write-Host '   ถ้ามีข้อความสีแดงใน Console ของ Unity ให้ถ่ายภาพหน้าจอส่งมาที่แชต Claude ได้เลย' -ForegroundColor Cyan
+Write-Host '   If you see red text in the Unity Console, send a screenshot to Claude in the chat' -ForegroundColor Cyan
