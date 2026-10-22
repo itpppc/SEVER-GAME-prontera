@@ -1,7 +1,7 @@
 ﻿# Install-MobaUnity.ps1  -  ติดตั้ง Unity และเปิดเกม "ศึกลงกา MOBA" ให้ในคำสั่งเดียว (Windows)
 # ใช้งาน: เปิด PowerShell แล้ววาง
 #   irm https://raw.githubusercontent.com/itpppc/SEVER-GAME-prontera/main/moba-unity/Install-MobaUnity.ps1 | iex
-# ไม่ลบหรือแก้ไฟล์อื่นในเครื่อง ลงเฉพาะ Unity Hub, Unity 6 LTS และโฟลเดอร์โปรเจกต์ของเกมนี้
+# ไม่ลบหรือแก้ไฟล์อื่นในเครื่อง ลงเฉพาะ Unity Hub, Unity 6 LTS (ไว้ที่ F:\Unity ถ้ามีไดรฟ์ F) และโฟลเดอร์โปรเจกต์ของเกมนี้ (F:\ProjectAI\SuekLanka-MOBA)
 $ErrorActionPreference = 'Stop'
 try { [Console]::OutputEncoding = [Text.Encoding]::UTF8 } catch {}
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -10,7 +10,8 @@ $Ref  = if ($env:MOBA_REF) { $env:MOBA_REF } else { 'main' }
 $Repo = 'itpppc/SEVER-GAME-prontera'
 $Dest = if (Test-Path 'F:\') { 'F:\ProjectAI\SuekLanka-MOBA' } else { Join-Path $env:USERPROFILE 'SuekLanka-MOBA' }
 $HubExe = 'C:\Program Files\Unity Hub\Unity Hub.exe'
-$EditorRoot = 'C:\Program Files\Unity\Hub\Editor'
+# มีไดรฟ์ F: ให้ลง Unity Editor (ไฟล์ใหญ่) ไว้ที่ F:\Unity\Editor ไม่งั้นใช้ที่มาตรฐานของ Unity Hub
+$EditorRoot = if (Test-Path 'F:\') { 'F:\Unity\Editor' } else { 'C:\Program Files\Unity\Hub\Editor' }
 
 function Say($m) { Write-Host ""; Write-Host ">> $m" -ForegroundColor Yellow }
 function Ok($m)  { Write-Host "   $m" -ForegroundColor Green }
@@ -48,6 +49,8 @@ if (-not $unity) {
         if ($m.Success) { $ver = $m.Value }
     }
     if (-not $ver) { throw 'หารุ่น Unity 6 ไม่เจอ เปิด Unity Hub ติดตั้ง Unity 6 LTS เองแล้วรันคำสั่งนี้ใหม่' }
+    New-Item -ItemType Directory -Force -Path $EditorRoot | Out-Null
+    & $HubExe -- --headless install-path -s "$EditorRoot" | Out-Host
     Write-Host "   กำลังติดตั้ง Unity $ver (ไฟล์ใหญ่ราว 3-5 GB ใช้เวลาสักพัก อย่าปิดหน้าต่างนี้)"
     if ($cs) { & $HubExe -- --headless install --version $ver --changeset $cs | Out-Host }
     else     { & $HubExe -- --headless install --version $ver | Out-Host }
