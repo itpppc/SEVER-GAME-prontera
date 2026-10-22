@@ -680,8 +680,9 @@ kbd {
   .slider-bar .slider-toggle { width: 40px; height: 40px; }
   .slider-btn, .slider-dots { background: var(--surface); border-color: var(--border); }
 }
+/* Cross-fade only (no movement), so it stays on for reduced-motion visitors, just a little gentler */
 @media (prefers-reduced-motion: reduce) {
-  .slide, .slide.is-active { transition: none; }
+  .slide, .slide.is-active { transition-duration: .9s, 0s; }
 }
 
 /* Voluntary support box (owner request 2026-10-17): QR is a static image, nothing is collected on the site */
