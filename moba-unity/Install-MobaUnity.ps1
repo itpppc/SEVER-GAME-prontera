@@ -17,7 +17,24 @@ $HubCandidates = @(
     (Join-Path $env:LOCALAPPDATA 'Programs\Unity Hub\Unity Hub.exe'),
     'C:\Program Files (x86)\Unity Hub\Unity Hub.exe'
 )
-function Find-Hub { $HubCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1 }
+function Find-Hub {
+    $hit = $HubCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+    if ($hit) { return $hit }
+    # Fall back to the uninstall registry: the Hub can land in a per-user or custom folder.
+    $keys = 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*',
+            'HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*',
+            'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*'
+    foreach ($e in (Get-ItemProperty $keys -ErrorAction SilentlyContinue | Where-Object { $_.DisplayName -like 'Unity Hub*' })) {
+        $icon = [string]$e.DisplayIcon -replace '"|,\d+$', ''
+        $iconDir = if ($icon) { Split-Path $icon -Parent } else { $null }
+        foreach ($dir in @($e.InstallLocation, $iconDir)) {
+            if ($dir) { $exe = Join-Path $dir 'Unity Hub.exe'; if (Test-Path $exe) { return $exe } }
+        }
+    }
+    return $null
+}
+# Waits for the Hub exe to appear: some installers return before the files are in place.
+function Wait-Hub { for ($i = 0; $i -lt 30; $i++) { $h = Find-Hub; if ($h) { return $h }; Start-Sleep -Seconds 2 }; return $null }
 
 function Say($m) { Write-Host ""; Write-Host ">> $m" -ForegroundColor Yellow }
 function Ok($m)  { Write-Host "   $m" -ForegroundColor Green }
@@ -28,13 +45,17 @@ if (-not $HubExe) {
     $winget = Get-Command winget -ErrorAction SilentlyContinue
     if ($winget) {
         winget install -e --id Unity.UnityHub --accept-package-agreements --accept-source-agreements | Out-Host
-        $HubExe = Find-Hub
+        $HubExe = Wait-Hub
     }
     if (-not $HubExe) {
         $setup = Join-Path $env:TEMP 'UnityHubSetup.exe'
-        Invoke-WebRequest 'https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.exe' -OutFile $setup
-        Start-Process $setup -ArgumentList '/S' -Wait
-        $HubExe = Find-Hub
+        $urls = 'https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup-x64.exe',
+                'https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.exe'
+        foreach ($u in $urls) {
+            try { Invoke-WebRequest $u -OutFile $setup -UseBasicParsing; break }
+            catch { Write-Host "   (download failed: $u)"; Remove-Item $setup -ErrorAction SilentlyContinue }
+        }
+        if (Test-Path $setup) { Start-Process $setup -ArgumentList '/S' -Wait; $HubExe = Wait-Hub }
     }
 }
 if (-not $HubExe) { throw 'Could not install Unity Hub. Download it from https://unity.com/download, then run this command again.' }
