@@ -24,9 +24,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700&family=Prompt:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css?v=20261017b">
-  <script src="assets/config.js?v=20261017b" defer></script>
-  <script src="assets/main.js?v=20261017b" defer></script>
+  <link rel="stylesheet" href="assets/styles.css?v=20261022a">
+  <script src="assets/config.js?v=20261022a" defer></script>
+  <script src="assets/main.js?v=20261022a" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -140,18 +140,21 @@
         <h2 id="download-title"><span class="guide-num" aria-hidden="true">1</span>ดาวน์โหลดตัวติดตั้ง</h2>
         <div class="download-card">
           <div>
-            <p class="download-name">Install-Prontera.bat</p>
+            <p class="download-name">Install-Prontera.zip</p>
             <p class="muted">ตัวติดตั้งคลิกเดียวสำหรับ Windows 10 / 11 ไฟล์เล็กไม่ถึง 100 KB</p>
           </div>
-          <a class="btn btn-primary" href="downloads/Install-Prontera.bat" download>
+          <a class="btn btn-primary" href="downloads/Install-Prontera.zip" download>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
             ดาวน์โหลดตัวติดตั้ง
           </a>
         </div>
+        <p class="muted">โหลดแบบ .zip ไม่ได้? <a class="link" href="downloads/Install-Prontera.bat" download>โหลดไฟล์ Install-Prontera.bat ตรง</a></p>
         <ul class="guide-list">
           <li><strong>ต้องมี:</strong> Windows 10 หรือ 11, พื้นที่ว่างประมาณ 10 GB, อินเทอร์เน็ตที่โหลดไฟล์ใหญ่ได้</li>
           <li>ไฟล์นี้ไม่มีตัวเกมอยู่ข้างใน มันจะโหลดตัวเกมจาก<strong>ผู้ให้บริการต้นทาง</strong>ลงเครื่องคุณเอง แล้วตั้งค่าให้ต่อเซิร์ฟเวอร์ของเรา</li>
-          <li>ถ้าเบราว์เซอร์ถามว่าจะเก็บไฟล์ไหม ให้กด <strong>เก็บไว้ (Keep)</strong></li>
+          <li><strong>ต้องโหลดบนคอม Windows</strong> มือถือติดตั้งเกมนี้ไม่ได้</li>
+          <li>ถ้ากดลิงก์จาก<strong>แอป Facebook หรือ LINE</strong> ให้กดปุ่ม ⋯ แล้วเลือก <strong>เปิดในเบราว์เซอร์ / Open in Chrome</strong> ก่อน เพราะแอปพวกนี้โหลดไฟล์ไม่ได้</li>
+          <li>กดแล้วไม่เห็นไฟล์: กดไอคอนดาวน์โหลดมุมขวาบนของ Chrome หรือ Edge ถ้าขึ้นว่าไฟล์อาจไม่ปลอดภัย ให้กด <strong>Keep / เก็บไว้</strong> (Edge: กด ⋯ แล้ว Keep)</li>
         </ul>
       </div>
     </section>
@@ -160,6 +163,7 @@
       <div class="container narrow">
         <h2 id="install-title"><span class="guide-num" aria-hidden="true">2</span>ติดตั้ง</h2>
         <ol class="guide-steps">
+          <li>เปิดโฟลเดอร์ <strong>Downloads</strong> ดับเบิลคลิก <code>Install-Prontera.zip</code> แล้ว<strong>ลาก</strong> <code>Install-Prontera.bat</code> ออกมาวางบนเดสก์ท็อป (ถ้าโหลดไฟล์ .bat ตรง ข้ามข้อนี้ได้)</li>
           <li><strong>ดับเบิลคลิก</strong> <code>Install-Prontera.bat</code> ถ้าขึ้น "Windows protected your PC" ให้กด <strong>More info</strong> แล้ว <strong>Run anyway</strong></li>
           <li>Windows จะขอสิทธิ์ติดตั้งโปรแกรมที่จำเป็น กด <strong>Yes</strong></li>
           <li>ตัวติดตั้งตัวเกมเป็น<strong>ภาษาเกาหลี</strong> กดปุ่มขวาล่างไปเรื่อย ๆ ตอนเลือกโฟลเดอร์ให้ใช้ <code>C:\RO</code> และหน้าสุดท้าย<strong>เอาติ๊กที่จะเปิดเกมออก</strong></li>
@@ -229,6 +233,10 @@
       <div class="container narrow">
         <h2 id="help-title">แก้ปัญหาที่พบบ่อย</h2>
         <div class="faq">
+          <details>
+            <summary>กดดาวน์โหลดแล้วไม่มีไฟล์ หรือโหลดไม่ได้</summary>
+            <p>ใช้<strong>คอม Windows</strong> เปิดเว็บด้วย <strong>Chrome หรือ Edge</strong> (ไม่ใช่ในแอป Facebook หรือ LINE) แล้วกดปุ่มดาวน์โหลดอีกครั้ง ถ้าไม่เห็นไฟล์ ให้กดไอคอนดาวน์โหลดมุมขวาบนแล้วกด <strong>Keep / เก็บไว้</strong> หรือกดลิงก์นี้ตรง ๆ: <a href="downloads/Install-Prontera.zip" download>Install-Prontera.zip</a> / <a href="downloads/Install-Prontera.bat" download>Install-Prontera.bat</a></p>
+          </details>
           <details>
             <summary>กดไอคอนแล้วขึ้นหน้าต่างเกาหลีที่มีปุ่ม START</summary>
             <p>นั่นคือตัวอัปเดตของเกมต้นฉบับ ห้ามกด START ปิดหน้าต่างด้วย <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Esc</kbd> แล้วคลิกขวา Ragnarok เลือก End task จากนั้นดับเบิลคลิกตัวติดตั้งอีกครั้ง มันจะซ่อมไอคอนและไฟล์เกมให้</p>

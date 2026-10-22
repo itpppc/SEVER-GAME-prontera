@@ -46,5 +46,6 @@ Any other static host works too (GitHub Pages, Cloudflare Pages, Nginx). Serve t
 
 - `guide.html`: player guide (download, install, create an account with `_M`/`_F` at the game's login screen, first login, troubleshooting). The menu links for download, guide and register point here.
 - `downloads/Install-Prontera.bat`: copy of the one-click installer from the server thread (`installer/Install-Prontera.bat` on branch `claude/project-thread-wzqygb`). Copy it again whenever the installer changes, and keep CRLF line endings (`downloads/.gitattributes`). It contains no game files; it downloads them from the original sources on the player's PC.
+- `downloads/Install-Prontera.zip`: the same installer zipped, linked from the guide's main download button because Chrome and Edge often block a bare .bat. Rebuild it with `python3 tools/make_installer_zip.py` every time the .bat changes (`--check` tells you if it is stale).
 - Contact buttons (Discord, LINE, Facebook, email) stay hidden until a real link is set in `config.js`.
 
