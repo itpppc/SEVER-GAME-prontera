@@ -366,6 +366,21 @@
   $('btn-retry').addEventListener('click', run);
   document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') cancelTarget(); });
 
+  // Install as an app: Android/desktop Chrome fire beforeinstallprompt; iPhone needs Share > Add to Home Screen.
+  let installEvt = null;
+  window.addEventListener('beforeinstallprompt', (ev) => { ev.preventDefault(); installEvt = ev; $('btn-install').hidden = false; });
+  window.addEventListener('appinstalled', () => { installEvt = null; $('btn-install').hidden = true; });
+  $('btn-install').addEventListener('click', async () => {
+    if (!installEvt) return;
+    installEvt.prompt();
+    await installEvt.userChoice.catch(() => null);
+    installEvt = null;
+    $('btn-install').hidden = true;
+  });
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    navigator.serviceWorker.register('/rpg-sw.js', { scope: '/rpg' }).catch(() => { /* offline play just won't be available */ });
+  }
+
   syncTools();
   run();
 })();

@@ -57,6 +57,8 @@ button { font: inherit; color: inherit; }
   min-height: 36px; min-width: 44px; padding: 0 10px; border-radius: 999px;
   background: var(--surface); border: 1px solid var(--border); cursor: pointer; font-size: .85rem; white-space: nowrap;
 }
+.tool.install { background: #2f7a55; border-color: #4ade80; font-weight: 700; }
+.tool[hidden] { display: none; }
 .tool[aria-pressed="true"] { background: var(--gold); color: var(--on-gold); border-color: var(--gold); font-weight: 700; }
 
 /* Battlefield */

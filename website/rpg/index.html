@@ -14,6 +14,12 @@
   <meta property="og:locale" content="th_TH">
   <link rel="canonical" href="https://sever-game-prontera.vercel.app/rpg">
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="manifest" href="/rpg/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/rpg/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="ศึกลงกา">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;700&family=Prompt:wght@600;700&display=swap" rel="stylesheet">
@@ -32,6 +38,7 @@
     </div>
     <div class="bar-tools">
       <span class="pill" id="round" aria-live="off">ตา 1</span>
+      <button class="tool install" id="btn-install" type="button" hidden>ติดตั้ง</button>
       <button class="tool" id="btn-speed" type="button" aria-pressed="false" title="เร่งความเร็ว">x1</button>
       <button class="tool" id="btn-auto" type="button" aria-pressed="false">ออโต้</button>
     </div>
