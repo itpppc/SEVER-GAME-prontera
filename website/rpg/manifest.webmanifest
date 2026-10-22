@@ -1,0 +1,19 @@
+{
+  "id": "/rpg",
+  "name": "ศึกลงกา เกมผลัดกันตีรามเกียรติ์",
+  "short_name": "ศึกลงกา",
+  "description": "เกมผลัดกันตีรามเกียรติ์ เล่นฟรี จัดทีมพระราม หนุมาน พิเภก บุกเมืองลงกา",
+  "lang": "th",
+  "start_url": "/rpg?source=app",
+  "scope": "/rpg",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#160f24",
+  "theme_color": "#160f24",
+  "categories": ["games"],
+  "icons": [
+    { "src": "/rpg/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/rpg/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/rpg/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
