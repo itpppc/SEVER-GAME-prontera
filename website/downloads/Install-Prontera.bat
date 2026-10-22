@@ -547,6 +547,46 @@ function Get-EraLuaFiles {
     return $dir
 }
 
+# Our own Ramakien NPC art (tools/png2spr.py makes it from characters/png; no Gravity file involved).
+# Each entry: NPC id used in custom/npc, its jobtbl name, and the sprite file under client-data/data/sprite/npc.
+$PronteraArtBase = 'https://raw.githubusercontent.com/itpppc/SEVER-GAME-prontera/main/client-data/data/sprite/npc/'
+$PronteraNpcs = @(
+    @{ Id = 126; Name = 'JT_PRT_RUESI'; Sprite = 'prt_ruesi' }
+)
+
+# Puts our NPC sprites in data\sprite\npc (read first thanks to WARP's DataFolderFirst) and registers their ids in
+# npcidentity.lub and jobname.lub. Runs after the lua files are copied, so each run starts from clean files.
+function Add-PronteraArt {
+    $npcDir = Join-Path $GameDir 'data\sprite\npc'
+    $luaDir = Join-Path $GameDir 'data\luafiles514\lua files\datainfo'
+    New-Item -ItemType Directory -Force -Path $npcDir | Out-Null
+    $latin = [Text.Encoding]::GetEncoding(28591)   # keep the Korean bytes in jobname.lub as they are
+    $web = New-Object Net.WebClient
+    try {
+        foreach ($npc in $PronteraNpcs) {
+            foreach ($ext in @('spr', 'act')) {
+                $dest = Join-Path $npcDir "$($npc.Sprite).$ext"
+                $web.DownloadFile($PronteraArtBase + "$($npc.Sprite).$ext", "$dest.part")
+                Move-Item -LiteralPath "$dest.part" -Destination $dest -Force
+            }
+            foreach ($f in @(
+                    @{ File = 'npcidentity.lub'; Open = 'jobtbl = {'; Line = "`t$($npc.Name) = $($npc.Id)," },
+                    @{ File = 'jobname.lub'; Open = 'JobNameTable = {'; Line = "`t[jobtbl.$($npc.Name)] = `"$($npc.Sprite)`"," })) {
+                $path = Join-Path $luaDir $f.File
+                if (-not (Test-Path -LiteralPath $path)) { throw "$path is missing. Run the installer again." }
+                $text = $latin.GetString([IO.File]::ReadAllBytes($path))
+                if ($text.Contains($f.Line)) { continue }
+                $at = $text.IndexOf($f.Open)
+                if ($at -lt 0) { throw "Unexpected format in $path. Run the installer again." }
+                $at += $f.Open.Length
+                $text = $text.Substring(0, $at) + "`r`n" + $f.Line + $text.Substring($at)
+                [IO.File]::WriteAllBytes($path, $latin.GetBytes($text))
+            }
+        }
+    } finally { $web.Dispose() }
+    Info "Added $($PronteraNpcs.Count) Ramakien NPC sprite(s)."
+}
+
 # Builds what ROenglishRE's Tools\ClientGenerator.bat builds for mode 1 + date 9, without its prompts.
 # Its lua tables are then swapped for the 2022 set; master's lua files that set lacks are switched off in the game
 # folder (renamed to .off, only where the file there is the copy an earlier run of this installer put in).
@@ -928,6 +968,8 @@ function Install-English {
     $stage = Join-Path $ToolsDir 'client-files'
     Build-EnglishFiles $roDir $luaDir $stage
     Copy-Tree $stage $GameDir
+    # Our extra NPC art is optional: a failed download must not stop the game install.
+    try { Add-PronteraArt } catch { Warn "Skipped the extra Ramakien NPC art: $($_.Exception.Message)" }
     Add-SakrayLubs
     Add-AnsiTextureTwin
     Write-DataIni $GameDir (Join-Path $backup 'DATA.INI')
@@ -1028,7 +1070,7 @@ function Invoke-Main {
     try { Start-Transcript -Path $log -Append | Out-Null } catch { }
     try {
         Write-Host "SEVER GAME $ServerName - game installer" -ForegroundColor Green
-        Write-Host "Installer build: 2026-10-22 (updater firewall block)"
+        Write-Host "Installer build: 2026-10-22 (updater firewall block + Ruesi NPC)"
         Write-Host "Game folder: $GameDir   Tools and downloads: $ToolsDir"
         if (-not (Get-Command curl.exe -ErrorAction SilentlyContinue)) { Warn 'curl.exe not found; downloads will be slower.' }
         Install-Game
