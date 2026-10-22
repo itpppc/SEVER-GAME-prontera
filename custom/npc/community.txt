@@ -1,0 +1,124 @@
+//===== SEVER GAME Prontera ===================================
+//= Community NPCs: Gift Box (free) and Central Market
+//===== Description: ===========================================
+//= Free to play: nothing here costs real money and nothing is for sale
+//= for real money. All text is English because the client cannot show Thai.
+//= Gift Box: one starter gift per account, then one small gift per day.
+//= Market stalls: basic supplies at the normal NPC price. The market
+//= guide explains player vending (Merchant class) and @autotrade.
+//==============================================================
+
+// ---------------------------------------------------------------
+// Gift Box. Account variables: #SEVER_STARTER (1 = starter claimed)
+// and #SEVER_GIFT_DAY (day number of the last daily gift).
+// ---------------------------------------------------------------
+prontera,148,191,4	script	Gift Box::SEVER_Gift	4_F_KAFRA1,{
+	mes "[Gift Box]";
+	mes "Welcome to Prontera!";
+	mes "Everything here is free.";
+	next;
+	switch (select("Starter gift (once per account):Daily gift:Leave")) {
+	case 1:
+		if (#SEVER_STARTER) {
+			mes "[Gift Box]";
+			mes "You already took the starter";
+			mes "gift on this account.";
+			mes "Try the daily gift!";
+			close;
+		}
+		if (!checkweight(501, 50, 601, 20, 602, 5, 1201, 1, 2301, 1, 2401, 1)) {
+			mes "[Gift Box]";
+			mes "Your bag is too full or too";
+			mes "heavy. Drop some things and";
+			mes "talk to me again.";
+			close;
+		}
+		#SEVER_STARTER = 1;
+		getitem 501, 50;	// Red Potion
+		getitem 601, 20;	// Fly Wing
+		getitem 602, 5;	// Butterfly Wing
+		getitem 1201, 1;	// Knife
+		getitem 2301, 1;	// Cotton Shirt
+		getitem 2401, 1;	// Sandals
+		Zeny += 10000;
+		mes "[Gift Box]";
+		mes "Here is your starter gift:";
+		mes "50 Red Potions, 20 Fly Wings,";
+		mes "5 Butterfly Wings, a Knife,";
+		mes "a Cotton Shirt, Sandals";
+		mes "and 10,000 Zeny. Have fun!";
+		close;
+
+	case 2:
+		.@day = gettimetick(2) / 86400;
+		if (#SEVER_GIFT_DAY == .@day) {
+			mes "[Gift Box]";
+			mes "You already took today's gift.";
+			mes "Come back tomorrow!";
+			close;
+		}
+		if (!checkweight(501, 20, 601, 5)) {
+			mes "[Gift Box]";
+			mes "Your bag is too full or too";
+			mes "heavy. Drop some things and";
+			mes "talk to me again.";
+			close;
+		}
+		#SEVER_GIFT_DAY = .@day;
+		getitem 501, 20;	// Red Potion
+		getitem 601, 5;	// Fly Wing
+		Zeny += 2000;
+		mes "[Gift Box]";
+		mes "Daily gift: 20 Red Potions,";
+		mes "5 Fly Wings and 2,000 Zeny.";
+		mes "See you tomorrow!";
+		close;
+
+	case 3:
+		close;
+	}
+}
+
+// ---------------------------------------------------------------
+// Central Market guide
+// ---------------------------------------------------------------
+prontera,144,189,4	script	Market Guide::SEVER_MarketGuide	4_M_SAGE_A,{
+	mes "[Market Guide]";
+	mes "Welcome to the Prontera Market!";
+	mes "The stalls on this side sell";
+	mes "basic supplies at normal prices.";
+	next;
+	switch (select("How do players sell here?:Keep my shop open while I am offline:Leave")) {
+	case 1:
+		mes "[Market Guide]";
+		mes "Merchants can open a shop with";
+		mes "the ^0000FFVending^000000 skill and a Cart.";
+		mes "Stand on a free spot near the";
+		mes "market, use Vending, name your";
+		mes "shop and set your prices.";
+		next;
+		mes "[Market Guide]";
+		mes "To trade with another player";
+		mes "face to face, right click them";
+		mes "and choose the deal option.";
+		mes "Never trade outside the game.";
+		close;
+
+	case 2:
+		mes "[Market Guide]";
+		mes "After you open your shop, type";
+		mes "^0000FF@autotrade^000000 in the chat.";
+		mes "Your shop stays open when you";
+		mes "close the game.";
+		close;
+
+	case 3:
+		close;
+	}
+}
+
+// ---------------------------------------------------------------
+// Market stalls: -1 means the normal NPC buy price of the item
+// ---------------------------------------------------------------
+prontera,144,186,4	shop	Market Potion Stall	4_M_ALCHE_A,501:-1,502:-1,503:-1,504:-1,505:-1
+prontera,144,192,4	shop	Market Supply Stall	4_M_ALCHE_A,601:-1,602:-1,611:-1,1750:-1
