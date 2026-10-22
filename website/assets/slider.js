@@ -1,5 +1,6 @@
 /* Home banner slideshow: autoplay with pause/play, prev/next, dots, arrow keys, swipe.
-   Without JS the first slide is simply shown. Respects prefers-reduced-motion. */
+   Without JS the first slide is simply shown. Slides only cross-fade (nothing moves), so it also
+   auto-advances for visitors who prefer reduced motion, a bit slower; the pause button stops it. */
 (() => {
   const root = document.querySelector("[data-slider]");
   if (!root) return;
@@ -10,12 +11,12 @@
   const dotsBox = root.querySelector("[data-dots]");
   const toggleBtn = root.querySelector("[data-toggle]");
   const live = root.querySelector("[data-slides]");
-  const INTERVAL = 6000;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const interval = () => (reduce.matches ? 8000 : 6000);
 
   let index = 0;
   let timer = null;
-  let userPaused = reduce.matches; // reduced motion: never auto-advance unless the user presses play
+  let userPaused = false;
   let hovering = false;
   let focusing = false;
 
@@ -39,7 +40,7 @@
     return b;
   });
 
-  function go(i, fromUser) {
+  function go(i, reschedule) {
     index = (i + slides.length) % slides.length;
     slides.forEach((s, n) => {
       const on = n === index;
@@ -51,13 +52,13 @@
       if (n === index) d.setAttribute("aria-current", "true");
       else d.removeAttribute("aria-current");
     });
-    if (fromUser) restart();
+    if (reschedule) restart(); // re-arms the autoplay timer (used by buttons, keys and the timer itself)
   }
 
   const playing = () => !userPaused && !hovering && !focusing && !document.hidden;
   function restart() {
     clearTimeout(timer);
-    if (playing()) timer = setTimeout(() => go(index + 1), INTERVAL);
+    if (playing()) timer = setTimeout(() => go(index + 1, true), interval());
     live.setAttribute("aria-live", playing() ? "off" : "polite");
   }
 
