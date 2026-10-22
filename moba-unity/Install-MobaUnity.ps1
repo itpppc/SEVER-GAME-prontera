@@ -12,12 +12,35 @@ $Repo = 'itpppc/SEVER-GAME-prontera'
 $HasF = Test-Path 'F:\'
 $Dest = if ($HasF) { 'F:\ProjectAI\SuekLanka-MOBA' } else { Join-Path $env:USERPROFILE 'SuekLanka-MOBA' }
 $EditorRoot = if ($HasF) { 'F:\Unity\Editor' } else { 'C:\Program Files\Unity\Hub\Editor' }
-$HubCandidates = @(
-    'C:\Program Files\Unity Hub\Unity Hub.exe',
-    (Join-Path $env:LOCALAPPDATA 'Programs\Unity Hub\Unity Hub.exe'),
-    'C:\Program Files (x86)\Unity Hub\Unity Hub.exe'
-)
-function Find-Hub { $HubCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1 }
+function Find-Hub {
+    $fixed = @(
+        'C:\Program Files\Unity Hub\Unity Hub.exe',
+        'C:\Program Files (x86)\Unity Hub\Unity Hub.exe',
+        (Join-Path $env:LOCALAPPDATA 'Programs\Unity Hub\Unity Hub.exe')
+    )
+    $hit = $fixed | Where-Object { Test-Path $_ } | Select-Object -First 1
+    if ($hit) { return $hit }
+    # winget may install somewhere else: ask the uninstall registry, then scan the usual program folders
+    $keys = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*',
+            'HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*',
+            'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*'
+    foreach ($e in (Get-ItemProperty $keys -ErrorAction SilentlyContinue | Where-Object { $_.DisplayName -like 'Unity Hub*' })) {
+        foreach ($c in @($e.DisplayIcon, $e.InstallLocation)) {
+            if (-not $c) { continue }
+            $c = $c.Trim('"') -replace ',\d+$', ''
+            if ($c -like '*.exe' -and (Test-Path $c)) { return $c }
+            $x = Join-Path $c 'Unity Hub.exe'
+            if (Test-Path $x) { return $x }
+        }
+    }
+    foreach ($root in @($env:ProgramFiles, ${env:ProgramFiles(x86)}, (Join-Path $env:LOCALAPPDATA 'Programs'))) {
+        if ($root -and (Test-Path $root)) {
+            $f = Get-ChildItem $root -Filter 'Unity Hub.exe' -Recurse -Depth 2 -ErrorAction SilentlyContinue | Select-Object -First 1
+            if ($f) { return $f.FullName }
+        }
+    }
+    return $null
+}
 
 function Say($m) { Write-Host ""; Write-Host ">> $m" -ForegroundColor Yellow }
 function Ok($m)  { Write-Host "   $m" -ForegroundColor Green }
@@ -28,16 +51,12 @@ if (-not $HubExe) {
     $winget = Get-Command winget -ErrorAction SilentlyContinue
     if ($winget) {
         winget install -e --id Unity.UnityHub --accept-package-agreements --accept-source-agreements | Out-Host
-        $HubExe = Find-Hub
-    }
-    if (-not $HubExe) {
-        $setup = Join-Path $env:TEMP 'UnityHubSetup.exe'
-        Invoke-WebRequest 'https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.exe' -OutFile $setup
-        Start-Process $setup -ArgumentList '/S' -Wait
-        $HubExe = Find-Hub
+        # the installer can finish a little after winget returns, so wait for it
+        $deadline = (Get-Date).AddMinutes(3)
+        while (-not ($HubExe = Find-Hub) -and (Get-Date) -lt $deadline) { Start-Sleep -Seconds 5 }
     }
 }
-if (-not $HubExe) { throw 'Could not install Unity Hub. Download it from https://unity.com/download, then run this command again.' }
+if (-not $HubExe) { throw 'Could not find Unity Hub. Download and install it from https://unity.com/download (Unity Hub), then run this command again.' }
 Ok "Unity Hub found: $HubExe"
 
 Say '2/5 Checking Unity Editor (version 6000 = Unity 6)'
